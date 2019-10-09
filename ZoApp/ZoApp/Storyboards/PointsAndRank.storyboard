@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FWl-xs-Zkf">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Points And RankVC-->
+        <scene sceneID="E7d-gf-Pm6">
+            <objects>
+                <viewController storyboardIdentifier="pointsAndRankStoryBoard" id="FWl-xs-Zkf" customClass="PointsAndRankVC" customModule="JustBreateApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Trf-nW-YSY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n7Q-Fu-HLf">
+                                <rect key="frame" x="62" y="207.66666666666666" width="290" height="490.66666666666674"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have advanced to Root Chakra" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixe-HR-fJc">
+                                        <rect key="frame" x="14.666666666666657" y="26.333333333333339" width="260.66666666666674" height="40.666666666666657"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a description that will tell the user about the rank they have acheived since the " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIa-AD-h0H">
+                                        <rect key="frame" x="29" y="317" width="232" height="147.33333333333337"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000 KP" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0K-8e-KjC">
+                                        <rect key="frame" x="0.0" y="224.33333333333334" width="290" height="42.000000000000028"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                        <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="focus" translatesAutoresizingMaskIntoConstraints="NO" id="FbP-MZ-Gnd">
+                                        <rect key="frame" x="101.66666666666666" y="110.00000000000003" width="86.666666666666657" height="87"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="FbP-MZ-Gnd" secondAttribute="height" multiplier="1:1" id="vaP-Uk-EI9"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ixe-HR-fJc" firstAttribute="width" secondItem="n7Q-Fu-HLf" secondAttribute="width" multiplier="0.9" id="2P7-9l-PCU"/>
+                                    <constraint firstItem="FbP-MZ-Gnd" firstAttribute="top" secondItem="ixe-HR-fJc" secondAttribute="bottom" constant="43.000000000000028" id="5sa-YE-Zbo"/>
+                                    <constraint firstItem="t0K-8e-KjC" firstAttribute="centerY" secondItem="n7Q-Fu-HLf" secondAttribute="centerY" id="8Rh-0C-AUI"/>
+                                    <constraint firstItem="t0K-8e-KjC" firstAttribute="centerX" secondItem="n7Q-Fu-HLf" secondAttribute="centerX" id="D9T-VF-ber"/>
+                                    <constraint firstItem="FbP-MZ-Gnd" firstAttribute="width" secondItem="n7Q-Fu-HLf" secondAttribute="width" multiplier="0.3" id="Jgk-tI-52k"/>
+                                    <constraint firstItem="LIa-AD-h0H" firstAttribute="centerX" secondItem="t0K-8e-KjC" secondAttribute="centerX" id="U5a-hb-2R5"/>
+                                    <constraint firstItem="t0K-8e-KjC" firstAttribute="width" secondItem="n7Q-Fu-HLf" secondAttribute="width" id="YAV-Ui-qez"/>
+                                    <constraint firstItem="LIa-AD-h0H" firstAttribute="width" secondItem="t0K-8e-KjC" secondAttribute="width" multiplier="0.8" id="b09-yG-09X"/>
+                                    <constraint firstItem="t0K-8e-KjC" firstAttribute="top" secondItem="FbP-MZ-Gnd" secondAttribute="bottom" constant="27.333333333333343" id="cV5-YC-rBe"/>
+                                    <constraint firstItem="LIa-AD-h0H" firstAttribute="height" secondItem="n7Q-Fu-HLf" secondAttribute="height" multiplier="0.3" id="ns3-EK-32s"/>
+                                    <constraint firstItem="FbP-MZ-Gnd" firstAttribute="centerX" secondItem="n7Q-Fu-HLf" secondAttribute="centerX" id="ntv-Sf-f1T"/>
+                                    <constraint firstItem="ixe-HR-fJc" firstAttribute="centerX" secondItem="n7Q-Fu-HLf" secondAttribute="centerX" id="rco-57-CZ7"/>
+                                    <constraint firstItem="LIa-AD-h0H" firstAttribute="top" secondItem="t0K-8e-KjC" secondAttribute="bottom" constant="50.666666666666629" id="sML-eU-IAh"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="0.29714255136986301" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="n7Q-Fu-HLf" firstAttribute="centerX" secondItem="QJx-BR-kbz" secondAttribute="centerX" id="QDI-s7-DJ8"/>
+                            <constraint firstItem="n7Q-Fu-HLf" firstAttribute="height" secondItem="QJx-BR-kbz" secondAttribute="height" multiplier="0.6" id="gQX-tF-xlI"/>
+                            <constraint firstItem="n7Q-Fu-HLf" firstAttribute="centerY" secondItem="QJx-BR-kbz" secondAttribute="centerY" id="wMv-jk-ouW"/>
+                            <constraint firstItem="n7Q-Fu-HLf" firstAttribute="width" secondItem="QJx-BR-kbz" secondAttribute="width" multiplier="0.7" id="wzy-sK-eVm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QJx-BR-kbz"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="LIa-AD-h0H" id="uvu-pF-vDq"/>
+                        <outlet property="imageView" destination="FbP-MZ-Gnd" id="atZ-u4-72i"/>
+                        <outlet property="pointsLabel" destination="t0K-8e-KjC" id="ifw-Eg-j1V"/>
+                        <outlet property="rankLabel" destination="ixe-HR-fJc" id="cfm-hW-jKz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FHz-uu-Lwk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="100.00000000000001" y="83.705357142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="focus" width="7360" height="4912"/>
+    </resources>
+</document>

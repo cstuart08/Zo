@@ -9,19 +9,108 @@
 /* Begin PBXBuildFile section */
 		D4CDD46F234E8E8E00A6D5C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD46E234E8E8E00A6D5C5 /* AppDelegate.swift */; };
 		D4CDD471234E8E8E00A6D5C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD470234E8E8E00A6D5C5 /* SceneDelegate.swift */; };
-		D4CDD476234E8E8E00A6D5C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4CDD474234E8E8E00A6D5C5 /* Main.storyboard */; };
 		D4CDD478234E8E8E00A6D5C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4CDD477234E8E8E00A6D5C5 /* Assets.xcassets */; };
 		D4CDD47B234E8E8E00A6D5C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4CDD479234E8E8E00A6D5C5 /* LaunchScreen.storyboard */; };
+		D4CDD4A2234E8F4100A6D5C5 /* DeletePastDailyEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD484234E8F4100A6D5C5 /* DeletePastDailyEntryViewController.swift */; };
+		D4CDD4A3234E8F4100A6D5C5 /* PastDailyEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD485234E8F4100A6D5C5 /* PastDailyEntryViewController.swift */; };
+		D4CDD4A4234E8F4100A6D5C5 /* DailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD486234E8F4100A6D5C5 /* DailyViewController.swift */; };
+		D4CDD4A5234E8F4100A6D5C5 /* ResponseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD489234E8F4100A6D5C5 /* ResponseTableViewCell.swift */; };
+		D4CDD4A6234E8F4100A6D5C5 /* ActiveRequestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD48A234E8F4100A6D5C5 /* ActiveRequestsTableViewCell.swift */; };
+		D4CDD4A7234E8F4100A6D5C5 /* PastRequestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD48B234E8F4100A6D5C5 /* PastRequestsTableViewCell.swift */; };
+		D4CDD4A8234E8F4100A6D5C5 /* ActiveRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD48C234E8F4100A6D5C5 /* ActiveRequestViewController.swift */; };
+		D4CDD4A9234E8F4100A6D5C5 /* RespondToRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD48D234E8F4100A6D5C5 /* RespondToRequestViewController.swift */; };
+		D4CDD4AA234E8F4100A6D5C5 /* FlagPostAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD48E234E8F4100A6D5C5 /* FlagPostAlertViewController.swift */; };
+		D4CDD4AB234E8F4100A6D5C5 /* RequestFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD48F234E8F4100A6D5C5 /* RequestFeedViewController.swift */; };
+		D4CDD4AC234E8F4100A6D5C5 /* FavoriteResponseAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD490234E8F4100A6D5C5 /* FavoriteResponseAlertViewController.swift */; };
+		D4CDD4AD234E8F4100A6D5C5 /* CreateRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD491234E8F4100A6D5C5 /* CreateRequestViewController.swift */; };
+		D4CDD4AE234E8F4100A6D5C5 /* RulesAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD492234E8F4100A6D5C5 /* RulesAlertViewController.swift */; };
+		D4CDD4AF234E8F4100A6D5C5 /* BlockUserAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD493234E8F4100A6D5C5 /* BlockUserAlertViewController.swift */; };
+		D4CDD4B0234E8F4100A6D5C5 /* BookmarkResponseAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD494234E8F4100A6D5C5 /* BookmarkResponseAlertViewController.swift */; };
+		D4CDD4B1234E8F4100A6D5C5 /* ProfileViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD497234E8F4100A6D5C5 /* ProfileViewCell.swift */; };
+		D4CDD4B2234E8F4100A6D5C5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD498234E8F4100A6D5C5 /* ProfileViewController.swift */; };
+		D4CDD4B3234E8F4100A6D5C5 /* PointsAndRankVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD49A234E8F4100A6D5C5 /* PointsAndRankVC.swift */; };
+		D4CDD4B4234E8F4100A6D5C5 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD49C234E8F4100A6D5C5 /* MainTabViewController.swift */; };
+		D4CDD4B5234E8F4100A6D5C5 /* HowItWorksOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD49E234E8F4100A6D5C5 /* HowItWorksOnboardingViewController.swift */; };
+		D4CDD4B6234E8F4100A6D5C5 /* WelcomeOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD49F234E8F4100A6D5C5 /* WelcomeOnboardingViewController.swift */; };
+		D4CDD4B7234E8F4100A6D5C5 /* RulesOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD4A0234E8F4100A6D5C5 /* RulesOnboardingViewController.swift */; };
+		D4CDD4B8234E8F4100A6D5C5 /* UsernameOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD4A1234E8F4100A6D5C5 /* UsernameOnboardingViewController.swift */; };
+		D4CDD4BF234E8F5500A6D5C5 /* ChakraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD4BA234E8F5500A6D5C5 /* ChakraController.swift */; };
+		D4CDD4C0234E8F5500A6D5C5 /* ResponseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD4BB234E8F5500A6D5C5 /* ResponseController.swift */; };
+		D4CDD4C1234E8F5500A6D5C5 /* DailyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD4BC234E8F5500A6D5C5 /* DailyController.swift */; };
+		D4CDD4C2234E8F5500A6D5C5 /* RequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD4BD234E8F5500A6D5C5 /* RequestController.swift */; };
+		D4CDD4C3234E8F5500A6D5C5 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD4BE234E8F5500A6D5C5 /* UserController.swift */; };
+		D4CDD4CF234E8F5A00A6D5C5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD4C7234E8F5A00A6D5C5 /* User.swift */; };
+		D4CDD4D0234E8F5A00A6D5C5 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD4C8234E8F5A00A6D5C5 /* Response.swift */; };
+		D4CDD4D1234E8F5A00A6D5C5 /* Daily.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD4C9234E8F5A00A6D5C5 /* Daily.swift */; };
+		D4CDD4D2234E8F5A00A6D5C5 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD4CA234E8F5A00A6D5C5 /* Request.swift */; };
+		D4CDD4E4234E8F7000A6D5C5 /* RulesAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4CDD4D6234E8F7000A6D5C5 /* RulesAlert.storyboard */; };
+		D4CDD4E5234E8F7000A6D5C5 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4CDD4D7234E8F7000A6D5C5 /* Onboarding.storyboard */; };
+		D4CDD4E6234E8F7000A6D5C5 /* FavoriteResponseAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4CDD4D8234E8F7000A6D5C5 /* FavoriteResponseAlert.storyboard */; };
+		D4CDD4E7234E8F7000A6D5C5 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4CDD4D9234E8F7000A6D5C5 /* Profile.storyboard */; };
+		D4CDD4E8234E8F7000A6D5C5 /* Requests.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4CDD4DA234E8F7000A6D5C5 /* Requests.storyboard */; };
+		D4CDD4E9234E8F7000A6D5C5 /* BookmarkResponseAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4CDD4DB234E8F7000A6D5C5 /* BookmarkResponseAlert.storyboard */; };
+		D4CDD4EA234E8F7000A6D5C5 /* FlagPostAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4CDD4DC234E8F7000A6D5C5 /* FlagPostAlert.storyboard */; };
+		D4CDD4EB234E8F7000A6D5C5 /* PointsAndRank.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4CDD4DD234E8F7000A6D5C5 /* PointsAndRank.storyboard */; };
+		D4CDD4ED234E8F7000A6D5C5 /* TabController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4CDD4E0234E8F7000A6D5C5 /* TabController.storyboard */; };
+		D4CDD4EE234E8F7000A6D5C5 /* BlockUserAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4CDD4E1234E8F7000A6D5C5 /* BlockUserAlert.storyboard */; };
+		D4CDD4EF234E8F7000A6D5C5 /* CreateRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4CDD4E2234E8F7000A6D5C5 /* CreateRequest.storyboard */; };
+		D4CDD4F0234E8F7000A6D5C5 /* Daily.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4CDD4E3234E8F7000A6D5C5 /* Daily.storyboard */; };
+		D4CDD4F5234E908500A6D5C5 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4CDD4F4234E908500A6D5C5 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D4CDD46B234E8E8E00A6D5C5 /* ZoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4CDD46E234E8E8E00A6D5C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4CDD470234E8E8E00A6D5C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D4CDD475234E8E8E00A6D5C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D4CDD477234E8E8E00A6D5C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4CDD47A234E8E8E00A6D5C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4CDD47C234E8E8E00A6D5C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4CDD484234E8F4100A6D5C5 /* DeletePastDailyEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletePastDailyEntryViewController.swift; sourceTree = "<group>"; };
+		D4CDD485234E8F4100A6D5C5 /* PastDailyEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastDailyEntryViewController.swift; sourceTree = "<group>"; };
+		D4CDD486234E8F4100A6D5C5 /* DailyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyViewController.swift; sourceTree = "<group>"; };
+		D4CDD489234E8F4100A6D5C5 /* ResponseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTableViewCell.swift; sourceTree = "<group>"; };
+		D4CDD48A234E8F4100A6D5C5 /* ActiveRequestsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveRequestsTableViewCell.swift; sourceTree = "<group>"; };
+		D4CDD48B234E8F4100A6D5C5 /* PastRequestsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastRequestsTableViewCell.swift; sourceTree = "<group>"; };
+		D4CDD48C234E8F4100A6D5C5 /* ActiveRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveRequestViewController.swift; sourceTree = "<group>"; };
+		D4CDD48D234E8F4100A6D5C5 /* RespondToRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RespondToRequestViewController.swift; sourceTree = "<group>"; };
+		D4CDD48E234E8F4100A6D5C5 /* FlagPostAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlagPostAlertViewController.swift; sourceTree = "<group>"; };
+		D4CDD48F234E8F4100A6D5C5 /* RequestFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestFeedViewController.swift; sourceTree = "<group>"; };
+		D4CDD490234E8F4100A6D5C5 /* FavoriteResponseAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteResponseAlertViewController.swift; sourceTree = "<group>"; };
+		D4CDD491234E8F4100A6D5C5 /* CreateRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRequestViewController.swift; sourceTree = "<group>"; };
+		D4CDD492234E8F4100A6D5C5 /* RulesAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesAlertViewController.swift; sourceTree = "<group>"; };
+		D4CDD493234E8F4100A6D5C5 /* BlockUserAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockUserAlertViewController.swift; sourceTree = "<group>"; };
+		D4CDD494234E8F4100A6D5C5 /* BookmarkResponseAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkResponseAlertViewController.swift; sourceTree = "<group>"; };
+		D4CDD497234E8F4100A6D5C5 /* ProfileViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewCell.swift; sourceTree = "<group>"; };
+		D4CDD498234E8F4100A6D5C5 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D4CDD49A234E8F4100A6D5C5 /* PointsAndRankVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointsAndRankVC.swift; sourceTree = "<group>"; };
+		D4CDD49C234E8F4100A6D5C5 /* MainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
+		D4CDD49E234E8F4100A6D5C5 /* HowItWorksOnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowItWorksOnboardingViewController.swift; sourceTree = "<group>"; };
+		D4CDD49F234E8F4100A6D5C5 /* WelcomeOnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeOnboardingViewController.swift; sourceTree = "<group>"; };
+		D4CDD4A0234E8F4100A6D5C5 /* RulesOnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesOnboardingViewController.swift; sourceTree = "<group>"; };
+		D4CDD4A1234E8F4100A6D5C5 /* UsernameOnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameOnboardingViewController.swift; sourceTree = "<group>"; };
+		D4CDD4BA234E8F5500A6D5C5 /* ChakraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChakraController.swift; sourceTree = "<group>"; };
+		D4CDD4BB234E8F5500A6D5C5 /* ResponseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseController.swift; sourceTree = "<group>"; };
+		D4CDD4BC234E8F5500A6D5C5 /* DailyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyController.swift; sourceTree = "<group>"; };
+		D4CDD4BD234E8F5500A6D5C5 /* RequestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestController.swift; sourceTree = "<group>"; };
+		D4CDD4BE234E8F5500A6D5C5 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		D4CDD4C7234E8F5A00A6D5C5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D4CDD4C8234E8F5A00A6D5C5 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		D4CDD4C9234E8F5A00A6D5C5 /* Daily.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Daily.swift; sourceTree = "<group>"; };
+		D4CDD4CA234E8F5A00A6D5C5 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		D4CDD4D6234E8F7000A6D5C5 /* RulesAlert.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RulesAlert.storyboard; sourceTree = "<group>"; };
+		D4CDD4D7234E8F7000A6D5C5 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		D4CDD4D8234E8F7000A6D5C5 /* FavoriteResponseAlert.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FavoriteResponseAlert.storyboard; sourceTree = "<group>"; };
+		D4CDD4D9234E8F7000A6D5C5 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		D4CDD4DA234E8F7000A6D5C5 /* Requests.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Requests.storyboard; sourceTree = "<group>"; };
+		D4CDD4DB234E8F7000A6D5C5 /* BookmarkResponseAlert.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BookmarkResponseAlert.storyboard; sourceTree = "<group>"; };
+		D4CDD4DC234E8F7000A6D5C5 /* FlagPostAlert.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FlagPostAlert.storyboard; sourceTree = "<group>"; };
+		D4CDD4DD234E8F7000A6D5C5 /* PointsAndRank.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PointsAndRank.storyboard; sourceTree = "<group>"; };
+		D4CDD4E0234E8F7000A6D5C5 /* TabController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabController.storyboard; sourceTree = "<group>"; };
+		D4CDD4E1234E8F7000A6D5C5 /* BlockUserAlert.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BlockUserAlert.storyboard; sourceTree = "<group>"; };
+		D4CDD4E2234E8F7000A6D5C5 /* CreateRequest.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateRequest.storyboard; sourceTree = "<group>"; };
+		D4CDD4E3234E8F7000A6D5C5 /* Daily.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Daily.storyboard; sourceTree = "<group>"; };
+		D4CDD4F2234E908200A6D5C5 /* ZoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZoApp.entitlements; sourceTree = "<group>"; };
+		D4CDD4F4234E908500A6D5C5 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4CDD4F5234E908500A6D5C5 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +130,7 @@
 			children = (
 				D4CDD46D234E8E8E00A6D5C5 /* ZoApp */,
 				D4CDD46C234E8E8E00A6D5C5 /* Products */,
+				D4CDD4F3234E908500A6D5C5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +145,170 @@
 		D4CDD46D234E8E8E00A6D5C5 /* ZoApp */ = {
 			isa = PBXGroup;
 			children = (
-				D4CDD46E234E8E8E00A6D5C5 /* AppDelegate.swift */,
-				D4CDD470234E8E8E00A6D5C5 /* SceneDelegate.swift */,
-				D4CDD474234E8E8E00A6D5C5 /* Main.storyboard */,
-				D4CDD477234E8E8E00A6D5C5 /* Assets.xcassets */,
-				D4CDD479234E8E8E00A6D5C5 /* LaunchScreen.storyboard */,
-				D4CDD47C234E8E8E00A6D5C5 /* Info.plist */,
+				D4CDD4F2234E908200A6D5C5 /* ZoApp.entitlements */,
+				D4CDD482234E8F4100A6D5C5 /* View Controllers */,
+				D4CDD4B9234E8F5500A6D5C5 /* Model Controllers */,
+				D4CDD4C4234E8F5A00A6D5C5 /* Models */,
+				D4CDD4D5234E8F7000A6D5C5 /* Storyboards */,
+				D4CDD4F1234E8FDB00A6D5C5 /* Resources */,
 			);
 			path = ZoApp;
+			sourceTree = "<group>";
+		};
+		D4CDD482234E8F4100A6D5C5 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D4CDD483234E8F4100A6D5C5 /* Daily */,
+				D4CDD487234E8F4100A6D5C5 /* Requests */,
+				D4CDD495234E8F4100A6D5C5 /* Profile */,
+				D4CDD49B234E8F4100A6D5C5 /* Tab View Controller */,
+				D4CDD49D234E8F4100A6D5C5 /* Onboarding */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D4CDD483234E8F4100A6D5C5 /* Daily */ = {
+			isa = PBXGroup;
+			children = (
+				D4CDD484234E8F4100A6D5C5 /* DeletePastDailyEntryViewController.swift */,
+				D4CDD485234E8F4100A6D5C5 /* PastDailyEntryViewController.swift */,
+				D4CDD486234E8F4100A6D5C5 /* DailyViewController.swift */,
+			);
+			path = Daily;
+			sourceTree = "<group>";
+		};
+		D4CDD487234E8F4100A6D5C5 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				D4CDD488234E8F4100A6D5C5 /* Custom Cells */,
+				D4CDD48C234E8F4100A6D5C5 /* ActiveRequestViewController.swift */,
+				D4CDD48D234E8F4100A6D5C5 /* RespondToRequestViewController.swift */,
+				D4CDD48E234E8F4100A6D5C5 /* FlagPostAlertViewController.swift */,
+				D4CDD48F234E8F4100A6D5C5 /* RequestFeedViewController.swift */,
+				D4CDD490234E8F4100A6D5C5 /* FavoriteResponseAlertViewController.swift */,
+				D4CDD491234E8F4100A6D5C5 /* CreateRequestViewController.swift */,
+				D4CDD492234E8F4100A6D5C5 /* RulesAlertViewController.swift */,
+				D4CDD493234E8F4100A6D5C5 /* BlockUserAlertViewController.swift */,
+				D4CDD494234E8F4100A6D5C5 /* BookmarkResponseAlertViewController.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		D4CDD488234E8F4100A6D5C5 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D4CDD489234E8F4100A6D5C5 /* ResponseTableViewCell.swift */,
+				D4CDD48A234E8F4100A6D5C5 /* ActiveRequestsTableViewCell.swift */,
+				D4CDD48B234E8F4100A6D5C5 /* PastRequestsTableViewCell.swift */,
+			);
+			path = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		D4CDD495234E8F4100A6D5C5 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D4CDD496234E8F4100A6D5C5 /* Custom Cells */,
+				D4CDD498234E8F4100A6D5C5 /* ProfileViewController.swift */,
+				D4CDD499234E8F4100A6D5C5 /* Custom Views */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		D4CDD496234E8F4100A6D5C5 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D4CDD497234E8F4100A6D5C5 /* ProfileViewCell.swift */,
+			);
+			path = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		D4CDD499234E8F4100A6D5C5 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				D4CDD49A234E8F4100A6D5C5 /* PointsAndRankVC.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		D4CDD49B234E8F4100A6D5C5 /* Tab View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D4CDD49C234E8F4100A6D5C5 /* MainTabViewController.swift */,
+			);
+			path = "Tab View Controller";
+			sourceTree = "<group>";
+		};
+		D4CDD49D234E8F4100A6D5C5 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				D4CDD49E234E8F4100A6D5C5 /* HowItWorksOnboardingViewController.swift */,
+				D4CDD49F234E8F4100A6D5C5 /* WelcomeOnboardingViewController.swift */,
+				D4CDD4A0234E8F4100A6D5C5 /* RulesOnboardingViewController.swift */,
+				D4CDD4A1234E8F4100A6D5C5 /* UsernameOnboardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		D4CDD4B9234E8F5500A6D5C5 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D4CDD4BA234E8F5500A6D5C5 /* ChakraController.swift */,
+				D4CDD4BB234E8F5500A6D5C5 /* ResponseController.swift */,
+				D4CDD4BC234E8F5500A6D5C5 /* DailyController.swift */,
+				D4CDD4BD234E8F5500A6D5C5 /* RequestController.swift */,
+				D4CDD4BE234E8F5500A6D5C5 /* UserController.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		D4CDD4C4234E8F5A00A6D5C5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D4CDD4C7234E8F5A00A6D5C5 /* User.swift */,
+				D4CDD4C8234E8F5A00A6D5C5 /* Response.swift */,
+				D4CDD4C9234E8F5A00A6D5C5 /* Daily.swift */,
+				D4CDD4CA234E8F5A00A6D5C5 /* Request.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D4CDD4D5234E8F7000A6D5C5 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D4CDD479234E8E8E00A6D5C5 /* LaunchScreen.storyboard */,
+				D4CDD4D6234E8F7000A6D5C5 /* RulesAlert.storyboard */,
+				D4CDD4D7234E8F7000A6D5C5 /* Onboarding.storyboard */,
+				D4CDD4D8234E8F7000A6D5C5 /* FavoriteResponseAlert.storyboard */,
+				D4CDD4D9234E8F7000A6D5C5 /* Profile.storyboard */,
+				D4CDD4DA234E8F7000A6D5C5 /* Requests.storyboard */,
+				D4CDD4DB234E8F7000A6D5C5 /* BookmarkResponseAlert.storyboard */,
+				D4CDD4DC234E8F7000A6D5C5 /* FlagPostAlert.storyboard */,
+				D4CDD4DD234E8F7000A6D5C5 /* PointsAndRank.storyboard */,
+				D4CDD4E0234E8F7000A6D5C5 /* TabController.storyboard */,
+				D4CDD4E1234E8F7000A6D5C5 /* BlockUserAlert.storyboard */,
+				D4CDD4E2234E8F7000A6D5C5 /* CreateRequest.storyboard */,
+				D4CDD4E3234E8F7000A6D5C5 /* Daily.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		D4CDD4F1234E8FDB00A6D5C5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D4CDD47C234E8E8E00A6D5C5 /* Info.plist */,
+				D4CDD46E234E8E8E00A6D5C5 /* AppDelegate.swift */,
+				D4CDD470234E8E8E00A6D5C5 /* SceneDelegate.swift */,
+				D4CDD477234E8E8E00A6D5C5 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D4CDD4F3234E908500A6D5C5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4CDD4F4234E908500A6D5C5 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,8 +370,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4CDD47B234E8E8E00A6D5C5 /* LaunchScreen.storyboard in Resources */,
+				D4CDD4E5234E8F7000A6D5C5 /* Onboarding.storyboard in Resources */,
+				D4CDD4E9234E8F7000A6D5C5 /* BookmarkResponseAlert.storyboard in Resources */,
 				D4CDD478234E8E8E00A6D5C5 /* Assets.xcassets in Resources */,
-				D4CDD476234E8E8E00A6D5C5 /* Main.storyboard in Resources */,
+				D4CDD4EE234E8F7000A6D5C5 /* BlockUserAlert.storyboard in Resources */,
+				D4CDD4E6234E8F7000A6D5C5 /* FavoriteResponseAlert.storyboard in Resources */,
+				D4CDD4E7234E8F7000A6D5C5 /* Profile.storyboard in Resources */,
+				D4CDD4EA234E8F7000A6D5C5 /* FlagPostAlert.storyboard in Resources */,
+				D4CDD4EB234E8F7000A6D5C5 /* PointsAndRank.storyboard in Resources */,
+				D4CDD4F0234E8F7000A6D5C5 /* Daily.storyboard in Resources */,
+				D4CDD4EF234E8F7000A6D5C5 /* CreateRequest.storyboard in Resources */,
+				D4CDD4E8234E8F7000A6D5C5 /* Requests.storyboard in Resources */,
+				D4CDD4ED234E8F7000A6D5C5 /* TabController.storyboard in Resources */,
+				D4CDD4E4234E8F7000A6D5C5 /* RulesAlert.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,22 +393,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4CDD4B5234E8F4100A6D5C5 /* HowItWorksOnboardingViewController.swift in Sources */,
+				D4CDD4B1234E8F4100A6D5C5 /* ProfileViewCell.swift in Sources */,
+				D4CDD4A2234E8F4100A6D5C5 /* DeletePastDailyEntryViewController.swift in Sources */,
+				D4CDD4AA234E8F4100A6D5C5 /* FlagPostAlertViewController.swift in Sources */,
+				D4CDD4A7234E8F4100A6D5C5 /* PastRequestsTableViewCell.swift in Sources */,
+				D4CDD4D1234E8F5A00A6D5C5 /* Daily.swift in Sources */,
+				D4CDD4B6234E8F4100A6D5C5 /* WelcomeOnboardingViewController.swift in Sources */,
+				D4CDD4A3234E8F4100A6D5C5 /* PastDailyEntryViewController.swift in Sources */,
+				D4CDD4B4234E8F4100A6D5C5 /* MainTabViewController.swift in Sources */,
+				D4CDD4B3234E8F4100A6D5C5 /* PointsAndRankVC.swift in Sources */,
+				D4CDD4A6234E8F4100A6D5C5 /* ActiveRequestsTableViewCell.swift in Sources */,
+				D4CDD4C2234E8F5500A6D5C5 /* RequestController.swift in Sources */,
 				D4CDD46F234E8E8E00A6D5C5 /* AppDelegate.swift in Sources */,
+				D4CDD4C3234E8F5500A6D5C5 /* UserController.swift in Sources */,
+				D4CDD4AF234E8F4100A6D5C5 /* BlockUserAlertViewController.swift in Sources */,
 				D4CDD471234E8E8E00A6D5C5 /* SceneDelegate.swift in Sources */,
+				D4CDD4B2234E8F4100A6D5C5 /* ProfileViewController.swift in Sources */,
+				D4CDD4C0234E8F5500A6D5C5 /* ResponseController.swift in Sources */,
+				D4CDD4C1234E8F5500A6D5C5 /* DailyController.swift in Sources */,
+				D4CDD4D0234E8F5A00A6D5C5 /* Response.swift in Sources */,
+				D4CDD4AC234E8F4100A6D5C5 /* FavoriteResponseAlertViewController.swift in Sources */,
+				D4CDD4AD234E8F4100A6D5C5 /* CreateRequestViewController.swift in Sources */,
+				D4CDD4A5234E8F4100A6D5C5 /* ResponseTableViewCell.swift in Sources */,
+				D4CDD4D2234E8F5A00A6D5C5 /* Request.swift in Sources */,
+				D4CDD4A8234E8F4100A6D5C5 /* ActiveRequestViewController.swift in Sources */,
+				D4CDD4B0234E8F4100A6D5C5 /* BookmarkResponseAlertViewController.swift in Sources */,
+				D4CDD4B7234E8F4100A6D5C5 /* RulesOnboardingViewController.swift in Sources */,
+				D4CDD4A4234E8F4100A6D5C5 /* DailyViewController.swift in Sources */,
+				D4CDD4BF234E8F5500A6D5C5 /* ChakraController.swift in Sources */,
+				D4CDD4AB234E8F4100A6D5C5 /* RequestFeedViewController.swift in Sources */,
+				D4CDD4B8234E8F4100A6D5C5 /* UsernameOnboardingViewController.swift in Sources */,
+				D4CDD4AE234E8F4100A6D5C5 /* RulesAlertViewController.swift in Sources */,
+				D4CDD4A9234E8F4100A6D5C5 /* RespondToRequestViewController.swift in Sources */,
+				D4CDD4CF234E8F5A00A6D5C5 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D4CDD474234E8E8E00A6D5C5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D4CDD475234E8E8E00A6D5C5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D4CDD479234E8E8E00A6D5C5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -280,9 +562,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ZoApp/ZoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KMTDCPCY5V;
-				INFOPLIST_FILE = ZoApp/Info.plist;
+				INFOPLIST_FILE = ZoApp/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -298,9 +581,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ZoApp/ZoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KMTDCPCY5V;
-				INFOPLIST_FILE = ZoApp/Info.plist;
+				INFOPLIST_FILE = ZoApp/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

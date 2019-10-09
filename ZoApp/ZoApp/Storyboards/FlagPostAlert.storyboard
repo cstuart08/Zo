@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VHJ-kY-Pnh">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Flag Post Alert View Controller-->
+        <scene sceneID="f5p-gv-GfZ">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="VHJ-kY-Pnh" customClass="FlagPostAlertViewController" customModule="JustBreateApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Ky-Xu-MUs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Npn-8v-FXL">
+                                <rect key="frame" x="41.5" y="248.5" width="331" height="409"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REPORT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGn-8l-4VH">
+                                        <rect key="frame" x="0.0" y="51" width="331" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vhq-b3-aeD">
+                                        <rect key="frame" x="58" y="337.5" width="66" height="41"/>
+                                        <state key="normal" title="X"/>
+                                        <connections>
+                                            <action selector="cancelButtonTapped:" destination="VHJ-kY-Pnh" eventType="touchUpInside" id="6Ro-Ow-14c"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKe-4t-e3q">
+                                        <rect key="frame" x="207" y="337.5" width="66" height="41"/>
+                                        <state key="normal" title="√"/>
+                                        <connections>
+                                            <action selector="submitButtonTapped:" destination="VHJ-kY-Pnh" eventType="touchUpInside" id="D11-G5-E2S"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="LKe-4t-e3q" firstAttribute="width" secondItem="Npn-8v-FXL" secondAttribute="width" multiplier="0.2" id="7uT-Lm-UNm"/>
+                                    <constraint firstItem="Vhq-b3-aeD" firstAttribute="height" secondItem="Npn-8v-FXL" secondAttribute="height" multiplier="0.1" id="Byk-fk-XbJ"/>
+                                    <constraint firstItem="LKe-4t-e3q" firstAttribute="height" secondItem="Npn-8v-FXL" secondAttribute="height" multiplier="0.1" id="FhP-VM-7Am"/>
+                                    <constraint firstItem="Vhq-b3-aeD" firstAttribute="centerY" secondItem="Npn-8v-FXL" secondAttribute="centerY" multiplier="1.75" id="K2e-aX-sqN"/>
+                                    <constraint firstItem="gGn-8l-4VH" firstAttribute="width" secondItem="Npn-8v-FXL" secondAttribute="width" id="LT4-bS-MZH"/>
+                                    <constraint firstItem="gGn-8l-4VH" firstAttribute="centerX" secondItem="Npn-8v-FXL" secondAttribute="centerX" id="LzK-og-Uhv"/>
+                                    <constraint firstItem="LKe-4t-e3q" firstAttribute="centerY" secondItem="Npn-8v-FXL" secondAttribute="centerY" multiplier="1.75" id="NlT-kN-a81"/>
+                                    <constraint firstItem="LKe-4t-e3q" firstAttribute="centerX" secondItem="Npn-8v-FXL" secondAttribute="centerX" multiplier="1.45" id="OVV-8A-AWn"/>
+                                    <constraint firstItem="Vhq-b3-aeD" firstAttribute="width" secondItem="Npn-8v-FXL" secondAttribute="width" multiplier="0.2" id="Ohz-MB-2Ma"/>
+                                    <constraint firstItem="Vhq-b3-aeD" firstAttribute="centerX" secondItem="Npn-8v-FXL" secondAttribute="centerX" multiplier="0.55" id="eF8-CT-J1L"/>
+                                    <constraint firstItem="gGn-8l-4VH" firstAttribute="centerY" secondItem="Npn-8v-FXL" secondAttribute="centerY" multiplier="0.3" id="wRs-RE-qKo"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Please let us know why you are reporting this response. Please be as detailed as possible..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="c3E-HI-Bhk">
+                                <rect key="frame" x="41.5" y="351" width="331" height="204.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.80471425513698636" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Npn-8v-FXL" firstAttribute="centerY" secondItem="Xo3-B0-WBj" secondAttribute="centerY" id="3XJ-2u-VX0"/>
+                            <constraint firstItem="Npn-8v-FXL" firstAttribute="width" secondItem="Xo3-B0-WBj" secondAttribute="width" multiplier="0.8" id="3pP-fo-3DT"/>
+                            <constraint firstItem="c3E-HI-Bhk" firstAttribute="width" secondItem="Npn-8v-FXL" secondAttribute="width" id="CUd-K4-cAf"/>
+                            <constraint firstItem="c3E-HI-Bhk" firstAttribute="centerY" secondItem="Npn-8v-FXL" secondAttribute="centerY" id="H0e-hc-AZf"/>
+                            <constraint firstItem="Npn-8v-FXL" firstAttribute="height" secondItem="Xo3-B0-WBj" secondAttribute="height" multiplier="0.5" id="Hre-Wj-60e"/>
+                            <constraint firstItem="c3E-HI-Bhk" firstAttribute="height" secondItem="Npn-8v-FXL" secondAttribute="height" multiplier="0.5" id="PTT-vc-Q7e"/>
+                            <constraint firstItem="Npn-8v-FXL" firstAttribute="centerX" secondItem="Xo3-B0-WBj" secondAttribute="centerX" id="m8w-pI-dZK"/>
+                            <constraint firstItem="c3E-HI-Bhk" firstAttribute="centerX" secondItem="Npn-8v-FXL" secondAttribute="centerX" id="yDU-jC-ecU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Xo3-B0-WBj"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wXV-KZ-1iE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="131"/>
+        </scene>
+    </scenes>
+</document>

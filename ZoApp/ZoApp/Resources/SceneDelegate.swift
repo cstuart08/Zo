@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  ZoApp
 //
-//  Created by Apps on 10/9/19.
+//  Created by Apps on 10/2/19.
 //  Copyright © 2019 Cameron Stuart. All rights reserved.
 //
 
@@ -11,13 +11,42 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var welcomeOnboarding: WelcomeOnboardingViewController?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        
+        
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        self.window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        self.window?.windowScene = windowScene
+        UserController.shared.fetchUserReference { (success) in
+            if success {
+                UserController.shared.fetchUser { (success) in
+                    if success {
+                        DispatchQueue.main.async {
+                            let storyboard = UIStoryboard(name: "TabController", bundle: nil)
+                            
+                            let initialViewController = storyboard.instantiateViewController(withIdentifier: "TabController")
+                            
+                            self.window?.rootViewController = initialViewController
+                            self.window?.makeKeyAndVisible()
+                        }
+                    } else {
+                        DispatchQueue.main.async {
+                            let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+
+                            let initialViewController = storyboard.instantiateViewController(withIdentifier: "Onboarding")
+
+                            self.window?.rootViewController = initialViewController
+                            self.window?.makeKeyAndVisible()
+                        }
+                    }
+                }
+            }
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

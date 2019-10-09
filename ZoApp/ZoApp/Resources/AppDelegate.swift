@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  ZoApp
 //
-//  Created by Apps on 10/9/19.
+//  Created by Apps on 10/2/19.
 //  Copyright © 2019 Cameron Stuart. All rights reserved.
 //
 
@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
         return true
     }
 

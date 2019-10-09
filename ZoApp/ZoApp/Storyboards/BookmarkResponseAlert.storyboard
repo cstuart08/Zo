@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i9T-av-9Y6">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Bookmark Response Alert View Controller-->
+        <scene sceneID="HmC-YI-LGl">
+            <objects>
+                <viewController modalPresentationStyle="overFullScreen" id="i9T-av-9Y6" customClass="BookmarkResponseAlertViewController" customModule="JustBreateApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KB6-M3-dhE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wfy-FA-hP0">
+                                <rect key="frame" x="62" y="330.5" width="290" height="245"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookmarked Response!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QS1-0E-sdm">
+                                <rect key="frame" x="62" y="442.5" width="290" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Coh-w9-OqH">
+                                <rect key="frame" x="62" y="496" width="290" height="30"/>
+                                <state key="normal" title="Dismiss"/>
+                                <connections>
+                                    <action selector="dismissButtonTapped:" destination="i9T-av-9Y6" eventType="touchUpInside" id="BEW-hB-5Ad"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20229973591549297" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="QS1-0E-sdm" firstAttribute="width" secondItem="Wfy-FA-hP0" secondAttribute="width" id="1lU-Pf-kPI"/>
+                            <constraint firstItem="Coh-w9-OqH" firstAttribute="centerX" secondItem="Wfy-FA-hP0" secondAttribute="centerX" id="3vu-jR-crx"/>
+                            <constraint firstItem="Coh-w9-OqH" firstAttribute="width" secondItem="Wfy-FA-hP0" secondAttribute="width" id="5Cj-qU-fhC"/>
+                            <constraint firstItem="QS1-0E-sdm" firstAttribute="centerY" secondItem="Wfy-FA-hP0" secondAttribute="centerY" id="ENN-IW-62b"/>
+                            <constraint firstItem="Wfy-FA-hP0" firstAttribute="height" secondItem="Aq3-bG-2nj" secondAttribute="height" multiplier="0.3" id="cVX-FH-WOL"/>
+                            <constraint firstItem="Wfy-FA-hP0" firstAttribute="centerX" secondItem="Aq3-bG-2nj" secondAttribute="centerX" id="irU-xl-QYA"/>
+                            <constraint firstItem="Wfy-FA-hP0" firstAttribute="width" secondItem="Aq3-bG-2nj" secondAttribute="width" multiplier="0.7" id="o10-z2-yPY"/>
+                            <constraint firstItem="Wfy-FA-hP0" firstAttribute="centerY" secondItem="Aq3-bG-2nj" secondAttribute="centerY" id="o3g-HZ-VT7"/>
+                            <constraint firstItem="Coh-w9-OqH" firstAttribute="top" secondItem="QS1-0E-sdm" secondAttribute="bottom" constant="32.5" id="uwA-SG-PG1"/>
+                            <constraint firstItem="QS1-0E-sdm" firstAttribute="centerX" secondItem="Wfy-FA-hP0" secondAttribute="centerX" id="zLc-jD-eVY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Aq3-bG-2nj"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w4G-eW-SON" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-25" y="137"/>
+        </scene>
+    </scenes>
+</document>
