@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class ActiveRequestViewController: UIViewController {
 
@@ -28,14 +29,24 @@ class ActiveRequestViewController: UIViewController {
 
         responsesTableView.delegate = self
         responsesTableView.dataSource = self
-        // Do any additional setup after loading the view.
+        fetchResponses()
     }
     
     // MARK: - Actions
     
     
     // MARK: - Custom Methods
-    
+    func fetchResponses() {
+        guard let request = request else { return }
+        let requestRef = CKRecord.Reference(recordID: request.recordID, action: .deleteSelf)
+        ResponseController.shared.fetchResponses(requestReference: requestRef) { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    self.responsesTableView.reloadData()
+                }
+            }
+        }
+    }
     
     // MARK: - UI Adjustments
 
@@ -56,15 +67,15 @@ class ActiveRequestViewController: UIViewController {
 
 extension ActiveRequestViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return ResponseController.shared.responses.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "responseCell", for: indexPath) as? ResponseTableViewCell else { return UITableViewCell()}
         
-        let request = ProfileMockDataController3.shared.mockDataObjects[indexPath.row]
+        let response = ResponseController.shared.responses[indexPath.row]
         
-        cell.requestLandingPad = request
+        cell.response = response
         
         return cell
     }
