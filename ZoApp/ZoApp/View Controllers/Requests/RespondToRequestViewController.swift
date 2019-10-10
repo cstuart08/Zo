@@ -79,10 +79,8 @@ class RespondToRequestViewController: UIViewController {
         ResponseController.shared.createResponse(username: currentUser.username, bodyText: bodyText, link: link, image: image, responseTags: ["tag"], requestReference: requestReference) { (success) in
             if success {
                 DispatchQueue.main.async {
-                    let storyboard = UIStoryboard(name: "Requests", bundle: nil).instantiateViewController(withIdentifier: "Requests")
                     
-                    //                    let controller = UIViewController(nibName: "Requests", bundle: nil)
-                    self.present(storyboard, animated: true, completion: nil)
+                    self.dismiss(animated: true)
                 }
             }
         }
