@@ -21,14 +21,14 @@ struct DailyJournalConstants {
 class DailyJournal {
     
     // MARK: - Properties
-    let imageURL: URL
+    let imageURL: String
     let entry: String
     let timestamp: Double
     let recordID: CKRecord.ID
     let userReference: CKRecord.Reference
     
     // MARK: - Initializers
-    init(imageURL: URL, entry: String, timestamp: Double = Date().timeIntervalSince1970, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), userReference: CKRecord.Reference) {
+    init(imageURL: String, entry: String, timestamp: Double = Date().timeIntervalSince1970, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), userReference: CKRecord.Reference) {
         self.imageURL = imageURL
         self.entry = entry
         self.timestamp = timestamp
@@ -37,7 +37,7 @@ class DailyJournal {
     }
     
     init?(ckRecord: CKRecord) {
-        guard let imageURL = ckRecord[DailyJournalConstants.imageURLKey] as? URL,
+        guard let imageURL = ckRecord[DailyJournalConstants.imageURLKey] as? String,
             let entry = ckRecord[DailyJournalConstants.entryKey] as? String,
             let timestamp = ckRecord[DailyJournalConstants.timestampKey] as? Double,
             let userReference = ckRecord[DailyJournalConstants.userReferenceKey] as? CKRecord.Reference else { return nil }

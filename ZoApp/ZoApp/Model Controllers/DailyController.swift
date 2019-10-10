@@ -13,9 +13,38 @@ class DailyController {
     
     // MARK: - Properties
     static let shared = DailyController()
+    var myDailyJournals: [DailyJournal] = []
     
     // MARK: - Methods
+
+    let publicDataBase = CKContainer.default().publicCloudDatabase
+    
+    func createDailyJournal(imageURL: String, entry: String, userReference: CKRecord.Reference, completion: @escaping (Bool) -> Void) {
+        
+        let dailyJournal = DailyJournal(imageURL: imageURL, entry: entry, userReference: userReference)
+        
+        let dailyJournalRecord = CKRecord(dailyJournal: dailyJournal)
+        
+        publicDataBase.save(dailyJournalRecord) { (dailyJournalRecord, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                completion(false)
+                return
+            }
+            guard let dailyJournalRecord = dailyJournalRecord,
+                let dailyJournal = DailyJournal(ckRecord: dailyJournalRecord) else { completion(false); return }
+            
+            self.myDailyJournals.append(dailyJournal)
+            completion(true)
+            return
+        }
+    }
     
     
-     
+    
+    
+    
+    
+    
+    
 }
