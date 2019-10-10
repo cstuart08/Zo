@@ -22,14 +22,14 @@ extension UIView {
         layer.cornerRadius = radius
     }
     
-    func addAccentBorder(width: CGFloat = 1, color: UIColor = .boldGreen) {
+    func addAccentBorder(width: CGFloat = 5, color: UIColor = .boldGreen) {
         layer.borderWidth = width
         layer.borderColor = color.cgColor
     }
 }
 
 extension UIColor {
-    static let black = UIColor(named: "black")!
+    static let zoBlack = UIColor(named: "zoBlack")!
     static let darkBlue = UIColor(named: "darkBlue")!
     static let boldGreen = UIColor(named: "boldGreen")!
     static let forestGreen = UIColor(named: "forestGreen")!
@@ -37,5 +37,5 @@ extension UIColor {
     static let sageGreen = UIColor(named: "sageGreen")!
     static let ivory = UIColor(named: "ivory")!
     static let lightPink = UIColor(named: "lightPink")!
-    static let zoWhite = UIColor(named: "White")!
+    static let zoWhite = UIColor(named: "zoWhite")!
 }

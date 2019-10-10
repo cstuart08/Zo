@@ -19,6 +19,7 @@ class UsernameOnboardingViewController: UIViewController {
         let tap = UITapGestureRecognizer()
         tap.addTarget(self, action: #selector(tapResign))
         view.addGestureRecognizer(tap)
+        stylizeSubviews()
     }
     
     // MARK: - Methods
@@ -36,4 +37,11 @@ class UsernameOnboardingViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: - UI Adjustments
+    
+    func stylizeSubviews() {
+        
+    }
+
 }
