@@ -137,12 +137,16 @@
                                 <rect key="frame" x="16" y="16" width="45" height="30"/>
                                 <state key="normal" title="Delete"/>
                                 <connections>
+                                    <action selector="deleteButtonTapped:" destination="PSA-6d-hAN" eventType="touchUpInside" id="sxD-Bh-Peh"/>
                                     <segue destination="q1f-sM-N9D" kind="show" id="yob-PC-srj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hah-6e-Q5T">
                                 <rect key="frame" x="368" y="16" width="30" height="30"/>
                                 <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="editButtonTapped:" destination="PSA-6d-hAN" eventType="touchUpInside" id="Jak-Pb-xpB"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XMu-bp-S8I">
                                 <rect key="frame" x="86" y="121" width="242" height="242.5"/>
@@ -185,6 +189,8 @@
                         <viewLayoutGuide key="safeArea" id="2Z0-K3-mNH"/>
                     </view>
                     <connections>
+                        <outlet property="deleteButton" destination="9ak-73-Vnj" id="uAn-aa-eBl"/>
+                        <outlet property="editButton" destination="Hah-6e-Q5T" id="Ygq-P4-QR5"/>
                         <outlet property="pastDailyEntryImageView" destination="XMu-bp-S8I" id="xC8-LV-BuU"/>
                         <outlet property="pastDailyEntryTextView" destination="lD8-xg-n7v" id="YlL-q8-4Wm"/>
                     </connections>

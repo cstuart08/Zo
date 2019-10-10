@@ -59,13 +59,15 @@ class DailyController {
             
             let dailyJournals = records.compactMap({DailyJournal(ckRecord: $0)})
             
-            self.myDailyJournals = dailyJournals
+            self.myDailyJournals = dailyJournals.sorted(by: { $0.timestamp > $1.timestamp })
             completion(true)
             return
         }
     }
     
-    
+    func saveUpdatedJournal(entry: String, completion: @escaping (Bool) -> Void) {
+        
+    }
     
     
     
