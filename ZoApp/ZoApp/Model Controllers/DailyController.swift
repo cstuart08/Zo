@@ -11,7 +11,11 @@ import CloudKit
 
 class DailyController {
     
+    // MARK: - Properties
     static let shared = DailyController()
+    
+    // MARK: - Methods
+    
     
      
 }
