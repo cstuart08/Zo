@@ -38,8 +38,8 @@ class ActiveRequestViewController: UIViewController {
     // MARK: - Custom Methods
     func fetchResponses() {
         guard let request = request else { return }
-        let requestRef = CKRecord.Reference(recordID: request.recordID, action: .deleteSelf)
-        ResponseController.shared.fetchResponses(requestReference: requestRef) { (success) in
+        
+        ResponseController.shared.fetchResponses(request: request) { (success) in
             if success {
                 DispatchQueue.main.async {
                     self.responsesTableView.reloadData()

@@ -68,7 +68,11 @@ class ProfileViewController: UIViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "toRequestDetailVC" {
+            guard let index = self.pastRequestsTableView.indexPathForSelectedRow, let destination = segue.destination as? ActiveRequestViewController else { return }
+            let request = RequestController.shared.myRequests[index.row]
+            destination.request = request
+        }
     }
     
 
