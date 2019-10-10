@@ -48,6 +48,18 @@ class PastDailyEntryViewController: UIViewController {
         }
     }
     
+    func saveUpdatedJournal() {
+        guard let dailyJournalEntry = dailyJournal else { return }
+        guard let updatedText = pastDailyEntryTextView.text else { return }
+        DailyController.shared.saveUpdatedJournal(dailyJournal: dailyJournalEntry, entry: updatedText) { (success) in
+            if success {
+                print("Success updating entry")
+            } else {
+                print("Failed to update entry.")
+            }
+        }
+    }
+    
     // MARK: - Actions
     @IBAction func editButtonTapped(_ sender: Any) {
         if editToggle == false {
@@ -60,6 +72,7 @@ class PastDailyEntryViewController: UIViewController {
             pastDailyEntryTextView.isSelectable = false
             pastDailyEntryTextView.isEditable = false
             editToggle = false
+            saveUpdatedJournal()
         }
     }
     
