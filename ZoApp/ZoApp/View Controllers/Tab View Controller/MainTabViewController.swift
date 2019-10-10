@@ -12,10 +12,16 @@ class MainTabViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        stylizeSubviews()
         // Do any additional setup after loading the view.
     }
     
+    
+    func stylizeSubviews() {
+        tabBar.isTranslucent = false
+        tabBar.barTintColor = UIColor.boldGreen
+        tabBar.tintColor = UIColor.zoWhite
+    }
 
     /*
     // MARK: - Navigation
