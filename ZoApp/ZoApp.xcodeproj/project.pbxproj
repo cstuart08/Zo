@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D423DD9B234FC1FD002FAE7F /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423DD9A234FC1FD002FAE7F /* DateFormatters.swift */; };
 		D435FD32234F8CDC00FD6DCC /* UnsplashPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435FD31234F8CDC00FD6DCC /* UnsplashPhoto.swift */; };
 		D435FD34234F8CE900FD6DCC /* UnsplashRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435FD33234F8CE900FD6DCC /* UnsplashRoute.swift */; };
 		D435FD36234F8D0B00FD6DCC /* UnsplashService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435FD35234F8D0B00FD6DCC /* UnsplashService.swift */; };
@@ -69,6 +70,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D423DD9A234FC1FD002FAE7F /* DateFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
 		D435FD31234F8CDC00FD6DCC /* UnsplashPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashPhoto.swift; sourceTree = "<group>"; };
 		D435FD33234F8CE900FD6DCC /* UnsplashRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashRoute.swift; sourceTree = "<group>"; };
 		D435FD35234F8D0B00FD6DCC /* UnsplashService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashService.swift; sourceTree = "<group>"; };
@@ -145,6 +147,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D423DD99234FC1DB002FAE7F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D423DD9A234FC1FD002FAE7F /* DateFormatters.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		D4CDD462234E8E8D00A6D5C5 = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				D4CDD4F2234E908200A6D5C5 /* ZoApp.entitlements */,
+				D423DD99234FC1DB002FAE7F /* Helpers */,
 				FC93FE29234F9F5A00F65581 /* StyleGuide */,
 				D4CDD482234E8F4100A6D5C5 /* View Controllers */,
 				D4CDD4B9234E8F5500A6D5C5 /* Model Controllers */,
@@ -448,6 +459,7 @@
 				D4CDD4B5234E8F4100A6D5C5 /* HowItWorksOnboardingViewController.swift in Sources */,
 				D4CDD4B1234E8F4100A6D5C5 /* ProfileViewCell.swift in Sources */,
 				D4CDD4A2234E8F4100A6D5C5 /* DeletePastDailyEntryViewController.swift in Sources */,
+				D423DD9B234FC1FD002FAE7F /* DateFormatters.swift in Sources */,
 				D435FD34234F8CE900FD6DCC /* UnsplashRoute.swift in Sources */,
 				D4CDD4AA234E8F4100A6D5C5 /* FlagPostAlertViewController.swift in Sources */,
 				D4CDD4A7234E8F4100A6D5C5 /* PastRequestsTableViewCell.swift in Sources */,
