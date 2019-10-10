@@ -1,9 +1,9 @@
 //
 //  ResponseController.swift
-//  JustBreateApp
+//  ZōApp
 //
-//  Created by Apps on 10/4/19.
-//  Copyright © 2019 Cameron Stuart. All rights reserved.
+//  Created by The Zō Team on 10/2/19.
+//  Copyright © 2019 Zō App. All rights reserved.
 //
 
 import UIKit
@@ -17,7 +17,7 @@ class ResponseController {
     
     var responses = [Response]()
     
-    func createResponse(username: String, bodyText: String?, link: URL?, image: UIImage?, responseTags: [String], requestReference: CKRecord.Reference, completion: @escaping (Bool) -> Void) {
+    func createResponse(username: String, bodyText: String?, link: String?, image: UIImage?, responseTags: [String], requestReference: CKRecord.Reference, completion: @escaping (Bool) -> Void) {
         
         let responseRecord = Response(username: username, bodyText: bodyText, image: image, link: link, responseTags: responseTags, requestReference: requestReference)
         
@@ -29,12 +29,14 @@ class ResponseController {
                 completion(false)
                 return
             }
+            guard let record = record, let response = Response(ckRecord: record) else { completion(false); return }
+            self.responses.append(response)
             completion(true)
         }
     }
     
     func fetchResponses(requestReference: CKRecord.Reference, completion: @escaping (Bool) -> Void) {
-        let predicate = NSPredicate(format: "\(ResponseConstants.responseKey) == %@", requestReference)
+        let predicate = NSPredicate(format: "\(ResponseConstants.requestReferenceKey) == %@", requestReference)
         let query = CKQuery(recordType: ResponseConstants.responseKey, predicate: predicate)
         publicDB.perform(query, inZoneWith: nil) { (records, error) in
             

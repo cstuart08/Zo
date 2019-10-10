@@ -1,9 +1,9 @@
 //
 //  RequestFeedViewController.swift
-//  JustBreateApp
+//  ZōApp
 //
-//  Created by Kevin Tanner on 10/4/19.
-//  Copyright © 2019 Cameron Stuart. All rights reserved.
+//  Created by The Zō Team on 10/2/19.
+//  Copyright © 2019 Zō App. All rights reserved.
 //
 
 import UIKit
@@ -35,6 +35,18 @@ class RequestFeedViewController: UIViewController {
                 }
             } else {
                 print("Failed to fetch requests.")
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        RequestController.shared.fetchOnlyRecentCurrentUserRequests { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    
+                    self.pastRequestsTableView.reloadData()
+                }
             }
         }
     }
@@ -76,7 +88,7 @@ extension RequestFeedViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if tableView == pastRequestsTableView {
-            return ProfileMockDataController1.shared.mockDataObjects.count
+            return RequestController.shared.myRequests.count
         } else {
             return RequestController.shared.requests.count
         }
@@ -87,7 +99,7 @@ extension RequestFeedViewController: UITableViewDelegate, UITableViewDataSource 
         if tableView == pastRequestsTableView {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "activePastRequestCell", for: indexPath) as? PastRequestsTableViewCell else { return UITableViewCell()}
         
-        let request = ProfileMockDataController1.shared.mockDataObjects[indexPath.row]
+            let request = RequestController.shared.myRequests[indexPath.row]
         
         cell.requestLandingPad = request
         

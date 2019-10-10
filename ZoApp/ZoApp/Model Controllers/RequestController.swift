@@ -1,9 +1,9 @@
 //
 //  RequestController.swift
-//  JustBreateApp
+//  ZōApp
 //
-//  Created by Blake kvarfordt on 10/4/19.
-//  Copyright © 2019 Cameron Stuart. All rights reserved.
+//  Created by The Zō Team on 10/2/19.
+//  Copyright © 2019 Zō App. All rights reserved.
 //
 
 import Foundation
@@ -70,10 +70,10 @@ class RequestController {
         }
     }
     
-    func fetchCurrentUserRequests(completion: @escaping (Bool) -> Void) {
-        guard let userReference  = UserController.shared.currentUser?.recordID else { completion(false); return }
-        
-        let predicate = NSPredicate(format: "\(RequestConstants.userReferenceKey)", userReference)
+    func fetchAllCurrentUserRequests(completion: @escaping (Bool) -> Void) {
+        myRequests = []
+        guard let userReference = UserController.shared.currentUser?.appleUserReference else { completion(false); return }
+        let predicate = NSPredicate(format: "\(RequestConstants.userReferenceKey) == %@", userReference)
         let query = CKQuery(recordType: RequestConstants.recordTypeKey, predicate: predicate)
         publicDataBase.perform(query, inZoneWith: nil) { (records, error) in
             
@@ -84,11 +84,35 @@ class RequestController {
             }
             
             guard let records = records else { completion(false); return }
+            print("got some records")
+            let requests = records.compactMap({Request(ckRecord: $0)})
+            print("got requests from records")
+            
+            self.myRequests = requests
+            completion(true)
+            print("completion true")
+            
+        }
+    }
+    
+    func fetchOnlyRecentCurrentUserRequests(completion: @escaping (Bool) -> Void) {
+        let date = NSDate(timeInterval: -60.0 * 60 * 72, since: Date())
+        guard let user = UserController.shared.currentUser else { completion(false); return }
+        let predicate = NSPredicate(format: "creationDate > %@", date)
+        let predicate2 = NSPredicate(format: "\(RequestConstants.userReferenceKey) == %@", user.appleUserReference)
+        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate, predicate2])
+        let query = CKQuery(recordType: RequestConstants.recordTypeKey, predicate: compoundPredicate)
+        publicDataBase.perform(query, inZoneWith: nil) { (records, error) in
+            if let error = error {
+                print("Error fetching requests from database in \(#function) \(error) \(error.localizedDescription)")
+                completion(false)
+                return
+            }
+            guard let records = records else { completion(false); return }
             let requests = records.compactMap({Request(ckRecord: $0)})
             
-            self.requests = requests
+            self.myRequests = requests
             completion(true)
-            
         }
     }
 }
