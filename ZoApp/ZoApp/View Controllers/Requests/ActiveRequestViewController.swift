@@ -1,9 +1,9 @@
 //
 //  ActiveRequestViewController.swift
-//  JustBreateApp
+//  ZōApp
 //
-//  Created by Kevin Tanner on 10/4/19.
-//  Copyright © 2019 Cameron Stuart. All rights reserved.
+//  Created by The Zō Team on 10/2/19.
+//  Copyright © 2019 Zō App. All rights reserved.
 //
 
 import UIKit
