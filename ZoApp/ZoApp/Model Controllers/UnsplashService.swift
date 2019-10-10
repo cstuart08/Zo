@@ -51,6 +51,19 @@ class UnsplashService {
             completion(UIImage(data: data))
             }.resume()
     }
+    
+    func fetchImageFromURLString(urlString: String, completion: @escaping (UIImage?) -> Void){
+        guard let url = URL(string: urlString) else { completion(nil); return }
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let error = error{
+                print("\(error.localizedDescription) \(error) in function: \(#function)")
+                completion(nil)
+                return
+            }
+            guard let data = data else {completion(nil) ; return}
+            completion(UIImage(data: data))
+            }.resume()
+    }
 }
 
 

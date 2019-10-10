@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DailyViewController: UIViewController {
+class DailyViewController: UIViewController, UITextViewDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var dailyImageView: UIImageView!
@@ -17,13 +17,16 @@ class DailyViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     
     // MARK: - Properties
-        /// MOCK DATA
-        let pastDailyEntries = ["OCT 3, 2019", "OCT 2, 2019", "OCT 1, 2019", "SEP 27, 2019", "SEP 26, 2019", "SEP 24, 2019", "SEP 22, 2019", "SEP 21, 2019"]
+    /// MOCK DATA
+    let pastDailyEntries = ["OCT 3, 2019", "OCT 2, 2019", "OCT 1, 2019", "SEP 27, 2019", "SEP 26, 2019", "SEP 24, 2019", "SEP 22, 2019", "SEP 21, 2019"]
     var photo: UnsplashPhoto?
     
     // MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        dailyEntryTextView.delegate = self
+        dailyEntryTextView.text = "Enter your thoughts here..."
+        dailyEntryTextView.textColor = .lightGray
         pastEntriesTableView.delegate = self
         pastEntriesTableView.dataSource = self
         dailyImageView.contentMode = .scaleAspectFill
@@ -33,7 +36,7 @@ class DailyViewController: UIViewController {
         view.addGestureRecognizer(tap)
         category(.inspirationalQuote)
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         fetchMyJournals()
@@ -49,7 +52,6 @@ class DailyViewController: UIViewController {
         UnsplashService.shared.fetchFromUnsplash(for: unsplashRoute) { (photos) in
             DispatchQueue.main.async {
                 guard let photos = photos else { return }
-                //self.photos = photos
                 guard let image = photos.first else { return }
                 self.photo = image
                 self.fetchImage(photo: image)
@@ -73,6 +75,20 @@ class DailyViewController: UIViewController {
         }
     }
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if dailyEntryTextView.textColor == UIColor.lightGray {
+            dailyEntryTextView.text = nil
+            dailyEntryTextView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if dailyEntryTextView.text.isEmpty {
+            dailyEntryTextView.text = "Enter your thoughts here..."
+            dailyEntryTextView.textColor = UIColor.lightGray
+        }
+    }
+    
     // MARK: - Actions
     @IBAction func refreshButtonTapped(_ sender: Any) {
         category(.inspirationalQuote)
@@ -88,6 +104,15 @@ class DailyViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "pastDailyCellToDetailVC" {
+            if let index = pastEntriesTableView.indexPathForSelectedRow {
+                guard let destinationVC = segue.destination as? PastDailyEntryViewController else { return }
+                let dailyJournalToSend = DailyController.shared.myDailyJournals[index.row]
+                destinationVC.dailyJournal = dailyJournalToSend
+            }
+        }
+    }
 }
 
 // MARK: - Extensions

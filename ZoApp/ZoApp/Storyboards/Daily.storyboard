@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="evc-jl-zGb">
-                                <rect key="frame" x="72.5" y="67" width="269" height="269"/>
+                                <rect key="frame" x="72.5" y="81" width="269" height="269"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="evc-jl-zGb" secondAttribute="height" multiplier="1:1" id="oRR-eF-97C"/>
                                 </constraints>
@@ -42,7 +43,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="PSA-6d-hAN" kind="presentation" id="S8k-AV-8Bu"/>
+                                            <segue destination="PSA-6d-hAN" kind="presentation" identifier="pastDailyCellToDetailVC" id="S8k-AV-8Bu"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -53,28 +54,33 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pP-HP-Uea">
-                                <rect key="frame" x="178" y="44" width="58.5" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Daily Journal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pP-HP-Uea">
+                                <rect key="frame" x="126" y="52" width="162" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ex-n8-thz">
-                                <rect key="frame" x="288.5" y="67" width="53" height="33.5"/>
-                                <state key="normal" title="Refresh"/>
+                                <rect key="frame" x="288.5" y="81" width="53" height="33.5"/>
+                                <color key="backgroundColor" name="boldGreen"/>
+                                <state key="normal" title="Refresh">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="refreshButtonTapped:" destination="jJG-Jg-fBK" eventType="touchUpInside" id="84D-DC-4y7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxZ-wc-1aj">
-                                <rect key="frame" x="307.5" y="338" width="34" height="30"/>
-                                <state key="normal" title="Save"/>
+                                <rect key="frame" x="307.5" y="352" width="34" height="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" name="boldGreen"/>
+                                </state>
                                 <connections>
                                     <action selector="saveButtonTapped:" destination="jJG-Jg-fBK" eventType="touchUpInside" id="9QU-2b-N5w"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter your thoughts here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kcx-CL-EvJ">
-                                <rect key="frame" x="31" y="372" width="352" height="161.5"/>
+                                <rect key="frame" x="31" y="390" width="352" height="161.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -90,7 +96,7 @@
                             <constraint firstItem="ipr-91-xD1" firstAttribute="bottom" secondItem="0Wm-Z0-V4c" secondAttribute="bottom" id="Jj3-pc-OYo"/>
                             <constraint firstItem="Kcx-CL-EvJ" firstAttribute="width" secondItem="0Wm-Z0-V4c" secondAttribute="width" multiplier="0.85" id="T1A-Sh-0iS"/>
                             <constraint firstItem="evc-jl-zGb" firstAttribute="top" secondItem="8ex-n8-thz" secondAttribute="top" id="T9d-aJ-5o7"/>
-                            <constraint firstItem="5pP-HP-Uea" firstAttribute="top" secondItem="0Wm-Z0-V4c" secondAttribute="top" id="UFB-Sn-lwc"/>
+                            <constraint firstItem="5pP-HP-Uea" firstAttribute="top" secondItem="0Wm-Z0-V4c" secondAttribute="top" constant="8" id="UFB-Sn-lwc"/>
                             <constraint firstItem="8ex-n8-thz" firstAttribute="height" secondItem="evc-jl-zGb" secondAttribute="height" multiplier="0.125" id="bOW-Po-BrJ"/>
                             <constraint firstItem="evc-jl-zGb" firstAttribute="centerX" secondItem="0Wm-Z0-V4c" secondAttribute="centerX" id="caR-77-z4l"/>
                             <constraint firstItem="Kcx-CL-EvJ" firstAttribute="height" secondItem="evc-jl-zGb" secondAttribute="height" multiplier="0.6" id="fCx-bb-CBA"/>
@@ -99,8 +105,8 @@
                             <constraint firstItem="ipr-91-xD1" firstAttribute="height" secondItem="0Wm-Z0-V4c" secondAttribute="height" multiplier="0.28" id="jWw-V3-FMV"/>
                             <constraint firstItem="ipr-91-xD1" firstAttribute="trailing" secondItem="0Wm-Z0-V4c" secondAttribute="trailing" id="kDE-sK-icN"/>
                             <constraint firstItem="evc-jl-zGb" firstAttribute="height" secondItem="0Wm-Z0-V4c" secondAttribute="height" multiplier="0.35" id="n5G-TF-PQK"/>
-                            <constraint firstItem="evc-jl-zGb" firstAttribute="top" secondItem="5pP-HP-Uea" secondAttribute="bottom" constant="2" id="nKx-bZ-Kej"/>
-                            <constraint firstItem="Kcx-CL-EvJ" firstAttribute="top" secondItem="qxZ-wc-1aj" secondAttribute="bottom" constant="4" id="tKK-2F-GUE"/>
+                            <constraint firstItem="evc-jl-zGb" firstAttribute="top" secondItem="5pP-HP-Uea" secondAttribute="bottom" constant="8" id="nKx-bZ-Kej"/>
+                            <constraint firstItem="Kcx-CL-EvJ" firstAttribute="top" secondItem="qxZ-wc-1aj" secondAttribute="bottom" constant="8" id="tKK-2F-GUE"/>
                             <constraint firstItem="udw-Df-NBk" firstAttribute="leading" secondItem="0Wm-Z0-V4c" secondAttribute="leading" constant="16" id="wKf-Ne-aLj"/>
                             <constraint firstItem="qxZ-wc-1aj" firstAttribute="top" secondItem="evc-jl-zGb" secondAttribute="bottom" constant="2" id="ygq-iD-cEh"/>
                         </constraints>
@@ -216,7 +222,7 @@
                                 <rect key="frame" x="279" y="378" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="No">
-                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="noButtonTapped:" destination="q1f-sM-N9D" eventType="touchUpInside" id="xzn-jr-WHZ"/>
@@ -233,4 +239,9 @@
             <point key="canvasLocation" x="-325" y="329"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="boldGreen">
+            <color red="0.086274509803921567" green="0.40392156862745099" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
