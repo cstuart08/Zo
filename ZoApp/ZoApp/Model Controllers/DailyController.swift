@@ -84,4 +84,8 @@ class DailyController {
         self.publicDataBase.add(modificationOperation)
         completion(true)
     }
+    
+//    func deleteDailyJournal(dailyJournal: DailyJournal) {
+//
+//    }
 }
