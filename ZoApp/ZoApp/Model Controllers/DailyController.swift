@@ -40,6 +40,31 @@ class DailyController {
         }
     }
     
+    func fetchDailyJournals(completion: @escaping (Bool) -> Void) {
+        
+        guard let reference = UserController.shared.currentUser?.appleUserReference else { completion(false); return }
+        
+        let predicate = NSPredicate(format: "\(DailyJournalConstants.userReferenceKey) == %@", reference)
+        
+        let query = CKQuery(recordType: DailyJournalConstants.typeKey, predicate: predicate)
+        
+        publicDataBase.perform(query, inZoneWith: nil) { (records, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                completion(false)
+                return
+            }
+            
+            guard let records = records else { completion(false); return }
+            
+            let dailyJournals = records.compactMap({DailyJournal(ckRecord: $0)})
+            
+            self.myDailyJournals = dailyJournals
+            completion(true)
+            return
+        }
+    }
+    
     
     
     
