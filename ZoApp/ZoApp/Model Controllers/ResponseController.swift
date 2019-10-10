@@ -29,7 +29,8 @@ class ResponseController {
                 completion(false)
                 return
             }
-            
+            guard let record = record, let response = Response(ckRecord: record) else { completion(false); return }
+            self.responses.append(response)
             completion(true)
         }
     }
