@@ -24,7 +24,7 @@ struct ResponseConstants {
 class Response {
     var username: String
     var bodyText: String?
-    var link: URL?
+    var link: String?
     var timestamp: Double
     var responseTags: [String]
     var responseRecordID: CKRecord.ID
@@ -53,7 +53,7 @@ class Response {
         }
     }
     
-    init(username: String, bodyText: String?, image: UIImage?, link: URL?, timestamp: Double = Date().timeIntervalSince1970, responseTags: [String], responseRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), requestReference: CKRecord.Reference) {
+    init(username: String, bodyText: String?, image: UIImage?, link: String?, timestamp: Double = Date().timeIntervalSince1970, responseTags: [String], responseRecordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), requestReference: CKRecord.Reference) {
         self.username = username
         self.bodyText = bodyText
         self.link = link
@@ -68,7 +68,7 @@ class Response {
     init?(ckRecord: CKRecord) {
         guard let username = ckRecord[ResponseConstants.usernameKey] as? String,
             let bodyText = ckRecord[ResponseConstants.bodyTextKey] as String?,
-            let link = ckRecord[ResponseConstants.linkKey] as? URL?,
+            let link = ckRecord[ResponseConstants.linkKey] as? String?,
             let timestamp = ckRecord[ResponseConstants.timestampKey] as? Double,
             let responseTags = ckRecord[ResponseConstants.responseTagsKey] as? [String],
             let requestReference = ckRecord[ResponseConstants.requestReferenceKey] as? CKRecord.Reference,

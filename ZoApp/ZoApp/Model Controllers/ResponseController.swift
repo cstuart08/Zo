@@ -17,7 +17,7 @@ class ResponseController {
     
     var responses = [Response]()
     
-    func createResponse(username: String, bodyText: String?, link: URL?, image: UIImage?, responseTags: [String], requestReference: CKRecord.Reference, completion: @escaping (Bool) -> Void) {
+    func createResponse(username: String, bodyText: String?, link: String?, image: UIImage?, responseTags: [String], requestReference: CKRecord.Reference, completion: @escaping (Bool) -> Void) {
         
         let responseRecord = Response(username: username, bodyText: bodyText, image: image, link: link, responseTags: responseTags, requestReference: requestReference)
         
@@ -29,6 +29,8 @@ class ResponseController {
                 completion(false)
                 return
             }
+            guard let record = record, let response = Response(ckRecord: record) else { completion(false); return }
+            self.responses.append(response)
             completion(true)
         }
     }

@@ -10,7 +10,7 @@ import UIKit
 import CloudKit
 
 class RespondToRequestViewController: UIViewController {
-
+    
     
     // MARK: - Outlets
     
@@ -39,11 +39,11 @@ class RespondToRequestViewController: UIViewController {
     }
     
     // MARK: - Lifecycle Methods
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         addLinkTextField.isHidden = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -73,13 +73,16 @@ class RespondToRequestViewController: UIViewController {
         guard let currentUser = UserController.shared.currentUser,
             let request = request,
             let link = addLinkTextField.text,
-            let linkURL = URL(string: link),
-            let bodyText = requestBodyLabel.text, !bodyText.isEmpty else { return }
+            let bodyText = responseTextView.text, !bodyText.isEmpty,
+            let image = UIImage(named: "focus") else { return }
         let requestReference = CKRecord.Reference(recordID: request.recordID, action: .deleteSelf)
-        ResponseController.shared.createResponse(username: currentUser.username, bodyText: bodyText, link: linkURL, image: nil, responseTags: request.tags, requestReference: requestReference) { (success) in
+        ResponseController.shared.createResponse(username: currentUser.username, bodyText: bodyText, link: link, image: image, responseTags: ["tag"], requestReference: requestReference) { (success) in
             if success {
                 DispatchQueue.main.async {
-                    self.navigationController?.popViewController(animated: true)
+                    let storyboard = UIStoryboard(name: "Requests", bundle: nil).instantiateViewController(withIdentifier: "Requests")
+                    
+                    //                    let controller = UIViewController(nibName: "Requests", bundle: nil)
+                    self.present(storyboard, animated: true, completion: nil)
                 }
             }
         }
@@ -97,7 +100,7 @@ class RespondToRequestViewController: UIViewController {
     
     
     // MARK: - UI Adjustments
-
+    
     
     @objc func tapResign() {
         view.frame.origin.y = 0
@@ -108,18 +111,18 @@ class RespondToRequestViewController: UIViewController {
     @objc func keyboardWillShow() {
         view.frame.origin.y = -(view.frame.height / 3.5)
     }
-
-
     
-
+    
+    
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
