@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class CreateRequestViewController: UIViewController {
     
@@ -48,7 +49,8 @@ class CreateRequestViewController: UIViewController {
         guard let username = usernameLabel.text else { return }
         guard let body = requestTextView.text else { return }
         guard let user = user else { return }
-        RequestController.shared.createAndSaveRequest(title: "No Title Field Currently", username: username, body: body, userReference: user.appleUserReference) { (success) in
+        let userRef = CKRecord.Reference(recordID: user.recordID, action: .deleteSelf)
+        RequestController.shared.createAndSaveRequest(title: "No Title Field Currently", username: username, body: body, userReference: userRef) { (success) in
             if success {
                 print("Success creating a request.")
                 self.dismiss(animated: true)

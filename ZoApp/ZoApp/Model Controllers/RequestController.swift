@@ -72,7 +72,7 @@ class RequestController {
     
     func fetchAllCurrentUserRequests(completion: @escaping (Bool) -> Void) {
         myRequests = []
-        guard let userReference = UserController.shared.currentUser?.appleUserReference else { completion(false); return }
+        guard let userReference = UserController.shared.currentUser?.recordID else { completion(false); return }
         let predicate = NSPredicate(format: "\(RequestConstants.userReferenceKey) == %@", userReference)
         let query = CKQuery(recordType: RequestConstants.recordTypeKey, predicate: predicate)
         publicDataBase.perform(query, inZoneWith: nil) { (records, error) in

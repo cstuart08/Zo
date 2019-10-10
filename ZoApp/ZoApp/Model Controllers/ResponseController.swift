@@ -29,13 +29,13 @@ class ResponseController {
                 completion(false)
                 return
             }
-            guard let record = record, let response = Response(ckRecord: record) else { completion(false); return }
-            self.responses.append(response)
+            
             completion(true)
         }
     }
     
     func fetchResponses(request: Request, completion: @escaping (Bool) -> Void) {
+        responses = []
         let requestReference = request.recordID
         let predicate = NSPredicate(format: "\(ResponseConstants.requestReferenceKey) == %@", requestReference)
         let query = CKQuery(recordType: ResponseConstants.responseKey, predicate: predicate)

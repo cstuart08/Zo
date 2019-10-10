@@ -20,7 +20,11 @@ class ActiveRequestViewController: UIViewController {
     @IBOutlet weak var responsesTableView: UITableView!
     
     // MARK: - Properties
-    var request: Request?
+    var request: Request? {
+        didSet {
+            setupViews()
+        }
+    }
     
     // MARK: - Lifecycle Methods
 
@@ -46,6 +50,14 @@ class ActiveRequestViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func setupViews() {
+        loadViewIfNeeded()
+        requestBodyLabel.text = request?.body
+        requestImageView.image = UIImage(named: "focus")
+        
+        
     }
     
     // MARK: - UI Adjustments
