@@ -66,6 +66,8 @@
 		FC93FE34234FA3E900F65581 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC93FE33234FA3E900F65581 /* Lato-BoldItalic.ttf */; };
 		FC93FE36234FA3F300F65581 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC93FE35234FA3F300F65581 /* Lato-Regular.ttf */; };
 		FC93FE38234FA3FB00F65581 /* Lato-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC93FE37234FA3FB00F65581 /* Lato-RegularItalic.ttf */; };
+		FC93FE3A234FC37C00F65581 /* ZoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC93FE39234FC37C00F65581 /* ZoTextField.swift */; };
+		FC93FE3C234FCE8300F65581 /* ZoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC93FE3B234FCE8200F65581 /* ZoButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +133,8 @@
 		FC93FE33234FA3E900F65581 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
 		FC93FE35234FA3F300F65581 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		FC93FE37234FA3FB00F65581 /* Lato-RegularItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-RegularItalic.ttf"; sourceTree = "<group>"; };
+		FC93FE39234FC37C00F65581 /* ZoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoTextField.swift; sourceTree = "<group>"; };
+		FC93FE3B234FCE8200F65581 /* ZoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -341,6 +345,8 @@
 			isa = PBXGroup;
 			children = (
 				FC93FE2A234F9F8200F65581 /* StyleGuide.swift */,
+				FC93FE39234FC37C00F65581 /* ZoTextField.swift */,
+				FC93FE3B234FCE8200F65581 /* ZoButton.swift */,
 			);
 			path = StyleGuide;
 			sourceTree = "<group>";
@@ -447,6 +453,7 @@
 			files = (
 				D4CDD4B5234E8F4100A6D5C5 /* HowItWorksOnboardingViewController.swift in Sources */,
 				D4CDD4B1234E8F4100A6D5C5 /* ProfileViewCell.swift in Sources */,
+				FC93FE3A234FC37C00F65581 /* ZoTextField.swift in Sources */,
 				D4CDD4A2234E8F4100A6D5C5 /* DeletePastDailyEntryViewController.swift in Sources */,
 				D435FD34234F8CE900FD6DCC /* UnsplashRoute.swift in Sources */,
 				D4CDD4AA234E8F4100A6D5C5 /* FlagPostAlertViewController.swift in Sources */,
@@ -466,6 +473,7 @@
 				D4CDD471234E8E8E00A6D5C5 /* SceneDelegate.swift in Sources */,
 				D4CDD4B2234E8F4100A6D5C5 /* ProfileViewController.swift in Sources */,
 				D4CDD4C0234E8F5500A6D5C5 /* ResponseController.swift in Sources */,
+				FC93FE3C234FCE8300F65581 /* ZoButton.swift in Sources */,
 				D4CDD4C1234E8F5500A6D5C5 /* DailyController.swift in Sources */,
 				D4CDD4D0234E8F5A00A6D5C5 /* Response.swift in Sources */,
 				D4CDD4AC234E8F4100A6D5C5 /* FavoriteResponseAlertViewController.swift in Sources */,

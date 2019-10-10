@@ -10,7 +10,7 @@
         <!--Welcome Onboarding View Controller-->
         <scene sceneID="Oud-iJ-K0O">
             <objects>
-                <viewController storyboardIdentifier="Onboarding" id="Of8-3R-H7a" customClass="WelcomeOnboardingViewController" customModule="Zō" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Onboarding" id="Of8-3R-H7a" customClass="WelcomeOnboardingViewController" customModule="Zo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o5W-RQ-Obj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -69,7 +69,7 @@
         <!--How It Works Onboarding View Controller-->
         <scene sceneID="6Nu-wc-wm9">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="CcM-Ed-fiT" customClass="HowItWorksOnboardingViewController" customModule="Zō" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="CcM-Ed-fiT" customClass="HowItWorksOnboardingViewController" customModule="Zo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a7I-dw-Yrb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -131,7 +131,7 @@
         <!--Rules Onboarding View Controller-->
         <scene sceneID="CkW-u8-zTV">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="SXy-kw-Jed" customClass="RulesOnboardingViewController" customModule="Zō" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="SXy-kw-Jed" customClass="RulesOnboardingViewController" customModule="Zo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BHz-sF-d8L">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -202,7 +202,7 @@ Please report any violations.</string>
         <!--Username Onboarding View Controller-->
         <scene sceneID="K9j-1e-57p">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="QTW-cv-q4V" customClass="UsernameOnboardingViewController" customModule="Zō" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="QTW-cv-q4V" customClass="UsernameOnboardingViewController" customModule="Zo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tgH-dN-Vft">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -216,7 +216,7 @@ Please report any violations.</string>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cpg-NZ-sYh">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cpg-NZ-sYh" customClass="ZoTextField" customModule="Zo" customModuleProvider="target">
                                         <rect key="frame" x="62" y="47" width="290" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
