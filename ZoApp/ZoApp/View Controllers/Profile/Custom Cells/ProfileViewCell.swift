@@ -18,15 +18,16 @@ class ProfileViewCell: UITableViewCell {
     
 
     
-    var request: ProfileMockDataModel? {
+    var request: Request? {
         didSet {
             setupViews()
         }
     }
     
     func setupViews() {
-        requestTextLabel.text = request?.text
-        requestImageView.image = request?.image
-        numberOfResponsesLabel.text = "\(22)"
+        guard let responseCount = request?.responseCount else { return }
+        requestTextLabel.text = request?.body
+        requestImageView.image = UIImage(named: "focus")
+        numberOfResponsesLabel.text = "\(responseCount)"
     }
 }
