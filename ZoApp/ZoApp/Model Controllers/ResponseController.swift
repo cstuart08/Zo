@@ -36,7 +36,7 @@ class ResponseController {
     }
     
     func fetchResponses(requestReference: CKRecord.Reference, completion: @escaping (Bool) -> Void) {
-        let predicate = NSPredicate(format: "\(ResponseConstants.responseKey) == %@", requestReference)
+        let predicate = NSPredicate(format: "\(ResponseConstants.requestReferenceKey) == %@", requestReference)
         let query = CKQuery(recordType: ResponseConstants.responseKey, predicate: predicate)
         publicDB.perform(query, inZoneWith: nil) { (records, error) in
             
