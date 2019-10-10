@@ -18,11 +18,11 @@ class ZoTextField: UITextField {
     
     func setupUI() {
         updatePlaceholderColor()
-        textColor = .zoWhite
-        backgroundColor = .boldGreen
-        tintColor = .zoWhite
+        textColor = .zoBlack
+        backgroundColor = .zoWhite
+        tintColor = .zoBlack
         addAccentBorder()
-        addCornerRadius()
+        addCornerRadius(13)
         layer.masksToBounds = true
     }
     

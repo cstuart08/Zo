@@ -18,15 +18,35 @@ struct FontNames {
 }
 
 extension UIView {
-    func addCornerRadius(_ radius: CGFloat = 4) {
+    func addCornerRadius(_ radius: CGFloat = 13) {
         layer.cornerRadius = radius
     }
     
-    func addAccentBorder(width: CGFloat = 5, color: UIColor = .boldGreen) {
+    func addAccentBorder(width: CGFloat = 5, color: UIColor = .zoWhite) {
         layer.borderWidth = width
         layer.borderColor = color.cgColor
     }
 }
+
+enum FontAttributes: CGFloat {
+    case h1 = 36
+    case h2 = 30
+    case h3 = 24
+    case h4 = 18
+    case body = 16
+    case caption = 14
+    
+    var fontFamily: String {
+        switch self {
+        case .h1, .h2:
+            return FontNames.fingerPaint
+        default:
+            return FontNames.latoRegular
+        }
+    }
+}
+
+
 
 extension UIColor {
     static let zoBlack = UIColor(named: "zoBlack")!

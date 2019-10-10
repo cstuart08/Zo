@@ -9,22 +9,26 @@
 import UIKit
 
 class WelcomeOnboardingViewController: UIViewController {
+    
+    // MARK: - Outlets
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var bodyTextLabel: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        stylizeSubviews()
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - UI Adjustments
+    
+    func stylizeSubviews() {
+        view.backgroundColor = .boldGreen
+        titleLabel.font = UIFont(name: FontAttributes.h1.fontFamily, size: FontAttributes.h1.rawValue)
+        titleLabel.textColor = .zoWhite
+        bodyTextLabel.font = UIFont(name: FontAttributes.h3.fontFamily, size: FontAttributes.h3.rawValue)
+        bodyTextLabel.textColor = .zoWhite
     }
-    */
 
 }
