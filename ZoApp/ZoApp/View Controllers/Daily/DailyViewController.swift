@@ -32,11 +32,12 @@ class DailyViewController: UIViewController {
         tap.addTarget(self, action: #selector(tapResign))
         view.addGestureRecognizer(tap)
         category(.inspirationalQuote)
+        fetchMyJournals()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.pastEntriesTableView.reloadData()
+        
     }
     
     // MARK: - Methods
@@ -65,6 +66,14 @@ class DailyViewController: UIViewController {
         }
     }
     
+    func fetchMyJournals() {
+        DailyController.shared.fetchDailyJournals { (success) in
+            DispatchQueue.main.async {
+                self.pastEntriesTableView.reloadData()
+            }
+        }
+    }
+    
     // MARK: - Actions
     @IBAction func refreshButtonTapped(_ sender: Any) {
         category(.inspirationalQuote)
@@ -86,13 +95,13 @@ class DailyViewController: UIViewController {
 extension DailyViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        pastDailyEntries.count
+        DailyController.shared.myDailyJournals.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "pastDailyJournalEntry", for: indexPath)
-        let entry = pastDailyEntries[indexPath.row]
-        cell.textLabel?.text = entry
+        let entry = DailyController.shared.myDailyJournals[indexPath.row]
+        cell.textLabel?.text = "\(entry.timestamp)"
         return cell
     }
 }
