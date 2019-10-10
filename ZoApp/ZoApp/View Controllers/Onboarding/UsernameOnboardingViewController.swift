@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UsernameOnboardingViewController: UIViewController {
+class UsernameOnboardingViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: - Outlets
     @IBOutlet weak var titleLabel: UILabel!
@@ -22,6 +22,7 @@ class UsernameOnboardingViewController: UIViewController {
         tap.addTarget(self, action: #selector(tapResign))
         view.addGestureRecognizer(tap)
         stylizeSubviews()
+        createUsernameTextField.delegate = self
     }
     
     // MARK: - Methods
@@ -53,6 +54,16 @@ class UsernameOnboardingViewController: UIViewController {
     
     
     // MARK: - UI Adjustments
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        createUsernameTextField.placeholder = ""
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if createUsernameTextField.text == "" {
+            createUsernameTextField.placeholder = "Enter Username"
+        }
+    }
     
     func stylizeSubviews() {
         view.backgroundColor = .boldGreen

@@ -29,7 +29,7 @@ class ZoTextField: UITextField {
     func updatePlaceholderColor() {
         let placeholderText = placeholder ?? ""
         self.attributedPlaceholder = NSAttributedString(string: placeholderText,
-                                                        attributes: [.foregroundColor : UIColor.boldGreen,
+                                                        attributes: [.foregroundColor : UIColor.zoWhite,
                                                                      .font : UIFont(name: FontNames.latoRegular, size: 16)!])
     }
     
