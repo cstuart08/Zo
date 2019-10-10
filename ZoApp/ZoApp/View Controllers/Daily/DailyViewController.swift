@@ -32,12 +32,11 @@ class DailyViewController: UIViewController {
         tap.addTarget(self, action: #selector(tapResign))
         view.addGestureRecognizer(tap)
         category(.inspirationalQuote)
-        fetchMyJournals()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+        fetchMyJournals()
     }
     
     // MARK: - Methods
@@ -101,7 +100,7 @@ extension DailyViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "pastDailyJournalEntry", for: indexPath)
         let entry = DailyController.shared.myDailyJournals[indexPath.row]
-        cell.textLabel?.text = "\(entry.timestamp)"
+        cell.textLabel?.text = DateHelper.shared.mediumDateSTRfromDouble(dateDouble: entry.timestamp)
         return cell
     }
 }
