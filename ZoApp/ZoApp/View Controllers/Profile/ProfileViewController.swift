@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 import SafariServices
 
 class ProfileViewController: UIViewController {
@@ -27,7 +28,7 @@ class ProfileViewController: UIViewController {
         pastRequestsTableView.delegate = self
         pastRequestsTableView.dataSource = self
         setupViews()
-        
+        fetchRequests()
         guard let currentUser = currentUser else { return }
         currentUser.kpPoints = points
         if points == 20000 {
@@ -43,6 +44,17 @@ class ProfileViewController: UIViewController {
     func setupViews() {
         rankLabel.text = "Gold Rank"
         pointsLabel.text = "\(100) KP Points"
+    }
+    func fetchRequests() {
+        //        guard let userRecordID = UserController.shared.currentUser?.recordID else { return }
+        //        let userRef = CKRecord.Reference(recordID: userRecordID, action: .deleteSelf)
+        RequestController.shared.fetchAllCurrentUserRequests { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    self.pastRequestsTableView.reloadData()
+                }
+            }
+        }
     }
 
     
@@ -65,13 +77,13 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ProfileMockDataController.shared.mockDataObjects.count
+        return RequestController.shared.myRequests.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "pastRequestCell", for: indexPath) as? ProfileViewCell else { return UITableViewCell() }
         
-        let request = ProfileMockDataController.shared.mockDataObjects[indexPath.row]
+        let request = RequestController.shared.myRequests[indexPath.row]
         
         cell.request = request
         
