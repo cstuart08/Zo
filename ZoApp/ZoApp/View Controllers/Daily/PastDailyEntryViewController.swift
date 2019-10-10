@@ -13,13 +13,18 @@ class PastDailyEntryViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var pastDailyEntryImageView: UIImageView!
     @IBOutlet weak var pastDailyEntryTextView: UITextView!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
     
     // MARK - Properties
     var dailyJournal: DailyJournal?
+    var editToggle = false
     
     // MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        pastDailyEntryTextView.isSelectable = false
+        pastDailyEntryTextView.isEditable = false
         setupViews()
         fetchPastImage()
     }
@@ -43,4 +48,22 @@ class PastDailyEntryViewController: UIViewController {
         }
     }
     
+    // MARK: - Actions
+    @IBAction func editButtonTapped(_ sender: Any) {
+        if editToggle == false {
+            editButton.setTitle("Save", for: .normal)
+            pastDailyEntryTextView.isSelectable = true
+            pastDailyEntryTextView.isEditable = true
+            editToggle = true
+        } else {
+            editButton.setTitle("Edit", for: .normal)
+            pastDailyEntryTextView.isSelectable = false
+            pastDailyEntryTextView.isEditable = false
+            editToggle = false
+        }
+    }
+    
+    @IBAction func deleteButtonTapped(_ sender: Any) {
+        
+    }
 }
