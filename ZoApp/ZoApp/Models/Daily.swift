@@ -22,7 +22,7 @@ class DailyJournal {
     
     // MARK: - Properties
     let imageURL: String
-    let entry: String
+    var entry: String
     let timestamp: Double
     let recordID: CKRecord.ID
     let userReference: CKRecord.Reference

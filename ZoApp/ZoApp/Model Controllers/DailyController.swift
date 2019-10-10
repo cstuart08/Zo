@@ -16,7 +16,7 @@ class DailyController {
     var myDailyJournals: [DailyJournal] = []
     
     // MARK: - Methods
-
+    
     let publicDataBase = CKContainer.default().publicCloudDatabase
     
     func createDailyJournal(imageURL: String, entry: String, userReference: CKRecord.Reference, completion: @escaping (Bool) -> Void) {
@@ -65,13 +65,23 @@ class DailyController {
         }
     }
     
-    func saveUpdatedJournal(entry: String, completion: @escaping (Bool) -> Void) {
+    func saveUpdatedJournal(dailyJournal: DailyJournal , entry: String, completion: @escaping (Bool) -> Void) {
         
+        let modifiedDailyJournal = dailyJournal
+        modifiedDailyJournal.entry = entry
+        
+        let modificationOperation = CKModifyRecordsOperation(recordsToSave: [CKRecord(dailyJournal: modifiedDailyJournal)], recordIDsToDelete: nil)
+        modificationOperation.queuePriority = .high
+        modificationOperation.savePolicy = .changedKeys
+        modificationOperation.qualityOfService = .userInteractive
+        modificationOperation.modifyRecordsCompletionBlock = { (_, _, error) in
+            if let error = error {
+                print("Unable to modify user response array. \n Error: \(error) \n \(error.localizedDescription)")
+                completion(false)
+                return
+            }
+        }
+        self.publicDataBase.add(modificationOperation)
+        completion(true)
     }
-    
-    
-    
-    
-    
-    
 }
