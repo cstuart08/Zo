@@ -59,7 +59,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D4CDD46B234E8E8E00A6D5C5 /* ZoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4CDD46B234E8E8E00A6D5C5 /* Zo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4CDD46E234E8E8E00A6D5C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4CDD470234E8E8E00A6D5C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D4CDD477234E8E8E00A6D5C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 		D4CDD46C234E8E8E00A6D5C5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D4CDD46B234E8E8E00A6D5C5 /* ZoApp.app */,
+				D4CDD46B234E8E8E00A6D5C5 /* Zo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -328,7 +328,7 @@
 			);
 			name = ZoApp;
 			productName = ZoApp;
-			productReference = D4CDD46B234E8E8E00A6D5C5 /* ZoApp.app */;
+			productReference = D4CDD46B234E8E8E00A6D5C5 /* Zo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -571,7 +571,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.CameronStuart.ZoApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Zo;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -590,7 +590,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.CameronStuart.ZoApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Zo;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
