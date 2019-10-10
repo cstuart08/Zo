@@ -37,5 +37,5 @@ extension UIColor {
     static let sageGreen = UIColor(named: "sageGreen")!
     static let ivory = UIColor(named: "ivory")!
     static let lightPink = UIColor(named: "lightPink")!
-    static let zoWhite = UIColor(named: "white")!
+    static let zoWhite = UIColor(named: "White")!
 }
