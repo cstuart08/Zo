@@ -33,7 +33,7 @@ class RequestController {
             
             guard let record = record, let request = Request(ckRecord: record) else { completion(false); return }
             
-            self.myRequests.append(request)
+            self.requests.append(request)
         }
         
         completion(true)
@@ -65,7 +65,7 @@ class RequestController {
                 }
             }
             
-            self.myRequests = filteredRequests
+            self.requests = filteredRequests
             completion(true)
         }
     }
@@ -99,7 +99,7 @@ class RequestController {
         let date = NSDate(timeInterval: -60.0 * 60 * 72, since: Date())
         guard let user = UserController.shared.currentUser else { completion(false); return }
         let predicate = NSPredicate(format: "creationDate > %@", date)
-        let predicate2 = NSPredicate(format: "\(RequestConstants.userReferenceKey) == %@", user.appleUserReference)
+        let predicate2 = NSPredicate(format: "\(RequestConstants.userReferenceKey) == %@", user.recordID)
         let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate, predicate2])
         let query = CKQuery(recordType: RequestConstants.recordTypeKey, predicate: compoundPredicate)
         publicDataBase.perform(query, inZoneWith: nil) { (records, error) in
