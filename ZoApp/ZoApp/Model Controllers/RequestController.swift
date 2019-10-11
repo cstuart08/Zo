@@ -18,8 +18,8 @@ class RequestController {
     
     let publicDataBase = CKContainer.default().publicCloudDatabase
     
-    func createAndSaveRequest(title: String, username: String, body: String, userReference: CKRecord.Reference, completion: @escaping (Bool) -> Void) {
-        let request = Request(username: username, title: title, body: body, userReference: userReference)
+    func createAndSaveRequest(title: String, username: String, body: String, userReference: CKRecord.Reference, tags: [String], completion: @escaping (Bool) -> Void) {
+        let request = Request(username: username, title: title, body: body, userReference: userReference, tags: tags)
         
         let requestRecord = CKRecord(request: request)
         

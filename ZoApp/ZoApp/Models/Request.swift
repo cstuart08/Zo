@@ -24,13 +24,13 @@ class Request {
     let username: String
     let title: String
     let body: String
-    var tags: [String] = []
+    var tags: [String]
     let timestamp: Double
     var responseCount: Int = 0
     let recordID: CKRecord.ID
     let userReference: CKRecord.Reference
        
-    init(username: String, title: String, body: String, timestamp: Double = Date().timeIntervalSince1970, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), userReference: CKRecord.Reference) {
+    init(username: String, title: String, body: String, timestamp: Double = Date().timeIntervalSince1970, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), userReference: CKRecord.Reference, tags: [String]) {
            
         self.username = username
         self.title = title
@@ -38,6 +38,7 @@ class Request {
         self.timestamp = timestamp
         self.recordID = recordID
         self.userReference = userReference
+        self.tags = tags
     }
     
     init?(ckRecord: CKRecord) {
@@ -46,7 +47,8 @@ class Request {
             let body = ckRecord[RequestConstants.bodyKey] as? String,
             let timestamp = ckRecord[RequestConstants.timestampKey] as? Double,
             let responseCount = ckRecord[RequestConstants.responseCountKey] as? Int,
-            let userReference = ckRecord[RequestConstants.userReferenceKey] as? CKRecord.Reference else { return nil }
+            let userReference = ckRecord[RequestConstants.userReferenceKey] as? CKRecord.Reference,
+        let tags = ckRecord[RequestConstants.tagsKey] as? [String] else { return nil }
         
         self.username = username
         self.title = title
@@ -55,9 +57,8 @@ class Request {
         self.responseCount = responseCount
         self.userReference = userReference
         self.recordID = ckRecord.recordID
-        if let tags = ckRecord[RequestConstants.tagsKey] as? [String] {
-            self.tags = tags
-        }
+        self.tags = tags
+        
     }
 }
 
@@ -70,9 +71,6 @@ extension CKRecord {
         self.setValue(request.timestamp, forKey: RequestConstants.timestampKey)
         self.setValue(request.responseCount, forKey: RequestConstants.responseCountKey)
         self.setValue(request.userReference, forKey: RequestConstants.userReferenceKey)
-        
-        if !request.tags.isEmpty {
-            self.setValue(request.tags, forKey: RequestConstants.tagsKey)
-        }
+        self.setValue(request.tags, forKey: RequestConstants.tagsKey)
     }
 }
