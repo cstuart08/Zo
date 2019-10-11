@@ -137,8 +137,7 @@
                                 <rect key="frame" x="16" y="16" width="45" height="30"/>
                                 <state key="normal" title="Delete"/>
                                 <connections>
-                                    <action selector="deleteButtonTapped:" destination="PSA-6d-hAN" eventType="touchUpInside" id="sxD-Bh-Peh"/>
-                                    <segue destination="q1f-sM-N9D" kind="show" id="yob-PC-srj"/>
+                                    <segue destination="q1f-sM-N9D" kind="show" identifier="detailToDeleteVC" id="yob-PC-srj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hah-6e-Q5T">

@@ -85,7 +85,21 @@ class DailyController {
         completion(true)
     }
     
-//    func deleteDailyJournal(dailyJournal: DailyJournal) {
-//
-//    }
+    func deleteDailyJournal(dailyJournal: DailyJournal, completion: @escaping (Bool) -> Void) {
+        
+        let dailyRecordID = dailyJournal.recordID
+        
+        guard let index = self.myDailyJournals.firstIndex(of: dailyJournal) else { completion(false); return }
+        
+        self.myDailyJournals.remove(at: index)
+        
+        self.publicDataBase.delete(withRecordID: dailyRecordID) { (recordID, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                completion(false)
+                return
+            }
+            completion(true)
+        }
+    }
 }

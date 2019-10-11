@@ -60,3 +60,9 @@ extension CKRecord {
         setValue(dailyJournal.userReference, forKey: DailyJournalConstants.userReferenceKey)
     }
 }
+
+extension DailyJournal: Equatable {
+    static func == (lhs: DailyJournal, rhs: DailyJournal) -> Bool {
+        return lhs.entry == rhs.entry && lhs.recordID == rhs.recordID && lhs.timestamp == rhs.timestamp
+    }
+}
