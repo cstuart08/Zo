@@ -56,6 +56,7 @@ class DailyViewController: UIViewController, UITextViewDelegate {
         todayTitleLabel.textColor = .zoBlack
         todayView.addCornerRadius()
         todayView.addAccentBorder(width: 2, color: .boldGreen)
+        pastEntriesTableView.backgroundColor = .clear
     }
 
     
@@ -147,9 +148,13 @@ extension DailyViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "pastDailyJournalEntry", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "pastDailyJournalEntry", for: indexPath) as? PastDailyEntriesTableViewCell else { return UITableViewCell()}
         let entry = DailyController.shared.myDailyJournals[indexPath.row]
-        cell.textLabel?.text = DateHelper.shared.mediumDateSTRfromDouble(dateDouble: entry.timestamp)
+        
+        cell.titleLabel.text = DateHelper.shared.mediumDateSTRfromDouble(dateDouble: entry.timestamp)
+//        cell.textLabel?.text = DateHelper.shared.mediumDateSTRfromDouble(dateDouble: entry.timestamp)
         return cell
     }
+    
+    
 }

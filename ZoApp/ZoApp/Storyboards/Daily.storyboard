@@ -50,27 +50,37 @@
                                     <constraint firstItem="evc-jl-zGb" firstAttribute="height" secondItem="ZmH-dO-D6B" secondAttribute="height" multiplier="0.7" id="ly3-7g-AUd"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ipr-91-xD1">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="56" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ipr-91-xD1">
                                 <rect key="frame" x="0.0" y="597.5" width="414" height="215.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="8Ws-A1-7WC">
+                                    <rect key="frame" x="0.0" y="112" width="414" height="0.0"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pastDailyJournalEntry" textLabel="w67-i5-fiF" style="IBUITableViewCellStyleDefault" id="nlk-Pr-fMA">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="pastDailyJournalEntry" id="nlk-Pr-fMA" customClass="PastDailyEntriesTableViewCell" customModule="Zo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nlk-Pr-fMA" id="gux-QD-iQa">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Oct 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="w67-i5-fiF">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFU-rc-m75">
+                                                    <rect key="frame" x="20.5" y="17.5" width="373" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="SFU-rc-m75" firstAttribute="width" secondItem="gux-QD-iQa" secondAttribute="width" multiplier="0.9" id="b2U-Ed-fmt"/>
+                                                <constraint firstItem="SFU-rc-m75" firstAttribute="centerX" secondItem="gux-QD-iQa" secondAttribute="centerX" id="oLd-tV-fqP"/>
+                                                <constraint firstItem="SFU-rc-m75" firstAttribute="centerY" secondItem="gux-QD-iQa" secondAttribute="centerY" id="sTp-OU-MW9"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="titleLabel" destination="SFU-rc-m75" id="2SC-8Q-SNZ"/>
                                             <segue destination="PSA-6d-hAN" kind="presentation" identifier="pastDailyCellToDetailVC" id="S8k-AV-8Bu"/>
                                         </connections>
                                     </tableViewCell>
@@ -83,19 +93,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter your thoughts here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kcx-CL-EvJ">
-                                <rect key="frame" x="31" y="390.5" width="352" height="161"/>
+                                <rect key="frame" x="31" y="390.5" width="352" height="156"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxZ-wc-1aj">
-                                <rect key="frame" x="190" y="559" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" name="boldGreen"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" name="zoWhite"/>
-                                </state>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxZ-wc-1aj" customClass="ZoButton" customModule="Zo" customModuleProvider="target">
+                                <rect key="frame" x="151" y="550.5" width="112" height="38.5"/>
+                                <state key="normal" title="SAVE"/>
                                 <connections>
                                     <action selector="saveButtonTapped:" destination="jJG-Jg-fBK" eventType="touchUpInside" id="9QU-2b-N5w"/>
                                 </connections>
@@ -103,19 +109,23 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="ipr-91-xD1" firstAttribute="leading" secondItem="0Wm-Z0-V4c" secondAttribute="leading" id="IXA-Gy-Ifv"/>
+                            <constraint firstItem="ipr-91-xD1" firstAttribute="centerX" secondItem="0Wm-Z0-V4c" secondAttribute="centerX" id="57T-F6-kak"/>
+                            <constraint firstItem="ipr-91-xD1" firstAttribute="top" secondItem="qxZ-wc-1aj" secondAttribute="bottom" constant="8.5" id="AYJ-23-Qwm"/>
+                            <constraint firstItem="qxZ-wc-1aj" firstAttribute="width" secondItem="0Wm-Z0-V4c" secondAttribute="width" multiplier="0.27" id="Fv7-Pj-FH1"/>
+                            <constraint firstItem="qxZ-wc-1aj" firstAttribute="centerX" secondItem="0Wm-Z0-V4c" secondAttribute="centerX" id="IRW-F5-bqs"/>
                             <constraint firstItem="ipr-91-xD1" firstAttribute="bottom" secondItem="0Wm-Z0-V4c" secondAttribute="bottom" id="Jj3-pc-OYo"/>
                             <constraint firstItem="Kcx-CL-EvJ" firstAttribute="width" secondItem="0Wm-Z0-V4c" secondAttribute="width" multiplier="0.85" id="T1A-Sh-0iS"/>
+                            <constraint firstItem="qxZ-wc-1aj" firstAttribute="height" secondItem="0Wm-Z0-V4c" secondAttribute="height" multiplier="0.05" id="cwg-Hk-nhF"/>
                             <constraint firstItem="Kcx-CL-EvJ" firstAttribute="centerX" secondItem="0Wm-Z0-V4c" secondAttribute="centerX" id="fN6-GL-UMh"/>
                             <constraint firstItem="ZmH-dO-D6B" firstAttribute="width" secondItem="0Wm-Z0-V4c" secondAttribute="width" multiplier="0.88" id="fSz-Qe-7hh"/>
                             <constraint firstItem="ZmH-dO-D6B" firstAttribute="height" secondItem="0Wm-Z0-V4c" secondAttribute="height" multiplier="0.44" id="flu-Ln-Pku"/>
                             <constraint firstItem="ipr-91-xD1" firstAttribute="top" secondItem="udw-Df-NBk" secondAttribute="bottom" constant="4" id="iv2-rh-d51"/>
                             <constraint firstItem="ipr-91-xD1" firstAttribute="height" secondItem="0Wm-Z0-V4c" secondAttribute="height" multiplier="0.28" id="jWw-V3-FMV"/>
-                            <constraint firstItem="ipr-91-xD1" firstAttribute="trailing" secondItem="0Wm-Z0-V4c" secondAttribute="trailing" id="kDE-sK-icN"/>
+                            <constraint firstItem="ipr-91-xD1" firstAttribute="width" secondItem="0Wm-Z0-V4c" secondAttribute="width" id="k4T-40-eGg"/>
                             <constraint firstItem="Kcx-CL-EvJ" firstAttribute="top" secondItem="ZmH-dO-D6B" secondAttribute="bottom" constant="8" id="mNE-8I-9qS"/>
-                            <constraint firstItem="ipr-91-xD1" firstAttribute="top" secondItem="Kcx-CL-EvJ" secondAttribute="bottom" constant="46" id="mNg-k1-7nK"/>
                             <constraint firstItem="ZmH-dO-D6B" firstAttribute="top" secondItem="0Wm-Z0-V4c" secondAttribute="top" id="nmJ-fm-3i2"/>
                             <constraint firstItem="ZmH-dO-D6B" firstAttribute="centerX" secondItem="0Wm-Z0-V4c" secondAttribute="centerX" id="t7Y-4b-qyp"/>
+                            <constraint firstItem="qxZ-wc-1aj" firstAttribute="top" secondItem="Kcx-CL-EvJ" secondAttribute="bottom" constant="4" id="w6Z-C2-Lj8"/>
                             <constraint firstItem="udw-Df-NBk" firstAttribute="leading" secondItem="0Wm-Z0-V4c" secondAttribute="leading" constant="16" id="wKf-Ne-aLj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0Wm-Z0-V4c"/>
@@ -256,14 +266,8 @@
     </scenes>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="56" height="64"/>
-        <namedColor name="boldGreen">
-            <color red="0.086274509803921567" green="0.40392156862745099" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="darkBlue">
             <color red="0.10588235294117647" green="0.2627450980392157" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="zoWhite">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
