@@ -61,6 +61,8 @@
 		D4CDD4F0234E8F7000A6D5C5 /* Daily.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4CDD4E3234E8F7000A6D5C5 /* Daily.storyboard */; };
 		D4CDD4F5234E908500A6D5C5 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4CDD4F4234E908500A6D5C5 /* CloudKit.framework */; };
 		FC00D8A62350D26800BC2C30 /* TextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC00D8A52350D26800BC2C30 /* TextViewExtension.swift */; };
+		FC00D8A82350F5FC00BC2C30 /* ZoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC00D8A72350F5FC00BC2C30 /* ZoButton.swift */; };
+		FC00D8AB2350FB0A00BC2C30 /* PastDailyEntriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC00D8AA2350FB0A00BC2C30 /* PastDailyEntriesTableViewCell.swift */; };
 		FC93FE2B234F9F8200F65581 /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC93FE2A234F9F8200F65581 /* StyleGuide.swift */; };
 		FC93FE2D234F9FB000F65581 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC93FE2C234F9FB000F65581 /* Colors.xcassets */; };
 		FC93FE30234FA3C900F65581 /* FingerPaint-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC93FE2F234FA3C900F65581 /* FingerPaint-Regular.ttf */; };
@@ -130,6 +132,8 @@
 		D4CDD4F2234E908200A6D5C5 /* ZoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZoApp.entitlements; sourceTree = "<group>"; };
 		D4CDD4F4234E908500A6D5C5 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		FC00D8A52350D26800BC2C30 /* TextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewExtension.swift; sourceTree = "<group>"; };
+		FC00D8A72350F5FC00BC2C30 /* ZoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoButton.swift; sourceTree = "<group>"; };
+		FC00D8AA2350FB0A00BC2C30 /* PastDailyEntriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastDailyEntriesTableViewCell.swift; sourceTree = "<group>"; };
 		FC93FE2A234F9F8200F65581 /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
 		FC93FE2C234F9FB000F65581 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FC93FE2F234FA3C900F65581 /* FingerPaint-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FingerPaint-Regular.ttf"; sourceTree = "<group>"; };
@@ -208,6 +212,7 @@
 		D4CDD483234E8F4100A6D5C5 /* Daily */ = {
 			isa = PBXGroup;
 			children = (
+				FC00D8A92350FAAF00BC2C30 /* Custom Cells */,
 				D4CDD484234E8F4100A6D5C5 /* DeletePastDailyEntryViewController.swift */,
 				D4CDD485234E8F4100A6D5C5 /* PastDailyEntryViewController.swift */,
 				D4CDD486234E8F4100A6D5C5 /* DailyViewController.swift */,
@@ -354,6 +359,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FC00D8A92350FAAF00BC2C30 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FC00D8AA2350FB0A00BC2C30 /* PastDailyEntriesTableViewCell.swift */,
+			);
+			path = "Custom Cells";
+			sourceTree = "<group>";
+		};
 		FC93FE29234F9F5A00F65581 /* StyleGuide */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,6 +374,7 @@
 				FC93FE39234FC37C00F65581 /* OnboardingTextField.swift */,
 				FC93FE3B234FCE8200F65581 /* OnBoardingButton.swift */,
 				FC00D8A52350D26800BC2C30 /* TextViewExtension.swift */,
+				FC00D8A72350F5FC00BC2C30 /* ZoButton.swift */,
 			);
 			path = StyleGuide;
 			sourceTree = "<group>";
@@ -471,6 +485,7 @@
 				D4CDD4A2234E8F4100A6D5C5 /* DeletePastDailyEntryViewController.swift in Sources */,
 				D423DD9B234FC1FD002FAE7F /* DateFormatters.swift in Sources */,
 				D435FD34234F8CE900FD6DCC /* UnsplashRoute.swift in Sources */,
+				FC00D8AB2350FB0A00BC2C30 /* PastDailyEntriesTableViewCell.swift in Sources */,
 				D4CDD4AA234E8F4100A6D5C5 /* FlagPostAlertViewController.swift in Sources */,
 				D4CDD4A7234E8F4100A6D5C5 /* PastRequestsTableViewCell.swift in Sources */,
 				D4CDD4D1234E8F5A00A6D5C5 /* Daily.swift in Sources */,
@@ -488,6 +503,7 @@
 				D4CDD4AF234E8F4100A6D5C5 /* BlockUserAlertViewController.swift in Sources */,
 				D4CDD471234E8E8E00A6D5C5 /* SceneDelegate.swift in Sources */,
 				D4CDD4B2234E8F4100A6D5C5 /* ProfileViewController.swift in Sources */,
+				FC00D8A82350F5FC00BC2C30 /* ZoButton.swift in Sources */,
 				D4CDD4C0234E8F5500A6D5C5 /* ResponseController.swift in Sources */,
 				FC93FE3C234FCE8300F65581 /* OnBoardingButton.swift in Sources */,
 				D4CDD4C1234E8F5500A6D5C5 /* DailyController.swift in Sources */,
