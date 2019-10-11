@@ -115,4 +115,16 @@ class RequestController {
             completion(true)
         }
     }
+    
+    func modifyRecordsOperation(request: Request, completion: @escaping (Bool) -> Void) {
+        let operation = CKModifyRecordsOperation()
+        operation.recordsToSave = [CKRecord(request: request)]
+        operation.savePolicy = .changedKeys
+        operation.qualityOfService = .userInteractive
+        operation.queuePriority = .high
+        operation.completionBlock = {
+            completion(true)
+        }
+        publicDataBase.add(operation)
+    }
 }
