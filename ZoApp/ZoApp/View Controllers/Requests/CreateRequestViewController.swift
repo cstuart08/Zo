@@ -46,11 +46,14 @@ class CreateRequestViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func requestButtonTapped(_ sender: Any) {
-        guard let username = usernameLabel.text else { return }
-        guard let body = requestTextView.text else { return }
+        guard let username = usernameLabel.text,
+            let body = requestTextView.text,
+            let hashtag1 = hashtagTextField1.text,
+            let hashtag2 = hashtagTextField2.text,
+            let hashtag3 = hashtagTextField3.text else { return }
         guard let user = user else { return }
         let userRef = CKRecord.Reference(recordID: user.recordID, action: .deleteSelf)
-        RequestController.shared.createAndSaveRequest(title: "No Title Field Currently", username: username, body: body, userReference: userRef) { (success) in
+        RequestController.shared.createAndSaveRequest(title: "No Title Field Currently", username: username, body: body, userReference: userRef, tags: ["#" + hashtag1, "#" + hashtag2, "#" + hashtag3]) { (success) in
             if success {
                 print("Success creating a request.")
                 self.dismiss(animated: true)

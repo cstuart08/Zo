@@ -58,6 +58,7 @@ class ActiveRequestViewController: UIViewController {
         requestBodyLabel.text = request.body
         requestImageView.image = UIImage(named: "focus")
         numberOfResponsesLabel.text = "\(request.responseCount)"
+        tagsLabel.text = "\(request.tags)"
         
         
     }
