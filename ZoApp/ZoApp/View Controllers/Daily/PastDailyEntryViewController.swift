@@ -60,6 +60,14 @@ class PastDailyEntryViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailToDeleteVC" {
+            guard let destinationVC = segue.destination as? DeletePastDailyEntryViewController else { return }
+            guard let dailyJournalToDelete = self.dailyJournal else { return }
+            destinationVC.dailyJournalToDelete = dailyJournalToDelete
+        }
+    }
+    
     // MARK: - Actions
     @IBAction func editButtonTapped(_ sender: Any) {
         if editToggle == false {
@@ -74,9 +82,5 @@ class PastDailyEntryViewController: UIViewController {
             editToggle = false
             saveUpdatedJournal()
         }
-    }
-    
-    @IBAction func deleteButtonTapped(_ sender: Any) {
-        
     }
 }
