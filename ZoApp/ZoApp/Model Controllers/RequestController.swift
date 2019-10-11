@@ -44,27 +44,28 @@ class RequestController {
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: RequestConstants.recordTypeKey, predicate: predicate)
         publicDataBase.perform(query, inZoneWith: nil) { (records, error) in
-            
+
             if let error = error {
                 print("Error fetching requests from database in \(#function) \(error) \(error.localizedDescription)")
                 completion(false)
                 return
             }
-            
+
             guard let records = records else { completion(false); return }
-            
-            
+
+
             let requests = records.compactMap({Request(ckRecord: $0)})
-            
+
             var filteredRequests: [Request] = []
             
+
             for request in requests {
                 guard let user = UserController.shared.currentUser else { completion(false); return }
-                if !user.respondedTo.contains(request.recordID.recordName) {
+                if request.userReference.recordID.recordName != user.recordID.recordName {
                     filteredRequests.append(request)
                 }
             }
-            
+
             self.requests = filteredRequests
             completion(true)
         }
@@ -91,7 +92,6 @@ class RequestController {
             self.myRequests = requests
             completion(true)
             print("completion true")
-            
         }
     }
     

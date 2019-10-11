@@ -29,6 +29,7 @@ class PastRequestsTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        tagsLabel.isHidden = true
         
     }
 
