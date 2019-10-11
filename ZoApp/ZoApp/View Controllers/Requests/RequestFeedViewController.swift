@@ -11,7 +11,6 @@ import UIKit
 class RequestFeedViewController: UIViewController {
 
     // MARK: - Outlets
-    @IBOutlet weak var tagsSearchBar: UISearchBar!
     @IBOutlet weak var pastRequestsTableView: UITableView!
     @IBOutlet weak var requestsLabel: UILabel!
     @IBOutlet weak var rulesButton: UIButton!
