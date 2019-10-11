@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jJG-Jg-fBK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jJG-Jg-fBK">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -60,20 +60,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ex-n8-thz">
-                                <rect key="frame" x="288.5" y="81" width="53" height="33.5"/>
-                                <color key="backgroundColor" name="boldGreen"/>
-                                <state key="normal" title="Refresh">
-                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="refreshButtonTapped:" destination="jJG-Jg-fBK" eventType="touchUpInside" id="84D-DC-4y7"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxZ-wc-1aj">
                                 <rect key="frame" x="307.5" y="352" width="34" height="30"/>
+                                <color key="backgroundColor" name="boldGreen"/>
                                 <state key="normal" title="Save">
-                                    <color key="titleColor" name="boldGreen"/>
+                                    <color key="titleColor" name="zoWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="saveButtonTapped:" destination="jJG-Jg-fBK" eventType="touchUpInside" id="9QU-2b-N5w"/>
@@ -86,18 +77,27 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ex-n8-thz">
+                                <rect key="frame" x="238.5" y="352" width="53" height="30"/>
+                                <color key="backgroundColor" name="boldGreen"/>
+                                <state key="normal" title="Refresh">
+                                    <color key="titleColor" name="zoWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="refreshButtonTapped:" destination="jJG-Jg-fBK" eventType="touchUpInside" id="84D-DC-4y7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="5pP-HP-Uea" firstAttribute="centerX" secondItem="evc-jl-zGb" secondAttribute="centerX" id="3VN-0o-7bf"/>
-                            <constraint firstItem="8ex-n8-thz" firstAttribute="trailing" secondItem="evc-jl-zGb" secondAttribute="trailing" id="5Ja-S4-8NW"/>
                             <constraint firstItem="qxZ-wc-1aj" firstAttribute="trailing" secondItem="evc-jl-zGb" secondAttribute="trailing" id="E2d-UO-ACe"/>
                             <constraint firstItem="ipr-91-xD1" firstAttribute="leading" secondItem="0Wm-Z0-V4c" secondAttribute="leading" id="IXA-Gy-Ifv"/>
                             <constraint firstItem="ipr-91-xD1" firstAttribute="bottom" secondItem="0Wm-Z0-V4c" secondAttribute="bottom" id="Jj3-pc-OYo"/>
+                            <constraint firstItem="qxZ-wc-1aj" firstAttribute="leading" secondItem="8ex-n8-thz" secondAttribute="trailing" constant="16" id="Jop-mx-ADp"/>
+                            <constraint firstItem="8ex-n8-thz" firstAttribute="top" secondItem="qxZ-wc-1aj" secondAttribute="top" id="Qlf-9b-1fg"/>
                             <constraint firstItem="Kcx-CL-EvJ" firstAttribute="width" secondItem="0Wm-Z0-V4c" secondAttribute="width" multiplier="0.85" id="T1A-Sh-0iS"/>
-                            <constraint firstItem="evc-jl-zGb" firstAttribute="top" secondItem="8ex-n8-thz" secondAttribute="top" id="T9d-aJ-5o7"/>
                             <constraint firstItem="5pP-HP-Uea" firstAttribute="top" secondItem="0Wm-Z0-V4c" secondAttribute="top" constant="8" id="UFB-Sn-lwc"/>
-                            <constraint firstItem="8ex-n8-thz" firstAttribute="height" secondItem="evc-jl-zGb" secondAttribute="height" multiplier="0.125" id="bOW-Po-BrJ"/>
                             <constraint firstItem="evc-jl-zGb" firstAttribute="centerX" secondItem="0Wm-Z0-V4c" secondAttribute="centerX" id="caR-77-z4l"/>
                             <constraint firstItem="Kcx-CL-EvJ" firstAttribute="height" secondItem="evc-jl-zGb" secondAttribute="height" multiplier="0.6" id="fCx-bb-CBA"/>
                             <constraint firstItem="Kcx-CL-EvJ" firstAttribute="centerX" secondItem="0Wm-Z0-V4c" secondAttribute="centerX" id="fN6-GL-UMh"/>
@@ -106,6 +106,7 @@
                             <constraint firstItem="ipr-91-xD1" firstAttribute="trailing" secondItem="0Wm-Z0-V4c" secondAttribute="trailing" id="kDE-sK-icN"/>
                             <constraint firstItem="evc-jl-zGb" firstAttribute="height" secondItem="0Wm-Z0-V4c" secondAttribute="height" multiplier="0.35" id="n5G-TF-PQK"/>
                             <constraint firstItem="evc-jl-zGb" firstAttribute="top" secondItem="5pP-HP-Uea" secondAttribute="bottom" constant="8" id="nKx-bZ-Kej"/>
+                            <constraint firstItem="8ex-n8-thz" firstAttribute="height" secondItem="qxZ-wc-1aj" secondAttribute="height" id="stq-QF-JjY"/>
                             <constraint firstItem="Kcx-CL-EvJ" firstAttribute="top" secondItem="qxZ-wc-1aj" secondAttribute="bottom" constant="8" id="tKK-2F-GUE"/>
                             <constraint firstItem="udw-Df-NBk" firstAttribute="leading" secondItem="0Wm-Z0-V4c" secondAttribute="leading" constant="16" id="wKf-Ne-aLj"/>
                             <constraint firstItem="qxZ-wc-1aj" firstAttribute="top" secondItem="evc-jl-zGb" secondAttribute="bottom" constant="2" id="ygq-iD-cEh"/>
@@ -247,6 +248,9 @@
     <resources>
         <namedColor name="boldGreen">
             <color red="0.086274509803921567" green="0.40392156862745099" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="zoWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

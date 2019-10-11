@@ -27,7 +27,10 @@ class DeletePastDailyEntryViewController: UIViewController {
             if success {
                 DispatchQueue.main.async {
                     print("Successfully deleted daily journal.")
-                    self.presentingViewController?.presentingViewController?.dismiss(animated: true)
+                    self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: {
+                        let notification = Notification(name: Notification.Name(rawValue: "reloadTableView"))
+                        NotificationCenter.default.post(notification)
+                    })
                 }
             } else {
                 print("Unable to delete daily journal.")
@@ -39,3 +42,6 @@ class DeletePastDailyEntryViewController: UIViewController {
         self.dismiss(animated: true)
     }
 }
+
+
+
