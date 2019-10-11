@@ -11,6 +11,8 @@ import UIKit
 class DailyViewController: UIViewController, UITextViewDelegate {
     
     // MARK: - Outlets
+    @IBOutlet weak var todayView: UIView!
+    @IBOutlet weak var todayTitleLabel: UILabel!
     @IBOutlet weak var dailyImageView: UIImageView!
     @IBOutlet weak var pastEntriesTableView: UITableView!
     @IBOutlet weak var dailyEntryTextView: UITextView!
@@ -37,12 +39,25 @@ class DailyViewController: UIViewController, UITextViewDelegate {
         category(.inspirationalQuote)
         let notification = Notification.Name(rawValue: "reloadTableView")
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableViews), name: notification, object: nil)
+        stylizeSubviews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         fetchMyJournals()
     }
+    
+    // MARK: - UI Adjustments
+    
+    func stylizeSubviews() {
+        dailyEntryTextView.setupDailyTextViewUI()
+        view.backgroundColor = .ivory
+        todayTitleLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
+        todayTitleLabel.textColor = .zoBlack
+        todayView.addCornerRadius()
+        todayView.addAccentBorder(width: 2, color: .boldGreen)
+    }
+
     
     // MARK: - Methods
     @objc func tapResign() {

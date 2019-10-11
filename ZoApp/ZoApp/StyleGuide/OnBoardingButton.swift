@@ -8,16 +8,11 @@
 
 import UIKit
 
-class ZoButton: UIButton {
+class OnBoardingButton: UIButton {
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
-    }
-    
-    func updateFont(to fontName: String) {
-        guard let size = titleLabel?.font.pointSize else { return }
-        self.titleLabel?.font = UIFont(name: fontName, size: size)
     }
     
     func setupUI() {
@@ -26,5 +21,10 @@ class ZoButton: UIButton {
         setTitleColor(.zoWhite, for: .normal)
         addCornerRadius()
         addAccentBorder(width: 3, color: .zoWhite)
+    }
+    
+    func updateFont(to fontName: String) {
+        guard let size = titleLabel?.font.pointSize else { return }
+        self.titleLabel?.font = UIFont(name: fontName, size: size)
     }
 }

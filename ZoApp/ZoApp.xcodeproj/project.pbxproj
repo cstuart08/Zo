@@ -60,6 +60,7 @@
 		D4CDD4EF234E8F7000A6D5C5 /* CreateRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4CDD4E2234E8F7000A6D5C5 /* CreateRequest.storyboard */; };
 		D4CDD4F0234E8F7000A6D5C5 /* Daily.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4CDD4E3234E8F7000A6D5C5 /* Daily.storyboard */; };
 		D4CDD4F5234E908500A6D5C5 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4CDD4F4234E908500A6D5C5 /* CloudKit.framework */; };
+		FC00D8A62350D26800BC2C30 /* TextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC00D8A52350D26800BC2C30 /* TextViewExtension.swift */; };
 		FC93FE2B234F9F8200F65581 /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC93FE2A234F9F8200F65581 /* StyleGuide.swift */; };
 		FC93FE2D234F9FB000F65581 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC93FE2C234F9FB000F65581 /* Colors.xcassets */; };
 		FC93FE30234FA3C900F65581 /* FingerPaint-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC93FE2F234FA3C900F65581 /* FingerPaint-Regular.ttf */; };
@@ -67,8 +68,8 @@
 		FC93FE34234FA3E900F65581 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC93FE33234FA3E900F65581 /* Lato-BoldItalic.ttf */; };
 		FC93FE36234FA3F300F65581 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC93FE35234FA3F300F65581 /* Lato-Regular.ttf */; };
 		FC93FE38234FA3FB00F65581 /* Lato-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC93FE37234FA3FB00F65581 /* Lato-RegularItalic.ttf */; };
-		FC93FE3A234FC37C00F65581 /* ZoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC93FE39234FC37C00F65581 /* ZoTextField.swift */; };
-		FC93FE3C234FCE8300F65581 /* ZoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC93FE3B234FCE8200F65581 /* ZoButton.swift */; };
+		FC93FE3A234FC37C00F65581 /* OnboardingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC93FE39234FC37C00F65581 /* OnboardingTextField.swift */; };
+		FC93FE3C234FCE8300F65581 /* OnBoardingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC93FE3B234FCE8200F65581 /* OnBoardingButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +129,7 @@
 		D4CDD4E3234E8F7000A6D5C5 /* Daily.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Daily.storyboard; sourceTree = "<group>"; };
 		D4CDD4F2234E908200A6D5C5 /* ZoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZoApp.entitlements; sourceTree = "<group>"; };
 		D4CDD4F4234E908500A6D5C5 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		FC00D8A52350D26800BC2C30 /* TextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewExtension.swift; sourceTree = "<group>"; };
 		FC93FE2A234F9F8200F65581 /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
 		FC93FE2C234F9FB000F65581 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FC93FE2F234FA3C900F65581 /* FingerPaint-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FingerPaint-Regular.ttf"; sourceTree = "<group>"; };
@@ -135,8 +137,8 @@
 		FC93FE33234FA3E900F65581 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
 		FC93FE35234FA3F300F65581 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		FC93FE37234FA3FB00F65581 /* Lato-RegularItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-RegularItalic.ttf"; sourceTree = "<group>"; };
-		FC93FE39234FC37C00F65581 /* ZoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoTextField.swift; sourceTree = "<group>"; };
-		FC93FE3B234FCE8200F65581 /* ZoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoButton.swift; sourceTree = "<group>"; };
+		FC93FE39234FC37C00F65581 /* OnboardingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTextField.swift; sourceTree = "<group>"; };
+		FC93FE3B234FCE8200F65581 /* OnBoardingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,8 +358,9 @@
 			isa = PBXGroup;
 			children = (
 				FC93FE2A234F9F8200F65581 /* StyleGuide.swift */,
-				FC93FE39234FC37C00F65581 /* ZoTextField.swift */,
-				FC93FE3B234FCE8200F65581 /* ZoButton.swift */,
+				FC93FE39234FC37C00F65581 /* OnboardingTextField.swift */,
+				FC93FE3B234FCE8200F65581 /* OnBoardingButton.swift */,
+				FC00D8A52350D26800BC2C30 /* TextViewExtension.swift */,
 			);
 			path = StyleGuide;
 			sourceTree = "<group>";
@@ -464,7 +467,7 @@
 			files = (
 				D4CDD4B5234E8F4100A6D5C5 /* HowItWorksOnboardingViewController.swift in Sources */,
 				D4CDD4B1234E8F4100A6D5C5 /* ProfileViewCell.swift in Sources */,
-				FC93FE3A234FC37C00F65581 /* ZoTextField.swift in Sources */,
+				FC93FE3A234FC37C00F65581 /* OnboardingTextField.swift in Sources */,
 				D4CDD4A2234E8F4100A6D5C5 /* DeletePastDailyEntryViewController.swift in Sources */,
 				D423DD9B234FC1FD002FAE7F /* DateFormatters.swift in Sources */,
 				D435FD34234F8CE900FD6DCC /* UnsplashRoute.swift in Sources */,
@@ -474,6 +477,7 @@
 				D435FD32234F8CDC00FD6DCC /* UnsplashPhoto.swift in Sources */,
 				D4CDD4B6234E8F4100A6D5C5 /* WelcomeOnboardingViewController.swift in Sources */,
 				D4CDD4A3234E8F4100A6D5C5 /* PastDailyEntryViewController.swift in Sources */,
+				FC00D8A62350D26800BC2C30 /* TextViewExtension.swift in Sources */,
 				D435FD36234F8D0B00FD6DCC /* UnsplashService.swift in Sources */,
 				D4CDD4B4234E8F4100A6D5C5 /* MainTabViewController.swift in Sources */,
 				D4CDD4B3234E8F4100A6D5C5 /* PointsAndRankVC.swift in Sources */,
@@ -485,7 +489,7 @@
 				D4CDD471234E8E8E00A6D5C5 /* SceneDelegate.swift in Sources */,
 				D4CDD4B2234E8F4100A6D5C5 /* ProfileViewController.swift in Sources */,
 				D4CDD4C0234E8F5500A6D5C5 /* ResponseController.swift in Sources */,
-				FC93FE3C234FCE8300F65581 /* ZoButton.swift in Sources */,
+				FC93FE3C234FCE8300F65581 /* OnBoardingButton.swift in Sources */,
 				D4CDD4C1234E8F5500A6D5C5 /* DailyController.swift in Sources */,
 				D4CDD4D0234E8F5A00A6D5C5 /* Response.swift in Sources */,
 				D4CDD4AC234E8F4100A6D5C5 /* FavoriteResponseAlertViewController.swift in Sources */,
