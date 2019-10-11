@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ZoTextField: UITextField {
+class OnboardingTextField: UITextField {
     
     override func awakeFromNib() {
         super.awakeFromNib()

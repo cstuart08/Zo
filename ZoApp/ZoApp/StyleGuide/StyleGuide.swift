@@ -30,7 +30,7 @@ extension UIView {
 
 enum FontAttributes: CGFloat {
     case h1 = 36
-    case h2 = 30
+    case h2 = 25
     case h3 = 24
     case h4 = 18
     case body = 16
