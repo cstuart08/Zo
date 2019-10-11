@@ -34,7 +34,7 @@ class DailyController {
             guard let dailyJournalRecord = dailyJournalRecord,
                 let dailyJournal = DailyJournal(ckRecord: dailyJournalRecord) else { completion(false); return }
             
-            self.myDailyJournals.append(dailyJournal)
+            self.myDailyJournals.insert(dailyJournal, at: 0)
             completion(true)
             return
         }

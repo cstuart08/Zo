@@ -35,6 +35,8 @@ class DailyViewController: UIViewController, UITextViewDelegate {
         tap.addTarget(self, action: #selector(tapResign))
         view.addGestureRecognizer(tap)
         category(.inspirationalQuote)
+        let notification = Notification.Name(rawValue: "reloadTableView")
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableViews), name: notification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +47,10 @@ class DailyViewController: UIViewController, UITextViewDelegate {
     // MARK: - Methods
     @objc func tapResign() {
         dailyEntryTextView.resignFirstResponder()
+    }
+    
+    @objc func reloadTableViews() {
+        self.pastEntriesTableView.reloadData()
     }
     
     func category(_ unsplashRoute: UnsplashRoute) {
@@ -98,10 +104,13 @@ class DailyViewController: UIViewController, UITextViewDelegate {
         guard let entry = dailyEntryTextView.text else { return }
         guard let userReferencce = UserController.shared.currentUser?.appleUserReference else { return }
         guard let urlString = self.photo?.urls.regular else { return }
-        //guard let url = URL(string: urlString) else { return }
         DailyController.shared.createDailyJournal(imageURL: urlString, entry: entry, userReference: userReferencce) { (success) in
-            print("Success saving a daily journal.")
+            DispatchQueue.main.async {
+                print("Success saving a daily journal.")
+                self.pastEntriesTableView.reloadData()
+            }
         }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
