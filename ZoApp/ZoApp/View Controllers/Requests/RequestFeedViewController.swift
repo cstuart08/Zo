@@ -27,6 +27,29 @@ class RequestFeedViewController: UIViewController {
         activeRequestsFeedTableView.dataSource = self
         pastRequestsTableView.delegate = self
         pastRequestsTableView.dataSource = self
+        fetchRecentlyCurrentUserRequests()
+        fetchRequests()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        pastRequestsTableView.reloadData()
+    }
+    
+    // MARK: - Custom Methods
+    
+    func fetchRecentlyCurrentUserRequests() {
+        RequestController.shared.fetchOnlyRecentCurrentUserRequests { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    
+                    self.pastRequestsTableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    func fetchRequests() {
         RequestController.shared.fetchRequests { (success) in
             if success {
                 DispatchQueue.main.async {
@@ -39,29 +62,11 @@ class RequestFeedViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        RequestController.shared.fetchOnlyRecentCurrentUserRequests { (success) in
-            if success {
-                DispatchQueue.main.async {
-                    
-                    self.pastRequestsTableView.reloadData()
-                }
-            }
-        }
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        pastRequestsTableView.reloadData()
-    }
-    
-    // MARK: - Custom Methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toViewActivePastRequest" {
             if let index = pastRequestsTableView.indexPathForSelectedRow {
                 guard let destinationVC = segue.destination as? ActiveRequestViewController else { return }
-                let requestToSend = RequestController.shared.requests[index.row]
+                let requestToSend = RequestController.shared.myRequests[index.row]
                 destinationVC.request = requestToSend
             }
         } else if segue.identifier == "toResponseToRequest" {
