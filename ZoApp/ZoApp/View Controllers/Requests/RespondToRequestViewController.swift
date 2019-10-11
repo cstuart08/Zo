@@ -78,10 +78,16 @@ class RespondToRequestViewController: UIViewController {
         let requestReference = CKRecord.Reference(recordID: request.recordID, action: .deleteSelf)
         ResponseController.shared.createResponse(username: currentUser.username, bodyText: bodyText, link: link, image: image, responseTags: ["tag"], requestReference: requestReference) { (success) in
             if success {
-                DispatchQueue.main.async {
-                    
-                    self.dismiss(animated: true)
-                }
+                    request.responseCount += 1
+                    RequestController.shared.modifyRecordsOperation(request: request) { (success) in
+                        if success {
+                            DispatchQueue.main.async {
+                                print("response count was modified in the record")
+                                self.dismiss(animated: true)
+                            }
+                        }
+                    }
+                
             }
         }
     }
@@ -89,9 +95,10 @@ class RespondToRequestViewController: UIViewController {
     // MARK: - Custom Methods
     func setupViews() {
         loadViewIfNeeded()
-        usernameLabel.text = request?.username
-        numberOfResponsesLabel.text = "\(ResponseController.shared.responses.count)"
-        requestBodyLabel.text = request?.body
+        guard let request = request else { return }
+        usernameLabel.text = request.username
+        numberOfResponsesLabel.text = "\(request.responseCount)"
+        requestBodyLabel.text = request.body
         
         
     }

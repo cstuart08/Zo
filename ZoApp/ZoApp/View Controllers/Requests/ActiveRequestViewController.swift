@@ -54,8 +54,10 @@ class ActiveRequestViewController: UIViewController {
     
     func setupViews() {
         loadViewIfNeeded()
-        requestBodyLabel.text = request?.body
+        guard let request = request else { return }
+        requestBodyLabel.text = request.body
         requestImageView.image = UIImage(named: "focus")
+        numberOfResponsesLabel.text = "\(request.responseCount)"
         
         
     }

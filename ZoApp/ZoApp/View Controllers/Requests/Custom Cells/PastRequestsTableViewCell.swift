@@ -47,9 +47,10 @@ class PastRequestsTableViewCell: UITableViewCell {
     // MARK: - UI Adjustments
 
     func setupView() {
+        guard let request = requestLandingPad else { return }
         requestBodyLabel.text = requestLandingPad?.body
         tagsLabel.text = "tag"
         requestImage.image = UIImage(named: "focus")
-        numberOfResponsesLabel.text = "3"
+        numberOfResponsesLabel.text = "\(request.responseCount)"
     }
 }
