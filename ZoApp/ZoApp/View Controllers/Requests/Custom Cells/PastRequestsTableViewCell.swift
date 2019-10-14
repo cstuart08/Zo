@@ -11,7 +11,6 @@ import UIKit
 class PastRequestsTableViewCell: UITableViewCell {
 
     // MARK: - Outlets
-
     @IBOutlet weak var requestBodyLabel: UILabel!
     @IBOutlet weak var tagsLabel: UILabel!
     @IBOutlet weak var requestImage: UIImageView!
@@ -35,8 +34,6 @@ class PastRequestsTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     // MARK: - Actions
@@ -46,7 +43,6 @@ class PastRequestsTableViewCell: UITableViewCell {
     
     
     // MARK: - UI Adjustments
-
     func setupView() {
         guard let request = requestLandingPad else { return }
         requestBodyLabel.text = requestLandingPad?.body
