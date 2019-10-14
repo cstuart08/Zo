@@ -9,7 +9,7 @@
 import UIKit
 
 class RequestFeedViewController: UIViewController {
-
+    
     // MARK: - Outlets
     @IBOutlet weak var pastRequestsTableView: UITableView!
     @IBOutlet weak var requestsLabel: UILabel!
@@ -23,11 +23,12 @@ class RequestFeedViewController: UIViewController {
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         activeRequestsFeedTableView.delegate = self
         activeRequestsFeedTableView.dataSource = self
         pastRequestsTableView.delegate = self
         pastRequestsTableView.dataSource = self
+        searchButton.setTitle("Search", for: .normal)
         let notification = Notification.Name(rawValue: "reloadRequestTableViews")
         NotificationCenter.default.addObserver(self, selector: #selector(reloadRequestTableViews), name: notification, object: nil)
         fetchRecentlyCurrentUserRequests()
@@ -93,97 +94,114 @@ class RequestFeedViewController: UIViewController {
     }
     
     @IBAction func searchButtonTapped(_ sender: Any) {
-        guard let searchTag = searchBar.text, searchTag != "" else { return }
-        RequestController.shared.fetchRequestsWithTag(tag: "#" + searchTag) { (success) in
-            if success {
-                DispatchQueue.main.async {
-                    print("Success fetching requests with tag")
-                    self.activeRequestsFeedTableView.reloadData()
+        searchBar.resignFirstResponder()
+        if searchButton.titleLabel?.text == "Search" {
+            guard let searchTag = searchBar.text else { return }
+            if searchTag == "" {
+                RequestController.shared.fetchRequests { (success) in
+                    if success {
+                        DispatchQueue.main.async {
+                            self.activeRequestsFeedTableView.reloadData()
+                            print("Fetched requests")
+                        }
+                    } else {
+                        print("Failed to fetch requests.")
+                    }
+                }
+            } else {
+                RequestController.shared.fetchRequestsWithTag(tag: "#" + searchTag) { (success) in
+                    if success {
+                        DispatchQueue.main.async {
+                            print("Success fetching requests with tag")
+                            self.activeRequestsFeedTableView.reloadData()
+                            self.searchBar.text = nil
+                        }
+                    }
                 }
             }
         }
     }
-    
-    // MARK: - UI Adjustments
-}
-
-extension RequestFeedViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if tableView == pastRequestsTableView {
-            return RequestController.shared.myRequests.count
-        } else {
-            return RequestController.shared.requests.count
+        // MARK: - UI Adjustments
+    }
+    
+    extension RequestFeedViewController: UITableViewDelegate, UITableViewDataSource {
+        
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            
+            if tableView == pastRequestsTableView {
+                return RequestController.shared.myRequests.count
+            } else {
+                return RequestController.shared.requests.count
+            }
+        }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            
+            if tableView == pastRequestsTableView {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "activePastRequestCell", for: indexPath) as? PastRequestsTableViewCell else { return UITableViewCell()}
+                
+                let request = RequestController.shared.myRequests[indexPath.row]
+                
+                cell.requestLandingPad = request
+                
+                return cell
+                
+            } else {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "activeRequestCell", for: indexPath) as? ActiveRequestsTableViewCell else { return UITableViewCell()}
+                
+                let request = RequestController.shared.requests[indexPath.row]
+                
+                cell.requestLandingPad = request
+                
+                return cell
+            }
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    // MARK: - Mock Data
+    
+    class ProfileMockDataModel1 {
+        let text: String
+        let image: UIImage?
         
-        if tableView == pastRequestsTableView {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "activePastRequestCell", for: indexPath) as? PastRequestsTableViewCell else { return UITableViewCell()}
-        
-            let request = RequestController.shared.myRequests[indexPath.row]
-        
-        cell.requestLandingPad = request
-        
-        return cell
-        
-        } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "activeRequestCell", for: indexPath) as? ActiveRequestsTableViewCell else { return UITableViewCell()}
-            
-            let request = RequestController.shared.requests[indexPath.row]
-            
-            cell.requestLandingPad = request
-            
-            return cell
+        init(text: String, image: UIImage?) {
+            self.text = text
+            self.image = image
         }
     }
-}
-
-
-// MARK: - Mock Data
-
-class ProfileMockDataModel1 {
-    let text: String
-    let image: UIImage?
     
-    init(text: String, image: UIImage?) {
-        self.text = text
-        self.image = image
-    }
-}
-
-class ProfileMockDataController1 {
-    static let shared = ProfileMockDataController1()
-    
-    var mockDataObjects = [ProfileMockDataModel1]()
-    
-    init() {
+    class ProfileMockDataController1 {
+        static let shared = ProfileMockDataController1()
         
-        let request1 = ProfileMockDataModel1(text: "#whatever #amiseeingthings #iphoneForTheWin", image: UIImage(named: "mountain"))
-        let request2 = ProfileMockDataModel1(text: "#customTableViews #BadDay #WorkSucks", image: UIImage(named: "focus"))
-        let request3 = ProfileMockDataModel1(text: "#DoesItWork #WAterIsLife #RAinbow", image: UIImage(named: "canyonJump"))
+        var mockDataObjects = [ProfileMockDataModel1]()
         
-        self.mockDataObjects = [request1, request2, request3]
+        init() {
+            
+            let request1 = ProfileMockDataModel1(text: "#whatever #amiseeingthings #iphoneForTheWin", image: UIImage(named: "mountain"))
+            let request2 = ProfileMockDataModel1(text: "#customTableViews #BadDay #WorkSucks", image: UIImage(named: "focus"))
+            let request3 = ProfileMockDataModel1(text: "#DoesItWork #WAterIsLife #RAinbow", image: UIImage(named: "canyonJump"))
+            
+            self.mockDataObjects = [request1, request2, request3]
+        }
+        
+        
     }
     
-    
-}
-
-class ProfileMockDataController2 {
-    static let shared = ProfileMockDataController2()
-    
-    var mockDataObjects = [ProfileMockDataModel1]()
-    
-    init() {
+    class ProfileMockDataController2 {
+        static let shared = ProfileMockDataController2()
         
-        let request1 = ProfileMockDataModel1(text: "#whatever #amiseeingthings #iphoneForTheWin", image: UIImage(named: "mountain"))
-        let request2 = ProfileMockDataModel1(text: "#customTableViews #BadDay #WorkSucks", image: UIImage(named: "focus"))
-        let request3 = ProfileMockDataModel1(text: "#DoesItWork #WAterIsLife #RAinbow", image: UIImage(named: "canyonJump"))
+        var mockDataObjects = [ProfileMockDataModel1]()
         
-        self.mockDataObjects = [request1, request2, request3]
-    }
-    
-    
+        init() {
+            
+            let request1 = ProfileMockDataModel1(text: "#whatever #amiseeingthings #iphoneForTheWin", image: UIImage(named: "mountain"))
+            let request2 = ProfileMockDataModel1(text: "#customTableViews #BadDay #WorkSucks", image: UIImage(named: "focus"))
+            let request3 = ProfileMockDataModel1(text: "#DoesItWork #WAterIsLife #RAinbow", image: UIImage(named: "canyonJump"))
+            
+            self.mockDataObjects = [request1, request2, request3]
+        }
+        
+        
 }
