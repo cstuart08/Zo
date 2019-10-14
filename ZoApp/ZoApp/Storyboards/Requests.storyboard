@@ -48,22 +48,16 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVh-8G-3Bq">
-
                                                                     <rect key="frame" x="0.0" y="24.333333333333332" width="264.66666666666669" height="60.333333333333343"/>
-
-
                                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#tag     #tag     #tag" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPT-tB-yOd">
-
                                                                     <rect key="frame" x="0.0" y="88.666666666666671" width="264.66666666666669" height="19.333333333333329"/>
-
-
                                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
-                                                                    <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -142,7 +136,6 @@
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCF-rV-te3">
                                                                     <rect key="frame" x="0.0" y="0.0" width="269.66666666666669" height="82.666666666666671"/>
-
                                                                     <color key="backgroundColor" name="zoWhite"/>
                                                                     <string key="text">Today has been a very sad day. It strted way too early in the morning and I am very tired. Would love it if someon could share some encouragement to help me push through the day!</string>
                                                                     <fontDescription key="fontDescription" name="FingerPaint-Regular" family="Finger Paint" pointSize="14"/>
@@ -304,7 +297,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ozC-FV-hqQ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="REQUESTS" id="3St-19-fOz"/>
+                    <tabBarItem key="tabBarItem" title="REQUESTS" image="requestsIcon" id="3St-19-fOz"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
                         <outlet property="activeRequestsFeedTableView" destination="cxv-Eu-Rey" id="hhq-yS-T8X"/>
@@ -705,24 +698,24 @@
             <objects>
                 <viewController id="FQI-MC-oTX" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="10G-CA-fVs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="KHz-Ko-sGU">
-                                <rect key="frame" x="8" y="8" width="359" height="34"/>
+                                <rect key="frame" x="8" y="8" width="398" height="34"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="#TagHere" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zWX-Qt-KLp">
-                                        <rect key="frame" x="0.0" y="0.0" width="111.66666666666667" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="124.66666666666667" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="#TagHere" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m3n-RW-jv7">
-                                        <rect key="frame" x="123.66666666666666" y="0.0" width="111.66666666666666" height="34"/>
+                                        <rect key="frame" x="136.66666666666666" y="0.0" width="124.66666666666666" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="#TagHere" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BQR-13-ffX">
-                                        <rect key="frame" x="247.33333333333334" y="0.0" width="111.66666666666666" height="34"/>
+                                        <rect key="frame" x="273.33333333333331" y="0.0" width="124.66666666666669" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -775,6 +768,7 @@
         <image name="music.note" catalog="system" width="48" height="64"/>
         <image name="nosign" catalog="system" width="64" height="62"/>
         <image name="photo" catalog="system" width="64" height="48"/>
+        <image name="requestsIcon" width="30" height="27"/>
         <namedColor name="blueGrey">
             <color red="0.46666666666666667" green="0.49411764705882355" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
