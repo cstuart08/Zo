@@ -15,6 +15,8 @@ class PastDailyEntryViewController: UIViewController {
     @IBOutlet weak var pastDailyEntryTextView: UITextView!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var alertView: UIView!
     
     // MARK - Properties
     var dailyJournal: DailyJournal?
@@ -27,9 +29,18 @@ class PastDailyEntryViewController: UIViewController {
         pastDailyEntryTextView.isEditable = false
         setupViews()
         fetchPastImage()
+        stylizeSubviews()
+        let tap = UITapGestureRecognizer()
+        tap.cancelsTouchesInView = true
+        tap.addTarget(self, action: #selector(tapDismiss))
+        view.addGestureRecognizer(tap)
     }
     
     // MARK: - Methods
+    @objc func tapDismiss() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @objc func tapResign() {
         pastDailyEntryTextView.resignFirstResponder()
     }
@@ -83,4 +94,22 @@ class PastDailyEntryViewController: UIViewController {
             saveUpdatedJournal()
         }
     }
+    
+    // MARK: - UI Adjustments
+    func stylizeSubviews() {
+        alertView.backgroundColor = .zoWhite
+        alertView.addCornerRadius()
+        pastDailyEntryTextView.addCornerRadius()
+        pastDailyEntryTextView.addAccentBorder(width: 5, color: .boldGreen)
+        pastDailyEntryTextView.addPadding()
+        pastDailyEntryTextView.font = UIFont(name: FontAttributes.body.fontFamily, size: FontAttributes.body.rawValue)
+        pastDailyEntryTextView.textColor = .zoBlack
+        deleteButton.titleLabel?.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
+        deleteButton.setTitleColor(.zoBlack, for: .normal)
+        editButton.titleLabel?.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
+        editButton.setTitleColor(.zoBlack, for: .normal)
+        dateLabel.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.rawValue)
+        dateLabel.text = dateLabel.text?.uppercased()
+    }
+
 }
