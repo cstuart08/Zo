@@ -26,7 +26,7 @@ class RequestController {
         publicDataBase.save(requestRecord) { (record, error) in
             
             if let error = error {
-                print("Error saving a record to database in AHHH \(#function) \(error) \(error.localizedDescription)")
+                print("Error saving a record to database in \(#function) \(error) \(error.localizedDescription)")
                 completion(false)
                 return
             }
@@ -111,6 +111,36 @@ class RequestController {
             let requests = records.compactMap({Request(ckRecord: $0)})
             
             self.myRequests = requests
+            completion(true)
+        }
+    }
+    
+    func fetchRequestsWithTag(tag: String, completion: @escaping (Bool) -> Void) {
+        let predicate = NSPredicate(format: "@'\(tag)' IN \(RequestConstants.tagsKey)")
+        let query = CKQuery(recordType: RequestConstants.recordTypeKey, predicate: predicate)
+        publicDataBase.perform(query, inZoneWith: nil) { (records, error) in
+
+            if let error = error {
+                print("Error fetching requests from database in \(#function) \(error) \(error.localizedDescription)")
+                completion(false)
+                return
+            }
+
+            guard let records = records else { completion(false); return }
+
+
+            let requests = records.compactMap({Request(ckRecord: $0)})
+
+            var filteredRequests: [Request] = []
+
+            for request in requests {
+                guard let user = UserController.shared.currentUser else { completion(false); return }
+                if request.userReference.recordID.recordName != user.recordID.recordName {
+                    filteredRequests.append(request)
+                }
+            }
+
+            self.requests = filteredRequests
             completion(true)
         }
     }
