@@ -44,7 +44,13 @@ class ProfileViewController: UIViewController {
     // MARK: - Setup Views
     func setupViews() {
         rankLabel.text = "Gold Rank"
-        pointsLabel.text = "\(100) KP Points"
+        pointsLabel.text = "\(10000) KP"
+        rankLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
+        rankLabel.textColor = .blueGrey
+        pointsLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
+        pointsLabel.textColor = .blueGrey
+        usernameLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
+        usernameLabel.textColor = .blueGrey
     }
     func fetchRequests() {
         //        guard let userRecordID = UserController.shared.currentUser?.recordID else { return }
