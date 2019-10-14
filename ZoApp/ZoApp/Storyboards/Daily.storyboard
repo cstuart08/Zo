@@ -130,7 +130,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0Wm-Z0-V4c"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Daily" id="tUI-IU-1Cc"/>
+                    <tabBarItem key="tabBarItem" title="DAILY" id="tUI-IU-1Cc"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
                         <outlet property="dailyEntryTextView" destination="Kcx-CL-EvJ" id="7rn-6k-iK3"/>
