@@ -145,7 +145,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KcK-Bb-vYu"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="PROFILE" id="thZ-OR-zHa"/>
+                    <tabBarItem key="tabBarItem" title="PROFILE" image="profileIcon" id="thZ-OR-zHa"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
                         <outlet property="pastRequestsTableView" destination="0zx-68-Ado" id="Jzt-IS-EMR"/>
@@ -169,4 +169,7 @@
             <point key="canvasLocation" x="1272" y="319"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="profileIcon" width="21" height="26"/>
+    </resources>
 </document>
