@@ -16,6 +16,8 @@ class RequestFeedViewController: UIViewController {
     @IBOutlet weak var rulesButton: UIButton!
     @IBOutlet weak var addNewRequestButton: UIButton!
     @IBOutlet weak var activeRequestsFeedTableView: UITableView!
+    @IBOutlet weak var searchBar: UITextField!
+    @IBOutlet weak var searchButton: UIButton!
     
     
     // MARK: - Lifecycle Methods
@@ -88,6 +90,18 @@ class RequestFeedViewController: UIViewController {
     }
     
     @IBAction func addNewRequestButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func searchButtonTapped(_ sender: Any) {
+        guard let searchTag = searchBar.text, searchTag != "" else { return }
+        RequestController.shared.fetchRequestsWithTag(tag: "#" + searchTag) { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    print("Success fetching requests with tag")
+                    self.activeRequestsFeedTableView.reloadData()
+                }
+            }
+        }
     }
     
     // MARK: - UI Adjustments
