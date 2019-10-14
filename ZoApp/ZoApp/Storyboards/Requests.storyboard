@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZYU-C9-2hr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZYU-C9-2hr">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,6 +10,9 @@
     <customFonts key="customFonts">
         <array key="FingerPaint-Regular.ttf">
             <string>FingerPaint-Regular</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -45,15 +48,22 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVh-8G-3Bq">
-                                                                    <rect key="frame" x="0.0" y="24.5" width="264.5" height="83.5"/>
+                                                                    <rect key="frame" x="0.0" y="24.5" width="264.5" height="60"/>
                                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#tag     #tag     #tag" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPT-tB-yOd">
+                                                                    <rect key="frame" x="0.0" y="88.5" width="264.5" height="19.5"/>
+                                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                                                                    <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="Iuf-Pd-Q81" firstAttribute="width" secondItem="rVh-8G-3Bq" secondAttribute="width" id="bM0-Sk-r6B"/>
+                                                                <constraint firstItem="DPT-tB-yOd" firstAttribute="width" secondItem="rVh-8G-3Bq" secondAttribute="width" id="yh4-GJ-wJ6"/>
                                                             </constraints>
                                                         </stackView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Sl-m6-wwq">
@@ -91,6 +101,7 @@
                                             <outlet property="numberOfResponsesLabel" destination="eju-bf-TsR" id="BPA-bu-RDi"/>
                                             <outlet property="requestBodyLabel" destination="rVh-8G-3Bq" id="UH0-L7-cYT"/>
                                             <outlet property="requestImageView" destination="9Sl-m6-wwq" id="hsN-Z0-pAo"/>
+                                            <outlet property="requestTags" destination="DPT-tB-yOd" id="GYS-Ey-7Io"/>
                                             <outlet property="usernameLabel" destination="Iuf-Pd-Q81" id="Fc8-b2-Kdo"/>
                                             <segue destination="Pzl-Xw-cRl" kind="show" identifier="toResponseToRequest" id="XU2-Os-0xg"/>
                                         </connections>
@@ -121,10 +132,10 @@
                                                     <rect key="frame" x="8" y="6.5" width="398" height="112.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="2QO-V3-Jyx">
-                                                            <rect key="frame" x="0.0" y="0.0" width="269.5" height="88.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="269.5" height="111"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCF-rV-te3">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="269.5" height="65.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="269.5" height="83"/>
                                                                     <color key="backgroundColor" name="zoWhite"/>
                                                                     <string key="text">Today has been a very sad day. It strted way too early in the morning and I am very tired. Would love it if someon could share some encouragement to help me push through the day!</string>
                                                                     <fontDescription key="fontDescription" name="FingerPaint-Regular" family="Finger Paint" pointSize="14"/>
@@ -132,7 +143,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#tag     #tag     #tag" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMt-ko-O5H">
-                                                                    <rect key="frame" x="0.0" y="69.5" width="269.5" height="19"/>
+                                                                    <rect key="frame" x="0.0" y="87" width="269.5" height="24"/>
                                                                     <color key="backgroundColor" name="zoWhite"/>
                                                                     <fontDescription key="fontDescription" name="FingerPaint-Regular" family="Finger Paint" pointSize="16"/>
                                                                     <color key="textColor" name="blueGrey"/>
@@ -738,16 +749,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bookmark.fill" catalog="system" width="54" height="64"/>
+        <image name="bookmark.fill" catalog="system" width="56" height="64"/>
         <image name="difficultRoads" width="2565" height="3131"/>
-        <image name="flag.fill" catalog="system" width="64" height="64"/>
+        <image name="flag.fill" catalog="system" width="64" height="60"/>
         <image name="flame.fill" catalog="system" width="54" height="64"/>
         <image name="focus" width="7360" height="4912"/>
         <image name="link" catalog="system" width="64" height="58"/>
         <image name="mountain" width="2918" height="3891"/>
         <image name="music.note" catalog="system" width="48" height="64"/>
-        <image name="nosign" catalog="system" width="64" height="62"/>
-        <image name="photo" catalog="system" width="64" height="48"/>
+        <image name="nosign" catalog="system" width="64" height="60"/>
+        <image name="photo" catalog="system" width="64" height="46"/>
         <namedColor name="blueGrey">
             <color red="0.46666666666666667" green="0.49411764705882355" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
