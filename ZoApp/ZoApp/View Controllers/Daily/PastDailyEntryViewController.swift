@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PastDailyEntryViewController: UIViewController {
+class PastDailyEntryViewController: UIViewController, UIGestureRecognizerDelegate {
 
     // MARK: - Outlets
     @IBOutlet weak var pastDailyEntryImageView: UIImageView!
@@ -17,6 +17,8 @@ class PastDailyEntryViewController: UIViewController {
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var alertView: UIView!
+    @IBOutlet var backgroundView: UIView!
+    
     
     // MARK - Properties
     var dailyJournal: DailyJournal?
@@ -30,15 +32,27 @@ class PastDailyEntryViewController: UIViewController {
         setupViews()
         fetchPastImage()
         stylizeSubviews()
-        let tap = UITapGestureRecognizer()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapDismiss))
         tap.cancelsTouchesInView = true
-        tap.addTarget(self, action: #selector(tapDismiss))
+        tap.delegate = self
         view.addGestureRecognizer(tap)
     }
     
     // MARK: - Methods
     @objc func tapDismiss() {
+        if self.view == pastDailyEntryImageView {
+            return
+        } else {
         self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if touch.view!.isDescendant(of: alertView) {
+            return false
+        } else {
+            return true
+        }
     }
     
     @objc func tapResign() {
@@ -111,5 +125,4 @@ class PastDailyEntryViewController: UIViewController {
         dateLabel.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.rawValue)
         dateLabel.text = dateLabel.text?.uppercased()
     }
-
 }
