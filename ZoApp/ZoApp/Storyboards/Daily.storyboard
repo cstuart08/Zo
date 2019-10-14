@@ -148,66 +148,85 @@
         <!--Past Daily Entry View Controller-->
         <scene sceneID="lOZ-62-f5p">
             <objects>
-                <viewController id="PSA-6d-hAN" customClass="PastDailyEntryViewController" customModule="Zo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overFullScreen" id="PSA-6d-hAN" customClass="PastDailyEntryViewController" customModule="Zo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r8J-lg-LTr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ak-73-Vnj">
-                                <rect key="frame" x="16" y="16" width="45" height="30"/>
-                                <state key="normal" title="Delete"/>
-                                <connections>
-                                    <segue destination="q1f-sM-N9D" kind="show" identifier="detailToDeleteVC" id="yob-PC-srj"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hah-6e-Q5T">
-                                <rect key="frame" x="368" y="16" width="30" height="30"/>
-                                <state key="normal" title="Edit"/>
-                                <connections>
-                                    <action selector="editButtonTapped:" destination="PSA-6d-hAN" eventType="touchUpInside" id="Jak-Pb-xpB"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XMu-bp-S8I">
-                                <rect key="frame" x="86" y="121" width="242" height="242.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="XMu-bp-S8I" secondAttribute="height" multiplier="1:1" id="D7I-Sl-RnK"/>
-                                </constraints>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lD8-xg-n7v">
-                                <rect key="frame" x="0.0" y="404" width="414" height="283"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UDZ-VF-hMe">
+                                <rect key="frame" x="31" y="166.5" width="352" height="573"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lD8-xg-n7v">
+                                        <rect key="frame" x="35" y="374" width="282" height="171.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <string key="text">This is what I wrote about the above image. #awesomeThoughts   This is what I wrote about the above image. #awesomeThoughts   This is what I wrote about the above image. #awesomeThoughts   This is what I wrote about the above image. #awesomeThoughts</string>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="October 3rd, 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBb-Dl-j81">
+                                        <rect key="frame" x="17.5" y="285.5" width="141" height="88.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1tG-Aj-sra">
+                                        <rect key="frame" x="17.5" y="0.0" width="317" height="57.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ak-73-Vnj">
+                                                <rect key="frame" x="0.0" y="14" width="158.5" height="30"/>
+                                                <state key="normal" title="DELETE"/>
+                                                <connections>
+                                                    <segue destination="q1f-sM-N9D" kind="show" identifier="detailToDeleteVC" id="yob-PC-srj"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hah-6e-Q5T">
+                                                <rect key="frame" x="158.5" y="14" width="158.5" height="30"/>
+                                                <state key="normal" title="EDIT"/>
+                                                <connections>
+                                                    <action selector="editButtonTapped:" destination="PSA-6d-hAN" eventType="touchUpInside" id="Jak-Pb-xpB"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XMu-bp-S8I">
+                                        <rect key="frame" x="17.5" y="57.5" width="317" height="228"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="XMu-bp-S8I" secondAttribute="height" multiplier="82:59" id="m7M-qb-HQg"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <string key="text">This is what I wrote about the above image. #awesomeThoughts   This is what I wrote about the above image. #awesomeThoughts   This is what I wrote about the above image. #awesomeThoughts   This is what I wrote about the above image. #awesomeThoughts</string>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="October 3rd, 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBb-Dl-j81">
-                                <rect key="frame" x="136.5" y="88" width="141" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <constraints>
+                                    <constraint firstItem="XMu-bp-S8I" firstAttribute="top" secondItem="1tG-Aj-sra" secondAttribute="bottom" id="R6b-FT-cdN"/>
+                                    <constraint firstItem="lD8-xg-n7v" firstAttribute="width" secondItem="UDZ-VF-hMe" secondAttribute="width" multiplier="0.8" id="S90-I9-uzD"/>
+                                    <constraint firstItem="1tG-Aj-sra" firstAttribute="width" secondItem="UDZ-VF-hMe" secondAttribute="width" multiplier="0.9" id="VPN-6p-hZE"/>
+                                    <constraint firstItem="lD8-xg-n7v" firstAttribute="centerX" secondItem="UDZ-VF-hMe" secondAttribute="centerX" id="WTV-Fn-cZ5"/>
+                                    <constraint firstItem="1tG-Aj-sra" firstAttribute="top" secondItem="UDZ-VF-hMe" secondAttribute="top" id="Wlu-JV-Pps"/>
+                                    <constraint firstItem="XMu-bp-S8I" firstAttribute="width" secondItem="UDZ-VF-hMe" secondAttribute="width" multiplier="0.9" id="Z5J-Px-Ons"/>
+                                    <constraint firstItem="lD8-xg-n7v" firstAttribute="height" secondItem="UDZ-VF-hMe" secondAttribute="height" multiplier="0.3" id="czd-FB-L47"/>
+                                    <constraint firstItem="EBb-Dl-j81" firstAttribute="leading" secondItem="XMu-bp-S8I" secondAttribute="leading" id="gT0-fm-vLR"/>
+                                    <constraint firstItem="1tG-Aj-sra" firstAttribute="centerX" secondItem="UDZ-VF-hMe" secondAttribute="centerX" id="gmE-Qk-ir9"/>
+                                    <constraint firstItem="EBb-Dl-j81" firstAttribute="top" secondItem="XMu-bp-S8I" secondAttribute="bottom" id="mqs-fH-GVE"/>
+                                    <constraint firstItem="lD8-xg-n7v" firstAttribute="top" secondItem="EBb-Dl-j81" secondAttribute="bottom" id="oXb-KF-pfO"/>
+                                    <constraint firstAttribute="bottom" secondItem="lD8-xg-n7v" secondAttribute="bottom" multiplier="1.05" id="x1K-bH-5zf"/>
+                                    <constraint firstItem="1tG-Aj-sra" firstAttribute="height" secondItem="UDZ-VF-hMe" secondAttribute="height" multiplier="0.1" id="xA5-pP-sz3"/>
+                                    <constraint firstItem="XMu-bp-S8I" firstAttribute="centerX" secondItem="UDZ-VF-hMe" secondAttribute="centerX" id="zml-5N-7Zi"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="9ak-73-Vnj" firstAttribute="top" secondItem="2Z0-K3-mNH" secondAttribute="top" constant="16" id="08y-uQ-Q8o"/>
-                            <constraint firstItem="EBb-Dl-j81" firstAttribute="centerX" secondItem="XMu-bp-S8I" secondAttribute="centerX" id="6V1-rc-FJ4"/>
-                            <constraint firstItem="Hah-6e-Q5T" firstAttribute="top" secondItem="2Z0-K3-mNH" secondAttribute="top" constant="16" id="8fP-I7-Pkr"/>
-                            <constraint firstItem="lD8-xg-n7v" firstAttribute="height" secondItem="2Z0-K3-mNH" secondAttribute="height" multiplier="0.35" id="BE2-oX-esc"/>
-                            <constraint firstItem="lD8-xg-n7v" firstAttribute="centerX" secondItem="2Z0-K3-mNH" secondAttribute="centerX" id="CfW-r7-dPD"/>
-                            <constraint firstItem="XMu-bp-S8I" firstAttribute="centerX" secondItem="2Z0-K3-mNH" secondAttribute="centerX" id="Chx-2b-qPa"/>
-                            <constraint firstItem="lD8-xg-n7v" firstAttribute="width" secondItem="2Z0-K3-mNH" secondAttribute="width" id="D3L-y4-ray"/>
-                            <constraint firstItem="XMu-bp-S8I" firstAttribute="centerY" secondItem="2Z0-K3-mNH" secondAttribute="centerY" multiplier="0.6" id="I7w-mn-Iju"/>
-                            <constraint firstItem="2Z0-K3-mNH" firstAttribute="trailing" secondItem="Hah-6e-Q5T" secondAttribute="trailing" constant="16" id="OkH-Hx-Nd9"/>
-                            <constraint firstItem="XMu-bp-S8I" firstAttribute="top" secondItem="EBb-Dl-j81" secondAttribute="bottom" constant="12" id="PQk-OG-7kl"/>
-                            <constraint firstItem="lD8-xg-n7v" firstAttribute="centerY" secondItem="2Z0-K3-mNH" secondAttribute="centerY" multiplier="1.35" id="Vra-xB-16O"/>
-                            <constraint firstItem="9ak-73-Vnj" firstAttribute="leading" secondItem="2Z0-K3-mNH" secondAttribute="leading" constant="16" id="Zfy-Tr-ggU"/>
-                            <constraint firstItem="XMu-bp-S8I" firstAttribute="height" secondItem="2Z0-K3-mNH" secondAttribute="height" multiplier="0.3" id="c1u-qb-doM"/>
-                            <constraint firstItem="lD8-xg-n7v" firstAttribute="centerX" secondItem="EBb-Dl-j81" secondAttribute="centerX" id="sR1-1s-uNq"/>
+                            <constraint firstItem="UDZ-VF-hMe" firstAttribute="width" secondItem="2Z0-K3-mNH" secondAttribute="width" multiplier="0.85" id="8xR-Ai-SEs"/>
+                            <constraint firstItem="UDZ-VF-hMe" firstAttribute="centerY" secondItem="2Z0-K3-mNH" secondAttribute="centerY" id="IA7-q7-Y96"/>
+                            <constraint firstItem="UDZ-VF-hMe" firstAttribute="height" secondItem="2Z0-K3-mNH" secondAttribute="height" multiplier="0.7" id="Ljw-eM-mi9"/>
+                            <constraint firstItem="UDZ-VF-hMe" firstAttribute="centerX" secondItem="2Z0-K3-mNH" secondAttribute="centerX" id="o9o-Qr-8Dm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2Z0-K3-mNH"/>
                     </view>
                     <connections>
+                        <outlet property="alertView" destination="UDZ-VF-hMe" id="ZPs-xM-6Um"/>
+                        <outlet property="dateLabel" destination="EBb-Dl-j81" id="GF4-56-wTH"/>
                         <outlet property="deleteButton" destination="9ak-73-Vnj" id="uAn-aa-eBl"/>
                         <outlet property="editButton" destination="Hah-6e-Q5T" id="Ygq-P4-QR5"/>
                         <outlet property="pastDailyEntryImageView" destination="XMu-bp-S8I" id="xC8-LV-BuU"/>
@@ -216,7 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="No1-F4-eFy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1055" y="329"/>
+            <point key="canvasLocation" x="-1055.072463768116" y="328.79464285714283"/>
         </scene>
         <!--Delete Past Daily Entry View Controller-->
         <scene sceneID="wCQ-JO-hJI">
