@@ -26,6 +26,8 @@ class RequestFeedViewController: UIViewController {
         activeRequestsFeedTableView.dataSource = self
         pastRequestsTableView.delegate = self
         pastRequestsTableView.dataSource = self
+        let notification = Notification.Name(rawValue: "reloadRequestTableViews")
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadRequestTableViews), name: notification, object: nil)
         fetchRecentlyCurrentUserRequests()
         fetchRequests()
     }
@@ -36,6 +38,10 @@ class RequestFeedViewController: UIViewController {
     }
     
     // MARK: - Custom Methods
+    @objc func reloadRequestTableViews() {
+        self.activeRequestsFeedTableView.reloadData()
+        self.pastRequestsTableView.reloadData()
+    }
     
     func fetchRecentlyCurrentUserRequests() {
         RequestController.shared.fetchOnlyRecentCurrentUserRequests { (success) in

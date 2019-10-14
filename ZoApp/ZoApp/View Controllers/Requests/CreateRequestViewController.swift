@@ -55,8 +55,12 @@ class CreateRequestViewController: UIViewController {
         let userRef = CKRecord.Reference(recordID: user.recordID, action: .deleteSelf)
         RequestController.shared.createAndSaveRequest(title: "No Title Field Currently", username: username, body: body, userReference: userRef, tags: ["#" + hashtag1, "#" + hashtag2, "#" + hashtag3]) { (success) in
             if success {
-                print("Success creating a request.")
-                self.dismiss(animated: true)
+                DispatchQueue.main.async {
+                    print("Success creating a request.")
+                    let notification = Notification(name: Notification.Name(rawValue: "reloadRequestTableViews"))
+                    NotificationCenter.default.post(notification)
+                    self.dismiss(animated: true)
+                }
             } else {
                 print("Uh oh! -------------------- \n Request not created. \n ----------------")
             }

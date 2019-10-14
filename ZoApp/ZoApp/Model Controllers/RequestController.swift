@@ -33,10 +33,9 @@ class RequestController {
             
             guard let record = record, let request = Request(ckRecord: record) else { completion(false); return }
             
-            self.requests.append(request)
+            self.myRequests.append(request)
+            completion(true)
         }
-        
-        completion(true)
         return
     }
     
