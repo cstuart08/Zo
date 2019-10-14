@@ -116,7 +116,7 @@ class RequestController {
     }
     
     func fetchRequestsWithTag(tag: String, completion: @escaping (Bool) -> Void) {
-        let predicate = NSPredicate(format: "@'\(tag)' IN \(RequestConstants.tagsKey)")
+        let predicate = NSPredicate(format: "\(RequestConstants.tagsKey) CONTAINS %@", tag)
         let query = CKQuery(recordType: RequestConstants.recordTypeKey, predicate: predicate)
         publicDataBase.perform(query, inZoneWith: nil) { (records, error) in
 
