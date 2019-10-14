@@ -28,6 +28,7 @@ class ProfileViewController: UIViewController {
         pastRequestsTableView.delegate = self
         pastRequestsTableView.dataSource = self
         setupViews()
+        stylizeSubviews()
         fetchRequests()
         guard let currentUser = currentUser else { return }
         currentUser.kpPoints = points
@@ -55,6 +56,10 @@ class ProfileViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func stylizeSubviews() {
+        view.backgroundColor = .ivory
     }
 
     
