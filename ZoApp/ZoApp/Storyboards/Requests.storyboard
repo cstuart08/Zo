@@ -57,7 +57,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#tag     #tag     #tag" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPT-tB-yOd">
                                                                     <rect key="frame" x="0.0" y="88.666666666666671" width="264.66666666666669" height="19.333333333333329"/>
                                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
-                                                                    <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -629,7 +629,7 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9ts-TZ-N1C">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9ts-TZ-N1C">
                                 <rect key="frame" x="124.33333333333333" y="599" width="165.33333333333337" height="101.33333333333337"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="9ts-TZ-N1C" secondAttribute="height" multiplier="165:101" id="8kR-bu-Vml"/>
@@ -679,6 +679,7 @@
                         <outlet property="addLinkButton" destination="7cb-8B-e1j" id="gMQ-1z-var"/>
                         <outlet property="addLinkTextField" destination="Zvv-8F-MhC" id="fzt-D3-vh9"/>
                         <outlet property="addSongButton" destination="Rjk-S7-7O9" id="YMa-pK-vWO"/>
+                        <outlet property="imageSelectorImageView" destination="9ts-TZ-N1C" id="J0U-QG-oPd"/>
                         <outlet property="numberOfResponsesLabel" destination="hVr-Uv-zga" id="jUY-0w-ZzX"/>
                         <outlet property="requestBodyLabel" destination="csb-AE-OMS" id="XKN-3K-5zI"/>
                         <outlet property="requestImageView" destination="xd5-VZ-on8" id="aGu-Kf-Lva"/>

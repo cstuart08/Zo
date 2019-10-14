@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 
-class RespondToRequestViewController: UIViewController {
+class RespondToRequestViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
     // MARK: - Outlets
@@ -20,6 +20,7 @@ class RespondToRequestViewController: UIViewController {
     @IBOutlet weak var requestImageView: UIImageView!
     @IBOutlet weak var numberOfResponsesLabel: UILabel!
     @IBOutlet weak var requestBodyLabel: UILabel!
+    @IBOutlet weak var imageSelectorImageView: UIImageView!
     
     // Response
     @IBOutlet weak var yourAnswerLabel: UILabel!
@@ -67,6 +68,7 @@ class RespondToRequestViewController: UIViewController {
     }
     
     @IBAction func addImageButtonTapped(_ sender: Any) {
+        selectImageActionSheet()
     }
     
     @IBAction func sendButtonTapped(_ sender: Any) {
@@ -101,6 +103,35 @@ class RespondToRequestViewController: UIViewController {
         requestBodyLabel.text = request.body
         
         
+    }
+    
+    func selectImageActionSheet() {
+        let alertController = UIAlertController(title: "Select Image", message: nil, preferredStyle: .actionSheet)
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        
+        let action1 = UIAlertAction(title: "Camera", style: .default) { (_) in
+            imagePickerController.sourceType = .camera
+            imagePickerController.cameraDevice = .rear
+            self.present(imagePickerController, animated: true)
+        }
+        
+        let action2 = UIAlertAction(title: "Photo Library", style: .default) { (_) in
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController, animated: true)
+        }
+        
+        alertController.addAction(action1)
+        alertController.addAction(action2)
+        present(alertController, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+
+            imageSelectorImageView.image = pickedImage
+        }
+        dismiss(animated: true, completion: nil)
     }
     
     
