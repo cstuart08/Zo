@@ -29,5 +29,18 @@ class ProfileViewCell: UITableViewCell {
         requestTextLabel.text = request?.body
         requestImageView.image = UIImage(named: "focus")
         numberOfResponsesLabel.text = "\(responseCount)"
+        requestImageView.addCornerRadius()
+        numberOfResponsesLabel.layer.masksToBounds = true
+        numberOfResponsesLabel.addCornerRadius(6)
+        usernameLabel.layer.masksToBounds = true
+        usernameLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
+        usernameLabel.textColor = .blueGrey
+        usernameLabel.backgroundColor = .zoWhite
+        usernameLabel.addCornerRadius()
+        usernameLabel.addAccentBorder(width: 3, color: .boldGreen)
+        requestTextLabel.layer.masksToBounds = true
+        requestTextLabel.backgroundColor = .zoWhite
+        requestTextLabel.addCornerRadius()
+        requestTextLabel.addAccentBorder(width: 3, color: .boldGreen)
     }
 }
