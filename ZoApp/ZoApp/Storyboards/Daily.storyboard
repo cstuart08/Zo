@@ -221,53 +221,100 @@
         <!--Delete Past Daily Entry View Controller-->
         <scene sceneID="wCQ-JO-hJI">
             <objects>
-                <viewController id="q1f-sM-N9D" customClass="DeletePastDailyEntryViewController" customModule="Zo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overFullScreen" id="q1f-sM-N9D" customClass="DeletePastDailyEntryViewController" customModule="Zo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BXY-3f-xKE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Are you sure you want to delte this entry?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzE-on-XRM">
-                                <rect key="frame" x="49" y="247" width="317" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEZ-Ou-qTS">
-                                <rect key="frame" x="111" y="378" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Yes">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="yesButtonTapped:" destination="q1f-sM-N9D" eventType="touchUpInside" id="ZrX-a7-7p4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDO-Z6-Ogv">
-                                <rect key="frame" x="279" y="378" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="No">
-                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="noButtonTapped:" destination="q1f-sM-N9D" eventType="touchUpInside" id="xzn-jr-WHZ"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EMv-fv-pkr">
+                                <rect key="frame" x="31" y="207.5" width="352" height="491"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="q6n-a1-Afc">
+                                        <rect key="frame" x="35" y="351" width="282" height="140"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDO-Z6-Ogv">
+                                                <rect key="frame" x="0.0" y="0.0" width="141" height="140"/>
+                                                <state key="normal" image="cancel">
+                                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="noButtonTapped:" destination="q1f-sM-N9D" eventType="touchUpInside" id="xzn-jr-WHZ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEZ-Ou-qTS">
+                                                <rect key="frame" x="141" y="1" width="141" height="138"/>
+                                                <state key="normal" image="check">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="yesButtonTapped:" destination="q1f-sM-N9D" eventType="touchUpInside" id="ZrX-a7-7p4"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DELETE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzE-on-XRM">
+                                        <rect key="frame" x="0.0" y="0.0" width="352" height="140"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="zoWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="elephant" translatesAutoresizingMaskIntoConstraints="NO" id="D7f-Ck-64e">
+                                        <rect key="frame" x="70.5" y="140" width="211" height="211"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="D7f-Ck-64e" secondAttribute="height" multiplier="1:1" id="I6M-Hd-E7f"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" name="boldGreen"/>
+                                <constraints>
+                                    <constraint firstItem="q6n-a1-Afc" firstAttribute="centerX" secondItem="EMv-fv-pkr" secondAttribute="centerX" id="9Mg-hw-A6J"/>
+                                    <constraint firstItem="D7f-Ck-64e" firstAttribute="top" secondItem="hzE-on-XRM" secondAttribute="bottom" id="LvH-Ns-eCT"/>
+                                    <constraint firstAttribute="bottom" secondItem="q6n-a1-Afc" secondAttribute="bottom" id="OA7-c2-KvY"/>
+                                    <constraint firstItem="q6n-a1-Afc" firstAttribute="width" secondItem="EMv-fv-pkr" secondAttribute="width" multiplier="0.8" id="PRV-nK-bVl"/>
+                                    <constraint firstItem="hzE-on-XRM" firstAttribute="top" secondItem="EMv-fv-pkr" secondAttribute="top" id="e3C-FN-RxS"/>
+                                    <constraint firstItem="D7f-Ck-64e" firstAttribute="width" secondItem="EMv-fv-pkr" secondAttribute="width" multiplier="0.6" id="kq6-v6-WZa"/>
+                                    <constraint firstItem="hzE-on-XRM" firstAttribute="width" secondItem="EMv-fv-pkr" secondAttribute="width" id="qrO-4g-CuQ"/>
+                                    <constraint firstItem="D7f-Ck-64e" firstAttribute="centerX" secondItem="EMv-fv-pkr" secondAttribute="centerX" id="tGo-sL-q6L"/>
+                                    <constraint firstItem="D7f-Ck-64e" firstAttribute="centerY" secondItem="EMv-fv-pkr" secondAttribute="centerY" id="ti3-uF-EFb"/>
+                                    <constraint firstItem="hzE-on-XRM" firstAttribute="centerX" secondItem="EMv-fv-pkr" secondAttribute="centerX" id="vxj-wR-eu2"/>
+                                    <constraint firstItem="q6n-a1-Afc" firstAttribute="top" secondItem="D7f-Ck-64e" secondAttribute="bottom" id="z49-IY-L8s"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.4063875440140845" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EMv-fv-pkr" firstAttribute="height" secondItem="Soq-7l-WYb" secondAttribute="height" multiplier="0.6" id="66H-pi-qiP"/>
+                            <constraint firstItem="EMv-fv-pkr" firstAttribute="width" secondItem="Soq-7l-WYb" secondAttribute="width" multiplier="0.85" id="bUB-bN-0c4"/>
+                            <constraint firstItem="EMv-fv-pkr" firstAttribute="centerY" secondItem="Soq-7l-WYb" secondAttribute="centerY" id="qmd-I8-kyJ"/>
+                            <constraint firstItem="EMv-fv-pkr" firstAttribute="centerX" secondItem="Soq-7l-WYb" secondAttribute="centerX" id="x1e-5D-jZh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Soq-7l-WYb"/>
                     </view>
                     <navigationItem key="navigationItem" id="jnn-fQ-fj8"/>
+                    <connections>
+                        <outlet property="alertView" destination="EMv-fv-pkr" id="3BP-FZ-3Hg"/>
+                        <outlet property="elephantImageView" destination="D7f-Ck-64e" id="bF1-Cu-ou0"/>
+                        <outlet property="titleLabel" destination="hzE-on-XRM" id="8ed-bK-qfX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IcD-Sv-9o5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-325" y="329"/>
+            <point key="canvasLocation" x="-326.08695652173918" y="328.79464285714283"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="56" height="64"/>
+        <image name="cancel" width="78" height="78"/>
+        <image name="check" width="61" height="69"/>
+        <image name="elephant" width="165" height="141"/>
+        <namedColor name="boldGreen">
+            <color red="0.086274509803921567" green="0.40392156862745099" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="darkBlue">
             <color red="0.10588235294117647" green="0.2627450980392157" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="zoWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

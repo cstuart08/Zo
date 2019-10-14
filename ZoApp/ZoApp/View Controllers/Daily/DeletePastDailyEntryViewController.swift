@@ -11,6 +11,9 @@ import UIKit
 class DeletePastDailyEntryViewController: UIViewController {
     
     // MARK: - Outlets
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var elephantImageView: UIImageView!
+    @IBOutlet weak var alertView: UIView!
     
     // MARK: - Properties
     var dailyJournalToDelete: DailyJournal?
@@ -18,6 +21,7 @@ class DeletePastDailyEntryViewController: UIViewController {
     // MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        stylizeSubviews()
     }
     
     // MARK: - Actions
@@ -40,6 +44,14 @@ class DeletePastDailyEntryViewController: UIViewController {
     
     @IBAction func noButtonTapped(_ sender: Any) {
         self.dismiss(animated: true)
+    }
+    
+    // MARK: - UI Adjustments
+    func stylizeSubviews() {
+        alertView.backgroundColor = .boldGreen
+        alertView.addCornerRadius()
+        titleLabel.textColor = .zoWhite
+        titleLabel.font = UIFont(name: FontAttributes.h1.fontFamily, size: FontAttributes.h1.rawValue)
     }
 }
 
