@@ -17,11 +17,13 @@ class PastRequestsTableViewCell: UITableViewCell {
     @IBOutlet weak var requestImage: UIImageView!
     @IBOutlet weak var numberOfResponsesLabel: UILabel!
     
+    
     // MARK: - Properties
     var requestLandingPad: Request? {
         didSet {
             layoutIfNeeded()
             setupView()
+            stylizeSubviews()
         }
     }
     
@@ -51,5 +53,10 @@ class PastRequestsTableViewCell: UITableViewCell {
         tagsLabel.text = "tag"
         requestImage.image = UIImage(named: "focus")
         numberOfResponsesLabel.text = "\(request.responseCount)"
+    }
+    
+    func stylizeSubviews() {
+        tagsLabel.font = UIFont(name: FontAttributes.body.fontFamily, size: FontAttributes.body.rawValue)
+        tagsLabel.textColor = .blueGrey
     }
 }

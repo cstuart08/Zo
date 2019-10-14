@@ -15,16 +15,18 @@ class ActiveRequestsTableViewCell: UITableViewCell {
     @IBOutlet weak var requestBodyLabel: UILabel!
     @IBOutlet weak var requestImageView: UIImageView!
     @IBOutlet weak var numberOfResponsesLabel: UILabel!
+    @IBOutlet weak var requestTags: UILabel!
     
     // MARK: - Properties
     var requestLandingPad: Request? {
         didSet {
             layoutIfNeeded()
             setupView()
+            stylizeSubviews()
         }
     }
+    
     let randomImages: [UIImage] = [UIImage(named: "canyonJump")!]
-
     
     // MARK: - Lifecycle Methods
     override func awakeFromNib() {
@@ -49,5 +51,10 @@ class ActiveRequestsTableViewCell: UITableViewCell {
         requestBodyLabel.text = request.body
         requestImageView.image = randomImages.randomElement()
         numberOfResponsesLabel.text = "\(request.responseCount)"
+    }
+    
+    func stylizeSubviews() {
+        requestTags.font = UIFont(name: FontAttributes.body.fontFamily, size: FontAttributes.body.rawValue)
+        requestTags.textColor = .blueGrey
     }
 }
