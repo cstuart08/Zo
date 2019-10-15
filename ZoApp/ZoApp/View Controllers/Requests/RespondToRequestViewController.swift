@@ -153,8 +153,11 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
             self.present(imagePickerController, animated: true)
         }
         
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
         alertController.addAction(action1)
         alertController.addAction(action2)
+        alertController.addAction(cancelAction)
         present(alertController, animated: true)
     }
     
