@@ -11,6 +11,7 @@
 		D435FD32234F8CDC00FD6DCC /* UnsplashPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435FD31234F8CDC00FD6DCC /* UnsplashPhoto.swift */; };
 		D435FD34234F8CE900FD6DCC /* UnsplashRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435FD33234F8CE900FD6DCC /* UnsplashRoute.swift */; };
 		D435FD36234F8D0B00FD6DCC /* UnsplashService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435FD35234F8D0B00FD6DCC /* UnsplashService.swift */; };
+		D4A8BD4A235567AF000B8D21 /* ZoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A8BD49235567AF000B8D21 /* ZoLabel.swift */; };
 		D4CDD46F234E8E8E00A6D5C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD46E234E8E8E00A6D5C5 /* AppDelegate.swift */; };
 		D4CDD471234E8E8E00A6D5C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD470234E8E8E00A6D5C5 /* SceneDelegate.swift */; };
 		D4CDD478234E8E8E00A6D5C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4CDD477234E8E8E00A6D5C5 /* Assets.xcassets */; };
@@ -79,6 +80,7 @@
 		D435FD31234F8CDC00FD6DCC /* UnsplashPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashPhoto.swift; sourceTree = "<group>"; };
 		D435FD33234F8CE900FD6DCC /* UnsplashRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashRoute.swift; sourceTree = "<group>"; };
 		D435FD35234F8D0B00FD6DCC /* UnsplashService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashService.swift; sourceTree = "<group>"; };
+		D4A8BD49235567AF000B8D21 /* ZoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoLabel.swift; sourceTree = "<group>"; };
 		D4CDD46B234E8E8E00A6D5C5 /* Zo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4CDD46E234E8E8E00A6D5C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4CDD470234E8E8E00A6D5C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 				FC93FE3B234FCE8200F65581 /* OnBoardingButton.swift */,
 				FC00D8A52350D26800BC2C30 /* TextViewExtension.swift */,
 				FC00D8A72350F5FC00BC2C30 /* ZoButton.swift */,
+				D4A8BD49235567AF000B8D21 /* ZoLabel.swift */,
 			);
 			path = StyleGuide;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				D4CDD46F234E8E8E00A6D5C5 /* AppDelegate.swift in Sources */,
 				D4CDD4C3234E8F5500A6D5C5 /* UserController.swift in Sources */,
 				D4CDD4AF234E8F4100A6D5C5 /* BlockUserAlertViewController.swift in Sources */,
+				D4A8BD4A235567AF000B8D21 /* ZoLabel.swift in Sources */,
 				D4CDD471234E8E8E00A6D5C5 /* SceneDelegate.swift in Sources */,
 				D4CDD4B2234E8F4100A6D5C5 /* ProfileViewController.swift in Sources */,
 				FC00D8A82350F5FC00BC2C30 /* ZoButton.swift in Sources */,

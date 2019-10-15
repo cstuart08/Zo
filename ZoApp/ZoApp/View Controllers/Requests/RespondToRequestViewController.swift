@@ -16,11 +16,13 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
     
     // Request
     @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var tagsLabel: UILabel!
     @IBOutlet weak var requestImageView: UIImageView!
     @IBOutlet weak var numberOfResponsesLabel: UILabel!
-    @IBOutlet weak var requestBodyLabel: UILabel!
+    @IBOutlet weak var requestTextView: UITextView!
     @IBOutlet weak var imageSelectorImageView: UIImageView!
+    @IBOutlet weak var requestTag1: UILabel!
+    @IBOutlet weak var requestTag2: UILabel!
+    @IBOutlet weak var requestTag3: UILabel!
     
     // Response
     @IBOutlet weak var yourAnswerLabel: UILabel!
@@ -98,10 +100,15 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
         loadViewIfNeeded()
         guard let request = request else { return }
         usernameLabel.text = request.username
+        usernameLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
+        usernameLabel.textColor = .zoWhite
         numberOfResponsesLabel.text = "\(request.responseCount)"
-        requestBodyLabel.text = request.body
-        
-        
+        requestTextView.text = request.body
+        requestTextView.isSelectable = false
+        requestTextView.isEditable = false
+        requestTag1.text = request.tags[0]
+        requestTag2.text = request.tags[1]
+        requestTag3.text = request.tags[2]
     }
     
     func selectImageActionSheet() {
@@ -133,10 +140,14 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
         dismiss(animated: true, completion: nil)
     }
     
+    // MARK: - Actions
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        DispatchQueue.main.async {
+            self.dismiss(animated: true)
+        }
+    }
     
     // MARK: - UI Adjustments
-    
-    
     @objc func tapResign() {
         view.frame.origin.y = 0
         responseTextView.resignFirstResponder()
@@ -146,18 +157,4 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
     @objc func keyboardWillShow() {
         view.frame.origin.y = -(view.frame.height / 3.5)
     }
-    
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

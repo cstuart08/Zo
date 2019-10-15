@@ -19,6 +19,7 @@ class RequestFeedViewController: UIViewController {
     @IBOutlet weak var searchBar: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var tagsView: UIView!
+    @IBOutlet weak var headerView: UIView!
     
     
     // MARK: - Lifecycle Methods
