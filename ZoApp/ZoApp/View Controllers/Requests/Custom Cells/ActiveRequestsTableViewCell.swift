@@ -87,11 +87,11 @@ class ActiveRequestsTableViewCell: UITableViewCell {
         usernameLabel.addAccentBorder(width: 2.0, color: .boldGreen)
         usernameLabel.addCornerRadius(13)
         usernameLabel.layer.masksToBounds = true
-        tagsLabel.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.rawValue)
+        tagsLabel.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.fontSize)
         tagsLabel.textColor = .blueGrey
-        requestBodyLabel.font = UIFont(name: FontAttributes.body.fontFamily, size: FontAttributes.body.rawValue)
+        requestBodyLabel.font = UIFont(name: FontAttributes.body.fontFamily, size: FontAttributes.body.fontSize)
         requestBodyLabel.textColor = .blueGrey
-        usernameLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h4.rawValue)
+        usernameLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h4.fontSize)
         usernameLabel.textColor = .blueGrey
     }
 }

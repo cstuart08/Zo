@@ -31,9 +31,9 @@ class RequestFeedViewController: UIViewController {
         activeRequestsFeedTableView.dataSource = self
         pastRequestsTableView.delegate = self
         pastRequestsTableView.dataSource = self
-        requestsLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
+        requestsLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
         requestsLabel.textColor = .zoWhite
-        addNewRequestButton.titleLabel?.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
+        addNewRequestButton.titleLabel?.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
         addNewRequestButton.contentHorizontalAlignment = .right
         tagsView.isHidden = true
         sectionDivider.layer.cornerRadius = 5

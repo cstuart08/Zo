@@ -79,9 +79,9 @@ class PastRequestsTableViewCell: UITableViewCell {
         requestBodyLabel.addAccentBorder(width: 2.0, color: .boldGreen)
         requestBodyLabel.addCornerRadius(13)
         requestBodyLabel.layer.masksToBounds = true
-        tagsLabel.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.rawValue)
+        tagsLabel.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.fontSize)
         tagsLabel.textColor = .blueGrey
-        requestBodyLabel.font = UIFont(name: FontAttributes.h3.fontFamily, size: FontAttributes.h4.rawValue)
+        requestBodyLabel.font = UIFont(name: FontAttributes.h3.fontFamily, size: FontAttributes.h4.fontSize)
         requestBodyLabel.textColor = .blueGrey
     }
 }

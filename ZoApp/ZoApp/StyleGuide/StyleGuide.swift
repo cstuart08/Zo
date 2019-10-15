@@ -28,14 +28,14 @@ extension UIView {
     }
 }
 
-enum FontAttributes: CGFloat {
-    case h1 = 36
-    case h2 = 25
-    case h3 = 24
-    case h4 = 18
-    case body = 16
-    case caption = 14
-    case number = 11
+enum FontAttributes {
+    case h1
+    case h2
+    case h3
+    case h4
+    case body
+    case caption
+    case number
     
     var fontFamily: String {
         switch self {
