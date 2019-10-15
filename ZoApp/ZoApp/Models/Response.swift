@@ -71,10 +71,10 @@ class Response {
             let link = ckRecord[ResponseConstants.linkKey] as? String?,
             let timestamp = ckRecord[ResponseConstants.timestampKey] as? Double,
             let responseTags = ckRecord[ResponseConstants.responseTagsKey] as? [String],
-            let requestReference = ckRecord[ResponseConstants.requestReferenceKey] as? CKRecord.Reference,
-            let imageCkAsset = ckRecord[ResponseConstants.imageAssetKey] as? CKAsset
+            let requestReference = ckRecord[ResponseConstants.requestReferenceKey] as? CKRecord.Reference
             else { return nil }
         
+        let imageCkAsset = ckRecord[ResponseConstants.imageAssetKey] as? CKAsset
         self.username = username
         self.bodyText = bodyText
         self.link = link
@@ -83,12 +83,13 @@ class Response {
         self.responseRecordID = ckRecord.recordID
         self.requestReference = requestReference
         
-        guard let url = imageCkAsset.fileURL else { return }
-        
-        do {
-            self.imageData = try Data(contentsOf: url)
-        } catch {
-            print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+        //guard let url = imageCkAsset.fileURL else { return }
+        if let url = imageCkAsset?.fileURL {
+            do {
+                self.imageData = try Data(contentsOf: url)
+            } catch {
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+            }
         }
     }
 }
