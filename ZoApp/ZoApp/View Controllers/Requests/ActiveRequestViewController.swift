@@ -12,12 +12,14 @@ import CloudKit
 class ActiveRequestViewController: UIViewController {
 
     // MARK: - Outlets
-    @IBOutlet weak var tagsLabel: UILabel!
     @IBOutlet weak var requestImageView: UIImageView!
     @IBOutlet weak var numberOfResponsesLabel: UILabel!
-    @IBOutlet weak var requestBodyLabel: UILabel!
-    
+    @IBOutlet weak var requestBodyTextView: UITextView!
     @IBOutlet weak var responsesTableView: UITableView!
+    @IBOutlet weak var tagOne: ZoLabel!
+    @IBOutlet weak var tagTwo: ZoLabel!
+    @IBOutlet weak var tagThree: ZoLabel!
+    @IBOutlet weak var topLabel: UILabel!
     
     // MARK: - Properties
     var request: Request? {
@@ -27,18 +29,14 @@ class ActiveRequestViewController: UIViewController {
     }
     
     // MARK: - Lifecycle Methods
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.backgroundColor = .ivory
         responsesTableView.delegate = self
         responsesTableView.dataSource = self
         fetchResponses()
     }
-    
-    // MARK: - Actions
-    
-    
+
     // MARK: - Custom Methods
     func fetchResponses() {
         guard let request = request else { return }
@@ -55,31 +53,42 @@ class ActiveRequestViewController: UIViewController {
     func setupViews() {
         loadViewIfNeeded()
         guard let request = request else { return }
-        requestBodyLabel.text = request.body
+        topLabel.text = request.username
+        topLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
+        topLabel.textColor = .zoWhite
+        requestBodyTextView.setupDailyTextViewUI()
+        requestBodyTextView.text = request.body
         requestImageView.image = UIImage(named: "focus")
         numberOfResponsesLabel.text = "\(request.responseCount)"
-        tagsLabel.text = "\(request.tags)"
-        
-        
+        tagOne.text = request.tags[0]
+        tagTwo.text = request.tags[1]
+        tagThree.text = request.tags[2]
+        tagOne.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.rawValue)
+        tagOne.textColor = .blueGrey
+        tagOne.addAccentBorder(width: 2.0, color: .boldGreen)
+        tagOne.addCornerRadius(8)
+        tagOne.layer.masksToBounds = true
+        tagTwo.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.rawValue)
+        tagTwo.textColor = .blueGrey
+        tagTwo.addAccentBorder(width: 2.0, color: .boldGreen)
+        tagTwo.addCornerRadius(8)
+        tagTwo.layer.masksToBounds = true
+        tagThree.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.rawValue)
+        tagThree.textColor = .blueGrey
+        tagThree.addAccentBorder(width: 2.0, color: .boldGreen)
+        tagThree.addCornerRadius(8)
+        tagThree.layer.masksToBounds = true
     }
     
-    // MARK: - UI Adjustments
-
-
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Actions
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        DispatchQueue.main.async {
+            self.dismiss(animated: true)
+        }
     }
-    */
-
 }
 
+// MARK: - Extensions
 extension ActiveRequestViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ResponseController.shared.responses.count
@@ -93,33 +102,5 @@ extension ActiveRequestViewController: UITableViewDataSource, UITableViewDelegat
         cell.response = response
         
         return cell
-    }
-    
-    
-}
-
-
-class ProfileMockDataModel3 {
-    let text: String
-    let image: UIImage?
-    
-    init(text: String, image: UIImage?) {
-        self.text = text
-        self.image = image
-    }
-}
-
-class ProfileMockDataController3 {
-    static let shared = ProfileMockDataController3()
-    
-    var mockDataObjects = [ProfileMockDataModel3]()
-    
-    init() {
-        
-        let request1 = ProfileMockDataModel3(text: "#whatever #amiseeingthings #iphoneForTheWin", image: UIImage(named: "mountain"))
-        let request2 = ProfileMockDataModel3(text: "#customTableViews #BadDay #WorkSucks", image: UIImage(named: "focus"))
-        let request3 = ProfileMockDataModel3(text: "#DoesItWork #WAterIsLife #RAinbow", image: UIImage(named: "canyonJump"))
-        
-        self.mockDataObjects = [request1, request2, request3]
     }
 }
