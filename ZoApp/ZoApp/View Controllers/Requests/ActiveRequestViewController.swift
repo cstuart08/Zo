@@ -89,15 +89,16 @@ class ActiveRequestViewController: UIViewController, MFMailComposeViewController
     }
     
     func showMailCompoesr() {
+        guard let request = request else { return }
         guard MFMailComposeViewController.canSendMail() else {
             return
         }
         
         let letterComposer = MFMailComposeViewController()
         letterComposer.mailComposeDelegate = self
-        letterComposer.setSubject("Report this User")
+        letterComposer.setSubject("Report this user ID, \(request.userReference.recordID)")
         letterComposer.setToRecipients(["blakekvarfordt@gmail.com"])
-        letterComposer.setMessageBody("Dear support team...", isHTML: false)
+        letterComposer.setMessageBody("I would like to report this user \(request.userReference.recordID) (Dont delete this ID)", isHTML: false)
         
         present(letterComposer, animated: true)
         
