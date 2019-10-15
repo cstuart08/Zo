@@ -97,6 +97,7 @@ class myRequestsTableViewCell: UITableViewCell {
         numberOfResponsesLabel.font = UIFont(name: FontAttributes.number.fontFamily, size: FontAttributes.number.fontSize)
         numberOfResponsesLabel.backgroundColor = .darkBlue
         
+        requestImageView.addCornerRadius()
     }
 
     
