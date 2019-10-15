@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import MessageUI
 import CloudKit
 
-class ActiveRequestViewController: UIViewController {
+class ActiveRequestViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
     // MARK: - Outlets
     @IBOutlet weak var requestImageView: UIImageView!
@@ -34,6 +35,7 @@ class ActiveRequestViewController: UIViewController {
         self.view.backgroundColor = .ivory
         responsesTableView.delegate = self
         responsesTableView.dataSource = self
+        NotificationCenter.default.addObserver(self, selector: #selector(activateMailComposer), name: NSNotification.Name("showMailComposer"), object: nil)
         fetchResponses()
     }
 
@@ -80,6 +82,49 @@ class ActiveRequestViewController: UIViewController {
         tagThree.addAccentBorder(width: 2.0, color: .boldGreen)
         tagThree.addCornerRadius(8)
         tagThree.layer.masksToBounds = true
+    }
+    
+    @objc func activateMailComposer() {
+        showMailCompoesr()
+    }
+    
+    func showMailCompoesr() {
+        guard MFMailComposeViewController.canSendMail() else {
+            return
+        }
+        
+        let letterComposer = MFMailComposeViewController()
+        letterComposer.mailComposeDelegate = self
+        letterComposer.setSubject("Report this User")
+        letterComposer.setToRecipients(["blakekvarfordt@gmail.com"])
+        letterComposer.setMessageBody("Dear support team...", isHTML: false)
+        
+        present(letterComposer, animated: true)
+        
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        
+        if let _ = error {
+             controller.dismiss(animated: true)
+            return
+        }
+        
+        switch result {
+        case .cancelled:
+            print("Cancelled")
+        case .saved:
+            print("Saved")
+        case .sent:
+            print("Sent")
+        case .failed:
+            print("Failed")
+        default:
+            print("game over")
+        }
+        
+    controller.dismiss(animated: true)
+        
     }
     
     // MARK: - Actions
