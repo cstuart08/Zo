@@ -28,7 +28,7 @@ class DailyViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         dailyEntryTextView.delegate = self
         dailyEntryTextView.text = "Enter your thoughts here..."
-        dailyEntryTextView.textColor = .lightGray
+        dailyEntryTextView.textColor = .blueGrey
         pastEntriesTableView.delegate = self
         pastEntriesTableView.dataSource = self
         dailyImageView.contentMode = .scaleAspectFill
@@ -50,7 +50,9 @@ class DailyViewController: UIViewController, UITextViewDelegate {
     // MARK: - UI Adjustments
     
     func stylizeSubviews() {
-        dailyEntryTextView.setupDailyTextViewUI()
+        dailyEntryTextView.addCornerRadius(13)
+        dailyEntryTextView.addAccentBorder(width: 2, color: .boldGreen)
+        dailyEntryTextView.addPadding()
         view.backgroundColor = .ivory
         todayTitleLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
         todayTitleLabel.textColor = .zoBlack
@@ -98,9 +100,9 @@ class DailyViewController: UIViewController, UITextViewDelegate {
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if dailyEntryTextView.textColor == UIColor.lightGray {
+        if dailyEntryTextView.textColor == UIColor.blueGrey {
             dailyEntryTextView.text = nil
-            dailyEntryTextView.textColor = UIColor.black
+            dailyEntryTextView.textColor = UIColor.zoBlack
         }
     }
     
@@ -152,7 +154,6 @@ extension DailyViewController: UITableViewDelegate, UITableViewDataSource {
         let entry = DailyController.shared.myDailyJournals[indexPath.row]
         
         cell.titleLabel.text = DateHelper.shared.mediumDateSTRfromDouble(dateDouble: entry.timestamp)
-//        cell.textLabel?.text = DateHelper.shared.mediumDateSTRfromDouble(dateDouble: entry.timestamp)
         return cell
     }
     
