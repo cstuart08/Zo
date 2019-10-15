@@ -13,10 +13,9 @@ class PastDailyEntriesTableViewCell: UITableViewCell {
     // MARK: - Outlets
     @IBOutlet weak var titleLabel: UILabel!
     
-
+    // MARK: - Lifecycles
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         stylizeSubviews()
     }
     
@@ -29,12 +28,9 @@ class PastDailyEntriesTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     // MARK: - UI Adjustments
-    
     func stylizeSubviews() {
         backgroundColor = .ivory
         contentView.addAccentBorder(width: 3, color: .boldGreen)

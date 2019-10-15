@@ -19,7 +19,7 @@ class DateHelper {
     func mediumDateSTRfromDouble(dateDouble: Double) -> String {
         let date = Date(timeIntervalSince1970: dateDouble)
         dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .medium
+        dateFormatter.timeStyle = .none
         let dateString = dateFormatter.string(from: date)
         return dateString
     }
