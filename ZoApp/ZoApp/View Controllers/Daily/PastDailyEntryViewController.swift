@@ -74,6 +74,7 @@ class PastDailyEntryViewController: UIViewController, UIGestureRecognizerDelegat
     func setupViews() {
         guard let dailyJournalEntry = dailyJournal else { return }
         pastDailyEntryTextView.text = dailyJournalEntry.entry
+        dateLabel.text = "\(DateHelper.shared.mediumDateSTRfromDouble(dateDouble: dailyJournalEntry.timestamp))"
     }
     
     func fetchPastImage() {
