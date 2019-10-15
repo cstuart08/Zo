@@ -25,6 +25,8 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
     @IBOutlet weak var requestTag3: UILabel!
     
     // Response
+    @IBOutlet weak var answerView: UIView!
+    @IBOutlet weak var responseTextAndButtonsView: UIView!
     @IBOutlet weak var yourAnswerLabel: UILabel!
     @IBOutlet weak var responseTextView: UITextView!
     @IBOutlet weak var addSongButton: UIButton!
@@ -48,7 +50,6 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
         super.viewDidLoad()
         
         addLinkTextField.isHidden = true
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         let tap = UITapGestureRecognizer()
@@ -99,6 +100,16 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
     func setupViews() {
         loadViewIfNeeded()
         guard let request = request else { return }
+        answerView.addAccentBorder(width: 2.0, color: .boldGreen)
+        answerView.addCornerRadius(8.0)
+        answerView.backgroundColor = UIColor.sageGreen.withAlphaComponent(1.0)
+        requestTextView.setupDailyTextViewUI()
+        responseTextAndButtonsView.addAccentBorder(width: 2.0, color: .boldGreen)
+        responseTextAndButtonsView.addCornerRadius(8.0)
+        requestTextView.font = UIFont(name: FontAttributes.body.fontFamily, size: FontAttributes.body.rawValue)
+        requestTextView.textColor = .blueGrey
+        yourAnswerLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
+        yourAnswerLabel.textColor = .blueGrey
         usernameLabel.text = request.username
         usernameLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
         usernameLabel.textColor = .zoWhite
@@ -109,6 +120,21 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
         requestTag1.text = request.tags[0]
         requestTag2.text = request.tags[1]
         requestTag3.text = request.tags[2]
+        requestTag1.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.rawValue)
+        requestTag1.textColor = .blueGrey
+        requestTag1.addAccentBorder(width: 2.0, color: .boldGreen)
+        requestTag1.addCornerRadius(5)
+        requestTag1.layer.masksToBounds = true
+        requestTag2.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.rawValue)
+        requestTag2.textColor = .blueGrey
+        requestTag2.addAccentBorder(width: 2.0, color: .boldGreen)
+        requestTag2.addCornerRadius(5)
+        requestTag2.layer.masksToBounds = true
+        requestTag3.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.rawValue)
+        requestTag3.textColor = .blueGrey
+        requestTag3.addAccentBorder(width: 2.0, color: .boldGreen)
+        requestTag3.addCornerRadius(5)
+        requestTag3.layer.masksToBounds = true
     }
     
     func selectImageActionSheet() {
