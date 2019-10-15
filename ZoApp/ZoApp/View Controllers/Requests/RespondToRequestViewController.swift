@@ -123,17 +123,17 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
         requestTag1.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.rawValue)
         requestTag1.textColor = .blueGrey
         requestTag1.addAccentBorder(width: 2.0, color: .boldGreen)
-        requestTag1.addCornerRadius(5)
+        requestTag1.addCornerRadius(8)
         requestTag1.layer.masksToBounds = true
         requestTag2.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.rawValue)
         requestTag2.textColor = .blueGrey
         requestTag2.addAccentBorder(width: 2.0, color: .boldGreen)
-        requestTag2.addCornerRadius(5)
+        requestTag2.addCornerRadius(8)
         requestTag2.layer.masksToBounds = true
         requestTag3.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.rawValue)
         requestTag3.textColor = .blueGrey
         requestTag3.addAccentBorder(width: 2.0, color: .boldGreen)
-        requestTag3.addCornerRadius(5)
+        requestTag3.addCornerRadius(8)
         requestTag3.layer.masksToBounds = true
     }
     
