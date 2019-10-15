@@ -128,13 +128,13 @@ class PastDailyEntryViewController: UIViewController, UIGestureRecognizerDelegat
         pastDailyEntryTextView.addCornerRadius()
         pastDailyEntryTextView.addAccentBorder(width: 5, color: .boldGreen)
         pastDailyEntryTextView.addPadding()
-        pastDailyEntryTextView.font = UIFont(name: FontAttributes.body.fontFamily, size: FontAttributes.body.rawValue)
+        pastDailyEntryTextView.font = UIFont(name: FontAttributes.body.fontFamily, size: FontAttributes.body.fontSize)
         pastDailyEntryTextView.textColor = .zoBlack
-        deleteButton.titleLabel?.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
+        deleteButton.titleLabel?.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
         deleteButton.setTitleColor(.zoBlack, for: .normal)
-        editButton.titleLabel?.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
+        editButton.titleLabel?.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
         editButton.setTitleColor(.zoBlack, for: .normal)
-        dateLabel.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.rawValue)
+        dateLabel.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.fontSize)
         dateLabel.text = dateLabel.text?.uppercased()
     }
 }

@@ -54,7 +54,7 @@ class DailyViewController: UIViewController, UITextViewDelegate {
         dailyEntryTextView.addAccentBorder(width: 2, color: .boldGreen)
         dailyEntryTextView.addPadding()
         view.backgroundColor = .ivory
-        todayTitleLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
+        todayTitleLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
         todayTitleLabel.textColor = .zoBlack
         todayView.addCornerRadius()
         todayView.addAccentBorder(width: 2, color: .boldGreen)

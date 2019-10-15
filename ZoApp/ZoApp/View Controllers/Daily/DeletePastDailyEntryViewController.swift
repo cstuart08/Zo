@@ -51,7 +51,7 @@ class DeletePastDailyEntryViewController: UIViewController {
         alertView.backgroundColor = .boldGreen
         alertView.addCornerRadius()
         titleLabel.textColor = .zoWhite
-        titleLabel.font = UIFont(name: FontAttributes.h1.fontFamily, size: FontAttributes.h1.rawValue)
+        titleLabel.font = UIFont(name: FontAttributes.h1.fontFamily, size: FontAttributes.h1.fontSize)
     }
 }
 
