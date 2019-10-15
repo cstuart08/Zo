@@ -53,6 +53,8 @@ class ActiveRequestViewController: UIViewController {
     func setupViews() {
         loadViewIfNeeded()
         guard let request = request else { return }
+        responsesTableView.addAccentBorder(width: 2.0, color: .boldGreen)
+        responsesTableView.addCornerRadius(13)
         topLabel.text = request.username
         topLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
         topLabel.textColor = .zoWhite

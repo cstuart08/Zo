@@ -78,8 +78,8 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
         guard let currentUser = UserController.shared.currentUser,
             let request = request,
             let link = addLinkTextField.text,
-            let bodyText = responseTextView.text, !bodyText.isEmpty,
-            let image = UIImage(named: "focus") else { return }
+            let bodyText = responseTextView.text, !bodyText.isEmpty else { return }
+        let image = imageSelectorImageView.image
         let requestReference = CKRecord.Reference(recordID: request.recordID, action: .deleteSelf)
         ResponseController.shared.createResponse(username: currentUser.username, bodyText: bodyText, link: link, image: image, responseTags: ["tag"], requestReference: requestReference) { (success) in
             if success {
