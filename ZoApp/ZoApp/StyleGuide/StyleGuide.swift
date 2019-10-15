@@ -35,13 +35,33 @@ enum FontAttributes: CGFloat {
     case h4 = 18
     case body = 16
     case caption = 14
+    case number = 11
     
     var fontFamily: String {
         switch self {
-        case .h1, .h2:
+        case .h1, .h2, .number:
             return FontNames.fingerPaint
         default:
             return FontNames.latoRegular
+        }
+    }
+    
+    var fontSize: CGFloat {
+        switch self {
+        case .h1:
+            return 36
+        case .h2:
+            return 24
+        case .h3:
+            return 24
+        case .h4:
+            return 18
+        case .body:
+            return 16
+        case .caption:
+            return 14
+        case .number:
+            return 11
         }
     }
 }
