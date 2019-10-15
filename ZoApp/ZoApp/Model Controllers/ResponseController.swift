@@ -23,14 +23,14 @@ class ResponseController {
         
         let realRecord = CKRecord(response: responseRecord)
         
-        self.publicDB.save(realRecord) { (record, error) in
+        self.publicDB.save(realRecord) { (_, error) in
             if let error = error {
                 print("Failed to create a new response! \n Error: \(error) \n \(error.localizedDescription)")
                 completion(false)
                 return
             }
-            guard let record = record, let response = Response(ckRecord: record) else { completion(false); return }
-            self.responses.append(response)
+            
+            self.responses.append(responseRecord)
             completion(true)
         }
     }
