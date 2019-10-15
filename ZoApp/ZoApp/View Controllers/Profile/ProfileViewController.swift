@@ -27,6 +27,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         pastRequestsTableView.delegate = self
         pastRequestsTableView.dataSource = self
+        pastRequestsTableView.register(UINib(nibName: "myRequestsTableViewCell", bundle: nil), forCellReuseIdentifier: "myRequest")
         setupViews()
         stylizeSubviews()
         fetchRequests()
@@ -75,18 +76,6 @@ class ProfileViewController: UIViewController {
         let svc = SFSafariViewController(url: url)
         present(svc, animated: true)
     }
-    
-    
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toRequestDetailVC" {
-            guard let index = self.pastRequestsTableView.indexPathForSelectedRow, let destination = segue.destination as? ActiveRequestViewController else { return }
-            let request = RequestController.shared.myRequests[index.row]
-            destination.request = request
-        }
-    }
-    
-
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
@@ -95,12 +84,19 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         return RequestController.shared.myRequests.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let request = RequestController.shared.myRequests[indexPath.row]
+        guard let destinationVC = UIStoryboard(name: "Requests", bundle: nil).instantiateViewController(identifier: "requestDetailVC") as? ActiveRequestViewController else { return }
+        destinationVC.request = request
+        self.present(destinationVC, animated: true, completion: nil)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "pastRequestCell", for: indexPath) as? ProfileViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "myRequest", for: indexPath) as? myRequestsTableViewCell else { return UITableViewCell() }
         
         let request = RequestController.shared.myRequests[indexPath.row]
         
-        cell.request = request
+        cell.requestLandingPad = request
         
         return cell
         

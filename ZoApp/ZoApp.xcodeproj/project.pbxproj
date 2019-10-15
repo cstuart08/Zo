@@ -73,6 +73,8 @@
 		FC93FE38234FA3FB00F65581 /* Lato-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC93FE37234FA3FB00F65581 /* Lato-RegularItalic.ttf */; };
 		FC93FE3A234FC37C00F65581 /* OnboardingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC93FE39234FC37C00F65581 /* OnboardingTextField.swift */; };
 		FC93FE3C234FCE8300F65581 /* OnBoardingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC93FE3B234FCE8200F65581 /* OnBoardingButton.swift */; };
+		FCC8FC282356209200EE22FC /* myRequestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC8FC262356209200EE22FC /* myRequestsTableViewCell.swift */; };
+		FCC8FC292356209200EE22FC /* myRequestsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCC8FC272356209200EE22FC /* myRequestsTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,6 +147,8 @@
 		FC93FE37234FA3FB00F65581 /* Lato-RegularItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-RegularItalic.ttf"; sourceTree = "<group>"; };
 		FC93FE39234FC37C00F65581 /* OnboardingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTextField.swift; sourceTree = "<group>"; };
 		FC93FE3B234FCE8200F65581 /* OnBoardingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingButton.swift; sourceTree = "<group>"; };
+		FCC8FC262356209200EE22FC /* myRequestsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myRequestsTableViewCell.swift; sourceTree = "<group>"; };
+		FCC8FC272356209200EE22FC /* myRequestsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = myRequestsTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,6 +327,7 @@
 		D4CDD4D5234E8F7000A6D5C5 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				FCC8FC2A2356217F00EE22FC /* XIB Cells */,
 				D4CDD479234E8E8E00A6D5C5 /* LaunchScreen.storyboard */,
 				D4CDD4D6234E8F7000A6D5C5 /* RulesAlert.storyboard */,
 				D4CDD4D7234E8F7000A6D5C5 /* Onboarding.storyboard */,
@@ -392,6 +397,15 @@
 				FC93FE2F234FA3C900F65581 /* FingerPaint-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		FCC8FC2A2356217F00EE22FC /* XIB Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FCC8FC272356209200EE22FC /* myRequestsTableViewCell.xib */,
+				FCC8FC262356209200EE22FC /* myRequestsTableViewCell.swift */,
+			);
+			path = "XIB Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -467,6 +481,7 @@
 				D4CDD4EB234E8F7000A6D5C5 /* PointsAndRank.storyboard in Resources */,
 				FC93FE32234FA3E000F65581 /* Lato-Bold.ttf in Resources */,
 				D4CDD4F0234E8F7000A6D5C5 /* Daily.storyboard in Resources */,
+				FCC8FC292356209200EE22FC /* myRequestsTableViewCell.xib in Resources */,
 				D4CDD4EF234E8F7000A6D5C5 /* CreateRequest.storyboard in Resources */,
 				D4CDD4E8234E8F7000A6D5C5 /* Requests.storyboard in Resources */,
 				D4CDD4ED234E8F7000A6D5C5 /* TabController.storyboard in Resources */,
@@ -485,6 +500,7 @@
 				D4CDD4B5234E8F4100A6D5C5 /* HowItWorksOnboardingViewController.swift in Sources */,
 				D4CDD4B1234E8F4100A6D5C5 /* ProfileViewCell.swift in Sources */,
 				FC93FE3A234FC37C00F65581 /* OnboardingTextField.swift in Sources */,
+				FCC8FC282356209200EE22FC /* myRequestsTableViewCell.swift in Sources */,
 				D4CDD4A2234E8F4100A6D5C5 /* DeletePastDailyEntryViewController.swift in Sources */,
 				D423DD9B234FC1FD002FAE7F /* DateFormatters.swift in Sources */,
 				D435FD34234F8CE900FD6DCC /* UnsplashRoute.swift in Sources */,
