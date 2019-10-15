@@ -38,7 +38,7 @@ class PointsAndRankVC: UIViewController {
         
         
         guard let currentUser = currentUser else { return }
-        rankLabel.text = "YOU HAVE ADVANCED TO THE \(ChakraController.shared.updateChakraImage(user: currentUser).chakraName) CHAKRA"
+        rankLabel.text = "YOU ARE ON THE \(ChakraController.shared.updateChakraImage(user: currentUser).chakraName) CHAKRA"
         rankLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
         imageView.image = ChakraController.shared.updateChakraImage(user: currentUser).chakraImage
         imageView.addCornerRadius()
