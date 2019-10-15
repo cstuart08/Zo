@@ -268,7 +268,7 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cME-u8-dtD">
                                         <rect key="frame" x="335.33333333333331" y="0.0" width="37.333333333333314" height="44"/>
-                                        <state key="normal" image="Search"/>
+                                        <state key="normal" image="searchIcon"/>
                                         <connections>
                                             <action selector="searchButtonTapped:" destination="ZYU-C9-2hr" eventType="touchUpInside" id="f8n-Tg-ODQ"/>
                                         </connections>
@@ -421,7 +421,7 @@
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rMX-p6-Rph">
                                                             <rect key="frame" x="0.0" y="0.0" width="24.333333333333332" height="22"/>
                                                             <color key="tintColor" name="boldGreen"/>
-                                                            <state key="normal" image="flame.fill" catalog="system"/>
+                                                            <state key="normal" image="favoriteResponseIcon"/>
                                                             <connections>
                                                                 <action selector="favoriteResponseButtonTapped:" destination="sxY-ax-Vrb" eventType="touchUpInside" id="4LK-VP-fHX"/>
                                                                 <segue destination="BMW-HP-V4b" kind="show" id="iZJ-CJ-0of"/>
@@ -430,7 +430,7 @@
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbA-4x-lrI">
                                                             <rect key="frame" x="30.333333333333336" y="0.0" width="24" height="22"/>
                                                             <color key="tintColor" name="boldGreen"/>
-                                                            <state key="normal" image="flag.fill" catalog="system"/>
+                                                            <state key="normal" image="reportUserIcon"/>
                                                             <connections>
                                                                 <action selector="flagResponseButtonTapped:" destination="sxY-ax-Vrb" eventType="touchUpInside" id="2su-fG-Z9h"/>
                                                                 <segue destination="eGy-Vo-br5" kind="show" id="036-k3-mLK"/>
@@ -439,7 +439,7 @@
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNb-JM-Pjy">
                                                             <rect key="frame" x="60.333333333333336" y="0.0" width="24.333333333333336" height="22"/>
                                                             <color key="tintColor" name="boldGreen"/>
-                                                            <state key="normal" image="nosign" catalog="system"/>
+                                                            <state key="normal" image="blockUserIcon"/>
                                                             <connections>
                                                                 <action selector="blockUserButtonTapped:" destination="sxY-ax-Vrb" eventType="touchUpInside" id="ToQ-gM-Was"/>
                                                                 <segue destination="SRo-gA-4l6" kind="show" id="VOK-he-aEc"/>
@@ -449,7 +449,7 @@
                                                             <rect key="frame" x="90.666666666666671" y="0.0" width="24" height="22"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="tintColor" name="boldGreen"/>
-                                                            <state key="normal" image="bookmark.fill" catalog="system"/>
+                                                            <state key="normal" image="saveResponseIcon"/>
                                                             <connections>
                                                                 <action selector="bookmarkResponseButtonTapped:" destination="sxY-ax-Vrb" eventType="touchUpInside" id="fhO-VD-xSc"/>
                                                                 <segue destination="V1F-eq-yfE" kind="show" id="468-fy-Z2h"/>
@@ -742,28 +742,28 @@
                                                 <rect key="frame" x="235" y="101.33333333333337" width="100" height="34"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="246" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="g1X-C1-wLy">
-                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="22"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="25"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rjk-S7-7O9">
-                                                                <rect key="frame" x="0.0" y="0.0" width="33.333333333333336" height="22"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="33.333333333333336" height="25"/>
                                                                 <color key="tintColor" name="boldGreen"/>
-                                                                <state key="normal" title="Send" image="music.note" catalog="system"/>
+                                                                <state key="normal" title="Send" image="musicIcon"/>
                                                                 <connections>
                                                                     <action selector="addSongButtonTapped:" destination="Pzl-Xw-cRl" eventType="touchUpInside" id="Mza-T3-8Nn"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cb-8B-e1j">
-                                                                <rect key="frame" x="33.333333333333371" y="0.0" width="33.333333333333343" height="22"/>
+                                                                <rect key="frame" x="33.333333333333371" y="0.0" width="33.333333333333343" height="25"/>
                                                                 <color key="tintColor" name="boldGreen"/>
-                                                                <state key="normal" title="Send" image="link" catalog="system"/>
+                                                                <state key="normal" title="Send" image="linkIcon"/>
                                                                 <connections>
                                                                     <action selector="addLinkButtonTapped:" destination="Pzl-Xw-cRl" eventType="touchUpInside" id="XB7-i5-0qE"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tIL-LG-3jh">
-                                                                <rect key="frame" x="66.666666666666686" y="0.0" width="33.333333333333343" height="22"/>
+                                                                <rect key="frame" x="66.666666666666686" y="0.0" width="33.333333333333343" height="25"/>
                                                                 <color key="tintColor" name="boldGreen"/>
-                                                                <state key="normal" title="Send" image="photo" catalog="system"/>
+                                                                <state key="normal" title="Send" image="picIcon"/>
                                                                 <connections>
                                                                     <action selector="addImageButtonTapped:" destination="Pzl-Xw-cRl" eventType="touchUpInside" id="VjV-0c-lRW"/>
                                                                 </connections>
@@ -947,18 +947,18 @@
     </scenes>
     <resources>
         <image name="RULES" width="22" height="22"/>
-        <image name="Search" width="25" height="25"/>
-        <image name="bookmark.fill" catalog="system" width="54" height="64"/>
+        <image name="blockUserIcon" width="17" height="17"/>
         <image name="difficultRoads" width="2565" height="3131"/>
-        <image name="flag.fill" catalog="system" width="64" height="64"/>
-        <image name="flame.fill" catalog="system" width="54" height="64"/>
+        <image name="favoriteResponseIcon" width="17" height="19"/>
         <image name="focus" width="7360" height="4912"/>
-        <image name="link" catalog="system" width="64" height="58"/>
+        <image name="linkIcon" width="25" height="25"/>
         <image name="mountain" width="2918" height="3891"/>
-        <image name="music.note" catalog="system" width="48" height="64"/>
-        <image name="nosign" catalog="system" width="64" height="62"/>
-        <image name="photo" catalog="system" width="64" height="48"/>
+        <image name="musicIcon" width="23" height="24"/>
+        <image name="picIcon" width="24" height="23"/>
+        <image name="reportUserIcon" width="13" height="17"/>
         <image name="requestsIcon" width="30" height="27"/>
+        <image name="saveResponseIcon" width="14" height="17"/>
+        <image name="searchIcon" width="25" height="25"/>
         <namedColor name="blueGrey">
             <color red="0.46666666666666667" green="0.49411764705882355" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
