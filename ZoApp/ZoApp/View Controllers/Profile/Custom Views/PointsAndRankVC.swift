@@ -15,6 +15,7 @@ class PointsAndRankVC: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionView: UIView!
     
     // MARK: - Properties
     let currentUser = UserController.shared.currentUser
