@@ -20,7 +20,7 @@
                                 <rect key="frame" x="62" y="125.66666666666669" width="290" height="654.66666666666652"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have advanced to Root Chakra" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixe-HR-fJc">
-                                        <rect key="frame" x="14.666666666666657" y="119.33333333333333" width="260.66666666666674" height="40.666666666666671"/>
+                                        <rect key="frame" x="14.666666666666657" y="29.999999999999986" width="260.66666666666674" height="130"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" name="zoWhite"/>
                                         <nil key="highlightedColor"/>
@@ -70,7 +70,7 @@
                                     <constraint firstItem="t0K-8e-KjC" firstAttribute="top" secondItem="FbP-MZ-Gnd" secondAttribute="bottom" constant="27.333333333333343" id="cV5-YC-rBe"/>
                                     <constraint firstAttribute="bottom" secondItem="eRe-TW-V7L" secondAttribute="bottom" constant="20" id="iE5-iY-1u7"/>
                                     <constraint firstItem="FbP-MZ-Gnd" firstAttribute="centerX" secondItem="n7Q-Fu-HLf" secondAttribute="centerX" id="ntv-Sf-f1T"/>
-                                    <constraint firstItem="ixe-HR-fJc" firstAttribute="top" secondItem="n7Q-Fu-HLf" secondAttribute="top" constant="119.33333333333333" id="ohd-CQ-1xX"/>
+                                    <constraint firstItem="ixe-HR-fJc" firstAttribute="top" secondItem="n7Q-Fu-HLf" secondAttribute="top" constant="30" id="ohd-CQ-1xX"/>
                                     <constraint firstItem="ixe-HR-fJc" firstAttribute="centerX" secondItem="n7Q-Fu-HLf" secondAttribute="centerX" id="rco-57-CZ7"/>
                                 </constraints>
                             </view>
