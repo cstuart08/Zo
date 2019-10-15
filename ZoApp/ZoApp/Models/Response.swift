@@ -83,8 +83,10 @@ class Response {
         self.responseRecordID = ckRecord.recordID
         self.requestReference = requestReference
         
+        guard let url = imageCkAsset.fileURL else { return }
+        
         do {
-            self.imageData = try Data(contentsOf: imageCkAsset.fileURL!)
+            self.imageData = try Data(contentsOf: url)
         } catch {
             print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
         }
@@ -98,7 +100,9 @@ extension CKRecord {
         
         self.setValue(response.username, forKey: ResponseConstants.usernameKey)
         self.setValue(response.bodyText, forKey: ResponseConstants.bodyTextKey)
-        self.setValue(response.imageCkAsset, forKey: ResponseConstants.imageAssetKey)
+        if response.image != nil {
+            self.setValue(response.imageCkAsset, forKey: ResponseConstants.imageAssetKey)
+        }
         self.setValue(response.link, forKey: ResponseConstants.linkKey)
         self.setValue(response.timestamp, forKey: ResponseConstants.timestampKey)
         self.setValue(response.responseTags, forKey: ResponseConstants.responseTagsKey)
