@@ -62,8 +62,15 @@ class ResponseTableViewCell: UITableViewCell {
     
     // MARK: - UI Adjustments
     func setupView() {
-        responseImageView.image = UIImage(named: "focus")
-        usernameLabel.text = response?.username
-        responseBodyLabel.text = response?.bodyText
+        guard let response = response else { return }
+        if let image = response.image {
+            responseImageView.image = image
+        } else {
+            responseImageView.isHidden = true
+        }
+        usernameLabel.text = response.username
+        usernameLabel.backgroundColor = .zoWhite
+        
+        responseBodyLabel.text = response.bodyText
     }
 }
