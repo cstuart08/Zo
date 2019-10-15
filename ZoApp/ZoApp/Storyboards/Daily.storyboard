@@ -255,7 +255,7 @@
                                         <rect key="frame" x="35" y="351" width="282" height="140"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDO-Z6-Ogv">
-                                                <rect key="frame" x="0.0" y="31" width="141" height="78"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="141" height="140"/>
                                                 <state key="normal" image="cancel">
                                                     <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -264,7 +264,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEZ-Ou-qTS">
-                                                <rect key="frame" x="141" y="35.5" width="141" height="69"/>
+                                                <rect key="frame" x="141" y="1" width="141" height="138"/>
                                                 <state key="normal" image="check">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
