@@ -44,14 +44,10 @@ class ProfileViewController: UIViewController {
     
     // MARK: - Setup Views
     func setupViews() {
-        rankLabel.text = "Gold Rank"
-        pointsLabel.text = "\(10000) KP"
-        rankLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
-        rankLabel.textColor = .blueGrey
-        pointsLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
-        pointsLabel.textColor = .blueGrey
-        usernameLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
-        usernameLabel.textColor = .blueGrey
+        guard let currentUser = UserController.shared.currentUser else { return }
+        usernameLabel.text = currentUser.username
+        rankLabel.text = currentUser.kpLevel
+        pointsLabel.text = "\(currentUser.kpPoints) KP"
     }
     func fetchRequests() {
         //        guard let userRecordID = UserController.shared.currentUser?.recordID else { return }
@@ -67,6 +63,12 @@ class ProfileViewController: UIViewController {
     
     func stylizeSubviews() {
         view.backgroundColor = .ivory
+        rankLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
+        rankLabel.textColor = .blueGrey
+        pointsLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
+        pointsLabel.textColor = .blueGrey
+        usernameLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
+        usernameLabel.textColor = .blueGrey
     }
 
     
