@@ -49,6 +49,7 @@ class ResponseTableViewCell: UITableViewCell {
     }
     
     @IBAction func flagResponseButtonTapped(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name("showMailComposer"), object: nil)
     }
     
     @IBAction func blockUserButtonTapped(_ sender: Any) {
