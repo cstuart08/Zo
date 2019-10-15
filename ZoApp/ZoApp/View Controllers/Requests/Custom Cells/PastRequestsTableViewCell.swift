@@ -27,6 +27,7 @@ class PastRequestsTableViewCell: UITableViewCell {
     var tag1: String?
     var tag2: String?
     var tag3: String?
+    var randomImages: [UIImage] = [UIImage(named: "quote1")!, UIImage(named: "quote2")!, UIImage(named: "quote3")!, UIImage(named: "quote4")!, UIImage(named: "quote5")!, UIImage(named: "quote6")!, UIImage(named: "quote7")!, UIImage(named: "quote8")!, UIImage(named: "quote9")!, UIImage(named: "quote10")!, UIImage(named: "quote11")!, UIImage(named: "quote12")!, UIImage(named: "quote13")!]
     
     // MARK: - Lifecycle Methods
     override func awakeFromNib() {
@@ -67,7 +68,7 @@ class PastRequestsTableViewCell: UITableViewCell {
         guard let tag1 = self.tag1, let tag2 = self.tag2, let tag3 = self.tag3 else { return }
         
         requestBodyLabel.text = requestLandingPad?.body
-        requestImage.image = UIImage(named: "focus")
+        requestImage.image = randomImages.randomElement()
         numberOfResponsesLabel.text = "\(request.responseCount)"
         tagsLabel.text = "\(tag1)   \(tag2)   \(tag3)"
     }

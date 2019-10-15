@@ -42,6 +42,7 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
             setupViews()
         }
     }
+    var randomImages: [UIImage] = [UIImage(named: "quote1")!, UIImage(named: "quote2")!, UIImage(named: "quote3")!, UIImage(named: "quote4")!, UIImage(named: "quote5")!, UIImage(named: "quote6")!, UIImage(named: "quote7")!, UIImage(named: "quote8")!, UIImage(named: "quote9")!, UIImage(named: "quote10")!, UIImage(named: "quote11")!, UIImage(named: "quote12")!, UIImage(named: "quote13")!]
     
     // MARK: - Lifecycle Methods
     
@@ -100,6 +101,7 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
     func setupViews() {
         loadViewIfNeeded()
         guard let request = request else { return }
+        requestImageView.image = randomImages.randomElement()
         answerView.addAccentBorder(width: 2.0, color: .boldGreen)
         answerView.addCornerRadius(8.0)
         answerView.backgroundColor = UIColor.sageGreen.withAlphaComponent(1.0)
