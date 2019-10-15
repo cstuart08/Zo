@@ -78,6 +78,15 @@ class ActiveRequestsTableViewCell: UITableViewCell {
     }
     
     func stylizeSubviews() {
+        tagsLabel.addAccentBorder(width: 2.0, color: .boldGreen)
+        tagsLabel.addCornerRadius(13)
+        tagsLabel.layer.masksToBounds = true
+        requestBodyLabel.addAccentBorder(width: 2.0, color: .boldGreen)
+        requestBodyLabel.addCornerRadius(13)
+        requestBodyLabel.layer.masksToBounds = true
+        usernameLabel.addAccentBorder(width: 2.0, color: .boldGreen)
+        usernameLabel.addCornerRadius(13)
+        usernameLabel.layer.masksToBounds = true
         tagsLabel.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.rawValue)
         tagsLabel.textColor = .blueGrey
         requestBodyLabel.font = UIFont(name: FontAttributes.body.fontFamily, size: FontAttributes.body.rawValue)

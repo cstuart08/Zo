@@ -36,9 +36,19 @@ class PastDailyEntryViewController: UIViewController, UIGestureRecognizerDelegat
         tap.cancelsTouchesInView = true
         tap.delegate = self
         view.addGestureRecognizer(tap)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     // MARK: - Methods
+    @objc func keyboardWillShow() {
+        view.frame.origin.y = -(view.frame.height / 5.8)
+    }
+    
+    @objc func keyboardWillHide() {
+        self.view.frame.origin.y = 0
+    }
+    
     @objc func tapDismiss() {
         if self.view == pastDailyEntryImageView {
             return
@@ -49,6 +59,8 @@ class PastDailyEntryViewController: UIViewController, UIGestureRecognizerDelegat
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         if touch.view!.isDescendant(of: alertView) {
+            pastDailyEntryTextView.resignFirstResponder()
+            view.frame.origin.y = 0
             return false
         } else {
             return true
