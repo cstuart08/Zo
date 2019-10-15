@@ -106,12 +106,12 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
         requestTextView.setupDailyTextViewUI()
         responseTextAndButtonsView.addAccentBorder(width: 2.0, color: .boldGreen)
         responseTextAndButtonsView.addCornerRadius(8.0)
-        requestTextView.font = UIFont(name: FontAttributes.body.fontFamily, size: FontAttributes.body.rawValue)
+        requestTextView.font = UIFont(name: FontAttributes.body.fontFamily, size: FontAttributes.body.fontSize)
         requestTextView.textColor = .blueGrey
-        yourAnswerLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
+        yourAnswerLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
         yourAnswerLabel.textColor = .blueGrey
         usernameLabel.text = request.username
-        usernameLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
+        usernameLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
         usernameLabel.textColor = .zoWhite
         numberOfResponsesLabel.text = "\(request.responseCount)"
         requestTextView.text = request.body
@@ -120,17 +120,17 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
         requestTag1.text = request.tags[0]
         requestTag2.text = request.tags[1]
         requestTag3.text = request.tags[2]
-        requestTag1.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.rawValue)
+        requestTag1.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.fontSize)
         requestTag1.textColor = .blueGrey
         requestTag1.addAccentBorder(width: 2.0, color: .boldGreen)
         requestTag1.addCornerRadius(8)
         requestTag1.layer.masksToBounds = true
-        requestTag2.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.rawValue)
+        requestTag2.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.fontSize)
         requestTag2.textColor = .blueGrey
         requestTag2.addAccentBorder(width: 2.0, color: .boldGreen)
         requestTag2.addCornerRadius(8)
         requestTag2.layer.masksToBounds = true
-        requestTag3.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.rawValue)
+        requestTag3.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.fontSize)
         requestTag3.textColor = .blueGrey
         requestTag3.addAccentBorder(width: 2.0, color: .boldGreen)
         requestTag3.addCornerRadius(8)

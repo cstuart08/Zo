@@ -56,7 +56,7 @@ class ActiveRequestViewController: UIViewController {
         responsesTableView.addAccentBorder(width: 2.0, color: .boldGreen)
         responsesTableView.addCornerRadius(13)
         topLabel.text = request.username
-        topLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
+        topLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
         topLabel.textColor = .zoWhite
         requestBodyTextView.setupDailyTextViewUI()
         requestBodyTextView.text = request.body
@@ -65,17 +65,17 @@ class ActiveRequestViewController: UIViewController {
         tagOne.text = request.tags[0]
         tagTwo.text = request.tags[1]
         tagThree.text = request.tags[2]
-        tagOne.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.rawValue)
+        tagOne.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.fontSize)
         tagOne.textColor = .blueGrey
         tagOne.addAccentBorder(width: 2.0, color: .boldGreen)
         tagOne.addCornerRadius(8)
         tagOne.layer.masksToBounds = true
-        tagTwo.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.rawValue)
+        tagTwo.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.fontSize)
         tagTwo.textColor = .blueGrey
         tagTwo.addAccentBorder(width: 2.0, color: .boldGreen)
         tagTwo.addCornerRadius(8)
         tagTwo.layer.masksToBounds = true
-        tagThree.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.rawValue)
+        tagThree.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.fontSize)
         tagThree.textColor = .blueGrey
         tagThree.addAccentBorder(width: 2.0, color: .boldGreen)
         tagThree.addCornerRadius(8)

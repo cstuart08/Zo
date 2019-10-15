@@ -33,7 +33,7 @@ class ProfileViewCell: UITableViewCell {
         numberOfResponsesLabel.layer.masksToBounds = true
         numberOfResponsesLabel.addCornerRadius(6)
         usernameLabel.layer.masksToBounds = true
-        usernameLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
+        usernameLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
         usernameLabel.textColor = .blueGrey
         usernameLabel.backgroundColor = .zoWhite
         usernameLabel.addCornerRadius()

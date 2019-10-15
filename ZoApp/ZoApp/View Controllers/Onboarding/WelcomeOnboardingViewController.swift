@@ -25,9 +25,9 @@ class WelcomeOnboardingViewController: UIViewController {
     
     func stylizeSubviews() {
         view.backgroundColor = .boldGreen
-        titleLabel.font = UIFont(name: FontAttributes.h1.fontFamily, size: FontAttributes.h1.rawValue)
+        titleLabel.font = UIFont(name: FontAttributes.h1.fontFamily, size: FontAttributes.h1.fontSize)
         titleLabel.textColor = .zoWhite
-        bodyTextLabel.font = UIFont(name: FontAttributes.h3.fontFamily, size: FontAttributes.h3.rawValue)
+        bodyTextLabel.font = UIFont(name: FontAttributes.h3.fontFamily, size: FontAttributes.h3.fontSize)
         bodyTextLabel.textColor = .zoWhite
     }
 
