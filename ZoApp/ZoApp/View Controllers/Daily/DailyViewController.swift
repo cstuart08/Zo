@@ -109,7 +109,7 @@ class DailyViewController: UIViewController, UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         if dailyEntryTextView.text.isEmpty {
             dailyEntryTextView.text = "Enter your thoughts here..."
-            dailyEntryTextView.textColor = UIColor.lightGray
+            dailyEntryTextView.textColor = UIColor.blueGrey
         }
     }
     
