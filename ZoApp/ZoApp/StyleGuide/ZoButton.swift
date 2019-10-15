@@ -20,7 +20,7 @@ class ZoButton: UIButton {
         updateFont(to: FontNames.latoRegular)
         setTitleColor(.boldGreen, for: .normal)
         addCornerRadius()
-        addAccentBorder(width: 3, color: .boldGreen)
+        addAccentBorder(width: 2.5, color: .boldGreen)
         
     }
     

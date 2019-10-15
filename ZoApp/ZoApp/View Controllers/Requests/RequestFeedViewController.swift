@@ -20,6 +20,7 @@ class RequestFeedViewController: UIViewController {
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var tagsView: UIView!
     @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var sectionDivider: UIView!
     
     
     // MARK: - Lifecycle Methods
@@ -35,6 +36,7 @@ class RequestFeedViewController: UIViewController {
         addNewRequestButton.titleLabel?.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.rawValue)
         addNewRequestButton.contentHorizontalAlignment = .right
         tagsView.isHidden = true
+        sectionDivider.layer.cornerRadius = 5
         let notification = Notification.Name(rawValue: "reloadRequestTableViews")
         NotificationCenter.default.addObserver(self, selector: #selector(reloadRequestTableViews), name: notification, object: nil)
         fetchRecentlyCurrentUserRequests()

@@ -8,23 +8,31 @@
 
 import UIKit
 
-class RulesAlertViewController: UIViewController {
+class RulesAlertViewController: UIViewController, UIGestureRecognizerDelegate {
 
+    @IBOutlet weak var rulesView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapDismiss))
+        tap.cancelsTouchesInView = true
+        tap.delegate = self
+        view.addGestureRecognizer(tap)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func tapDismiss() {
+        if self.view == rulesView {
+            return
+        } else {
+        self.dismiss(animated: true, completion: nil)
+        }
     }
-    */
-
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if touch.view!.isDescendant(of: rulesView) {
+            return false
+        } else {
+            return true
+        }
+    }
 }
