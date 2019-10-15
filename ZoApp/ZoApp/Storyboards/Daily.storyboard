@@ -29,7 +29,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ex-n8-thz">
-                                        <rect key="frame" x="320.5" y="293.5" width="22" height="36"/>
+                                        <rect key="frame" x="298.5" y="293.5" width="44" height="48"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="tintColor" name="darkBlue"/>
                                         <state key="normal" image="refreshIcon"/>
@@ -136,6 +136,7 @@
                         <outlet property="dailyEntryTextView" destination="Kcx-CL-EvJ" id="7rn-6k-iK3"/>
                         <outlet property="dailyImageView" destination="evc-jl-zGb" id="2ET-NC-EaI"/>
                         <outlet property="pastEntriesTableView" destination="ipr-91-xD1" id="lil-6S-UN9"/>
+                        <outlet property="refreshButton" destination="8ex-n8-thz" id="XbQ-t5-Rif"/>
                         <outlet property="saveButton" destination="qxZ-wc-1aj" id="Agy-Of-n3h"/>
                         <outlet property="todayTitleLabel" destination="5pP-HP-Uea" id="Wxw-2v-u4a"/>
                         <outlet property="todayView" destination="ZmH-dO-D6B" id="xnS-yQ-KC2"/>
@@ -255,16 +256,16 @@
                                         <rect key="frame" x="35" y="351" width="282" height="140"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDO-Z6-Ogv">
-                                                <rect key="frame" x="0.0" y="31" width="141" height="78"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="141" height="140"/>
                                                 <state key="normal" image="cancel">
-                                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="noButtonTapped:" destination="q1f-sM-N9D" eventType="touchUpInside" id="xzn-jr-WHZ"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEZ-Ou-qTS">
-                                                <rect key="frame" x="141" y="35.5" width="141" height="69"/>
+                                                <rect key="frame" x="141" y="1" width="141" height="138"/>
                                                 <state key="normal" image="check">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
