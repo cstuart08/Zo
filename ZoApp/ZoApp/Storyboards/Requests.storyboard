@@ -537,7 +537,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CBv-j1-VKt">
-                                        <rect key="frame" x="351" y="34" width="55" height="36"/>
+                                        <rect key="frame" x="356" y="36.333333333333336" width="50" height="31.000000000000007"/>
                                         <fontDescription key="fontDescription" name="FingerPaint-Regular" family="Finger Paint" pointSize="16"/>
                                         <state key="normal" title="Cancel">
                                             <color key="titleColor" name="zoWhite"/>
@@ -699,7 +699,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A22-Xt-Nmz">
-                                        <rect key="frame" x="351" y="34" width="55" height="36"/>
+                                        <rect key="frame" x="356" y="36.333333333333336" width="50" height="31.000000000000007"/>
                                         <fontDescription key="fontDescription" name="FingerPaint-Regular" family="Finger Paint" pointSize="16"/>
                                         <state key="normal" title="Cancel">
                                             <color key="titleColor" name="zoWhite"/>
@@ -749,10 +749,10 @@
                                                 <rect key="frame" x="235" y="101.33333333333337" width="100" height="34"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="246" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="g1X-C1-wLy">
-                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="25"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="34"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rjk-S7-7O9">
-                                                                <rect key="frame" x="0.0" y="0.0" width="33.333333333333336" height="25"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="33.333333333333336" height="34"/>
                                                                 <color key="tintColor" name="boldGreen"/>
                                                                 <state key="normal" title="Send" image="musicIcon"/>
                                                                 <connections>
@@ -760,7 +760,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cb-8B-e1j">
-                                                                <rect key="frame" x="33.333333333333371" y="0.0" width="33.333333333333343" height="25"/>
+                                                                <rect key="frame" x="33.333333333333371" y="0.0" width="33.333333333333343" height="34"/>
                                                                 <color key="tintColor" name="boldGreen"/>
                                                                 <state key="normal" title="Send" image="linkIcon"/>
                                                                 <connections>
@@ -768,7 +768,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tIL-LG-3jh">
-                                                                <rect key="frame" x="66.666666666666686" y="0.0" width="33.333333333333343" height="25"/>
+                                                                <rect key="frame" x="66.666666666666686" y="0.0" width="33.333333333333343" height="34"/>
                                                                 <color key="tintColor" name="boldGreen"/>
                                                                 <state key="normal" title="Send" image="picIcon"/>
                                                                 <connections>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RequestFeedViewController: UIViewController {
+class RequestFeedViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var pastRequestsTableView: UITableView!
@@ -31,6 +31,8 @@ class RequestFeedViewController: UIViewController {
         pastRequestsTableView.delegate = self
         pastRequestsTableView.dataSource = self
         setupUI()
+        searchBar.clearButtonMode = UITextField.ViewMode.always
+        searchBar.delegate = self
         let notification = Notification.Name(rawValue: "reloadRequestTableViews")
         NotificationCenter.default.addObserver(self, selector: #selector(reloadRequestTableViews), name: notification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadRequestTableViews), name: NSNotification.Name("deletedResponse"), object: nil)
@@ -59,6 +61,19 @@ class RequestFeedViewController: UIViewController {
     @objc func reloadRequestTableViews() {
         self.activeRequestsFeedTableView.reloadData()
         self.pastRequestsTableView.reloadData()
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if searchBar.text == "" {
+            RequestController.shared.fetchRequests { (success) in
+                if success {
+                    DispatchQueue.main.async {
+                        self.activeRequestsFeedTableView.reloadData()
+                        print("Fetched requests")
+                    }
+                }
+            }
+        }
     }
     
     func setupUI() {
@@ -139,7 +154,6 @@ class RequestFeedViewController: UIViewController {
                     DispatchQueue.main.async {
                         print("Success fetching requests with tag")
                         self.activeRequestsFeedTableView.reloadData()
-                        self.searchBar.text = nil
                     }
                 }
             }
