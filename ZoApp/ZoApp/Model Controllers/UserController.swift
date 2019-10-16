@@ -31,6 +31,9 @@ class UserController {
             let reference = CKRecord.Reference(recordID: userID, action: .deleteSelf)
             self.userReference = reference
             let newUser = User(username: username, appleUserReference: reference)
+            if newUser.isBlocked == [] {
+                newUser.isBlocked.append("defaultString")
+            }
             let userRecord = CKRecord(user: newUser)
             
             self.publicDB.save(userRecord) { (record, error) in
