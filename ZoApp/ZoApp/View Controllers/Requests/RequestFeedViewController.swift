@@ -18,10 +18,9 @@ class RequestFeedViewController: UIViewController {
     @IBOutlet weak var activeRequestsFeedTableView: UITableView!
     @IBOutlet weak var searchBar: UITextField!
     @IBOutlet weak var searchButton: UIButton!
-    @IBOutlet weak var tagsView: UIView!
     @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var sectionDivider: UIView!
-    
+    @IBOutlet weak var myRequestsLabel: UILabel!
+    @IBOutlet weak var allRequestsLabel: UILabel!
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -31,12 +30,7 @@ class RequestFeedViewController: UIViewController {
         activeRequestsFeedTableView.dataSource = self
         pastRequestsTableView.delegate = self
         pastRequestsTableView.dataSource = self
-        requestsLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
-        requestsLabel.textColor = .zoWhite
-        addNewRequestButton.titleLabel?.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
-        addNewRequestButton.contentHorizontalAlignment = .right
-        tagsView.isHidden = true
-        sectionDivider.layer.cornerRadius = 5
+        setupUI()
         let notification = Notification.Name(rawValue: "reloadRequestTableViews")
         NotificationCenter.default.addObserver(self, selector: #selector(reloadRequestTableViews), name: notification, object: nil)
         fetchRecentlyCurrentUserRequests()
@@ -52,6 +46,17 @@ class RequestFeedViewController: UIViewController {
     @objc func reloadRequestTableViews() {
         self.activeRequestsFeedTableView.reloadData()
         self.pastRequestsTableView.reloadData()
+    }
+    
+    func setupUI() {
+        requestsLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
+        requestsLabel.textColor = .zoWhite
+        addNewRequestButton.titleLabel?.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
+        addNewRequestButton.contentHorizontalAlignment = .right
+        myRequestsLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
+        myRequestsLabel.textColor = .blueGrey
+        allRequestsLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
+        allRequestsLabel.textColor = .blueGrey
     }
     
     func fetchRecentlyCurrentUserRequests() {
@@ -127,10 +132,9 @@ class RequestFeedViewController: UIViewController {
             }
         }
     }
-    
-    // MARK: - UI Adjustments
 }
 
+// MARK: - Extensions
 extension RequestFeedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -165,49 +169,48 @@ extension RequestFeedViewController: UITableViewDelegate, UITableViewDataSource 
     }
 }
 
-
 // MARK: - Mock Data
-
-class ProfileMockDataModel1 {
-    let text: String
-    let image: UIImage?
-    
-    init(text: String, image: UIImage?) {
-        self.text = text
-        self.image = image
-    }
-}
-
-class ProfileMockDataController1 {
-    static let shared = ProfileMockDataController1()
-    
-    var mockDataObjects = [ProfileMockDataModel1]()
-    
-    init() {
-        
-        let request1 = ProfileMockDataModel1(text: "#whatever #amiseeingthings #iphoneForTheWin", image: UIImage(named: "mountain"))
-        let request2 = ProfileMockDataModel1(text: "#customTableViews #BadDay #WorkSucks", image: UIImage(named: "focus"))
-        let request3 = ProfileMockDataModel1(text: "#DoesItWork #WAterIsLife #RAinbow", image: UIImage(named: "canyonJump"))
-        
-        self.mockDataObjects = [request1, request2, request3]
-    }
-    
-    
-}
-
-class ProfileMockDataController2 {
-    static let shared = ProfileMockDataController2()
-    
-    var mockDataObjects = [ProfileMockDataModel1]()
-    
-    init() {
-        
-        let request1 = ProfileMockDataModel1(text: "#whatever #amiseeingthings #iphoneForTheWin", image: UIImage(named: "mountain"))
-        let request2 = ProfileMockDataModel1(text: "#customTableViews #BadDay #WorkSucks", image: UIImage(named: "focus"))
-        let request3 = ProfileMockDataModel1(text: "#DoesItWork #WAterIsLife #RAinbow", image: UIImage(named: "canyonJump"))
-        
-        self.mockDataObjects = [request1, request2, request3]
-    }
-    
-    
-}
+//
+//class ProfileMockDataModel1 {
+//    let text: String
+//    let image: UIImage?
+//
+//    init(text: String, image: UIImage?) {
+//        self.text = text
+//        self.image = image
+//    }
+//}
+//
+//class ProfileMockDataController1 {
+//    static let shared = ProfileMockDataController1()
+//
+//    var mockDataObjects = [ProfileMockDataModel1]()
+//
+//    init() {
+//
+//        let request1 = ProfileMockDataModel1(text: "#whatever #amiseeingthings #iphoneForTheWin", image: UIImage(named: "mountain"))
+//        let request2 = ProfileMockDataModel1(text: "#customTableViews #BadDay #WorkSucks", image: UIImage(named: "focus"))
+//        let request3 = ProfileMockDataModel1(text: "#DoesItWork #WAterIsLife #RAinbow", image: UIImage(named: "canyonJump"))
+//
+//        self.mockDataObjects = [request1, request2, request3]
+//    }
+//
+//
+//}
+//
+//class ProfileMockDataController2 {
+//    static let shared = ProfileMockDataController2()
+//
+//    var mockDataObjects = [ProfileMockDataModel1]()
+//
+//    init() {
+//
+//        let request1 = ProfileMockDataModel1(text: "#whatever #amiseeingthings #iphoneForTheWin", image: UIImage(named: "mountain"))
+//        let request2 = ProfileMockDataModel1(text: "#customTableViews #BadDay #WorkSucks", image: UIImage(named: "focus"))
+//        let request3 = ProfileMockDataModel1(text: "#DoesItWork #WAterIsLife #RAinbow", image: UIImage(named: "canyonJump"))
+//
+//        self.mockDataObjects = [request1, request2, request3]
+//    }
+//
+//
+//}
