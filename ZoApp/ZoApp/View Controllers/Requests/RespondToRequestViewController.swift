@@ -141,12 +141,6 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         
-        let action1 = UIAlertAction(title: "Camera", style: .default) { (_) in
-            imagePickerController.sourceType = .camera
-            imagePickerController.cameraDevice = .rear
-            self.present(imagePickerController, animated: true)
-        }
-        
         let action2 = UIAlertAction(title: "Photo Library", style: .default) { (_) in
             imagePickerController.sourceType = .photoLibrary
             self.present(imagePickerController, animated: true)
@@ -154,7 +148,6 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        alertController.addAction(action1)
         alertController.addAction(action2)
         alertController.addAction(cancelAction)
         present(alertController, animated: true)

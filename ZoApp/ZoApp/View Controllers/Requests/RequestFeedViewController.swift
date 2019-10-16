@@ -33,6 +33,7 @@ class RequestFeedViewController: UIViewController {
         setupUI()
         let notification = Notification.Name(rawValue: "reloadRequestTableViews")
         NotificationCenter.default.addObserver(self, selector: #selector(reloadRequestTableViews), name: notification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadRequestTableViews), name: NSNotification.Name("deletedResponse"), object: nil)
         fetchRecentlyCurrentUserRequests()
         fetchRequests()
     }
