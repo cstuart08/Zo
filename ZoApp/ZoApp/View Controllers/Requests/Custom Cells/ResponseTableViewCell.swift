@@ -23,6 +23,7 @@ class ResponseTableViewCell: UITableViewCell {
     @IBOutlet weak var flagResponseButton: UIButton!
     @IBOutlet weak var blockUserButton: UIButton!
     @IBOutlet weak var bookmarkResponseButton: UIButton!
+    @IBOutlet weak var urlTextView: UITextView!
     
     // MARK: - Properties
     
@@ -30,8 +31,8 @@ class ResponseTableViewCell: UITableViewCell {
     
     var response: Response? {
         didSet {
-            layoutIfNeeded()
             setupView()
+            layoutIfNeeded()
         }
     }
 
@@ -40,7 +41,7 @@ class ResponseTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        bookmarkResponseButton.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -73,13 +74,36 @@ class ResponseTableViewCell: UITableViewCell {
     func setupView() {
         guard let response = response else { return }
         if let image = response.image {
+            responseImageView.isHidden = false
             responseImageView.image = image
         } else {
             responseImageView.isHidden = true
         }
+        if response.link == "" {
+            urlTextView.isHidden = true
+        } else {
+            urlTextView.isHidden = false
+        }
+        // MARK: - Username Label
         usernameLabel.text = response.username
         usernameLabel.backgroundColor = .zoWhite
-        
+        usernameLabel.font = UIFont(name: FontAttributes.body.fontFamily, size: FontAttributes.body.fontSize)
+        usernameLabel.textColor = .blueGrey
+        usernameLabel.addAccentBorder(width: 2.0, color: .boldGreen)
+        usernameLabel.addCornerRadius(8.0)
+        usernameLabel.layer.masksToBounds = true
+        // MARK: - Response Body Label
         responseBodyLabel.text = response.bodyText
+        responseBodyLabel.backgroundColor = .zoWhite
+        responseBodyLabel.font = UIFont(name: FontAttributes.body.fontFamily, size: FontAttributes.body.fontSize)
+        responseBodyLabel.textColor = .blueGrey
+        responseBodyLabel.addAccentBorder(width: 2.0, color: .boldGreen)
+        responseBodyLabel.addCornerRadius(8.0)
+        responseBodyLabel.layer.masksToBounds = true
+        // MARK: - URL TextView
+        urlTextView.text = response.link
+        urlTextView.textColor = .blueGrey
+        urlTextView.addAccentBorder(width: 2.0, color: .boldGreen)
+        urlTextView.addCornerRadius(8.0)
     }
 }
