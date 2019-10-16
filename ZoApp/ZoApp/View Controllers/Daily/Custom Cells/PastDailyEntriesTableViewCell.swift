@@ -36,7 +36,8 @@ class PastDailyEntriesTableViewCell: UITableViewCell {
         contentView.addAccentBorder(width: 3, color: .boldGreen)
         contentView.addCornerRadius()
         contentView.backgroundColor = .zoWhite
-        
+        titleLabel.font = UIFont(name: FontAttributes.h4.fontFamily, size: FontAttributes.h4.fontSize)
+        titleLabel.textColor = .blueGrey
     }
 
 
