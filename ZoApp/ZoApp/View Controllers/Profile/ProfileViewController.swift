@@ -28,6 +28,10 @@ class ProfileViewController: UIViewController {
         pastRequestsTableView.dataSource = self
         pastRequestsTableView.register(UINib(nibName: "myRequestsTableViewCell", bundle: nil), forCellReuseIdentifier: "myRequest")
         stylizeSubviews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         fetchRequests()
         guard let currentUser = UserController.shared.currentUser else { return }
         checkKarmaPointsToUpdateImageAndRankLabel(points: currentUser.kpPoints)
