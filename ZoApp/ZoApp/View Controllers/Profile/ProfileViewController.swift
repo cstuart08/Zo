@@ -19,10 +19,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var pastRequestsTableView: UITableView!
     @IBOutlet weak var chakraImageButton: UIButton!
     
-    // MARK: - Properties
-    let currentUser = UserController.shared.currentUser
-    var lastkarmaLevelIndex = 0
-
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,14 +27,14 @@ class ProfileViewController: UIViewController {
         pastRequestsTableView.register(UINib(nibName: "myRequestsTableViewCell", bundle: nil), forCellReuseIdentifier: "myRequest")
         stylizeSubviews()
         fetchRequests()
-        guard let currentUser = currentUser else { return }
+        guard let currentUser = UserController.shared.currentUser else { return }
         currentUser.kpPoints = 3500
         currentUser.kpLevel = Chakra.sacral.levelNames
         checkKarmaPointsToUpdateImageAndRankLabel(points: currentUser.kpPoints)
-        let lastKarmaLevel = ChakraController.shared.chakraLevelsArray[lastkarmaLevelIndex]
+        let lastKarmaLevel = ChakraController.shared.chakraLevelsArray[currentUser.lastKarmaLevelIndex]
         if lastKarmaLevel != currentUser.kpLevel {
             displayKarmaPointsAlert()
-            lastkarmaLevelIndex += 1
+            currentUser.lastKarmaLevelIndex += 1
         }
         setupViews()
     }
@@ -85,6 +81,7 @@ class ProfileViewController: UIViewController {
         usernameLabel.text = currentUser.username
         pointsLabel.text = "\(currentUser.kpPoints) KP"
     }
+    
     func fetchRequests() {
         RequestController.shared.fetchAllCurrentUserRequests { (success) in
             if success {
@@ -140,6 +137,5 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         cell.requestLandingPad = request
         
         return cell
-        
     }
 }
