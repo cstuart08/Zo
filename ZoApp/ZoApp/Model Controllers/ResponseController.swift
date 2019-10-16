@@ -54,4 +54,8 @@ class ResponseController {
             completion(true)
         }
     }
+    
+    func deleteResponse(response: Response, completion: @escaping (Bool) -> Void) {
+        
+    }
 }

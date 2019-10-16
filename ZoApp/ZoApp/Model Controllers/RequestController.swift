@@ -22,6 +22,9 @@ class RequestController {
         let request = Request(username: username, title: title, body: body, userReference: userReference, tags: tags)
         
         let requestRecord = CKRecord(request: request)
+        if request.isBlocked == [] {
+            request.isBlocked.append("defaultString")
+        }
         
         publicDataBase.save(requestRecord) { (record, error) in
             
