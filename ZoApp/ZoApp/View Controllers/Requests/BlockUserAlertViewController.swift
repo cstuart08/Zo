@@ -9,6 +9,8 @@
 import UIKit
 
 class BlockUserAlertViewController: UIViewController {
+    
+    var response: Response?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +21,20 @@ class BlockUserAlertViewController: UIViewController {
         self.dismiss(animated: true)
     }
     @IBAction func submitButtonTapped(_ sender: Any) {
+        deleteResponse()
         self.dismiss(animated: true)
+    }
+    
+    // MARK: - Custom Methods
+    func deleteResponse() {
+        guard let response = response else { return }
+        ResponseController.shared.deleteResponse(response: response) { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "deletedResponse"), object: nil)
+                }
+            }
+        }
     }
     
 }

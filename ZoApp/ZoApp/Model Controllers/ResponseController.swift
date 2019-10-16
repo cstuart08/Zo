@@ -56,6 +56,21 @@ class ResponseController {
     }
     
     func deleteResponse(response: Response, completion: @escaping (Bool) -> Void) {
+        let responseRecord = response.responseRecordID
+        
+        guard let firstIndex = self.responses.firstIndex(of: response) else { completion(false); return }
+        
+        responses.remove(at: firstIndex)
+        
+        publicDB.delete(withRecordID: responseRecord) { (recordID, error) in
+            if let error = error {
+                print("Error deleting response", error.localizedDescription)
+                completion(false)
+                return
+            }
+            
+            completion(true)
+        }
         
     }
 }

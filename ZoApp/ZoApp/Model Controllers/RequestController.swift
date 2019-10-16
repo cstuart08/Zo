@@ -60,7 +60,7 @@ class RequestController {
 
             for request in requests {
                 guard let user = UserController.shared.currentUser else { completion(false); return }
-                if request.userReference.recordID.recordName != user.recordID.recordName {
+                if request.userReference.recordID.recordName != user.recordID.recordName && !user.isBlocked.contains(request.username) {
                     filteredRequests.append(request)
                 }
             }
@@ -135,7 +135,7 @@ class RequestController {
 
             for request in requests {
                 guard let user = UserController.shared.currentUser else { completion(false); return }
-                if request.userReference.recordID.recordName != user.recordID.recordName {
+                if request.userReference.recordID.recordName != user.recordID.recordName && !user.isBlocked.contains(request.username) {
                     filteredRequests.append(request)
                 }
             }

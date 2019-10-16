@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol responseTVCellDelegate: class {
+    func sendResponseToBlockAlertController(response: Response)
+}
+
 class ResponseTableViewCell: UITableViewCell {
 
     // MARK: - Outlets
@@ -21,6 +25,8 @@ class ResponseTableViewCell: UITableViewCell {
     @IBOutlet weak var bookmarkResponseButton: UIButton!
     
     // MARK: - Properties
+    
+    weak var delegate: responseTVCellDelegate?
     
     var response: Response? {
         didSet {
@@ -53,6 +59,8 @@ class ResponseTableViewCell: UITableViewCell {
     }
     
     @IBAction func blockUserButtonTapped(_ sender: Any) {
+        guard let response = response else { return }
+        self.delegate?.sendResponseToBlockAlertController(response: response)
     }
     
     @IBAction func bookmarkResponseButtonTapped(_ sender: Any) {
