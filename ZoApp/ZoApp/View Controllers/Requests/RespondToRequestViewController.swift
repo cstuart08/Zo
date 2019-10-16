@@ -45,8 +45,6 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
     var randomImages: [UIImage] = [UIImage(named: "quote1")!, UIImage(named: "quote2")!, UIImage(named: "quote3")!, UIImage(named: "quote4")!, UIImage(named: "quote5")!, UIImage(named: "quote6")!, UIImage(named: "quote7")!, UIImage(named: "quote8")!, UIImage(named: "quote9")!, UIImage(named: "quote10")!, UIImage(named: "quote11")!, UIImage(named: "quote12")!, UIImage(named: "quote13")!]
     
     // MARK: - Lifecycle Methods
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,7 +57,6 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
     }
     
     // MARK: - Actions
-    
     @IBAction func addSongButtonTapped(_ sender: Any) {
     }
     
