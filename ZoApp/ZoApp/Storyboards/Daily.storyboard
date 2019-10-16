@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jJG-Jg-fBK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jJG-Jg-fBK">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -86,8 +86,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Past" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udw-Df-NBk">
-                                <rect key="frame" x="16" y="572.5" width="34" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PAST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udw-Df-NBk">
+                                <rect key="frame" x="41.5" y="542.5" width="331" height="55"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -110,23 +110,25 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ipr-91-xD1" firstAttribute="centerX" secondItem="0Wm-Z0-V4c" secondAttribute="centerX" id="57T-F6-kak"/>
+                            <constraint firstItem="udw-Df-NBk" firstAttribute="top" secondItem="Kcx-CL-EvJ" secondAttribute="bottom" id="69l-oy-p5Z"/>
                             <constraint firstItem="ipr-91-xD1" firstAttribute="top" secondItem="qxZ-wc-1aj" secondAttribute="bottom" constant="8.5" id="AYJ-23-Qwm"/>
+                            <constraint firstItem="udw-Df-NBk" firstAttribute="centerX" secondItem="0Wm-Z0-V4c" secondAttribute="centerX" id="Auu-6Z-WBg"/>
                             <constraint firstItem="qxZ-wc-1aj" firstAttribute="width" secondItem="0Wm-Z0-V4c" secondAttribute="width" multiplier="0.27" id="Fv7-Pj-FH1"/>
                             <constraint firstItem="qxZ-wc-1aj" firstAttribute="centerX" secondItem="0Wm-Z0-V4c" secondAttribute="centerX" id="IRW-F5-bqs"/>
                             <constraint firstItem="ipr-91-xD1" firstAttribute="bottom" secondItem="0Wm-Z0-V4c" secondAttribute="bottom" id="Jj3-pc-OYo"/>
+                            <constraint firstItem="udw-Df-NBk" firstAttribute="width" secondItem="0Wm-Z0-V4c" secondAttribute="width" multiplier="0.8" id="Pdd-4k-8gC"/>
                             <constraint firstItem="Kcx-CL-EvJ" firstAttribute="width" secondItem="0Wm-Z0-V4c" secondAttribute="width" multiplier="0.85" id="T1A-Sh-0iS"/>
                             <constraint firstItem="qxZ-wc-1aj" firstAttribute="height" secondItem="0Wm-Z0-V4c" secondAttribute="height" multiplier="0.05" id="cwg-Hk-nhF"/>
                             <constraint firstItem="Kcx-CL-EvJ" firstAttribute="centerX" secondItem="0Wm-Z0-V4c" secondAttribute="centerX" id="fN6-GL-UMh"/>
                             <constraint firstItem="ZmH-dO-D6B" firstAttribute="width" secondItem="0Wm-Z0-V4c" secondAttribute="width" multiplier="0.88" id="fSz-Qe-7hh"/>
                             <constraint firstItem="ZmH-dO-D6B" firstAttribute="height" secondItem="0Wm-Z0-V4c" secondAttribute="height" multiplier="0.44" id="flu-Ln-Pku"/>
-                            <constraint firstItem="ipr-91-xD1" firstAttribute="top" secondItem="udw-Df-NBk" secondAttribute="bottom" constant="4" id="iv2-rh-d51"/>
+                            <constraint firstItem="ipr-91-xD1" firstAttribute="top" secondItem="udw-Df-NBk" secondAttribute="bottom" id="iv2-rh-d51"/>
                             <constraint firstItem="ipr-91-xD1" firstAttribute="height" secondItem="0Wm-Z0-V4c" secondAttribute="height" multiplier="0.28" id="jWw-V3-FMV"/>
                             <constraint firstItem="ipr-91-xD1" firstAttribute="width" secondItem="0Wm-Z0-V4c" secondAttribute="width" id="k4T-40-eGg"/>
                             <constraint firstItem="Kcx-CL-EvJ" firstAttribute="top" secondItem="ZmH-dO-D6B" secondAttribute="bottom" constant="8" id="mNE-8I-9qS"/>
                             <constraint firstItem="ZmH-dO-D6B" firstAttribute="top" secondItem="0Wm-Z0-V4c" secondAttribute="top" constant="8" id="nmJ-fm-3i2"/>
                             <constraint firstItem="ZmH-dO-D6B" firstAttribute="centerX" secondItem="0Wm-Z0-V4c" secondAttribute="centerX" id="t7Y-4b-qyp"/>
                             <constraint firstItem="qxZ-wc-1aj" firstAttribute="top" secondItem="Kcx-CL-EvJ" secondAttribute="bottom" constant="8" id="w6Z-C2-Lj8"/>
-                            <constraint firstItem="udw-Df-NBk" firstAttribute="leading" secondItem="0Wm-Z0-V4c" secondAttribute="leading" constant="16" id="wKf-Ne-aLj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0Wm-Z0-V4c"/>
                     </view>
@@ -135,6 +137,7 @@
                     <connections>
                         <outlet property="dailyEntryTextView" destination="Kcx-CL-EvJ" id="7rn-6k-iK3"/>
                         <outlet property="dailyImageView" destination="evc-jl-zGb" id="2ET-NC-EaI"/>
+                        <outlet property="pastDailyEntriesLabel" destination="udw-Df-NBk" id="sYf-pU-msa"/>
                         <outlet property="pastEntriesTableView" destination="ipr-91-xD1" id="lil-6S-UN9"/>
                         <outlet property="refreshButton" destination="8ex-n8-thz" id="XbQ-t5-Rif"/>
                         <outlet property="saveButton" destination="qxZ-wc-1aj" id="Agy-Of-n3h"/>
@@ -258,7 +261,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDO-Z6-Ogv">
                                                 <rect key="frame" x="0.0" y="0.0" width="141" height="140"/>
                                                 <state key="normal" image="cancel">
-                                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="noButtonTapped:" destination="q1f-sM-N9D" eventType="touchUpInside" id="xzn-jr-WHZ"/>

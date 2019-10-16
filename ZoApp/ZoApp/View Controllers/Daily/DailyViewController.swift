@@ -18,6 +18,7 @@ class DailyViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var dailyEntryTextView: UITextView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var refreshButton: UIButton!
+    @IBOutlet weak var pastDailyEntriesLabel: UILabel!
     
     // MARK: - Properties
     var photo: UnsplashPhoto?
@@ -62,12 +63,15 @@ class DailyViewController: UIViewController, UITextViewDelegate {
         dailyEntryTextView.addCornerRadius(13)
         dailyEntryTextView.addAccentBorder(width: 2, color: .boldGreen)
         dailyEntryTextView.addPadding()
+        dailyEntryTextView.textColor = .blueGrey
         view.backgroundColor = .ivory
         todayTitleLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
         todayTitleLabel.textColor = .blueGrey
         todayView.addCornerRadius()
         todayView.addAccentBorder(width: 2, color: .boldGreen)
         pastEntriesTableView.backgroundColor = .clear
+        pastDailyEntriesLabel.textColor = .blueGrey
+        pastDailyEntriesLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
     }
     
     
@@ -187,7 +191,7 @@ extension DailyViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "pastDailyJournalEntry", for: indexPath) as? PastDailyEntriesTableViewCell else { return UITableViewCell()}
         let entry = DailyController.shared.myDailyJournals[indexPath.row]
         
-        cell.titleLabel.text = DateHelper.shared.mediumDateSTRfromDouble(dateDouble: entry.timestamp)
+        cell.titleLabel.text = DateHelper.shared.mediumDateSTRfromDouble(dateDouble: entry.timestamp).uppercased()
         return cell
     }
     
