@@ -20,10 +20,7 @@ class RequestController {
     
     func createAndSaveRequest(title: String, username: String, body: String, userReference: CKRecord.Reference, tags: [String], completion: @escaping (Bool) -> Void) {
         let request = Request(username: username, title: title, body: body, userReference: userReference, tags: tags)
-        
-        if request.isBlocked == [] {
-            request.isBlocked.append("defaultString")
-        }
+    
         let requestRecord = CKRecord(request: request)
         
         publicDataBase.save(requestRecord) { (record, error) in
