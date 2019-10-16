@@ -10,7 +10,11 @@ import UIKit
 
 class BlockUserAlertViewController: UIViewController {
     
-    var response: Response?
+    var response: Response? {
+        didSet {
+            print("oooooooooohhhhhh yeyyyeyayeyeyyeahah ")
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
