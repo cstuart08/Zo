@@ -183,6 +183,6 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
     }
     
     @objc func keyboardWillShow() {
-        view.frame.origin.y = -(view.frame.height / 3.5)
+        view.frame.origin.y = -(view.frame.height / 5)
     }
 }
