@@ -17,10 +17,11 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var pastRequestsTableView: UITableView!
+    @IBOutlet weak var chakraImageButton: UIButton!
     
     // MARK: - Properties
     let currentUser = UserController.shared.currentUser
-    var points = 20000
+    var lastkarmaLevelIndex = 0
 
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
@@ -28,17 +29,53 @@ class ProfileViewController: UIViewController {
         pastRequestsTableView.delegate = self
         pastRequestsTableView.dataSource = self
         pastRequestsTableView.register(UINib(nibName: "myRequestsTableViewCell", bundle: nil), forCellReuseIdentifier: "myRequest")
-        setupViews()
         stylizeSubviews()
         fetchRequests()
         guard let currentUser = currentUser else { return }
-        currentUser.kpPoints = points
-        if points == 20000 {
-            guard let viewController = UIStoryboard(name: "PointsAndRank", bundle: nil).instantiateViewController(withIdentifier: "pointsAndRankStoryBoard") as? PointsAndRankVC else { return }
-            self.present(viewController, animated: true, completion: nil)
-            
-            points += 5
+        currentUser.kpPoints = 3500
+        currentUser.kpLevel = Chakra.sacral.levelNames
+        checkKarmaPointsToUpdateImageAndRankLabel(points: currentUser.kpPoints)
+        let lastKarmaLevel = ChakraController.shared.chakraLevelsArray[lastkarmaLevelIndex]
+        if lastKarmaLevel != currentUser.kpLevel {
+            displayKarmaPointsAlert()
+            lastkarmaLevelIndex += 1
         }
+        setupViews()
+    }
+    
+    // MARK: - Custom Methods
+    
+    func checkKarmaPointsToUpdateImageAndRankLabel(points: Int) {
+        switch points {
+        case _ where points < Chakra.sacral.pointLevels:
+            rankLabel.text = Chakra.root.levelNames
+            chakraImageButton.setImage(UIImage(named: Chakra.root.imageNames), for: .normal)
+        case _ where points >= Chakra.sacral.pointLevels && points < Chakra.solarPlexus.pointLevels:
+            rankLabel.text = Chakra.sacral.levelNames
+            chakraImageButton.setImage(UIImage(named: Chakra.sacral.imageNames), for: .normal)
+        case _ where points >= Chakra.solarPlexus.pointLevels && points < Chakra.heart.pointLevels:
+            rankLabel.text = Chakra.solarPlexus.levelNames
+            chakraImageButton.setImage(UIImage(named: Chakra.solarPlexus.imageNames), for: .normal)
+        case _ where points >= Chakra.heart.pointLevels && points < Chakra.throat.pointLevels:
+            rankLabel.text = Chakra.heart.levelNames
+            chakraImageButton.setImage(UIImage(named: Chakra.heart.imageNames), for: .normal)
+        case _ where points >= Chakra.throat.pointLevels && points < Chakra.thirdEye.pointLevels:
+            rankLabel.text = Chakra.throat.levelNames
+            chakraImageButton.setImage(UIImage(named: Chakra.throat.imageNames), for: .normal)
+        case _ where points >= Chakra.thirdEye.pointLevels && points < Chakra.crown.pointLevels:
+            rankLabel.text = Chakra.thirdEye.levelNames
+            chakraImageButton.setImage(UIImage(named: Chakra.thirdEye.imageNames), for: .normal)
+        case _ where points >= Chakra.crown.pointLevels:
+            rankLabel.text = Chakra.crown.levelNames
+            chakraImageButton.setImage(UIImage(named: Chakra.crown.imageNames), for: .normal)
+        default:
+            print("Nothing to update for their Karma Points.")
+        }
+    }
+    
+    func displayKarmaPointsAlert() {
+        guard let viewController = UIStoryboard(name: "PointsAndRank", bundle: nil).instantiateViewController(withIdentifier: "pointsAndRankStoryBoard") as? PointsAndRankVC else { return }
+        self.present(viewController, animated: true, completion: nil)
     }
     
     
@@ -46,12 +83,9 @@ class ProfileViewController: UIViewController {
     func setupViews() {
         guard let currentUser = UserController.shared.currentUser else { return }
         usernameLabel.text = currentUser.username
-        rankLabel.text = currentUser.kpLevel
         pointsLabel.text = "\(currentUser.kpPoints) KP"
     }
     func fetchRequests() {
-        //        guard let userRecordID = UserController.shared.currentUser?.recordID else { return }
-        //        let userRef = CKRecord.Reference(recordID: userRecordID, action: .deleteSelf)
         RequestController.shared.fetchAllCurrentUserRequests { (success) in
             if success {
                 DispatchQueue.main.async {
@@ -70,7 +104,7 @@ class ProfileViewController: UIViewController {
         usernameLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
         usernameLabel.textColor = .blueGrey
     }
-
+    
     
     // MARK: - Actions
     @IBAction func profileOptionsButtonTapped(_ sender: Any) {
@@ -78,6 +112,11 @@ class ProfileViewController: UIViewController {
         let svc = SFSafariViewController(url: url)
         present(svc, animated: true)
     }
+    
+    @IBAction func chakraImageButtonTapped(_ sender: Any) {
+        displayKarmaPointsAlert()
+    }
+    
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
@@ -104,31 +143,3 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
 }
-
-// MARK: - Mock Data
-//class ProfileMockDataModel {
-//    let text: String
-//    let image: UIImage?
-//
-//    init(text: String, image: UIImage?) {
-//        self.text = text
-//        self.image = image
-//    }
-//}
-//
-//class ProfileMockDataController {
-//    static let shared = ProfileMockDataController()
-//
-//    var mockDataObjects = [ProfileMockDataModel]()
-//
-//    init() {
-//
-//        let request1 = ProfileMockDataModel(text: "description 1", image: UIImage(named: "mountain"))
-//        let request2 = ProfileMockDataModel(text: "description 2", image: UIImage(named: "focus"))
-//        let request3 = ProfileMockDataModel(text: "description 3", image: UIImage(named: "canyonJump"))
-//
-//        self.mockDataObjects = [request1, request2, request3]
-//    }
-//
-//
-//}

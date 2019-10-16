@@ -16,38 +16,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="D3e-uA-4Om">
-                                <rect key="frame" x="0.0" y="44" width="414" height="87"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="71.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="IQC-dx-12M">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="57"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="41.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rank" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cz4-lP-xjn">
-                                                <rect key="frame" x="0.0" y="36.5" width="186.5" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="21" width="186.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chakraRoot" translatesAutoresizingMaskIntoConstraints="NO" id="WLe-X8-Za9">
-                                                <rect key="frame" x="186.5" y="0.0" width="41" height="57"/>
-                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSp-7h-aCk">
+                                                <rect key="frame" x="186.5" y="0.0" width="41" height="41.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="cSp-7h-aCk" secondAttribute="height" multiplier="1:1" id="JnM-jb-tlD"/>
+                                                </constraints>
+                                                <state key="normal" image="chakraRoot"/>
+                                                <connections>
+                                                    <action selector="chakraImageButtonTapped:" destination="rvl-EV-hHU" eventType="touchUpInside" id="yPt-Ov-EgA"/>
+                                                </connections>
+                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50,000 KP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8f-wK-78e">
-                                                <rect key="frame" x="227.5" y="36.5" width="186.5" height="20.5"/>
+                                                <rect key="frame" x="227.5" y="21" width="186.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="WLe-X8-Za9" firstAttribute="centerX" secondItem="IQC-dx-12M" secondAttribute="centerX" id="d2y-tB-wjf"/>
-                                            <constraint firstItem="WLe-X8-Za9" firstAttribute="width" secondItem="IQC-dx-12M" secondAttribute="width" multiplier="0.1" id="mq1-zR-hWc"/>
-                                            <constraint firstItem="WLe-X8-Za9" firstAttribute="centerY" secondItem="IQC-dx-12M" secondAttribute="centerY" id="ndI-DY-aDm"/>
+                                            <constraint firstItem="cSp-7h-aCk" firstAttribute="centerX" secondItem="IQC-dx-12M" secondAttribute="centerX" id="Bwo-TK-4bN"/>
+                                            <constraint firstItem="cSp-7h-aCk" firstAttribute="width" secondItem="IQC-dx-12M" secondAttribute="width" multiplier="0.1" id="nge-ux-4gC"/>
+                                            <constraint firstItem="cSp-7h-aCk" firstAttribute="centerY" secondItem="IQC-dx-12M" secondAttribute="centerY" id="uQL-Q5-dAX"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ocC-rd-u5Z">
-                                        <rect key="frame" x="0.0" y="57" width="414" height="30"/>
+                                        <rect key="frame" x="0.0" y="41.5" width="414" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrY-tm-a9F">
-                                                <rect key="frame" x="0.0" y="5" width="207" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="4.5" width="207" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -67,7 +74,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0zx-68-Ado">
-                                <rect key="frame" x="0.0" y="167.5" width="414" height="645.5"/>
+                                <rect key="frame" x="0.0" y="152" width="414" height="661"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -87,7 +94,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Past Requests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOA-pO-nGn">
-                                <rect key="frame" x="12" y="139" width="148" height="20.5"/>
+                                <rect key="frame" x="12" y="123.5" width="148" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -110,6 +117,7 @@
                     <tabBarItem key="tabBarItem" title="PROFILE" image="profileIcon" id="thZ-OR-zHa"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
+                        <outlet property="chakraImageButton" destination="cSp-7h-aCk" id="Qp7-ay-eJi"/>
                         <outlet property="pastRequestsTableView" destination="0zx-68-Ado" id="Jzt-IS-EMR"/>
                         <outlet property="pointsLabel" destination="h8f-wK-78e" id="0Vx-cR-ksj"/>
                         <outlet property="rankLabel" destination="cz4-lP-xjn" id="qj6-M7-qd4"/>
