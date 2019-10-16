@@ -30,11 +30,18 @@ class BlockUserAlertViewController: UIViewController {
     
     // MARK: - Custom Methods
     func deleteResponse() {
-        guard let response = response else { return }
+        guard let response = response, let currentUser = UserController.shared.currentUser else { return }
         ResponseController.shared.deleteResponse(response: response) { (success) in
             if success {
                 DispatchQueue.main.async {
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "deletedResponse"), object: nil)
+                    currentUser.isBlocked.append(response.username)
+                    UserController.shared.modifyRecordsOperation(user: currentUser) { (success) in
+                        if success {
+                            DispatchQueue.main.async {
+                                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "deletedResponse"), object: nil)
+                            }
+                        }
+                    }
                 }
             }
         }
