@@ -18,6 +18,8 @@ class CreateRequestViewController: UIViewController {
     @IBOutlet weak var hashtagTextField3: UITextField!
     @IBOutlet weak var requestTextView: UITextView!
     @IBOutlet weak var requestButton: UIButton!
+    @IBOutlet weak var requestHeader: UILabel!
+    @IBOutlet weak var cancelButton: UIButton!
     
     // MARK: - Properites
     let user = UserController.shared.currentUser
@@ -26,11 +28,19 @@ class CreateRequestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createTapGesture()
-        guard let user = user else { return }
-        usernameLabel.text = user.username
+        setupUI()
     }
     
     // MARK: - Methods
+    func setupUI() {
+        guard let user = user else { return }
+        usernameLabel.text = user.username
+        self.view.backgroundColor = .ivory
+        requestHeader.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
+        requestHeader.textColor = .zoWhite
+        cancelButton.titleLabel?.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.body.fontSize)
+    }
+    
     func createTapGesture() {
         let tap = UITapGestureRecognizer()
         tap.addTarget(self, action: #selector(tapResign))
@@ -45,6 +55,15 @@ class CreateRequestViewController: UIViewController {
     }
     
     // MARK: - Actions
+    @IBAction func rulesButtonTapped(_ sender: Any) {
+    }
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        DispatchQueue.main.async {
+            self.dismiss(animated: true)
+        }
+    }
+    
+    
     @IBAction func requestButtonTapped(_ sender: Any) {
         guard let username = usernameLabel.text,
             let body = requestTextView.text,
