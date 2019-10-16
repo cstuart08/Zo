@@ -28,6 +28,9 @@ class ActiveRequestViewController: UIViewController, MFMailComposeViewController
             setupViews()
         }
     }
+    
+    var response: Response?
+    
     var randomImages: [UIImage] = [UIImage(named: "quote1")!, UIImage(named: "quote2")!, UIImage(named: "quote3")!, UIImage(named: "quote4")!, UIImage(named: "quote5")!, UIImage(named: "quote6")!, UIImage(named: "quote7")!, UIImage(named: "quote8")!, UIImage(named: "quote9")!, UIImage(named: "quote10")!, UIImage(named: "quote11")!, UIImage(named: "quote12")!, UIImage(named: "quote13")!]
     
     // MARK: - Lifecycle Methods
@@ -37,6 +40,7 @@ class ActiveRequestViewController: UIViewController, MFMailComposeViewController
         responsesTableView.delegate = self
         responsesTableView.dataSource = self
         NotificationCenter.default.addObserver(self, selector: #selector(activateMailComposer), name: NSNotification.Name("showMailComposer"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadViews), name: NSNotification.Name("deletedResponse"), object: nil)
         fetchResponses()
     }
 
@@ -51,6 +55,10 @@ class ActiveRequestViewController: UIViewController, MFMailComposeViewController
                 }
             }
         }
+    }
+    
+    @objc func reloadViews() {
+        self.responsesTableView.reloadData()
     }
     
     func setupViews() {
@@ -129,6 +137,10 @@ class ActiveRequestViewController: UIViewController, MFMailComposeViewController
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
+    
     // MARK: - Actions
     @IBAction func cancelButtonTapped(_ sender: Any) {
         DispatchQueue.main.async {
@@ -138,7 +150,7 @@ class ActiveRequestViewController: UIViewController, MFMailComposeViewController
 }
 
 // MARK: - Extensions
-extension ActiveRequestViewController: UITableViewDataSource, UITableViewDelegate {
+extension ActiveRequestViewController: UITableViewDataSource, UITableViewDelegate, responseTVCellDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ResponseController.shared.responses.count
     }
@@ -151,5 +163,10 @@ extension ActiveRequestViewController: UITableViewDataSource, UITableViewDelegat
         cell.response = response
         
         return cell
+    }
+    
+    func sendResponseToBlockAlertController(response: Response) {
+        self.response = response
+        performSegue(withIdentifier: "toBlockUserAlertVC", sender: self)
     }
 }
