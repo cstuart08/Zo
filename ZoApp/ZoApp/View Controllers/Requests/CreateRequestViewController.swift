@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 
-class CreateRequestViewController: UIViewController {
+class CreateRequestViewController: UIViewController, UITextViewDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var usernameLabel: UILabel!
@@ -32,6 +32,7 @@ class CreateRequestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        requestTextView.delegate = self
         createTapGesture()
         setupUI()
     }
@@ -41,10 +42,12 @@ class CreateRequestViewController: UIViewController {
         view.frame.origin.y = -(view.frame.height / 3.5)
     }
     
+    
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if requestTextView.textColor == UIColor.blueGrey {
+        if requestTextView.text == "Enter your request here..." {
             requestTextView.text = nil
-            requestTextView.textColor = UIColor.zoBlack
+            requestTextView.textColor = UIColor.blueGrey
         }
     }
     
