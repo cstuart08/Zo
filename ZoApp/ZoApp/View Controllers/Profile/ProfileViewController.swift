@@ -146,4 +146,22 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            let requestToDelete = RequestController.shared.myRequests[indexPath.row]
+            RequestController.shared.publicDataBase.delete(withRecordID: requestToDelete.recordID) { (record, error) in
+                if let error = error {
+                    print("There was an error in \(#function). Error: \(error), Error Localized Description: \(error.localizedDescription)")
+                }
+                if let record = record {
+                    print("Record: \(record) was successfully deleted.")
+                }
+            }
+            RequestController.shared.myRequests.remove(at: indexPath.row)
+            DispatchQueue.main.async {
+                self.pastRequestsTableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+        }
+    }
 }
