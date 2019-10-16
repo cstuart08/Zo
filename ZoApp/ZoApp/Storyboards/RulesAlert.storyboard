@@ -72,7 +72,10 @@
                         <viewLayoutGuide key="safeArea" id="B53-JO-gir"/>
                     </view>
                     <connections>
+                        <outlet property="rulesDetailsLabel" destination="3u8-Oj-MCM" id="g24-Fz-b2q"/>
+                        <outlet property="rulesLabel" destination="fJK-9q-CHc" id="Fpg-zH-zkq"/>
                         <outlet property="rulesView" destination="Ozl-LZ-JyT" id="hXi-XW-4Gq"/>
+                        <outlet property="rulesWarningLabel" destination="KTF-da-VvT" id="nuv-0D-zZh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZfP-FW-lXN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

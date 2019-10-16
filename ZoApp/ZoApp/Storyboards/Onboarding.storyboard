@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Of8-3R-H7a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Of8-3R-H7a">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,23 +15,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="II0-3H-f4N">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="II0-3H-f4N">
                                 <rect key="frame" x="0.0" y="330.5" width="414" height="245"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5u2-ba-UkN">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="58.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="35.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's get started!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGX-XZ-fcb">
-                                        <rect key="frame" x="0.0" y="93.5" width="414" height="58"/>
+                                        <rect key="frame" x="0.0" y="70.5" width="414" height="99.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnF-br-Dxd" customClass="OnBoardingButton" customModule="Zo" customModuleProvider="target">
-                                        <rect key="frame" x="176" y="186.5" width="62" height="58.5"/>
+                                        <rect key="frame" x="176" y="205" width="62" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="wBV-7C-SKD"/>
+                                        </constraints>
                                         <state key="normal" title="Next">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
@@ -88,7 +91,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXu-iV-4xh">
-                                        <rect key="frame" x="43" y="108" width="328.5" height="142.5"/>
+                                        <rect key="frame" x="43" y="103" width="328.5" height="142.5"/>
                                         <string key="text">- Send a request for inspiration
 
 - Gain Karma Points by answering requests
@@ -101,7 +104,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CjF-mq-8bH" customClass="OnBoardingButton" customModule="Zo" customModuleProvider="target">
-                                        <rect key="frame" x="176" y="338" width="62" height="30"/>
+                                        <rect key="frame" x="176" y="328" width="62" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="oc2-J4-aw8"/>
+                                        </constraints>
                                         <state key="normal" title="Next">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
@@ -157,7 +163,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1W-gD-VAg">
-                                        <rect key="frame" x="125.5" y="72" width="163.5" height="81.5"/>
+                                        <rect key="frame" x="125.5" y="68.5" width="163.5" height="81.5"/>
                                         <string key="text">- No Explicit Content.
 - No Swearing.
 - No Nudity.
@@ -167,7 +173,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0Q-d6-ctU">
-                                        <rect key="frame" x="13.5" y="205" width="387" height="81.5"/>
+                                        <rect key="frame" x="13.5" y="198.5" width="387" height="81.5"/>
                                         <string key="text">Violation of these rules will result in the removal of your account.
 
 Please report any violations.</string>
@@ -176,7 +182,10 @@ Please report any violations.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZx-NG-ANr" customClass="OnBoardingButton" customModule="Zo" customModuleProvider="target">
-                                        <rect key="frame" x="176" y="338" width="62" height="30"/>
+                                        <rect key="frame" x="176" y="328" width="62" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="ycG-aq-lsB"/>
+                                        </constraints>
                                         <state key="normal" title="Next">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
@@ -233,18 +242,21 @@ Please report any violations.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cpg-NZ-sYh" customClass="OnboardingTextField" customModule="Zo" customModuleProvider="target">
-                                        <rect key="frame" x="62" y="67" width="290" height="34"/>
+                                        <rect key="frame" x="62" y="64" width="290" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* This will be seen by other users." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcX-ed-NMQ">
-                                        <rect key="frame" x="78.5" y="148" width="257" height="20.5"/>
+                                        <rect key="frame" x="78.5" y="141" width="257" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYE-SG-Zn1" customClass="OnBoardingButton" customModule="Zo" customModuleProvider="target">
-                                        <rect key="frame" x="176" y="215" width="62" height="30"/>
+                                        <rect key="frame" x="176" y="205" width="62" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="QNi-nT-0NK"/>
+                                        </constraints>
                                         <state key="normal" title="Next">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
