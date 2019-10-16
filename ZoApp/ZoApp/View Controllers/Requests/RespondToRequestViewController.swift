@@ -9,11 +9,9 @@
 import UIKit
 import CloudKit
 
-class RespondToRequestViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
+class RespondToRequestViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
     
     // MARK: - Outlets
-    
     // Request
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var requestImageView: UIImageView!
@@ -35,7 +33,6 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
     @IBOutlet weak var addLinkTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     
-    
     // MARK: - Properties
     var request: Request? {
         didSet {
@@ -47,14 +44,119 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         addLinkTextField.isHidden = true
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        
         let tap = UITapGestureRecognizer()
         tap.addTarget(self, action: #selector(tapResign))
         view.addGestureRecognizer(tap)
+        responseTextView.delegate = self
     }
+    
+     // MARK: - Custom Methods
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if responseTextView.text == "Enter your response here..." {
+            responseTextView.text = nil
+            responseTextView.textColor = UIColor.blueGrey
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if responseTextView.text.isEmpty {
+            responseTextView.text = "Enter your response here..."
+            responseTextView.textColor = UIColor.blueGrey
+        }
+    }
+    
+        func setupViews() {
+            loadViewIfNeeded()
+            guard let request = request else { return }
+            requestImageView.image = randomImages.randomElement()
+            answerView.addAccentBorder(width: 2.0, color: .boldGreen)
+            answerView.addCornerRadius(8.0)
+            answerView.backgroundColor = UIColor.sageGreen.withAlphaComponent(1.0)
+            requestTextView.setupDailyTextViewUI()
+            responseTextAndButtonsView.addAccentBorder(width: 2.0, color: .boldGreen)
+            responseTextAndButtonsView.addCornerRadius(8.0)
+            requestTextView.font = UIFont(name: FontAttributes.body.fontFamily, size: FontAttributes.body.fontSize)
+            requestTextView.textColor = .blueGrey
+            yourAnswerLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
+            yourAnswerLabel.textColor = .blueGrey
+            usernameLabel.text = request.username
+            usernameLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
+            usernameLabel.textColor = .zoWhite
+            numberOfResponsesLabel.text = "\(request.responseCount)"
+            requestTextView.text = request.body
+            requestTextView.isSelectable = false
+            requestTextView.isEditable = false
+            requestTag1.text = request.tags[0]
+            requestTag2.text = request.tags[1]
+            requestTag3.text = request.tags[2]
+            requestTag1.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.fontSize)
+            requestTag1.textColor = .blueGrey
+            requestTag1.addAccentBorder(width: 2.0, color: .boldGreen)
+            requestTag1.addCornerRadius(8)
+            requestTag1.layer.masksToBounds = true
+            requestTag2.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.fontSize)
+            requestTag2.textColor = .blueGrey
+            requestTag2.addAccentBorder(width: 2.0, color: .boldGreen)
+            requestTag2.addCornerRadius(8)
+            requestTag2.layer.masksToBounds = true
+            requestTag3.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.fontSize)
+            requestTag3.textColor = .blueGrey
+            requestTag3.addAccentBorder(width: 2.0, color: .boldGreen)
+            requestTag3.addCornerRadius(8)
+            requestTag3.layer.masksToBounds = true
+        }
+        
+        func selectImageActionSheet() {
+            let alertController = UIAlertController(title: "Select Image", message: nil, preferredStyle: .actionSheet)
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.delegate = self
+            
+            let action1 = UIAlertAction(title: "Camera", style: .default) { (_) in
+                imagePickerController.sourceType = .camera
+                imagePickerController.cameraDevice = .rear
+                self.present(imagePickerController, animated: true)
+            }
+            
+            let action2 = UIAlertAction(title: "Photo Library", style: .default) { (_) in
+                imagePickerController.sourceType = .photoLibrary
+                self.present(imagePickerController, animated: true)
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            
+            alertController.addAction(action1)
+            alertController.addAction(action2)
+            alertController.addAction(cancelAction)
+            present(alertController, animated: true)
+        }
+        
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+
+                imageSelectorImageView.image = pickedImage
+            }
+            dismiss(animated: true, completion: nil)
+        }
+        
+        // MARK: - Actions
+        @IBAction func cancelButtonTapped(_ sender: Any) {
+            DispatchQueue.main.async {
+                self.dismiss(animated: true)
+            }
+        }
+        
+        // MARK: - UI Adjustments
+        @objc func tapResign() {
+            view.frame.origin.y = 0
+            responseTextView.resignFirstResponder()
+            addLinkTextField.resignFirstResponder()
+        }
+        
+        @objc func keyboardWillShow() {
+            view.frame.origin.y = -(view.frame.height / 5)
+        }
     
     // MARK: - Actions
     @IBAction func addSongButtonTapped(_ sender: Any) {

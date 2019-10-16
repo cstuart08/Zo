@@ -44,12 +44,13 @@
                             </imageView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="Mr0-GI-Ndd" firstAttribute="height" secondItem="qp8-eF-gQr" secondAttribute="height" id="DY7-Vv-w82"/>
                             <constraint firstItem="qp8-eF-gQr" firstAttribute="height" secondItem="tab-vh-ny9" secondAttribute="height" id="lJe-Xh-2js"/>
                         </constraints>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geI-Jc-Nr2">
                         <rect key="frame" x="648" y="277" width="20.5" height="20.5"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="geI-Jc-Nr2" secondAttribute="height" multiplier="1:1" id="ae9-tf-a1P"/>
                         </constraints>
