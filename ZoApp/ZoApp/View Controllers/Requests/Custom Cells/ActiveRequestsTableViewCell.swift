@@ -51,6 +51,7 @@ class ActiveRequestsTableViewCell: UITableViewCell {
     func setupView() {
         guard let request = requestLandingPad else { return }
         
+        
         if request.tags[2] == "#" {
             tag3 = ""
         } else {
