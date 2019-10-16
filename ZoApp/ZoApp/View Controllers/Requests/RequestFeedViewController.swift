@@ -25,7 +25,7 @@ class RequestFeedViewController: UIViewController {
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        createTapGesture()
         activeRequestsFeedTableView.delegate = self
         activeRequestsFeedTableView.dataSource = self
         pastRequestsTableView.delegate = self
@@ -43,6 +43,18 @@ class RequestFeedViewController: UIViewController {
     }
     
     // MARK: - Custom Methods
+    
+    func createTapGesture() {
+        let tap = UITapGestureRecognizer()
+        tap.addTarget(self, action: #selector(tapResign))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func tapResign() {
+        searchBar.resignFirstResponder()
+    }
+    
     @objc func reloadRequestTableViews() {
         self.activeRequestsFeedTableView.reloadData()
         self.pastRequestsTableView.reloadData()
