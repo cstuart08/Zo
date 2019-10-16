@@ -11,9 +11,13 @@ import UIKit
 class RulesAlertViewController: UIViewController, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var rulesView: UIView!
+    @IBOutlet weak var rulesLabel: UILabel!
+    @IBOutlet weak var rulesDetailsLabel: UILabel!
+    @IBOutlet weak var rulesWarningLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapDismiss))
         tap.cancelsTouchesInView = true
         tap.delegate = self
@@ -34,5 +38,15 @@ class RulesAlertViewController: UIViewController, UIGestureRecognizerDelegate {
         } else {
             return true
         }
+    }
+    
+    func setupUI() {
+        rulesView.backgroundColor = .boldGreen
+        rulesLabel.font = UIFont(name: FontAttributes.h1.fontFamily, size: FontAttributes.h1.fontSize)
+        rulesLabel.textColor = .zoWhite
+        rulesDetailsLabel.font = UIFont(name: FontAttributes.h3.fontFamily, size: FontAttributes.h3.fontSize)
+        rulesDetailsLabel.textColor = .zoWhite
+        rulesWarningLabel.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.fontSize)
+        rulesWarningLabel.textColor = .zoWhite
     }
 }
