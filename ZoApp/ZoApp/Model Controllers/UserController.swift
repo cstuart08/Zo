@@ -117,4 +117,16 @@ class UserController {
         self.publicDB.add(modificationOP)
         currentUser = modifiedUser
     }
+    
+    func modifyRecordsOperation(user: User, completion: @escaping (Bool) -> Void) {
+        let operation = CKModifyRecordsOperation()
+        operation.recordsToSave = [CKRecord(user: user)]
+        operation.savePolicy = .changedKeys
+        operation.qualityOfService = .userInteractive
+        operation.queuePriority = .high
+        operation.completionBlock = {
+            completion(true)
+        }
+        publicDB.add(operation)
+    }
 }

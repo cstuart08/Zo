@@ -50,7 +50,17 @@ class ResponseController {
             
             guard let records = records else { completion(false); return }
             let responses = records.compactMap({Response(ckRecord: $0)})
-            self.responses = responses
+            
+            var filteredResponses: [Response] = []
+            
+
+            for response in responses {
+                guard let user = UserController.shared.currentUser else { completion(false); return }
+                if !user.isBlocked.contains(response.username) {
+                    filteredResponses.append(response)
+                }
+            }
+            self.responses = filteredResponses
             completion(true)
         }
     }
