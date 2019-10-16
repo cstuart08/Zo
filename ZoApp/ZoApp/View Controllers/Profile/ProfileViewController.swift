@@ -13,9 +13,11 @@ import SafariServices
 class ProfileViewController: UIViewController {
     
     // MARK: - Outlets
+    @IBOutlet weak var chakraView: UIView!
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var pastRequestsLabel: UILabel!
     @IBOutlet weak var pastRequestsTableView: UITableView!
     @IBOutlet weak var chakraImageButton: UIButton!
     
@@ -28,8 +30,6 @@ class ProfileViewController: UIViewController {
         stylizeSubviews()
         fetchRequests()
         guard let currentUser = UserController.shared.currentUser else { return }
-        currentUser.kpPoints = 3500
-        currentUser.kpLevel = Chakra.sacral.levelNames
         checkKarmaPointsToUpdateImageAndRankLabel(points: currentUser.kpPoints)
         let lastKarmaLevel = ChakraController.shared.chakraLevelsArray[currentUser.lastKarmaLevelIndex]
         if lastKarmaLevel != currentUser.kpLevel {
@@ -94,12 +94,20 @@ class ProfileViewController: UIViewController {
     
     func stylizeSubviews() {
         view.backgroundColor = .ivory
+        chakraView.backgroundColor = .zoWhite
+        chakraView.addAccentBorder(width: 5, color: .boldGreen)
         rankLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
         rankLabel.textColor = .blueGrey
         pointsLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
         pointsLabel.textColor = .blueGrey
         usernameLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
         usernameLabel.textColor = .blueGrey
+        usernameLabel.backgroundColor = .zoWhite
+        usernameLabel.layer.masksToBounds = true
+        usernameLabel.addAccentBorder(width: 3, color: .boldGreen)
+        usernameLabel.addCornerRadius()
+        pastRequestsLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
+        pastRequestsLabel.textColor = .blueGrey
     }
     
     
