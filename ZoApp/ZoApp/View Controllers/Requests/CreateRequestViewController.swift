@@ -39,7 +39,7 @@ class CreateRequestViewController: UIViewController, UITextViewDelegate {
     
     // MARK: - Methods
     @objc func keyboardWillShow() {
-        view.frame.origin.y = -(view.frame.height / 3.5)
+        view.frame.origin.y = -(view.frame.height / 6)
     }
     
     

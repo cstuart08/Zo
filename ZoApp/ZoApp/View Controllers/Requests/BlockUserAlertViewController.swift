@@ -10,23 +10,22 @@ import UIKit
 
 class BlockUserAlertViewController: UIViewController {
     
+    // MARK: - Outlets
+    @IBOutlet weak var blockThisUserLabel: UILabel!
+    @IBOutlet weak var blockUserWarningLabel: UILabel!
+    
+    
+    // MARK: - Properties
     var response: Response? {
         didSet {
-            print("oooooooooohhhhhh yeyyyeyayeyeyyeahah ")
+            print("Response Set.")
         }
     }
 
+    // MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    // MARK: - Actions
-    @IBAction func cancelButtonTapped(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
-    @IBAction func submitButtonTapped(_ sender: Any) {
-        deleteResponse()
-        self.dismiss(animated: true)
+        setupUI()
     }
     
     // MARK: - Custom Methods
@@ -41,4 +40,19 @@ class BlockUserAlertViewController: UIViewController {
         }
     }
     
+    func setupUI() {
+        blockThisUserLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
+        blockThisUserLabel.textColor = .zoWhite
+        blockUserWarningLabel.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.fontSize)
+        blockUserWarningLabel.textColor = .zoWhite
+    }
+    
+    // MARK: - Actions
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    @IBAction func submitButtonTapped(_ sender: Any) {
+        deleteResponse()
+        self.dismiss(animated: true)
+    }
 }
