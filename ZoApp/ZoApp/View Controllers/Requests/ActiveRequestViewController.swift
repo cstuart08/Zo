@@ -138,7 +138,6 @@ class ActiveRequestViewController: UIViewController, MFMailComposeViewController
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
     }
     
     // MARK: - Actions
@@ -159,7 +158,7 @@ extension ActiveRequestViewController: UITableViewDataSource, UITableViewDelegat
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "responseCell", for: indexPath) as? ResponseTableViewCell else { return UITableViewCell()}
         
         let response = ResponseController.shared.responses[indexPath.row]
-        
+        cell.delegate = self
         cell.response = response
         
         return cell
@@ -167,6 +166,8 @@ extension ActiveRequestViewController: UITableViewDataSource, UITableViewDelegat
     
     func sendResponseToBlockAlertController(response: Response) {
         self.response = response
-        performSegue(withIdentifier: "toBlockUserAlertVC", sender: self)
+        guard let blockVC = UIStoryboard(name: "BlockUserAlert", bundle: nil).instantiateViewController(identifier: "blockUserAlert") as? BlockUserAlertViewController else { return }
+        blockVC.response = response
+        self.present(blockVC, animated: true)
     }
 }

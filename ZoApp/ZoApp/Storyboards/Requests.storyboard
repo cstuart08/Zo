@@ -449,7 +449,6 @@
                                                             <state key="normal" image="blockUserIcon"/>
                                                             <connections>
                                                                 <action selector="blockUserButtonTapped:" destination="sxY-ax-Vrb" eventType="touchUpInside" id="ToQ-gM-Was"/>
-                                                                <segue destination="SRo-gA-4l6" kind="show" identifier="" id="VOK-he-aEc"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RjM-8k-6RH">
@@ -604,16 +603,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S3Z-3Z-Hcx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1229" y="1170"/>
-        </scene>
-        <!--BlockUserAlert-->
-        <scene sceneID="XWc-Fa-JYY">
-            <objects>
-                <viewControllerPlaceholder storyboardName="BlockUserAlert" id="SRo-gA-4l6" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="4FE-cW-TL3"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1cr-93-ydo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1229" y="1229"/>
         </scene>
         <!--BookmarkResponseAlert-->
         <scene sceneID="KAm-vI-Ey2">
