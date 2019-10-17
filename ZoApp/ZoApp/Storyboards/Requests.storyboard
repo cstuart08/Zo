@@ -505,7 +505,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNG-sl-xCg">
-                                <rect key="frame" x="372.66666666666669" y="183" width="20.333333333333314" height="20.333333333333343"/>
+                                <rect key="frame" x="360.66666666666669" y="171" width="20.333333333333314" height="20.333333333333343"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fNG-sl-xCg" secondAttribute="height" multiplier="1:1" id="3vG-AW-gr7"/>
@@ -569,13 +569,13 @@
                             <constraint firstItem="mp5-hb-VvN" firstAttribute="height" secondItem="sFa-Yn-IN7" secondAttribute="height" multiplier="0.12" id="Mzb-DD-P8m"/>
                             <constraint firstItem="gca-JL-btA" firstAttribute="width" secondItem="sFa-Yn-IN7" secondAttribute="width" multiplier="0.85" id="Tjy-BE-Whz"/>
                             <constraint firstItem="jpV-AF-kd1" firstAttribute="top" secondItem="gca-JL-btA" secondAttribute="bottom" constant="24" id="VGX-wl-li3"/>
-                            <constraint firstItem="fNG-sl-xCg" firstAttribute="centerX" secondItem="v7r-B6-MwZ" secondAttribute="trailing" id="WMa-kc-JcM"/>
+                            <constraint firstItem="fNG-sl-xCg" firstAttribute="centerX" secondItem="v7r-B6-MwZ" secondAttribute="trailing" constant="-12" id="WMa-kc-JcM"/>
                             <constraint firstItem="mp5-hb-VvN" firstAttribute="centerX" secondItem="sFa-Yn-IN7" secondAttribute="centerX" id="dQp-Rx-5PD"/>
                             <constraint firstItem="gca-JL-btA" firstAttribute="height" secondItem="sFa-Yn-IN7" secondAttribute="height" multiplier="0.2" id="elG-gk-7e3"/>
                             <constraint firstItem="gca-JL-btA" firstAttribute="top" secondItem="mp5-hb-VvN" secondAttribute="bottom" constant="24" id="nHg-69-qV0"/>
                             <constraint firstItem="gca-JL-btA" firstAttribute="centerX" secondItem="sFa-Yn-IN7" secondAttribute="centerX" id="qSV-3u-cOF"/>
                             <constraint firstItem="mp5-hb-VvN" firstAttribute="top" secondItem="vvq-QK-auN" secondAttribute="bottom" constant="24" id="qW5-af-q7O"/>
-                            <constraint firstItem="fNG-sl-xCg" firstAttribute="centerY" secondItem="v7r-B6-MwZ" secondAttribute="bottom" id="uE6-4v-KbL"/>
+                            <constraint firstItem="fNG-sl-xCg" firstAttribute="centerY" secondItem="v7r-B6-MwZ" secondAttribute="bottom" constant="-12" id="uE6-4v-KbL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sFa-Yn-IN7"/>
                     </view>
@@ -676,7 +676,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVr-Uv-zga">
-                                <rect key="frame" x="362.33333333333331" y="167.66666666666666" width="20.333333333333314" height="20.333333333333343"/>
+                                <rect key="frame" x="350.33333333333331" y="155.66666666666666" width="20.333333333333314" height="20.333333333333343"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hVr-Uv-zga" secondAttribute="height" multiplier="1:1" id="lNR-nc-IEZ"/>
@@ -851,11 +851,11 @@
                             <constraint firstItem="lZN-Jj-53W" firstAttribute="width" secondItem="9D6-hD-09d" secondAttribute="width" id="hCN-6q-hNs"/>
                             <constraint firstItem="M8r-bL-TYp" firstAttribute="top" secondItem="Zsq-LA-PWf" secondAttribute="bottom" constant="16" id="iEP-vc-odL"/>
                             <constraint firstItem="mi9-bN-kgQ" firstAttribute="centerX" secondItem="9D6-hD-09d" secondAttribute="centerX" id="knI-uW-dfB"/>
-                            <constraint firstItem="hVr-Uv-zga" firstAttribute="centerX" secondItem="xd5-VZ-on8" secondAttribute="trailing" id="lG0-Nw-NoM"/>
+                            <constraint firstItem="hVr-Uv-zga" firstAttribute="centerX" secondItem="xd5-VZ-on8" secondAttribute="trailing" constant="-12" id="lG0-Nw-NoM"/>
                             <constraint firstItem="mi9-bN-kgQ" firstAttribute="width" secondItem="9D6-hD-09d" secondAttribute="width" multiplier="0.2" id="ob8-gp-nSP"/>
                             <constraint firstItem="Zsq-LA-PWf" firstAttribute="centerX" secondItem="9D6-hD-09d" secondAttribute="centerX" id="rds-aQ-bDN"/>
                             <constraint firstItem="M8r-bL-TYp" firstAttribute="centerX" secondItem="9D6-hD-09d" secondAttribute="centerX" id="w6M-kL-lWB"/>
-                            <constraint firstItem="hVr-Uv-zga" firstAttribute="centerY" secondItem="xd5-VZ-on8" secondAttribute="bottom" id="xxQ-gq-sZ3"/>
+                            <constraint firstItem="hVr-Uv-zga" firstAttribute="centerY" secondItem="xd5-VZ-on8" secondAttribute="bottom" constant="-12" id="xxQ-gq-sZ3"/>
                             <constraint firstItem="zkr-iB-MdB" firstAttribute="top" secondItem="M8r-bL-TYp" secondAttribute="bottom" constant="24" id="ypL-8k-7qd"/>
                             <constraint firstItem="Zsq-LA-PWf" firstAttribute="width" secondItem="9D6-hD-09d" secondAttribute="width" multiplier="0.8" id="z4K-X3-njn"/>
                         </constraints>
