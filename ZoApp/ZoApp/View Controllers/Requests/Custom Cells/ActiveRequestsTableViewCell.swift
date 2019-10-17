@@ -93,5 +93,10 @@ class ActiveRequestsTableViewCell: UITableViewCell {
         requestBodyLabel.textColor = .blueGrey
         usernameLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h4.fontSize)
         usernameLabel.textColor = .blueGrey
+        requestImageView.addCornerRadius()
+        numberOfResponsesLabel.layer.masksToBounds = true
+        numberOfResponsesLabel.backgroundColor = .darkBlue
+        numberOfResponsesLabel.addCornerRadius(6)
+        numberOfResponsesLabel.font = UIFont(name: FontAttributes.number.fontFamily, size: FontAttributes.number.fontSize)
     }
 }

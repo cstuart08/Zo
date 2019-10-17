@@ -106,6 +106,11 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
             requestTag3.addAccentBorder(width: 2.0, color: .boldGreen)
             requestTag3.addCornerRadius(8)
             requestTag3.layer.masksToBounds = true
+            requestImageView.addCornerRadius()
+            numberOfResponsesLabel.addCornerRadius(6)
+            numberOfResponsesLabel.backgroundColor = .darkBlue
+            numberOfResponsesLabel.font = UIFont(name: FontAttributes.number.fontFamily, size: FontAttributes.number.fontSize)
+            numberOfResponsesLabel.layer.masksToBounds = true
         }
         
         
