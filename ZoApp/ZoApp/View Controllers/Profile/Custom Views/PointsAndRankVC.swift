@@ -35,8 +35,6 @@ class PointsAndRankVC: UIViewController {
         pointsLabel.font = UIFont(name: FontAttributes.h1.fontFamily, size: FontAttributes.h1.fontSize)
         popupView.addCornerRadius()
         
-        
-        
         guard let currentUser = currentUser else { return }
         rankLabel.text = "YOU ARE ON THE \(ChakraController.shared.updateChakraImage(user: currentUser).chakraName) CHAKRA"
         rankLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
