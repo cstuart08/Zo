@@ -137,5 +137,7 @@ class PastDailyEntryViewController: UIViewController, UIGestureRecognizerDelegat
         editButton.setTitleColor(.zoBlack, for: .normal)
         dateLabel.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.fontSize)
         dateLabel.text = dateLabel.text?.uppercased()
+        pastDailyEntryImageView.layer.masksToBounds = true
+        pastDailyEntryImageView.addCornerRadius()
     }
 }
