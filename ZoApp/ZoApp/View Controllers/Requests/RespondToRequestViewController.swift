@@ -50,6 +50,7 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
         tap.addTarget(self, action: #selector(tapResign))
         view.addGestureRecognizer(tap)
         responseTextView.delegate = self
+        addSongButton.isHidden = true
     }
     
      // MARK: - Custom Methods

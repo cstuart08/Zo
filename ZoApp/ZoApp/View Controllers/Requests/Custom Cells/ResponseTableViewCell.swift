@@ -38,6 +38,7 @@ class ResponseTableViewCell: UITableViewCell {
     // MARK: - Lifecycle Methods
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         bookmarkResponseButton.isHidden = true
     }
     
