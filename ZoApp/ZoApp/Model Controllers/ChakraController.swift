@@ -121,7 +121,7 @@ class ChakraController {
         user.kpPoints += 100
         UserController.shared.modifyRecordsOperation(user: user) { (success) in
             if success {
-                print("Success adding 50 points to \(user.username)")
+                print("Success adding 100 points to \(user.username)")
             }
         }
     }
