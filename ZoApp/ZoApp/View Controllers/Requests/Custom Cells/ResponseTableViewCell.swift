@@ -48,12 +48,19 @@ class ResponseTableViewCell: UITableViewCell {
     // MARK: - Actions
     @IBAction func favoriteResponseButtonTapped(_ sender: Any) {
         guard let username = response?.username else { return }
+        guard let response = response else { return }
+        self.response?.isFavorite = true
         UserController.shared.fetchUserFromUsername(username: username) { (user) in
             guard let user = user else { return }
             ChakraController.shared.addKarmaPointsForBestResponse(user: user)
             DispatchQueue.main.async {
                 self.favoriteResponseButton.setImage(UIImage(named: "favoriteResponseSelectedIcon"), for: .normal)
                 self.favoriteResponseButton.isEnabled = false
+            }
+            ResponseController.shared.modifyRecordsOperation(response: response) { (success) in
+                if success {
+                    print("Success modifying the response to be a favorite response.")
+                }
             }
         }
     }
