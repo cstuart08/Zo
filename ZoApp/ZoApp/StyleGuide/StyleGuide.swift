@@ -61,7 +61,7 @@ enum FontAttributes {
         case .caption:
             return 14
         case .number:
-            return 11
+            return 14
         }
     }
 }
