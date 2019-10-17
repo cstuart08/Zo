@@ -16,6 +16,7 @@ struct ResponseConstants {
     static let imageAssetKey = "imageAsset"
     static let linkKey = "link"
     static let timestampKey = "timestamp"
+    static let isFavoriteKey = "isFavorite"
     static let responseTagsKey = "responseTags"
     static let responseRecordIDKey = "responseRecordID"
     static let requestReferenceKey = "requestReference"
@@ -26,6 +27,7 @@ class Response {
     var bodyText: String?
     var link: String?
     var timestamp: Double
+    var isFavorite = false
     var responseTags: [String]
     var responseRecordID: CKRecord.ID
     var requestReference: CKRecord.Reference
@@ -70,6 +72,7 @@ class Response {
             let bodyText = ckRecord[ResponseConstants.bodyTextKey] as String?,
             let link = ckRecord[ResponseConstants.linkKey] as? String?,
             let timestamp = ckRecord[ResponseConstants.timestampKey] as? Double,
+            let isFavorite = ckRecord[ResponseConstants.isFavoriteKey] as? Bool,
             let responseTags = ckRecord[ResponseConstants.responseTagsKey] as? [String],
             let requestReference = ckRecord[ResponseConstants.requestReferenceKey] as? CKRecord.Reference
             else { return nil }
@@ -79,6 +82,7 @@ class Response {
         self.bodyText = bodyText
         self.link = link
         self.timestamp = timestamp
+        self.isFavorite = isFavorite
         self.responseTags = responseTags
         self.responseRecordID = ckRecord.recordID
         self.requestReference = requestReference
@@ -106,6 +110,7 @@ extension CKRecord {
         }
         self.setValue(response.link, forKey: ResponseConstants.linkKey)
         self.setValue(response.timestamp, forKey: ResponseConstants.timestampKey)
+        self.setValue(response.isFavorite, forKey: ResponseConstants.isFavoriteKey)
         self.setValue(response.responseTags, forKey: ResponseConstants.responseTagsKey)
         self.setValue(response.requestReference, forKey: ResponseConstants.requestReferenceKey)
     }

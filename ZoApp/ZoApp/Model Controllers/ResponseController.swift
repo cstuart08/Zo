@@ -81,6 +81,17 @@ class ResponseController {
             
             completion(true)
         }
-        
+    }
+    
+    func modifyRecordsOperation(response: Response, completion: @escaping (Bool) -> Void) {
+        let operation = CKModifyRecordsOperation()
+        operation.recordsToSave = [CKRecord(response: response)]
+        operation.savePolicy = .changedKeys
+        operation.qualityOfService = .userInteractive
+        operation.queuePriority = .high
+        operation.completionBlock = {
+            completion(true)
+        }
+        publicDB.add(operation)
     }
 }
