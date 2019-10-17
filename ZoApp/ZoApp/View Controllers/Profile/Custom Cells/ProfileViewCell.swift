@@ -27,7 +27,7 @@ class ProfileViewCell: UITableViewCell {
     func setupViews() {
         guard let responseCount = request?.responseCount else { return }
         requestTextLabel.text = request?.body
-        requestImageView.image = randomImages.randomElement()
+        requestImageView.image = request?.image
         numberOfResponsesLabel.text = "\(responseCount)"
         requestImageView.addCornerRadius()
         numberOfResponsesLabel.layer.masksToBounds = true

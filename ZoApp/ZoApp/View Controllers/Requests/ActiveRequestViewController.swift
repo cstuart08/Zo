@@ -71,7 +71,7 @@ class ActiveRequestViewController: UIViewController, MFMailComposeViewController
         topLabel.textColor = .zoWhite
         requestBodyTextView.setupDailyTextViewUI()
         requestBodyTextView.text = request.body
-        requestImageView.image = randomImages.randomElement()
+        requestImageView.image = request.image
         numberOfResponsesLabel.text = "\(request.responseCount)"
         tagOne.text = request.tags[0]
         tagTwo.text = request.tags[1]

@@ -70,7 +70,7 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
         func setupViews() {
             loadViewIfNeeded()
             guard let request = request else { return }
-            requestImageView.image = randomImages.randomElement()
+            requestImageView.image = request.image
             answerView.addAccentBorder(width: 2.0, color: .boldGreen)
             answerView.addCornerRadius(8.0)
             answerView.backgroundColor = UIColor.sageGreen.withAlphaComponent(1.0)
