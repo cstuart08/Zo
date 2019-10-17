@@ -110,10 +110,20 @@ class ChakraController {
     
     func addKarmaPointsForResponse(user: User) {
         user.kpPoints += 50
+        UserController.shared.modifyRecordsOperation(user: user) { (success) in
+            if success {
+                print("Success adding 50 points to \(user.username)")
+            }
+        }
     }
     
     func addKarmaPointsForBestResponse(user: User) {
         user.kpPoints += 100
+        UserController.shared.modifyRecordsOperation(user: user) { (success) in
+            if success {
+                print("Success adding 50 points to \(user.username)")
+            }
+        }
     }
     
     func updateChakraImage(user: User) -> (chakraName: String, chakraImage: UIImage, chakraLevelDescription: String) {

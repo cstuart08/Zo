@@ -41,14 +41,12 @@ class DailyViewController: UIViewController, UITextViewDelegate {
         category(.inspirationalQuote)
         let notification = Notification.Name(rawValue: "reloadTableView")
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableViews), name: notification, object: nil)
-        //        stylizeSubviews()
         didReachDailyJournalLimit()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         fetchMyJournals()
-//        didReachDailyJournalLimit()
     }
     
     override func viewDidLayoutSubviews() {
@@ -57,8 +55,12 @@ class DailyViewController: UIViewController, UITextViewDelegate {
         didReachDailyJournalLimit()
     }
     
-    // MARK: - UI Adjustments
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        //checkUserStatus()
+    }
     
+    // MARK: - UI Adjustments
     func stylizeSubviews() {
         dailyEntryTextView.addCornerRadius(13)
         dailyEntryTextView.addAccentBorder(width: 2, color: .boldGreen)
@@ -74,8 +76,39 @@ class DailyViewController: UIViewController, UITextViewDelegate {
         pastDailyEntriesLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
     }
     
-    
     // MARK: - Methods
+//    func checkUserStatus() {
+//        guard let userPoints = UserController.shared.currentUser?.kpPoints,
+//            let lastKnowLevel = UserController.shared.currentUser?.kpLevel else { return }
+//        var currentLevel: String = ""
+//
+//        if userPoints < 1000 {
+//            currentLevel = "Root"
+//        } else if userPoints >= 1000 && userPoints < 3000 {
+//            currentLevel = "Sacral"
+//        } else if userPoints >= 3000 && userPoints < 5000 {
+//            currentLevel = "Solar Plexus"
+//        } else if userPoints >= 5000 && userPoints < 10000 {
+//            currentLevel = "Heart"
+//        } else if userPoints >= 10000 && userPoints < 15000 {
+//            currentLevel = "Throat"
+//        } else if userPoints >= 15000 && userPoints < 20000 {
+//            currentLevel = "Third Eye"
+//        } else if userPoints >= 20000 {
+//            currentLevel = "Crown"
+//        }
+//
+//        if currentLevel == lastKnowLevel {
+//            return
+//        } else {
+//            displayKarmaPointsAlert()
+//        }
+//    }
+//
+    func displayKarmaPointsAlert() {
+        guard let viewController = UIStoryboard(name: "PointsAndRank", bundle: nil).instantiateViewController(withIdentifier: "pointsAndRankStoryBoard") as? PointsAndRankVC else { return }
+        self.present(viewController, animated: true, completion: nil)
+    }
     
     func didReachDailyJournalLimit() {
         guard let firstEntry = DailyController.shared.myDailyJournals.first else { return }
