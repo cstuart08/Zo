@@ -13,41 +13,111 @@ import SafariServices
 class ProfileViewController: UIViewController {
     
     // MARK: - Outlets
+    @IBOutlet weak var chakraView: UIView!
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var pastRequestsLabel: UILabel!
     @IBOutlet weak var pastRequestsTableView: UITableView!
+    @IBOutlet weak var chakraImageButton: UIButton!
     
     // MARK: - Properties
-    let currentUser = UserController.shared.currentUser
-    var points = 20000
+    var currentUser: User?
     
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         pastRequestsTableView.delegate = self
         pastRequestsTableView.dataSource = self
-        setupViews()
+        pastRequestsTableView.register(UINib(nibName: "myRequestsTableViewCell", bundle: nil), forCellReuseIdentifier: "myRequest")
+        stylizeSubviews()
+        currentUser = UserController.shared.currentUser
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        UserController.shared.fetchUser { (success) in
+            if success {
+                print("Refetched user to update Charkra Points.")
+                self.currentUser = UserController.shared.currentUser
+            }
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         fetchRequests()
         guard let currentUser = currentUser else { return }
-        currentUser.kpPoints = points
-        if points == 20000 {
-            guard let viewController = UIStoryboard(name: "PointsAndRank", bundle: nil).instantiateViewController(withIdentifier: "pointsAndRankStoryBoard") as? PointsAndRankVC else { return }
-            self.present(viewController, animated: true, completion: nil)
-            
-            points += 5
+        DispatchQueue.main.async {
+            self.checkKarmaPointsToUpdateImageAndRankLabel(points: currentUser.kpPoints)
+            let lastKarmaLevel = ChakraController.shared.chakraLevelsArray[currentUser.lastKarmaLevelIndex]
+            if lastKarmaLevel != currentUser.kpLevel {
+                self.displayKarmaPointsAlert()
+                currentUser.lastKarmaLevelIndex += 1
+                UserController.shared.modifyRecordsOperation(user: currentUser) { (success) in
+                    if success {
+                        print("Updates user KPLevel.")
+                        UserController.shared.fetchUser { (success) in
+                            print("Refetched User")
+                        }
+                    }
+                }
+            }
+            self.setupViews()
         }
+    }
+    
+    // MARK: - Custom Methods
+    func checkKarmaPointsToUpdateImageAndRankLabel(points: Int) {
+        guard let currentUser = currentUser else { return }
+        switch points {
+        case _ where points < Chakra.sacral.pointLevels:
+            rankLabel.text = Chakra.root.levelNames
+            chakraImageButton.setImage(UIImage(named: Chakra.root.imageNames), for: .normal)
+            currentUser.kpLevel = Chakra.root.levelNames
+        case _ where points >= Chakra.sacral.pointLevels && points < Chakra.solarPlexus.pointLevels:
+            rankLabel.text = Chakra.sacral.levelNames
+            chakraImageButton.setImage(UIImage(named: Chakra.sacral.imageNames), for: .normal)
+            currentUser.kpLevel = Chakra.sacral.levelNames
+        case _ where points >= Chakra.solarPlexus.pointLevels && points < Chakra.heart.pointLevels:
+            rankLabel.text = Chakra.solarPlexus.levelNames
+            chakraImageButton.setImage(UIImage(named: Chakra.solarPlexus.imageNames), for: .normal)
+            currentUser.kpLevel = Chakra.solarPlexus.levelNames
+        case _ where points >= Chakra.heart.pointLevels && points < Chakra.throat.pointLevels:
+            rankLabel.text = Chakra.heart.levelNames
+            chakraImageButton.setImage(UIImage(named: Chakra.heart.imageNames), for: .normal)
+            currentUser.kpLevel = Chakra.heart.levelNames
+        case _ where points >= Chakra.throat.pointLevels && points < Chakra.thirdEye.pointLevels:
+            rankLabel.text = Chakra.throat.levelNames
+            chakraImageButton.setImage(UIImage(named: Chakra.throat.imageNames), for: .normal)
+            currentUser.kpLevel = Chakra.throat.levelNames
+        case _ where points >= Chakra.thirdEye.pointLevels && points < Chakra.crown.pointLevels:
+            rankLabel.text = Chakra.thirdEye.levelNames
+            chakraImageButton.setImage(UIImage(named: Chakra.thirdEye.imageNames), for: .normal)
+            currentUser.kpLevel = Chakra.thirdEye.levelNames
+        case _ where points >= Chakra.crown.pointLevels:
+            rankLabel.text = Chakra.crown.levelNames
+            chakraImageButton.setImage(UIImage(named: Chakra.crown.imageNames), for: .normal)
+            currentUser.kpLevel = Chakra.crown.levelNames
+        default:
+            print("Nothing to update for their Karma Points.")
+        }
+    }
+    
+    func displayKarmaPointsAlert() {
+        guard let viewController = UIStoryboard(name: "PointsAndRank", bundle: nil).instantiateViewController(withIdentifier: "pointsAndRankStoryBoard") as? PointsAndRankVC else { return }
+        self.present(viewController, animated: true, completion: nil)
     }
     
     
     // MARK: - Setup Views
     func setupViews() {
-        rankLabel.text = "Gold Rank"
-        pointsLabel.text = "\(100) KP Points"
+        guard let currentUser = currentUser else { return }
+        usernameLabel.text = currentUser.username
+        pointsLabel.text = "\(currentUser.kpPoints) KP"
     }
+    
     func fetchRequests() {
-        //        guard let userRecordID = UserController.shared.currentUser?.recordID else { return }
-        //        let userRef = CKRecord.Reference(recordID: userRecordID, action: .deleteSelf)
         RequestController.shared.fetchAllCurrentUserRequests { (success) in
             if success {
                 DispatchQueue.main.async {
@@ -56,7 +126,25 @@ class ProfileViewController: UIViewController {
             }
         }
     }
-
+    
+    func stylizeSubviews() {
+        view.backgroundColor = .ivory
+        chakraView.backgroundColor = .zoWhite
+        chakraView.addAccentBorder(width: 5, color: .boldGreen)
+        rankLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
+        rankLabel.textColor = .blueGrey
+        pointsLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
+        pointsLabel.textColor = .blueGrey
+        usernameLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
+        usernameLabel.textColor = .blueGrey
+        usernameLabel.backgroundColor = .zoWhite
+        usernameLabel.layer.masksToBounds = true
+        usernameLabel.addAccentBorder(width: 3, color: .boldGreen)
+        usernameLabel.addCornerRadius()
+        pastRequestsLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
+        pastRequestsLabel.textColor = .blueGrey
+    }
+    
     
     // MARK: - Actions
     @IBAction func profileOptionsButtonTapped(_ sender: Any) {
@@ -65,13 +153,10 @@ class ProfileViewController: UIViewController {
         present(svc, animated: true)
     }
     
-    
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+    @IBAction func chakraImageButtonTapped(_ sender: Any) {
+        displayKarmaPointsAlert()
     }
     
-
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
@@ -80,42 +165,38 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         return RequestController.shared.myRequests.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let request = RequestController.shared.myRequests[indexPath.row]
+        guard let destinationVC = UIStoryboard(name: "Requests", bundle: nil).instantiateViewController(identifier: "requestDetailVC") as? ActiveRequestViewController else { return }
+        destinationVC.request = request
+        self.present(destinationVC, animated: true, completion: nil)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "pastRequestCell", for: indexPath) as? ProfileViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "myRequest", for: indexPath) as? myRequestsTableViewCell else { return UITableViewCell() }
         
         let request = RequestController.shared.myRequests[indexPath.row]
         
-        cell.request = request
+        cell.requestLandingPad = request
         
         return cell
-        
-    }
-}
-
-// MARK: - Mock Data
-class ProfileMockDataModel {
-    let text: String
-    let image: UIImage?
-    
-    init(text: String, image: UIImage?) {
-        self.text = text
-        self.image = image
-    }
-}
-
-class ProfileMockDataController {
-    static let shared = ProfileMockDataController()
-    
-    var mockDataObjects = [ProfileMockDataModel]()
-    
-    init() {
-        
-        let request1 = ProfileMockDataModel(text: "description 1", image: UIImage(named: "mountain"))
-        let request2 = ProfileMockDataModel(text: "description 2", image: UIImage(named: "focus"))
-        let request3 = ProfileMockDataModel(text: "description 3", image: UIImage(named: "canyonJump"))
-        
-        self.mockDataObjects = [request1, request2, request3]
     }
     
-    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            let requestToDelete = RequestController.shared.myRequests[indexPath.row]
+            RequestController.shared.publicDataBase.delete(withRecordID: requestToDelete.recordID) { (record, error) in
+                if let error = error {
+                    print("There was an error in \(#function). Error: \(error), Error Localized Description: \(error.localizedDescription)")
+                }
+                if let record = record {
+                    print("Record: \(record) was successfully deleted.")
+                }
+            }
+            RequestController.shared.myRequests.remove(at: indexPath.row)
+            DispatchQueue.main.async {
+                self.pastRequestsTableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+        }
+    }
 }

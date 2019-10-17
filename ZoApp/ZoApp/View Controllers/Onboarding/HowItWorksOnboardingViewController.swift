@@ -9,22 +9,27 @@
 import UIKit
 
 class HowItWorksOnboardingViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+    
+    // MARK: - Outlets
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var bodyTextLabel: UILabel!
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        stylizeSubviews()
     }
-    */
-
+    
+    
+    // MARK: - UI Adjustments
+    
+    func stylizeSubviews() {
+        view.backgroundColor = .boldGreen
+        titleLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
+        titleLabel.textColor = .zoWhite
+        bodyTextLabel.font = UIFont(name: FontAttributes.h4.fontFamily, size: FontAttributes.h4.fontSize)
+        bodyTextLabel.textColor = .zoWhite
+    }
+    
 }

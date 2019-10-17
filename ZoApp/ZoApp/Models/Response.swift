@@ -16,6 +16,7 @@ struct ResponseConstants {
     static let imageAssetKey = "imageAsset"
     static let linkKey = "link"
     static let timestampKey = "timestamp"
+    static let isFavoriteKey = "isFavorite"
     static let responseTagsKey = "responseTags"
     static let responseRecordIDKey = "responseRecordID"
     static let requestReferenceKey = "requestReference"
@@ -26,6 +27,7 @@ class Response {
     var bodyText: String?
     var link: String?
     var timestamp: Double
+    var isFavorite = false
     var responseTags: [String]
     var responseRecordID: CKRecord.ID
     var requestReference: CKRecord.Reference
@@ -70,23 +72,28 @@ class Response {
             let bodyText = ckRecord[ResponseConstants.bodyTextKey] as String?,
             let link = ckRecord[ResponseConstants.linkKey] as? String?,
             let timestamp = ckRecord[ResponseConstants.timestampKey] as? Double,
+            let isFavorite = ckRecord[ResponseConstants.isFavoriteKey] as? Bool,
             let responseTags = ckRecord[ResponseConstants.responseTagsKey] as? [String],
-            let requestReference = ckRecord[ResponseConstants.requestReferenceKey] as? CKRecord.Reference,
-            let imageCkAsset = ckRecord[ResponseConstants.imageAssetKey] as? CKAsset
+            let requestReference = ckRecord[ResponseConstants.requestReferenceKey] as? CKRecord.Reference
             else { return nil }
         
+        let imageCkAsset = ckRecord[ResponseConstants.imageAssetKey] as? CKAsset
         self.username = username
         self.bodyText = bodyText
         self.link = link
         self.timestamp = timestamp
+        self.isFavorite = isFavorite
         self.responseTags = responseTags
         self.responseRecordID = ckRecord.recordID
         self.requestReference = requestReference
         
-        do {
-            self.imageData = try Data(contentsOf: imageCkAsset.fileURL!)
-        } catch {
-            print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+        //guard let url = imageCkAsset.fileURL else { return }
+        if let url = imageCkAsset?.fileURL {
+            do {
+                self.imageData = try Data(contentsOf: url)
+            } catch {
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+            }
         }
     }
 }
@@ -98,9 +105,12 @@ extension CKRecord {
         
         self.setValue(response.username, forKey: ResponseConstants.usernameKey)
         self.setValue(response.bodyText, forKey: ResponseConstants.bodyTextKey)
-        self.setValue(response.imageCkAsset, forKey: ResponseConstants.imageAssetKey)
+        if response.image != nil {
+            self.setValue(response.imageCkAsset, forKey: ResponseConstants.imageAssetKey)
+        }
         self.setValue(response.link, forKey: ResponseConstants.linkKey)
         self.setValue(response.timestamp, forKey: ResponseConstants.timestampKey)
+        self.setValue(response.isFavorite, forKey: ResponseConstants.isFavoriteKey)
         self.setValue(response.responseTags, forKey: ResponseConstants.responseTagsKey)
         self.setValue(response.requestReference, forKey: ResponseConstants.requestReferenceKey)
     }

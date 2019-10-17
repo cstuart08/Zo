@@ -10,7 +10,7 @@ import Foundation
 import CloudKit
 
 class UserController {
-        
+    
     static let shared = UserController()
     
     var currentUser: User?
@@ -31,6 +31,9 @@ class UserController {
             let reference = CKRecord.Reference(recordID: userID, action: .deleteSelf)
             self.userReference = reference
             let newUser = User(username: username, appleUserReference: reference)
+            if newUser.isBlocked == [] {
+                newUser.isBlocked.append("defaultString")
+            }
             let userRecord = CKRecord(user: newUser)
             
             self.publicDB.save(userRecord) { (record, error) in
@@ -92,6 +95,28 @@ class UserController {
         }
     }
     
+    func fetchUserFromUsername(username: String, completion: @escaping (User?) -> Void) {
+        
+        let predicate = NSPredicate(format: "\(UserConstants.usernameKey) == %@", username)
+        let query = CKQuery(recordType: UserConstants.typeKey, predicate: predicate)
+        publicDB.perform(query, inZoneWith: nil) { (userRecord, error) in
+            if let error = error {
+                print("Don't got user.")
+                print("Failed to fetch user! \n Error: \(error) \n \(error.localizedDescription)")
+                completion(nil)
+                return
+            }
+            
+            if let userRecord = userRecord {
+                let foundUser = User(ckRecord: userRecord[0])
+                print("Got User")
+                completion(foundUser)
+            } else {
+                completion(nil)
+            }
+        }
+    }
+    
     // Updates the users array of responses in order to precent that response from showing up for them again.
     func updateUserResponseList(user: User, responseRecordID: String, completion: @escaping (Bool) -> Void) {
         
@@ -113,5 +138,17 @@ class UserController {
         
         self.publicDB.add(modificationOP)
         currentUser = modifiedUser
+    }
+    
+    func modifyRecordsOperation(user: User, completion: @escaping (Bool) -> Void) {
+        let operation = CKModifyRecordsOperation()
+        operation.recordsToSave = [CKRecord(user: user)]
+        operation.savePolicy = .changedKeys
+        operation.qualityOfService = .userInteractive
+        operation.queuePriority = .high
+        operation.completionBlock = {
+            completion(true)
+        }
+        publicDB.add(operation)
     }
 }

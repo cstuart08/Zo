@@ -16,18 +16,31 @@ class ProfileViewCell: UITableViewCell {
     @IBOutlet weak var requestImageView: UIImageView!
     @IBOutlet weak var numberOfResponsesLabel: UILabel!
     
-
-    
+    // MARK: - Properties
     var request: Request? {
         didSet {
             setupViews()
         }
     }
+
     
     func setupViews() {
         guard let responseCount = request?.responseCount else { return }
         requestTextLabel.text = request?.body
-        requestImageView.image = UIImage(named: "focus")
+        requestImageView.image = request?.image
         numberOfResponsesLabel.text = "\(responseCount)"
+        requestImageView.addCornerRadius()
+        numberOfResponsesLabel.layer.masksToBounds = true
+        numberOfResponsesLabel.addCornerRadius(6)
+        usernameLabel.layer.masksToBounds = true
+        usernameLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
+        usernameLabel.textColor = .blueGrey
+        usernameLabel.backgroundColor = .zoWhite
+        usernameLabel.addCornerRadius()
+        usernameLabel.addAccentBorder(width: 3, color: .boldGreen)
+        requestTextLabel.layer.masksToBounds = true
+        requestTextLabel.backgroundColor = .zoWhite
+        requestTextLabel.addCornerRadius()
+        requestTextLabel.addAccentBorder(width: 3, color: .boldGreen)
     }
 }

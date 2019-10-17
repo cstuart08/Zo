@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yS8-Te-pe2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yS8-Te-pe2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,7 +10,7 @@
         <!--Rules Alert View Controller-->
         <scene sceneID="dHJ-xP-X6U">
             <objects>
-                <viewController id="yS8-Te-pe2" customClass="RulesAlertViewController" customModule="JustBreateApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overFullScreen" id="yS8-Te-pe2" customClass="RulesAlertViewController" customModule="Zo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dcv-5t-crj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,6 +71,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="B53-JO-gir"/>
                     </view>
+                    <connections>
+                        <outlet property="rulesDetailsLabel" destination="3u8-Oj-MCM" id="g24-Fz-b2q"/>
+                        <outlet property="rulesLabel" destination="fJK-9q-CHc" id="Fpg-zH-zkq"/>
+                        <outlet property="rulesView" destination="Ozl-LZ-JyT" id="hXi-XW-4Gq"/>
+                        <outlet property="rulesWarningLabel" destination="KTF-da-VvT" id="nuv-0D-zZh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZfP-FW-lXN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

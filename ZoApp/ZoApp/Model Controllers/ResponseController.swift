@@ -23,19 +23,21 @@ class ResponseController {
         
         let realRecord = CKRecord(response: responseRecord)
         
-        self.publicDB.save(realRecord) { (record, error) in
+        self.publicDB.save(realRecord) { (_, error) in
             if let error = error {
                 print("Failed to create a new response! \n Error: \(error) \n \(error.localizedDescription)")
                 completion(false)
                 return
             }
-            guard let record = record, let response = Response(ckRecord: record) else { completion(false); return }
-            self.responses.append(response)
+            
+            self.responses.append(responseRecord)
             completion(true)
         }
     }
     
-    func fetchResponses(requestReference: CKRecord.Reference, completion: @escaping (Bool) -> Void) {
+    func fetchResponses(request: Request, completion: @escaping (Bool) -> Void) {
+        responses = []
+        let requestReference = request.recordID
         let predicate = NSPredicate(format: "\(ResponseConstants.requestReferenceKey) == %@", requestReference)
         let query = CKQuery(recordType: ResponseConstants.responseKey, predicate: predicate)
         publicDB.perform(query, inZoneWith: nil) { (records, error) in
@@ -48,8 +50,48 @@ class ResponseController {
             
             guard let records = records else { completion(false); return }
             let responses = records.compactMap({Response(ckRecord: $0)})
-            self.responses = responses
+            
+            var filteredResponses: [Response] = []
+            
+
+            for response in responses {
+                guard let user = UserController.shared.currentUser else { completion(false); return }
+                if !user.isBlocked.contains(response.username) {
+                    filteredResponses.append(response)
+                }
+            }
+            self.responses = filteredResponses
             completion(true)
         }
+    }
+    
+    func deleteResponse(response: Response, completion: @escaping (Bool) -> Void) {
+        let responseRecord = response.responseRecordID
+        
+        guard let firstIndex = self.responses.firstIndex(of: response) else { completion(false); return }
+        
+        responses.remove(at: firstIndex)
+        
+        publicDB.delete(withRecordID: responseRecord) { (recordID, error) in
+            if let error = error {
+                print("Error deleting response", error.localizedDescription)
+                completion(false)
+                return
+            }
+            
+            completion(true)
+        }
+    }
+    
+    func modifyRecordsOperation(response: Response, completion: @escaping (Bool) -> Void) {
+        let operation = CKModifyRecordsOperation()
+        operation.recordsToSave = [CKRecord(response: response)]
+        operation.savePolicy = .changedKeys
+        operation.qualityOfService = .userInteractive
+        operation.queuePriority = .high
+        operation.completionBlock = {
+            completion(true)
+        }
+        publicDB.add(operation)
     }
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Of8-3R-H7a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Of8-3R-H7a">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,28 +10,31 @@
         <!--Welcome Onboarding View Controller-->
         <scene sceneID="Oud-iJ-K0O">
             <objects>
-                <viewController storyboardIdentifier="Onboarding" id="Of8-3R-H7a" customClass="WelcomeOnboardingViewController" customModule="Zō" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Onboarding" id="Of8-3R-H7a" customClass="WelcomeOnboardingViewController" customModule="Zo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o5W-RQ-Obj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="II0-3H-f4N">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="II0-3H-f4N">
                                 <rect key="frame" x="0.0" y="330.5" width="414" height="245"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5u2-ba-UkN">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5u2-ba-UkN">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="35.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Get Started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGX-XZ-fcb">
-                                        <rect key="frame" x="0.0" y="107.5" width="414" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's get started!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGX-XZ-fcb">
+                                        <rect key="frame" x="0.0" y="70.5" width="414" height="99.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnF-br-Dxd">
-                                        <rect key="frame" x="176" y="215" width="62" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnF-br-Dxd" customClass="OnBoardingButton" customModule="Zo" customModuleProvider="target">
+                                        <rect key="frame" x="176" y="205" width="62" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="wBV-7C-SKD"/>
+                                        </constraints>
                                         <state key="normal" title="Next">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
@@ -61,40 +64,50 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Y5-39-HAe"/>
                     </view>
+                    <connections>
+                        <outlet property="bodyTextLabel" destination="tGX-XZ-fcb" id="kyD-MB-9dx"/>
+                        <outlet property="titleLabel" destination="5u2-ba-UkN" id="CCo-hi-0xc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wqw-O2-VU4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-58" y="113"/>
+            <point key="canvasLocation" x="658" y="113"/>
         </scene>
         <!--How It Works Onboarding View Controller-->
         <scene sceneID="6Nu-wc-wm9">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="CcM-Ed-fiT" customClass="HowItWorksOnboardingViewController" customModule="Zō" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="CcM-Ed-fiT" customClass="HowItWorksOnboardingViewController" customModule="Zo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a7I-dw-Yrb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OPs-MM-Fss">
-                                <rect key="frame" x="0.0" y="330.5" width="414" height="245"/>
+                                <rect key="frame" x="0.0" y="269" width="414" height="368"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How it works" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULt-Dt-8jO">
-                                        <rect key="frame" x="158" y="0.0" width="98" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOW IT WORKS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULt-Dt-8jO">
+                                        <rect key="frame" x="145" y="0.0" width="124" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXu-iV-4xh">
-                                        <rect key="frame" x="40.5" y="77" width="333" height="81.5"/>
-                                        <string key="text">- Send a request for inspiration...
-- Gain Karma Points by answering requests.
-- Given a daily prompt.
-- View saved responses.</string>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXu-iV-4xh">
+                                        <rect key="frame" x="43" y="103" width="328.5" height="142.5"/>
+                                        <string key="text">- Send a request for inspiration
+
+- Gain Karma Points by answering requests
+
+- Given Daily Prompt
+
+- View saved responses</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CjF-mq-8bH">
-                                        <rect key="frame" x="176" y="215" width="62" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CjF-mq-8bH" customClass="OnBoardingButton" customModule="Zo" customModuleProvider="target">
+                                        <rect key="frame" x="176" y="328" width="62" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="oc2-J4-aw8"/>
+                                        </constraints>
                                         <state key="normal" title="Next">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
@@ -117,12 +130,16 @@
                         <constraints>
                             <constraint firstItem="OPs-MM-Fss" firstAttribute="width" secondItem="Pkf-X0-SJZ" secondAttribute="width" id="26S-Wn-J3L"/>
                             <constraint firstItem="OPs-MM-Fss" firstAttribute="centerY" secondItem="Pkf-X0-SJZ" secondAttribute="centerY" id="NPl-Ip-LX1"/>
-                            <constraint firstItem="OPs-MM-Fss" firstAttribute="height" secondItem="Pkf-X0-SJZ" secondAttribute="height" multiplier="0.3" id="tFh-ZR-fpW"/>
+                            <constraint firstItem="OPs-MM-Fss" firstAttribute="height" secondItem="Pkf-X0-SJZ" secondAttribute="height" multiplier="0.45" id="tFh-ZR-fpW"/>
                             <constraint firstItem="OPs-MM-Fss" firstAttribute="centerX" secondItem="Pkf-X0-SJZ" secondAttribute="centerX" id="vde-rZ-qRM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pkf-X0-SJZ"/>
                     </view>
                     <navigationItem key="navigationItem" id="oUg-R6-LGl"/>
+                    <connections>
+                        <outlet property="bodyTextLabel" destination="fXu-iV-4xh" id="hwv-6s-5kV"/>
+                        <outlet property="titleLabel" destination="ULt-Dt-8jO" id="cWM-lV-oI2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1lv-s4-rwe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -131,41 +148,44 @@
         <!--Rules Onboarding View Controller-->
         <scene sceneID="CkW-u8-zTV">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="SXy-kw-Jed" customClass="RulesOnboardingViewController" customModule="Zō" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="SXy-kw-Jed" customClass="RulesOnboardingViewController" customModule="Zo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BHz-sF-d8L">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="71m-3W-iM5">
-                                <rect key="frame" x="0.0" y="330.5" width="414" height="245"/>
+                                <rect key="frame" x="0.0" y="269" width="414" height="368"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Warning and rules" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bn6-k1-dW4">
-                                        <rect key="frame" x="138" y="0.0" width="138.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="WARNING AND RULES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bn6-k1-dW4">
+                                        <rect key="frame" x="120" y="0.0" width="174.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1W-gD-VAg">
-                                        <rect key="frame" x="120.5" y="31" width="173" height="81.5"/>
-                                        <string key="text">- No Explicit Content...
-- No Swearing...
-- No Nudity...
-- No Racial Slurs...</string>
+                                        <rect key="frame" x="125.5" y="68.5" width="163.5" height="81.5"/>
+                                        <string key="text">- No Explicit Content.
+- No Swearing.
+- No Nudity.
+- No Racial Slurs.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0Q-d6-ctU">
-                                        <rect key="frame" x="13.5" y="123" width="387" height="81.5"/>
-                                        <string key="text">Violation of these rules will result in the removal of your account....
+                                        <rect key="frame" x="13.5" y="198.5" width="387" height="81.5"/>
+                                        <string key="text">Violation of these rules will result in the removal of your account.
 
 Please report any violations.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZx-NG-ANr">
-                                        <rect key="frame" x="176" y="215" width="62" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZx-NG-ANr" customClass="OnBoardingButton" customModule="Zo" customModuleProvider="target">
+                                        <rect key="frame" x="176" y="328" width="62" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="ycG-aq-lsB"/>
+                                        </constraints>
                                         <state key="normal" title="Next">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
@@ -189,11 +209,16 @@ Please report any violations.</string>
                             <constraint firstItem="71m-3W-iM5" firstAttribute="centerX" secondItem="rRz-PL-VBX" secondAttribute="centerX" id="TSR-18-CDR"/>
                             <constraint firstItem="71m-3W-iM5" firstAttribute="width" secondItem="rRz-PL-VBX" secondAttribute="width" id="b1O-3U-9HT"/>
                             <constraint firstItem="71m-3W-iM5" firstAttribute="centerY" secondItem="rRz-PL-VBX" secondAttribute="centerY" id="mxa-0N-aSS"/>
-                            <constraint firstItem="71m-3W-iM5" firstAttribute="height" secondItem="rRz-PL-VBX" secondAttribute="height" multiplier="0.3" id="q1Z-RE-CPp"/>
+                            <constraint firstItem="71m-3W-iM5" firstAttribute="height" secondItem="rRz-PL-VBX" secondAttribute="height" multiplier="0.45" id="q1Z-RE-CPp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rRz-PL-VBX"/>
                     </view>
                     <navigationItem key="navigationItem" id="Wsm-XC-Pnp"/>
+                    <connections>
+                        <outlet property="bulletPointsLabel" destination="R1W-gD-VAg" id="RdB-0u-Ruk"/>
+                        <outlet property="disclaimerLabel" destination="X0Q-d6-ctU" id="X8o-fh-r3a"/>
+                        <outlet property="titleLabel" destination="bn6-k1-dW4" id="CEi-P1-NIs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ug3-tB-kbS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -202,7 +227,7 @@ Please report any violations.</string>
         <!--Username Onboarding View Controller-->
         <scene sceneID="K9j-1e-57p">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="QTW-cv-q4V" customClass="UsernameOnboardingViewController" customModule="Zō" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="QTW-cv-q4V" customClass="UsernameOnboardingViewController" customModule="Zo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tgH-dN-Vft">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -210,27 +235,28 @@ Please report any violations.</string>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YQ3-wn-CFx">
                                 <rect key="frame" x="0.0" y="330.5" width="414" height="245"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adC-fF-7Cv">
-                                        <rect key="frame" x="140" y="0.0" width="134" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CREATE USERNAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adC-fF-7Cv">
+                                        <rect key="frame" x="128.5" y="0.0" width="157" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cpg-NZ-sYh">
-                                        <rect key="frame" x="62" y="47" width="290" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cpg-NZ-sYh" customClass="OnboardingTextField" customModule="Zo" customModuleProvider="target">
+                                        <rect key="frame" x="62" y="64" width="290" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcX-ed-NMQ">
-                                        <rect key="frame" x="32.5" y="107" width="349.5" height="81.5"/>
-                                        <string key="text">* Other users will see this when answering your requests.
-To encourage sincerty, please do not use any personal identifiers.</string>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* This will be seen by other users." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcX-ed-NMQ">
+                                        <rect key="frame" x="78.5" y="141" width="257" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYE-SG-Zn1">
-                                        <rect key="frame" x="176" y="215" width="62" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYE-SG-Zn1" customClass="OnBoardingButton" customModule="Zo" customModuleProvider="target">
+                                        <rect key="frame" x="176" y="205" width="62" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="QNi-nT-0NK"/>
+                                        </constraints>
                                         <state key="normal" title="Next">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
@@ -241,7 +267,6 @@ To encourage sincerty, please do not use any personal identifiers.</string>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="nextButtonTapped:" destination="QTW-cv-q4V" eventType="touchUpInside" id="oSM-CG-KCE"/>
-                                            <segue destination="OW9-j0-fMR" kind="show" id="DCI-yB-w6Y"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -263,21 +288,13 @@ To encourage sincerty, please do not use any personal identifiers.</string>
                     <navigationItem key="navigationItem" id="Rqi-N0-9iS"/>
                     <connections>
                         <outlet property="createUsernameTextField" destination="cpg-NZ-sYh" id="Jqa-7o-oEF"/>
+                        <outlet property="disclaimerLabel" destination="GcX-ed-NMQ" id="upe-5K-ugu"/>
+                        <outlet property="titleLabel" destination="adC-fF-7Cv" id="x4B-bL-i12"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rPs-Il-5Fc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3228.985507246377" y="112.5"/>
-        </scene>
-        <!--TabController-->
-        <scene sceneID="0RO-8u-ItZ">
-            <objects>
-                <viewControllerPlaceholder storyboardName="TabController" id="OW9-j0-fMR" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="k10-Ca-Tnt"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5AE-w5-6zO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4220" y="113"/>
         </scene>
     </scenes>
 </document>

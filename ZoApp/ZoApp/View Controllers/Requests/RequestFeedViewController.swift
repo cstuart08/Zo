@@ -8,25 +8,101 @@
 
 import UIKit
 
-class RequestFeedViewController: UIViewController {
-
+class RequestFeedViewController: UIViewController, UITextFieldDelegate {
+    
     // MARK: - Outlets
-    @IBOutlet weak var tagsSearchBar: UISearchBar!
     @IBOutlet weak var pastRequestsTableView: UITableView!
     @IBOutlet weak var requestsLabel: UILabel!
     @IBOutlet weak var rulesButton: UIButton!
     @IBOutlet weak var addNewRequestButton: UIButton!
     @IBOutlet weak var activeRequestsFeedTableView: UITableView!
-    
+    @IBOutlet weak var searchBar: UITextField!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var myRequestsLabel: UILabel!
+    @IBOutlet weak var allRequestsLabel: UILabel!
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        createTapGesture()
         activeRequestsFeedTableView.delegate = self
         activeRequestsFeedTableView.dataSource = self
         pastRequestsTableView.delegate = self
         pastRequestsTableView.dataSource = self
+        setupUI()
+        searchBar.clearButtonMode = UITextField.ViewMode.always
+        searchBar.delegate = self
+        let notification = Notification.Name(rawValue: "reloadRequestTableViews")
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadRequestTableViews), name: notification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadRequestTableViews), name: NSNotification.Name("deletedResponse"), object: nil)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        pastRequestsTableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchRecentlyCurrentUserRequests()
+        fetchRequests()
+    }
+    
+    // MARK: - Custom Methods
+    
+    func createTapGesture() {
+        let tap = UITapGestureRecognizer()
+        tap.addTarget(self, action: #selector(tapResign))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func tapResign() {
+        searchBar.resignFirstResponder()
+    }
+    
+    @objc func reloadRequestTableViews() {
+        self.activeRequestsFeedTableView.reloadData()
+        self.pastRequestsTableView.reloadData()
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if searchBar.text == "" {
+            RequestController.shared.fetchRequests { (success) in
+                if success {
+                    DispatchQueue.main.async {
+                        self.activeRequestsFeedTableView.reloadData()
+                        print("Fetched requests")
+                    }
+                }
+            }
+        }
+    }
+    
+    func setupUI() {
+        requestsLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
+        requestsLabel.textColor = .zoWhite
+        addNewRequestButton.titleLabel?.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
+        addNewRequestButton.contentHorizontalAlignment = .right
+        myRequestsLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
+        myRequestsLabel.textColor = .blueGrey
+        allRequestsLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
+        allRequestsLabel.textColor = .blueGrey
+    }
+    
+    func fetchRecentlyCurrentUserRequests() {
+        RequestController.shared.fetchOnlyRecentCurrentUserRequests { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    
+                    self.pastRequestsTableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    func fetchRequests() {
         RequestController.shared.fetchRequests { (success) in
             if success {
                 DispatchQueue.main.async {
@@ -39,29 +115,11 @@ class RequestFeedViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        RequestController.shared.fetchOnlyRecentCurrentUserRequests { (success) in
-            if success {
-                DispatchQueue.main.async {
-                    
-                    self.pastRequestsTableView.reloadData()
-                }
-            }
-        }
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        pastRequestsTableView.reloadData()
-    }
-    
-    // MARK: - Custom Methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toViewActivePastRequest" {
             if let index = pastRequestsTableView.indexPathForSelectedRow {
                 guard let destinationVC = segue.destination as? ActiveRequestViewController else { return }
-                let requestToSend = RequestController.shared.requests[index.row]
+                let requestToSend = RequestController.shared.myRequests[index.row]
                 destinationVC.request = requestToSend
             }
         } else if segue.identifier == "toResponseToRequest" {
@@ -80,9 +138,34 @@ class RequestFeedViewController: UIViewController {
     @IBAction func addNewRequestButtonTapped(_ sender: Any) {
     }
     
-    // MARK: - UI Adjustments
+    @IBAction func searchButtonTapped(_ sender: Any) {
+        searchBar.resignFirstResponder()
+        guard let searchTag = searchBar.text else { return }
+        if searchTag == "" {
+            RequestController.shared.fetchRequests { (success) in
+                if success {
+                    DispatchQueue.main.async {
+                        self.activeRequestsFeedTableView.reloadData()
+                        print("Fetched requests")
+                    }
+                } else {
+                    print("Failed to fetch requests.")
+                }
+            }
+        } else {
+            RequestController.shared.fetchRequestsWithTag(tag: "#" + searchTag) { (success) in
+                if success {
+                    DispatchQueue.main.async {
+                        print("Success fetching requests with tag")
+                        self.activeRequestsFeedTableView.reloadData()
+                    }
+                }
+            }
+        }
+    }
 }
 
+// MARK: - Extensions
 extension RequestFeedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -97,14 +180,14 @@ extension RequestFeedViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if tableView == pastRequestsTableView {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "activePastRequestCell", for: indexPath) as? PastRequestsTableViewCell else { return UITableViewCell()}
-        
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "activePastRequestCell", for: indexPath) as? PastRequestsTableViewCell else { return UITableViewCell()}
+            
             let request = RequestController.shared.myRequests[indexPath.row]
-        
-        cell.requestLandingPad = request
-        
-        return cell
-        
+            
+            cell.requestLandingPad = request
+            
+            return cell
+            
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "activeRequestCell", for: indexPath) as? ActiveRequestsTableViewCell else { return UITableViewCell()}
             
@@ -115,51 +198,4 @@ extension RequestFeedViewController: UITableViewDelegate, UITableViewDataSource 
             return cell
         }
     }
-}
-
-
-// MARK: - Mock Data
-
-class ProfileMockDataModel1 {
-    let text: String
-    let image: UIImage?
-    
-    init(text: String, image: UIImage?) {
-        self.text = text
-        self.image = image
-    }
-}
-
-class ProfileMockDataController1 {
-    static let shared = ProfileMockDataController1()
-    
-    var mockDataObjects = [ProfileMockDataModel1]()
-    
-    init() {
-        
-        let request1 = ProfileMockDataModel1(text: "#whatever #amiseeingthings #iphoneForTheWin", image: UIImage(named: "mountain"))
-        let request2 = ProfileMockDataModel1(text: "#customTableViews #BadDay #WorkSucks", image: UIImage(named: "focus"))
-        let request3 = ProfileMockDataModel1(text: "#DoesItWork #WAterIsLife #RAinbow", image: UIImage(named: "canyonJump"))
-        
-        self.mockDataObjects = [request1, request2, request3]
-    }
-    
-    
-}
-
-class ProfileMockDataController2 {
-    static let shared = ProfileMockDataController2()
-    
-    var mockDataObjects = [ProfileMockDataModel1]()
-    
-    init() {
-        
-        let request1 = ProfileMockDataModel1(text: "#whatever #amiseeingthings #iphoneForTheWin", image: UIImage(named: "mountain"))
-        let request2 = ProfileMockDataModel1(text: "#customTableViews #BadDay #WorkSucks", image: UIImage(named: "focus"))
-        let request3 = ProfileMockDataModel1(text: "#DoesItWork #WAterIsLife #RAinbow", image: UIImage(named: "canyonJump"))
-        
-        self.mockDataObjects = [request1, request2, request3]
-    }
-    
-    
 }

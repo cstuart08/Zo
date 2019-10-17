@@ -8,10 +8,12 @@
 
 import UIKit
 
-class UsernameOnboardingViewController: UIViewController {
-
+class UsernameOnboardingViewController: UIViewController, UITextFieldDelegate {
+    
     // MARK: - Outlets
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var createUsernameTextField: UITextField!
+    @IBOutlet weak var disclaimerLabel: UILabel!
     
     // MARK: - Lifecycles
     override func viewDidLoad() {
@@ -19,6 +21,9 @@ class UsernameOnboardingViewController: UIViewController {
         let tap = UITapGestureRecognizer()
         tap.addTarget(self, action: #selector(tapResign))
         view.addGestureRecognizer(tap)
+        stylizeSubviews()
+        createUsernameTextField.delegate = self
+        fetchAllUsers()
     }
     
     // MARK: - Methods
@@ -26,14 +31,54 @@ class UsernameOnboardingViewController: UIViewController {
         createUsernameTextField.resignFirstResponder()
     }
     
-    @IBAction func nextButtonTapped(_ sender: Any) {
-        guard let username = createUsernameTextField.text, createUsernameTextField.text != nil else { return }
-        UserController.shared.createUser(username: username) { (success) in
+    func fetchAllUsers() {
+        UsernameController.shared.fetchAllUsernames { (success) in
             if success {
-                print("User created.")
-            } else {
-                print("User was not created.")
+                print("Success fetching all usernames")
             }
         }
+    }
+    
+    @IBAction func nextButtonTapped(_ sender: Any) {
+        
+        guard let username = createUsernameTextField.text, !username.isEmpty else { return }
+        let usernamelowercased = username.lowercased()
+        if UsernameController.shared.usernames.contains(usernamelowercased) == true {
+            createUsernameTextField.text = ""
+            createUsernameTextField.attributedPlaceholder = NSAttributedString(string: "Sorry! This user already exists.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            print("Username already exists.")
+        } else {
+            UserController.shared.createUser(username: username) { (success) in
+                if success {
+                    print("User created.")
+                    DispatchQueue.main.async {
+                        let storyboard = UIStoryboard(name: "TabController", bundle: nil)
+                        let tabViewController = storyboard.instantiateViewController(withIdentifier: "TabController")
+                        self.present(tabViewController, animated: true, completion: nil)
+                    }
+                } else {
+                    print("User was not created.")
+                }
+            }
+        }
+    }
+    
+    // MARK: - UI Adjustments
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        createUsernameTextField.placeholder = ""
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if createUsernameTextField.text == "" {
+            createUsernameTextField.attributedPlaceholder = NSAttributedString(string: "Enter Username", attributes: [NSAttributedString.Key.foregroundColor: UIColor.zoWhite])
+        }
+    }
+    
+    func stylizeSubviews() {
+        view.backgroundColor = .boldGreen
+        titleLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
+        titleLabel.textColor = .zoWhite
+        disclaimerLabel.font = UIFont(name: FontAttributes.body.fontFamily, size: FontAttributes.body.fontSize)
+        disclaimerLabel.textColor = .zoWhite
     }
 }

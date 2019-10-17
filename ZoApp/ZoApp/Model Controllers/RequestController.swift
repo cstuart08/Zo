@@ -6,7 +6,7 @@
 //  Copyright © 2019 Zō App. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CloudKit
 
 class RequestController {
@@ -18,53 +18,54 @@ class RequestController {
     
     let publicDataBase = CKContainer.default().publicCloudDatabase
     
-    func createAndSaveRequest(title: String, username: String, body: String, userReference: CKRecord.Reference, completion: @escaping (Bool) -> Void) {
-        let request = Request(username: username, title: title, body: body, userReference: userReference)
-        
+    func createAndSaveRequest(image: UIImage, title: String, username: String, body: String, userReference: CKRecord.Reference, tags: [String], completion: @escaping (Bool) -> Void) {
+        let request = Request(username: username, title: title, body: body, userReference: userReference, tags: tags, image: image)
+    
         let requestRecord = CKRecord(request: request)
         
         publicDataBase.save(requestRecord) { (record, error) in
             
             if let error = error {
-                print("Error saving a record to database in AHHH \(#function) \(error) \(error.localizedDescription)")
+                print("Error saving a record to database in \(#function) \(error) \(error.localizedDescription)")
                 completion(false)
                 return
             }
             
             guard let record = record, let request = Request(ckRecord: record) else { completion(false); return }
             
-            self.requests.append(request)
+            self.myRequests.append(request)
+            completion(true)
         }
-        
-        completion(true)
         return
     }
     
     func fetchRequests(completion: @escaping (Bool) -> Void) {
-        let predicate = NSPredicate(value: true)
+        let date = NSDate(timeInterval: -60.0 * 60 * 72, since: Date())
+        let predicate = NSPredicate(format: "creationDate > %@", date)
         let query = CKQuery(recordType: RequestConstants.recordTypeKey, predicate: predicate)
         publicDataBase.perform(query, inZoneWith: nil) { (records, error) in
-            
+
             if let error = error {
                 print("Error fetching requests from database in \(#function) \(error) \(error.localizedDescription)")
                 completion(false)
                 return
             }
-            
+
             guard let records = records else { completion(false); return }
-            
-            
-            let requests = records.compactMap({Request(ckRecord: $0)})
-            
+
+
+            let requests = records.compactMap({Request(ckRecord: $0)}).sorted(by: { $0.timestamp > $1.timestamp })
+
             var filteredRequests: [Request] = []
             
+
             for request in requests {
                 guard let user = UserController.shared.currentUser else { completion(false); return }
-                if !user.respondedTo.contains(request.recordID.recordName) {
+                if request.userReference.recordID.recordName != user.recordID.recordName && !user.isBlocked.contains(request.username) {
                     filteredRequests.append(request)
                 }
             }
-            
+
             self.requests = filteredRequests
             completion(true)
         }
@@ -72,7 +73,7 @@ class RequestController {
     
     func fetchAllCurrentUserRequests(completion: @escaping (Bool) -> Void) {
         myRequests = []
-        guard let userReference = UserController.shared.currentUser?.appleUserReference else { completion(false); return }
+        guard let userReference = UserController.shared.currentUser?.recordID else { completion(false); return }
         let predicate = NSPredicate(format: "\(RequestConstants.userReferenceKey) == %@", userReference)
         let query = CKQuery(recordType: RequestConstants.recordTypeKey, predicate: predicate)
         publicDataBase.perform(query, inZoneWith: nil) { (records, error) in
@@ -85,13 +86,12 @@ class RequestController {
             
             guard let records = records else { completion(false); return }
             print("got some records")
-            let requests = records.compactMap({Request(ckRecord: $0)})
+            let requests = records.compactMap({Request(ckRecord: $0)}).sorted(by: { $0.timestamp > $1.timestamp })
             print("got requests from records")
             
             self.myRequests = requests
             completion(true)
             print("completion true")
-            
         }
     }
     
@@ -99,7 +99,7 @@ class RequestController {
         let date = NSDate(timeInterval: -60.0 * 60 * 72, since: Date())
         guard let user = UserController.shared.currentUser else { completion(false); return }
         let predicate = NSPredicate(format: "creationDate > %@", date)
-        let predicate2 = NSPredicate(format: "\(RequestConstants.userReferenceKey) == %@", user.appleUserReference)
+        let predicate2 = NSPredicate(format: "\(RequestConstants.userReferenceKey) == %@", user.recordID)
         let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate, predicate2])
         let query = CKQuery(recordType: RequestConstants.recordTypeKey, predicate: compoundPredicate)
         publicDataBase.perform(query, inZoneWith: nil) { (records, error) in
@@ -109,10 +109,51 @@ class RequestController {
                 return
             }
             guard let records = records else { completion(false); return }
-            let requests = records.compactMap({Request(ckRecord: $0)})
-            
+            let requests = records.compactMap({Request(ckRecord: $0)}).sorted(by: { $0.timestamp > $1.timestamp })
             self.myRequests = requests
             completion(true)
         }
+    }
+    
+    func fetchRequestsWithTag(tag: String, completion: @escaping (Bool) -> Void) {
+        let predicate = NSPredicate(format: "\(RequestConstants.tagsKey) CONTAINS %@", tag)
+        let query = CKQuery(recordType: RequestConstants.recordTypeKey, predicate: predicate)
+        publicDataBase.perform(query, inZoneWith: nil) { (records, error) in
+
+            if let error = error {
+                print("Error fetching requests from database in \(#function) \(error) \(error.localizedDescription)")
+                completion(false)
+                return
+            }
+
+            guard let records = records else { completion(false); return }
+
+
+            let requests = records.compactMap({Request(ckRecord: $0)}).sorted(by: { $0.timestamp > $1.timestamp })
+
+            var filteredRequests: [Request] = []
+
+            for request in requests {
+                guard let user = UserController.shared.currentUser else { completion(false); return }
+                if request.userReference.recordID.recordName != user.recordID.recordName && !user.isBlocked.contains(request.username) {
+                    filteredRequests.append(request)
+                }
+            }
+
+            self.requests = filteredRequests
+            completion(true)
+        }
+    }
+    
+    func modifyRecordsOperation(request: Request, completion: @escaping (Bool) -> Void) {
+        let operation = CKModifyRecordsOperation()
+        operation.recordsToSave = [CKRecord(request: request)]
+        operation.savePolicy = .changedKeys
+        operation.qualityOfService = .userInteractive
+        operation.queuePriority = .high
+        operation.completionBlock = {
+            completion(true)
+        }
+        publicDataBase.add(operation)
     }
 }

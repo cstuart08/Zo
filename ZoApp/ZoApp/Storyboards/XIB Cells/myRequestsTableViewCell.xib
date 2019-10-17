@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="299" id="KGk-i7-Jjw" customClass="myRequestsTableViewCell" customModule="Zo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="679" height="299"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="679" height="299"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="tab-vh-ny9">
+                        <rect key="frame" x="17" y="15" width="645" height="269"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="qp8-eF-gQr">
+                                <rect key="frame" x="0.0" y="27" width="387" height="215"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description of request" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeL-I8-Bs9" customClass="ZoLabel" customModule="Zo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="387" height="98"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#tag1 #tag2 #tag3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NnM-b2-hUm" customClass="ZoLabel" customModule="Zo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="102" width="387" height="113"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="canyonJump" translatesAutoresizingMaskIntoConstraints="NO" id="Mr0-GI-Ndd">
+                                <rect key="frame" x="403" y="13.5" width="242" height="242"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Mr0-GI-Ndd" secondAttribute="height" multiplier="1:1" id="lyX-KW-rGh"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Mr0-GI-Ndd" firstAttribute="height" secondItem="tab-vh-ny9" secondAttribute="height" multiplier="0.9" id="fJ1-m9-eWi"/>
+                            <constraint firstItem="qp8-eF-gQr" firstAttribute="height" secondItem="tab-vh-ny9" secondAttribute="height" multiplier="0.8" id="lJe-Xh-2js"/>
+                        </constraints>
+                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geI-Jc-Nr2">
+                        <rect key="frame" x="648" y="263" width="20.5" height="20.5"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="geI-Jc-Nr2" secondAttribute="height" multiplier="1:1" id="ae9-tf-a1P"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="tab-vh-ny9" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.9" id="1dZ-hH-aQi"/>
+                    <constraint firstItem="geI-Jc-Nr2" firstAttribute="trailing" secondItem="Mr0-GI-Ndd" secondAttribute="trailing" multiplier="1.01" id="CAt-1z-KNb"/>
+                    <constraint firstItem="tab-vh-ny9" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="JPK-ts-d0w"/>
+                    <constraint firstItem="geI-Jc-Nr2" firstAttribute="bottom" secondItem="Mr0-GI-Ndd" secondAttribute="bottom" multiplier="1.05" id="Po2-1r-0yV"/>
+                    <constraint firstItem="tab-vh-ny9" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="g2S-5T-dAz"/>
+                    <constraint firstItem="tab-vh-ny9" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.95" id="iju-jC-C2p"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="numberOfResponsesLabel" destination="geI-Jc-Nr2" id="8KZ-zq-PGA"/>
+                <outlet property="requestBodyLabel" destination="CeL-I8-Bs9" id="wGK-E9-77C"/>
+                <outlet property="requestImageView" destination="Mr0-GI-Ndd" id="Lbc-WF-bs7"/>
+                <outlet property="requestTagsLabel" destination="NnM-b2-hUm" id="Se7-eN-igR"/>
+            </connections>
+            <point key="canvasLocation" x="-47.10144927536232" y="207.92410714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="canyonJump" width="6000" height="4000"/>
+    </resources>
+</document>

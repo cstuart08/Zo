@@ -11,6 +11,8 @@
 		D435FD32234F8CDC00FD6DCC /* UnsplashPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435FD31234F8CDC00FD6DCC /* UnsplashPhoto.swift */; };
 		D435FD34234F8CE900FD6DCC /* UnsplashRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435FD33234F8CE900FD6DCC /* UnsplashRoute.swift */; };
 		D435FD36234F8D0B00FD6DCC /* UnsplashService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435FD35234F8D0B00FD6DCC /* UnsplashService.swift */; };
+		D4A8BD4A235567AF000B8D21 /* ZoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A8BD49235567AF000B8D21 /* ZoLabel.swift */; };
+		D4A8BD4C23577225000B8D21 /* UsernameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A8BD4B23577225000B8D21 /* UsernameController.swift */; };
 		D4CDD46F234E8E8E00A6D5C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD46E234E8E8E00A6D5C5 /* AppDelegate.swift */; };
 		D4CDD471234E8E8E00A6D5C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD470234E8E8E00A6D5C5 /* SceneDelegate.swift */; };
 		D4CDD478234E8E8E00A6D5C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4CDD477234E8E8E00A6D5C5 /* Assets.xcassets */; };
@@ -60,6 +62,9 @@
 		D4CDD4EF234E8F7000A6D5C5 /* CreateRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4CDD4E2234E8F7000A6D5C5 /* CreateRequest.storyboard */; };
 		D4CDD4F0234E8F7000A6D5C5 /* Daily.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4CDD4E3234E8F7000A6D5C5 /* Daily.storyboard */; };
 		D4CDD4F5234E908500A6D5C5 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4CDD4F4234E908500A6D5C5 /* CloudKit.framework */; };
+		FC00D8A62350D26800BC2C30 /* TextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC00D8A52350D26800BC2C30 /* TextViewExtension.swift */; };
+		FC00D8A82350F5FC00BC2C30 /* ZoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC00D8A72350F5FC00BC2C30 /* ZoButton.swift */; };
+		FC00D8AB2350FB0A00BC2C30 /* PastDailyEntriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC00D8AA2350FB0A00BC2C30 /* PastDailyEntriesTableViewCell.swift */; };
 		FC93FE2B234F9F8200F65581 /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC93FE2A234F9F8200F65581 /* StyleGuide.swift */; };
 		FC93FE2D234F9FB000F65581 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC93FE2C234F9FB000F65581 /* Colors.xcassets */; };
 		FC93FE30234FA3C900F65581 /* FingerPaint-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC93FE2F234FA3C900F65581 /* FingerPaint-Regular.ttf */; };
@@ -67,6 +72,10 @@
 		FC93FE34234FA3E900F65581 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC93FE33234FA3E900F65581 /* Lato-BoldItalic.ttf */; };
 		FC93FE36234FA3F300F65581 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC93FE35234FA3F300F65581 /* Lato-Regular.ttf */; };
 		FC93FE38234FA3FB00F65581 /* Lato-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC93FE37234FA3FB00F65581 /* Lato-RegularItalic.ttf */; };
+		FC93FE3A234FC37C00F65581 /* OnboardingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC93FE39234FC37C00F65581 /* OnboardingTextField.swift */; };
+		FC93FE3C234FCE8300F65581 /* OnBoardingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC93FE3B234FCE8200F65581 /* OnBoardingButton.swift */; };
+		FCC8FC282356209200EE22FC /* myRequestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC8FC262356209200EE22FC /* myRequestsTableViewCell.swift */; };
+		FCC8FC292356209200EE22FC /* myRequestsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCC8FC272356209200EE22FC /* myRequestsTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +83,8 @@
 		D435FD31234F8CDC00FD6DCC /* UnsplashPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashPhoto.swift; sourceTree = "<group>"; };
 		D435FD33234F8CE900FD6DCC /* UnsplashRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashRoute.swift; sourceTree = "<group>"; };
 		D435FD35234F8D0B00FD6DCC /* UnsplashService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashService.swift; sourceTree = "<group>"; };
+		D4A8BD49235567AF000B8D21 /* ZoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoLabel.swift; sourceTree = "<group>"; };
+		D4A8BD4B23577225000B8D21 /* UsernameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameController.swift; sourceTree = "<group>"; };
 		D4CDD46B234E8E8E00A6D5C5 /* Zo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4CDD46E234E8E8E00A6D5C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4CDD470234E8E8E00A6D5C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +137,9 @@
 		D4CDD4E3234E8F7000A6D5C5 /* Daily.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Daily.storyboard; sourceTree = "<group>"; };
 		D4CDD4F2234E908200A6D5C5 /* ZoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZoApp.entitlements; sourceTree = "<group>"; };
 		D4CDD4F4234E908500A6D5C5 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		FC00D8A52350D26800BC2C30 /* TextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewExtension.swift; sourceTree = "<group>"; };
+		FC00D8A72350F5FC00BC2C30 /* ZoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoButton.swift; sourceTree = "<group>"; };
+		FC00D8AA2350FB0A00BC2C30 /* PastDailyEntriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastDailyEntriesTableViewCell.swift; sourceTree = "<group>"; };
 		FC93FE2A234F9F8200F65581 /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
 		FC93FE2C234F9FB000F65581 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FC93FE2F234FA3C900F65581 /* FingerPaint-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FingerPaint-Regular.ttf"; sourceTree = "<group>"; };
@@ -133,6 +147,10 @@
 		FC93FE33234FA3E900F65581 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
 		FC93FE35234FA3F300F65581 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		FC93FE37234FA3FB00F65581 /* Lato-RegularItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-RegularItalic.ttf"; sourceTree = "<group>"; };
+		FC93FE39234FC37C00F65581 /* OnboardingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTextField.swift; sourceTree = "<group>"; };
+		FC93FE3B234FCE8200F65581 /* OnBoardingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingButton.swift; sourceTree = "<group>"; };
+		FCC8FC262356209200EE22FC /* myRequestsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myRequestsTableViewCell.swift; sourceTree = "<group>"; };
+		FCC8FC272356209200EE22FC /* myRequestsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = myRequestsTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +220,7 @@
 		D4CDD483234E8F4100A6D5C5 /* Daily */ = {
 			isa = PBXGroup;
 			children = (
+				FC00D8A92350FAAF00BC2C30 /* Custom Cells */,
 				D4CDD484234E8F4100A6D5C5 /* DeletePastDailyEntryViewController.swift */,
 				D4CDD485234E8F4100A6D5C5 /* PastDailyEntryViewController.swift */,
 				D4CDD486234E8F4100A6D5C5 /* DailyViewController.swift */,
@@ -291,6 +310,7 @@
 				D4CDD4BE234E8F5500A6D5C5 /* UserController.swift */,
 				D435FD33234F8CE900FD6DCC /* UnsplashRoute.swift */,
 				D435FD35234F8D0B00FD6DCC /* UnsplashService.swift */,
+				D4A8BD4B23577225000B8D21 /* UsernameController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -310,6 +330,7 @@
 		D4CDD4D5234E8F7000A6D5C5 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				FCC8FC2A2356217F00EE22FC /* XIB Cells */,
 				D4CDD479234E8E8E00A6D5C5 /* LaunchScreen.storyboard */,
 				D4CDD4D6234E8F7000A6D5C5 /* RulesAlert.storyboard */,
 				D4CDD4D7234E8F7000A6D5C5 /* Onboarding.storyboard */,
@@ -348,10 +369,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FC00D8A92350FAAF00BC2C30 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FC00D8AA2350FB0A00BC2C30 /* PastDailyEntriesTableViewCell.swift */,
+			);
+			path = "Custom Cells";
+			sourceTree = "<group>";
+		};
 		FC93FE29234F9F5A00F65581 /* StyleGuide */ = {
 			isa = PBXGroup;
 			children = (
 				FC93FE2A234F9F8200F65581 /* StyleGuide.swift */,
+				FC93FE39234FC37C00F65581 /* OnboardingTextField.swift */,
+				FC93FE3B234FCE8200F65581 /* OnBoardingButton.swift */,
+				FC00D8A52350D26800BC2C30 /* TextViewExtension.swift */,
+				FC00D8A72350F5FC00BC2C30 /* ZoButton.swift */,
+				D4A8BD49235567AF000B8D21 /* ZoLabel.swift */,
 			);
 			path = StyleGuide;
 			sourceTree = "<group>";
@@ -366,6 +400,15 @@
 				FC93FE2F234FA3C900F65581 /* FingerPaint-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		FCC8FC2A2356217F00EE22FC /* XIB Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FCC8FC272356209200EE22FC /* myRequestsTableViewCell.xib */,
+				FCC8FC262356209200EE22FC /* myRequestsTableViewCell.swift */,
+			);
+			path = "XIB Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,6 +484,7 @@
 				D4CDD4EB234E8F7000A6D5C5 /* PointsAndRank.storyboard in Resources */,
 				FC93FE32234FA3E000F65581 /* Lato-Bold.ttf in Resources */,
 				D4CDD4F0234E8F7000A6D5C5 /* Daily.storyboard in Resources */,
+				FCC8FC292356209200EE22FC /* myRequestsTableViewCell.xib in Resources */,
 				D4CDD4EF234E8F7000A6D5C5 /* CreateRequest.storyboard in Resources */,
 				D4CDD4E8234E8F7000A6D5C5 /* Requests.storyboard in Resources */,
 				D4CDD4ED234E8F7000A6D5C5 /* TabController.storyboard in Resources */,
@@ -458,26 +502,34 @@
 			files = (
 				D4CDD4B5234E8F4100A6D5C5 /* HowItWorksOnboardingViewController.swift in Sources */,
 				D4CDD4B1234E8F4100A6D5C5 /* ProfileViewCell.swift in Sources */,
+				FC93FE3A234FC37C00F65581 /* OnboardingTextField.swift in Sources */,
+				FCC8FC282356209200EE22FC /* myRequestsTableViewCell.swift in Sources */,
 				D4CDD4A2234E8F4100A6D5C5 /* DeletePastDailyEntryViewController.swift in Sources */,
 				D423DD9B234FC1FD002FAE7F /* DateFormatters.swift in Sources */,
 				D435FD34234F8CE900FD6DCC /* UnsplashRoute.swift in Sources */,
+				FC00D8AB2350FB0A00BC2C30 /* PastDailyEntriesTableViewCell.swift in Sources */,
 				D4CDD4AA234E8F4100A6D5C5 /* FlagPostAlertViewController.swift in Sources */,
 				D4CDD4A7234E8F4100A6D5C5 /* PastRequestsTableViewCell.swift in Sources */,
 				D4CDD4D1234E8F5A00A6D5C5 /* Daily.swift in Sources */,
 				D435FD32234F8CDC00FD6DCC /* UnsplashPhoto.swift in Sources */,
 				D4CDD4B6234E8F4100A6D5C5 /* WelcomeOnboardingViewController.swift in Sources */,
 				D4CDD4A3234E8F4100A6D5C5 /* PastDailyEntryViewController.swift in Sources */,
+				FC00D8A62350D26800BC2C30 /* TextViewExtension.swift in Sources */,
 				D435FD36234F8D0B00FD6DCC /* UnsplashService.swift in Sources */,
 				D4CDD4B4234E8F4100A6D5C5 /* MainTabViewController.swift in Sources */,
 				D4CDD4B3234E8F4100A6D5C5 /* PointsAndRankVC.swift in Sources */,
 				D4CDD4A6234E8F4100A6D5C5 /* ActiveRequestsTableViewCell.swift in Sources */,
 				D4CDD4C2234E8F5500A6D5C5 /* RequestController.swift in Sources */,
 				D4CDD46F234E8E8E00A6D5C5 /* AppDelegate.swift in Sources */,
+				D4A8BD4C23577225000B8D21 /* UsernameController.swift in Sources */,
 				D4CDD4C3234E8F5500A6D5C5 /* UserController.swift in Sources */,
 				D4CDD4AF234E8F4100A6D5C5 /* BlockUserAlertViewController.swift in Sources */,
+				D4A8BD4A235567AF000B8D21 /* ZoLabel.swift in Sources */,
 				D4CDD471234E8E8E00A6D5C5 /* SceneDelegate.swift in Sources */,
 				D4CDD4B2234E8F4100A6D5C5 /* ProfileViewController.swift in Sources */,
+				FC00D8A82350F5FC00BC2C30 /* ZoButton.swift in Sources */,
 				D4CDD4C0234E8F5500A6D5C5 /* ResponseController.swift in Sources */,
+				FC93FE3C234FCE8300F65581 /* OnBoardingButton.swift in Sources */,
 				D4CDD4C1234E8F5500A6D5C5 /* DailyController.swift in Sources */,
 				D4CDD4D0234E8F5A00A6D5C5 /* Response.swift in Sources */,
 				D4CDD4AC234E8F4100A6D5C5 /* FavoriteResponseAlertViewController.swift in Sources */,
@@ -632,7 +684,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ZoApp/ZoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 83YG3ZQCH4;
+				DEVELOPMENT_TEAM = KMTDCPCY5V;
 				INFOPLIST_FILE = ZoApp/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

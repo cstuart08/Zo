@@ -8,23 +8,45 @@
 
 import UIKit
 
-class RulesAlertViewController: UIViewController {
+class RulesAlertViewController: UIViewController, UIGestureRecognizerDelegate {
 
+    @IBOutlet weak var rulesView: UIView!
+    @IBOutlet weak var rulesLabel: UILabel!
+    @IBOutlet weak var rulesDetailsLabel: UILabel!
+    @IBOutlet weak var rulesWarningLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupUI()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapDismiss))
+        tap.cancelsTouchesInView = true
+        tap.delegate = self
+        view.addGestureRecognizer(tap)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func tapDismiss() {
+        if self.view == rulesView {
+            return
+        } else {
+        self.dismiss(animated: true, completion: nil)
+        }
     }
-    */
-
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if touch.view!.isDescendant(of: rulesView) {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    func setupUI() {
+        rulesView.backgroundColor = .boldGreen
+        rulesLabel.font = UIFont(name: FontAttributes.h1.fontFamily, size: FontAttributes.h1.fontSize)
+        rulesLabel.textColor = .zoWhite
+        rulesDetailsLabel.font = UIFont(name: FontAttributes.h3.fontFamily, size: FontAttributes.h3.fontSize)
+        rulesDetailsLabel.textColor = .zoWhite
+        rulesWarningLabel.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.fontSize)
+        rulesWarningLabel.textColor = .zoWhite
+    }
 }

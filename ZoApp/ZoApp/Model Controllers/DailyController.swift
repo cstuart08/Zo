@@ -16,7 +16,7 @@ class DailyController {
     var myDailyJournals: [DailyJournal] = []
     
     // MARK: - Methods
-
+    
     let publicDataBase = CKContainer.default().publicCloudDatabase
     
     func createDailyJournal(imageURL: String, entry: String, userReference: CKRecord.Reference, completion: @escaping (Bool) -> Void) {
@@ -34,7 +34,7 @@ class DailyController {
             guard let dailyJournalRecord = dailyJournalRecord,
                 let dailyJournal = DailyJournal(ckRecord: dailyJournalRecord) else { completion(false); return }
             
-            self.myDailyJournals.append(dailyJournal)
+            self.myDailyJournals.insert(dailyJournal, at: 0)
             completion(true)
             return
         }
@@ -59,17 +59,47 @@ class DailyController {
             
             let dailyJournals = records.compactMap({DailyJournal(ckRecord: $0)})
             
-            self.myDailyJournals = dailyJournals
+            self.myDailyJournals = dailyJournals.sorted(by: { $0.timestamp > $1.timestamp })
             completion(true)
             return
         }
     }
     
+    func saveUpdatedJournal(dailyJournal: DailyJournal , entry: String, completion: @escaping (Bool) -> Void) {
+        
+        let modifiedDailyJournal = dailyJournal
+        modifiedDailyJournal.entry = entry
+        
+        let modificationOperation = CKModifyRecordsOperation(recordsToSave: [CKRecord(dailyJournal: modifiedDailyJournal)], recordIDsToDelete: nil)
+        modificationOperation.queuePriority = .high
+        modificationOperation.savePolicy = .changedKeys
+        modificationOperation.qualityOfService = .userInteractive
+        modificationOperation.modifyRecordsCompletionBlock = { (_, _, error) in
+            if let error = error {
+                print("Unable to modify user response array. \n Error: \(error) \n \(error.localizedDescription)")
+                completion(false)
+                return
+            }
+        }
+        self.publicDataBase.add(modificationOperation)
+        completion(true)
+    }
     
-    
-    
-    
-    
-    
-    
+    func deleteDailyJournal(dailyJournal: DailyJournal, completion: @escaping (Bool) -> Void) {
+        
+        let dailyRecordID = dailyJournal.recordID
+        
+        guard let index = self.myDailyJournals.firstIndex(of: dailyJournal) else { completion(false); return }
+        
+        self.myDailyJournals.remove(at: index)
+        
+        self.publicDataBase.delete(withRecordID: dailyRecordID) { (recordID, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                completion(false)
+                return
+            }
+            completion(true)
+        }
+    }
 }

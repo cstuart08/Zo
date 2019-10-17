@@ -16,8 +16,9 @@ struct UserConstants {
     static let kpLevelKey = "kpLevelKey"
     static let respondedToKey = "respondedToKey"
     static let savedResponsesKey = "savedResponsesKey"
-    static let blockedUsersKey = "blockedUsersKey"
     static let appleUserReferenceKey = "appleUserReferenceKey"
+    static let isBlockedKey = "isBlocked"
+    static let lastKarmaLevelIndexKey = "LastKarmaLevelIndexKey"
 }
 
 class User {
@@ -28,7 +29,8 @@ class User {
     var kpLevel: String = "Root"
     var respondedTo: [String] = ["default"]
     var savedResponses: [String] = ["default"]
-    var blockedUsers: [String] = ["default"]
+    var isBlocked = [String]()
+    var lastKarmaLevelIndex: Int = 0
     let recordID: CKRecord.ID
     let appleUserReference: CKRecord.Reference
     
@@ -45,7 +47,8 @@ class User {
             let kpLevel = ckRecord[UserConstants.kpLevelKey] as? String,
             let respondedTo = ckRecord[UserConstants.respondedToKey] as? [String],
             let savedResponses = ckRecord[UserConstants.savedResponsesKey] as? [String],
-            let blockedUsers = ckRecord[UserConstants.blockedUsersKey] as? [String],
+            let lastKarmaLevelIndex = ckRecord[UserConstants.lastKarmaLevelIndexKey] as? Int,
+            let isBlocked = ckRecord[UserConstants.isBlockedKey] as? [String],
             let appleUserReference = ckRecord[UserConstants.appleUserReferenceKey] as? CKRecord.Reference else { return nil }
         
         self.username = username
@@ -53,9 +56,10 @@ class User {
         self.kpLevel = kpLevel
         self.respondedTo = respondedTo
         self.savedResponses = savedResponses
-        self.blockedUsers = blockedUsers
         self.recordID = ckRecord.recordID
         self.appleUserReference = appleUserReference
+        self.isBlocked = isBlocked
+        self.lastKarmaLevelIndex = lastKarmaLevelIndex
     }
 }
 
@@ -74,7 +78,8 @@ extension CKRecord {
         setValue(user.kpLevel, forKey: UserConstants.kpLevelKey)
         setValue(user.respondedTo, forKey: UserConstants.respondedToKey)
         setValue(user.savedResponses, forKey: UserConstants.savedResponsesKey)
-        setValue(user.blockedUsers, forKey: UserConstants.blockedUsersKey)
+        setValue(user.isBlocked, forKey: UserConstants.isBlockedKey)
+        setValue(user.lastKarmaLevelIndex, forKey: UserConstants.lastKarmaLevelIndexKey)
         setValue(user.appleUserReference, forKey: UserConstants.appleUserReferenceKey)
     }
 }

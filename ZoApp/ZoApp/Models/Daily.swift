@@ -22,7 +22,7 @@ class DailyJournal {
     
     // MARK: - Properties
     let imageURL: String
-    let entry: String
+    var entry: String
     let timestamp: Double
     let recordID: CKRecord.ID
     let userReference: CKRecord.Reference
@@ -58,5 +58,11 @@ extension CKRecord {
         setValue(dailyJournal.entry, forKey: DailyJournalConstants.entryKey)
         setValue(dailyJournal.timestamp, forKey: DailyJournalConstants.timestampKey)
         setValue(dailyJournal.userReference, forKey: DailyJournalConstants.userReferenceKey)
+    }
+}
+
+extension DailyJournal: Equatable {
+    static func == (lhs: DailyJournal, rhs: DailyJournal) -> Bool {
+        return lhs.entry == rhs.entry && lhs.recordID == rhs.recordID && lhs.timestamp == rhs.timestamp
     }
 }
