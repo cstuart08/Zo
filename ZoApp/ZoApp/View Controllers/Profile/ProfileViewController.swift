@@ -31,6 +31,7 @@ class ProfileViewController: UIViewController {
         pastRequestsTableView.dataSource = self
         pastRequestsTableView.register(UINib(nibName: "myRequestsTableViewCell", bundle: nil), forCellReuseIdentifier: "myRequest")
         stylizeSubviews()
+        currentUser = UserController.shared.currentUser
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,25 +48,26 @@ class ProfileViewController: UIViewController {
         super.viewDidAppear(animated)
         fetchRequests()
         guard let currentUser = currentUser else { return }
-        checkKarmaPointsToUpdateImageAndRankLabel(points: currentUser.kpPoints)
-        let lastKarmaLevel = ChakraController.shared.chakraLevelsArray[currentUser.lastKarmaLevelIndex]
-        if lastKarmaLevel != currentUser.kpLevel {
-            displayKarmaPointsAlert()
-            currentUser.lastKarmaLevelIndex += 1
-            UserController.shared.modifyRecordsOperation(user: currentUser) { (success) in
-                if success {
-                    print("Updates user KPLevel.")
-                    UserController.shared.fetchUser { (success) in
-                        print("Refetched User")
+        DispatchQueue.main.async {
+            self.checkKarmaPointsToUpdateImageAndRankLabel(points: currentUser.kpPoints)
+            let lastKarmaLevel = ChakraController.shared.chakraLevelsArray[currentUser.lastKarmaLevelIndex]
+            if lastKarmaLevel != currentUser.kpLevel {
+                self.displayKarmaPointsAlert()
+                currentUser.lastKarmaLevelIndex += 1
+                UserController.shared.modifyRecordsOperation(user: currentUser) { (success) in
+                    if success {
+                        print("Updates user KPLevel.")
+                        UserController.shared.fetchUser { (success) in
+                            print("Refetched User")
+                        }
                     }
                 }
             }
+            self.setupViews()
         }
-        setupViews()
     }
     
     // MARK: - Custom Methods
-    
     func checkKarmaPointsToUpdateImageAndRankLabel(points: Int) {
         guard let currentUser = currentUser else { return }
         switch points {
@@ -110,7 +112,7 @@ class ProfileViewController: UIViewController {
     
     // MARK: - Setup Views
     func setupViews() {
-        guard let currentUser = UserController.shared.currentUser else { return }
+        guard let currentUser = currentUser else { return }
         usernameLabel.text = currentUser.username
         pointsLabel.text = "\(currentUser.kpPoints) KP"
     }

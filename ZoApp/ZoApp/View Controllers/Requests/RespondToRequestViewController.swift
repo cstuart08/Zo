@@ -161,11 +161,16 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
                 request.responseCount += 1
                 RequestController.shared.modifyRecordsOperation(request: request) { (success) in
                     if success {
-                        ChakraController.shared.addKarmaPointsForResponse(user: currentUser)
-                        print("Added +50 points to \(currentUser)")
-                        DispatchQueue.main.async {
-                            print("response count was modified in the record")
-                            self.dismiss(animated: true)
+                        UserController.shared.fetchUser { (success) in
+                            if success {
+                                guard let upToDateUser = UserController.shared.currentUser else { return }
+                                ChakraController.shared.addKarmaPointsForResponse(user: upToDateUser)
+                                print("Added +50 points to \(upToDateUser.username)")
+                                DispatchQueue.main.async {
+                                    print("response count was modified in the record")
+                                    self.dismiss(animated: true)
+                                }
+                            }
                         }
                     }
                 }
