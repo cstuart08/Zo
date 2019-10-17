@@ -196,7 +196,7 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XMu-bp-S8I">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XMu-bp-S8I">
                                         <rect key="frame" x="17.5" y="57.5" width="317" height="228"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="XMu-bp-S8I" secondAttribute="height" multiplier="82:59" id="m7M-qb-HQg"/>
