@@ -117,6 +117,8 @@ class ResponseTableViewCell: UITableViewCell {
         responseBodyLabel.addAccentBorder(width: 2.0, color: .boldGreen)
         responseBodyLabel.addCornerRadius(8.0)
         responseBodyLabel.layer.masksToBounds = true
+        // MARK: - Response ImageView
+        responseImageView.addCornerRadius()
         // MARK: - URL TextView
         urlTextView.text = response.link
         urlTextView.textColor = .blueGrey

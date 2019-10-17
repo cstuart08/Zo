@@ -83,5 +83,10 @@ class PastRequestsTableViewCell: UITableViewCell {
         tagsLabel.textColor = .blueGrey
         requestBodyLabel.font = UIFont(name: FontAttributes.h3.fontFamily, size: FontAttributes.h4.fontSize)
         requestBodyLabel.textColor = .blueGrey
+        requestImage.addCornerRadius()
+        numberOfResponsesLabel.backgroundColor = .darkBlue
+        numberOfResponsesLabel.font = UIFont(name: FontAttributes.number.fontFamily, size: FontAttributes.number.fontSize)
+        numberOfResponsesLabel.layer.masksToBounds = true
+        numberOfResponsesLabel.addCornerRadius(6)
     }
 }

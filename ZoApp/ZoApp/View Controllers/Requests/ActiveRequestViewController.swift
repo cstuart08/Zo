@@ -91,6 +91,11 @@ class ActiveRequestViewController: UIViewController, MFMailComposeViewController
         tagThree.addAccentBorder(width: 2.0, color: .boldGreen)
         tagThree.addCornerRadius(8)
         tagThree.layer.masksToBounds = true
+        requestImageView.addCornerRadius()
+        numberOfResponsesLabel.backgroundColor = .darkBlue
+        numberOfResponsesLabel.font = UIFont(name: FontAttributes.number.fontFamily, size: FontAttributes.number.fontSize)
+        numberOfResponsesLabel.layer.masksToBounds = true
+        numberOfResponsesLabel.addCornerRadius(6)
     }
     
     @objc func activateMailComposer() {

@@ -15,7 +15,7 @@ class ZoLabel: UILabel {
     }
     
     override func drawText(in rect: CGRect) {
-        let insets = UIEdgeInsets(top: 0.0, left: 8.0, bottom: 0.0, right: 8.0)
+        let insets = UIEdgeInsets(top: 4.0, left: 8.0, bottom: 4.0, right: 8.0)
         super.drawText(in: rect.inset(by: insets))
     }
 }

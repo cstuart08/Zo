@@ -94,21 +94,21 @@ class CreateRequestViewController: UIViewController, UITextViewDelegate {
         add3TagsLabel.layer.masksToBounds = true
         add3TagsLabel.textAlignment = .center
         // Hashtag Text Field #1
-        hashtagTextField1.font = UIFont(name: FontAttributes.h3.fontFamily, size: FontAttributes.h3.fontSize)
+        hashtagTextField1.font = UIFont(name: FontAttributes.h4.fontFamily, size: FontAttributes.h4.fontSize)
         hashtagTextField1.textColor = .blueGrey
         hashtagTextField1.addAccentBorder(width: 2.0, color: .boldGreen)
         hashtagTextField1.addCornerRadius(8.0)
         hashtagTextField1.backgroundColor = .zoWhite
         hashtagTextField1.layer.masksToBounds = true
         // Hashtag Text Field #2
-        hashtagTextField2.font = UIFont(name: FontAttributes.h3.fontFamily, size: FontAttributes.h3.fontSize)
+        hashtagTextField2.font = UIFont(name: FontAttributes.h4.fontFamily, size: FontAttributes.h4.fontSize)
         hashtagTextField2.textColor = .blueGrey
         hashtagTextField2.addAccentBorder(width: 2.0, color: .boldGreen)
         hashtagTextField2.addCornerRadius(8.0)
         hashtagTextField2.backgroundColor = .zoWhite
         hashtagTextField2.layer.masksToBounds = true
         // Hashtag Text Field #3
-        hashtagTextField3.font = UIFont(name: FontAttributes.h3.fontFamily, size: FontAttributes.h3.fontSize)
+        hashtagTextField3.font = UIFont(name: FontAttributes.h4.fontFamily, size: FontAttributes.h4.fontSize)
         hashtagTextField3.textColor = .blueGrey
         hashtagTextField3.addAccentBorder(width: 2.0, color: .boldGreen)
         hashtagTextField3.addCornerRadius(8.0)

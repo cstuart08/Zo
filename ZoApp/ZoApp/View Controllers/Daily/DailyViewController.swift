@@ -74,6 +74,7 @@ class DailyViewController: UIViewController, UITextViewDelegate {
         pastEntriesTableView.backgroundColor = .clear
         pastDailyEntriesLabel.textColor = .blueGrey
         pastDailyEntriesLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
+        dailyImageView.addCornerRadius()
     }
     
     // MARK: - Methods
