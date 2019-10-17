@@ -30,7 +30,6 @@ class ActiveRequestsTableViewCell: UITableViewCell {
     var tag2: String?
     var tag3: String?
     
-    let randomImages: [UIImage] = [UIImage(named: "quote1")!, UIImage(named: "quote2")!, UIImage(named: "quote3")!, UIImage(named: "quote4")!, UIImage(named: "quote5")!, UIImage(named: "quote6")!, UIImage(named: "quote7")!, UIImage(named: "quote8")!, UIImage(named: "quote9")!, UIImage(named: "quote10")!, UIImage(named: "quote11")!, UIImage(named: "quote12")!, UIImage(named: "quote13")!]
     
     // MARK: - Lifecycle Methods
     override func awakeFromNib() {
@@ -72,7 +71,7 @@ class ActiveRequestsTableViewCell: UITableViewCell {
         
         usernameLabel.text = request.username
         requestBodyLabel.text = request.body
-        requestImageView.image = randomImages.randomElement()
+        requestImageView.image = request.image
         numberOfResponsesLabel.text = "\(request.responseCount)"
         guard let tag1 = self.tag1, let tag2 = self.tag2, let tag3 = self.tag3 else { return }
         tagsLabel.text = "\(tag1)   \(tag2)   \(tag3)"

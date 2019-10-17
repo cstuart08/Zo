@@ -6,7 +6,7 @@
 //  Copyright © 2019 Zō App. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CloudKit
 
 struct RequestConstants {
@@ -19,6 +19,7 @@ struct RequestConstants {
     static let recordTypeKey = "Request"
     static let userReferenceKey = "UserReference"
     static let isBlockedKey = "isBlocked"
+    static let imageKey = "Image"
 }
 
 class Request {
@@ -30,8 +31,29 @@ class Request {
     var responseCount: Int = 0
     let recordID: CKRecord.ID
     let userReference: CKRecord.Reference
+    var imageData: Data?
+    var image: UIImage? {
+        get {
+            guard let imageData = imageData else { return nil }
+            return UIImage(data: imageData)
+        } set {
+            imageData = newValue?.jpegData(compressionQuality: 0.5)
+        }
+    }
+    
+    var imageAsset: CKAsset? {
+        let tempDict = NSTemporaryDirectory()
+        let tempDictURL = URL(fileURLWithPath: tempDict)
+        let fileURL = tempDictURL.appendingPathComponent(UUID().uuidString).appendingPathExtension("jpg")
+        do {
+            try imageData?.write(to: fileURL)
+        } catch {
+            print("Error writing to temp URL \(error) \(error.localizedDescription)")
+        }
+        return CKAsset(fileURL: fileURL)
+    }
        
-    init(username: String, title: String, body: String, timestamp: Double = Date().timeIntervalSince1970, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), userReference: CKRecord.Reference, tags: [String]) {
+    init(username: String, title: String, body: String, timestamp: Double = Date().timeIntervalSince1970, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), userReference: CKRecord.Reference, tags: [String], image: UIImage) {
            
         self.username = username
         self.title = title
@@ -40,6 +62,7 @@ class Request {
         self.recordID = recordID
         self.userReference = userReference
         self.tags = tags
+        self.image = image
     }
     
     init?(ckRecord: CKRecord) {
@@ -49,7 +72,8 @@ class Request {
             let timestamp = ckRecord[RequestConstants.timestampKey] as? Double,
             let responseCount = ckRecord[RequestConstants.responseCountKey] as? Int,
             let userReference = ckRecord[RequestConstants.userReferenceKey] as? CKRecord.Reference,
-        let tags = ckRecord[RequestConstants.tagsKey] as? [String] else { return nil }
+        let tags = ckRecord[RequestConstants.tagsKey] as? [String],
+            let imageAsset = ckRecord[RequestConstants.imageKey] as? CKAsset else { return nil }
         
         self.username = username
         self.title = title
@@ -59,6 +83,14 @@ class Request {
         self.userReference = userReference
         self.recordID = ckRecord.recordID
         self.tags = tags
+        
+        guard let url = imageAsset.fileURL else { return }
+               
+               do {
+                   self.imageData = try Data(contentsOf: url)
+               } catch {
+                   print("Error converting imageAsset to Data \(error) \(error.localizedDescription)")
+               }
         
     }
 }
@@ -73,5 +105,6 @@ extension CKRecord {
         self.setValue(request.responseCount, forKey: RequestConstants.responseCountKey)
         self.setValue(request.userReference, forKey: RequestConstants.userReferenceKey)
         self.setValue(request.tags, forKey: RequestConstants.tagsKey)
+        self.setValue(request.imageAsset, forKey: RequestConstants.imageKey)
     }
 }
