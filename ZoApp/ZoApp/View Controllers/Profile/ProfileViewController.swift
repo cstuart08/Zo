@@ -21,6 +21,9 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var pastRequestsTableView: UITableView!
     @IBOutlet weak var chakraImageButton: UIButton!
     
+    // MARK: - Properties
+    var currentUser: User?
+    
     // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,15 +33,33 @@ class ProfileViewController: UIViewController {
         stylizeSubviews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        UserController.shared.fetchUser { (success) in
+            if success {
+                print("Refetched user to update Charkra Points.")
+                self.currentUser = UserController.shared.currentUser
+            }
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         fetchRequests()
-        guard let currentUser = UserController.shared.currentUser else { return }
+        guard let currentUser = currentUser else { return }
         checkKarmaPointsToUpdateImageAndRankLabel(points: currentUser.kpPoints)
         let lastKarmaLevel = ChakraController.shared.chakraLevelsArray[currentUser.lastKarmaLevelIndex]
         if lastKarmaLevel != currentUser.kpLevel {
             displayKarmaPointsAlert()
             currentUser.lastKarmaLevelIndex += 1
+            UserController.shared.modifyRecordsOperation(user: currentUser) { (success) in
+                if success {
+                    print("Updates user KPLevel.")
+                    UserController.shared.fetchUser { (success) in
+                        print("Refetched User")
+                    }
+                }
+            }
         }
         setupViews()
     }
@@ -46,28 +67,36 @@ class ProfileViewController: UIViewController {
     // MARK: - Custom Methods
     
     func checkKarmaPointsToUpdateImageAndRankLabel(points: Int) {
+        guard let currentUser = currentUser else { return }
         switch points {
         case _ where points < Chakra.sacral.pointLevels:
             rankLabel.text = Chakra.root.levelNames
             chakraImageButton.setImage(UIImage(named: Chakra.root.imageNames), for: .normal)
+            currentUser.kpLevel = Chakra.root.levelNames
         case _ where points >= Chakra.sacral.pointLevels && points < Chakra.solarPlexus.pointLevels:
             rankLabel.text = Chakra.sacral.levelNames
             chakraImageButton.setImage(UIImage(named: Chakra.sacral.imageNames), for: .normal)
+            currentUser.kpLevel = Chakra.sacral.levelNames
         case _ where points >= Chakra.solarPlexus.pointLevels && points < Chakra.heart.pointLevels:
             rankLabel.text = Chakra.solarPlexus.levelNames
             chakraImageButton.setImage(UIImage(named: Chakra.solarPlexus.imageNames), for: .normal)
+            currentUser.kpLevel = Chakra.solarPlexus.levelNames
         case _ where points >= Chakra.heart.pointLevels && points < Chakra.throat.pointLevels:
             rankLabel.text = Chakra.heart.levelNames
             chakraImageButton.setImage(UIImage(named: Chakra.heart.imageNames), for: .normal)
+            currentUser.kpLevel = Chakra.heart.levelNames
         case _ where points >= Chakra.throat.pointLevels && points < Chakra.thirdEye.pointLevels:
             rankLabel.text = Chakra.throat.levelNames
             chakraImageButton.setImage(UIImage(named: Chakra.throat.imageNames), for: .normal)
+            currentUser.kpLevel = Chakra.throat.levelNames
         case _ where points >= Chakra.thirdEye.pointLevels && points < Chakra.crown.pointLevels:
             rankLabel.text = Chakra.thirdEye.levelNames
             chakraImageButton.setImage(UIImage(named: Chakra.thirdEye.imageNames), for: .normal)
+            currentUser.kpLevel = Chakra.thirdEye.levelNames
         case _ where points >= Chakra.crown.pointLevels:
             rankLabel.text = Chakra.crown.levelNames
             chakraImageButton.setImage(UIImage(named: Chakra.crown.imageNames), for: .normal)
+            currentUser.kpLevel = Chakra.crown.levelNames
         default:
             print("Nothing to update for their Karma Points.")
         }
