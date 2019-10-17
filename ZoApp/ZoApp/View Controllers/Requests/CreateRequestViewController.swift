@@ -28,6 +28,8 @@ class CreateRequestViewController: UIViewController, UITextViewDelegate {
     // MARK: - Properites
     let user = UserController.shared.currentUser
     
+    let randomImages: [UIImage] = [UIImage(named: "quote1")!, UIImage(named: "quote2")!, UIImage(named: "quote3")!, UIImage(named: "quote4")!, UIImage(named: "quote5")!, UIImage(named: "quote6")!, UIImage(named: "quote7")!, UIImage(named: "quote8")!, UIImage(named: "quote9")!, UIImage(named: "quote10")!, UIImage(named: "quote11")!, UIImage(named: "quote12")!, UIImage(named: "quote13")!]
+    
     // MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -153,7 +155,8 @@ class CreateRequestViewController: UIViewController, UITextViewDelegate {
             let hashtag3 = hashtagTextField3.text else { return }
         guard let user = user else { return }
         let userRef = CKRecord.Reference(recordID: user.recordID, action: .deleteSelf)
-        RequestController.shared.createAndSaveRequest(title: "No Title Field Currently", username: username, body: body, userReference: userRef, tags: ["#" + hashtag1, "#" + hashtag2, "#" + hashtag3]) { (success) in
+        guard let randomImage = randomImages.randomElement() else { return }
+        RequestController.shared.createAndSaveRequest(image: randomImage, title: "No Title Field Currently", username: username, body: body, userReference: userRef, tags: ["#" + hashtag1, "#" + hashtag2, "#" + hashtag3]) { (success) in
             if success {
                 DispatchQueue.main.async {
                     print("Success creating a request.")

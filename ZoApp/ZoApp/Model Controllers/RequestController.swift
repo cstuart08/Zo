@@ -6,7 +6,7 @@
 //  Copyright © 2019 Zō App. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CloudKit
 
 class RequestController {
@@ -18,8 +18,8 @@ class RequestController {
     
     let publicDataBase = CKContainer.default().publicCloudDatabase
     
-    func createAndSaveRequest(title: String, username: String, body: String, userReference: CKRecord.Reference, tags: [String], completion: @escaping (Bool) -> Void) {
-        let request = Request(username: username, title: title, body: body, userReference: userReference, tags: tags)
+    func createAndSaveRequest(image: UIImage, title: String, username: String, body: String, userReference: CKRecord.Reference, tags: [String], completion: @escaping (Bool) -> Void) {
+        let request = Request(username: username, title: title, body: body, userReference: userReference, tags: tags, image: image)
     
         let requestRecord = CKRecord(request: request)
         
