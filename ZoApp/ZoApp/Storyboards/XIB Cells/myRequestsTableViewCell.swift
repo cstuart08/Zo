@@ -67,7 +67,7 @@ class myRequestsTableViewCell: UITableViewCell {
         
         guard let tag1 = self.tag1, let tag2 = self.tag2, let tag3 = self.tag3 else { return }
         
-        requestBodyLabel.text = requestLandingPad?.body
+        requestBodyLabel.text = request.body
         requestImageView.image = request.image
         numberOfResponsesLabel.text = "\(request.responseCount)"
         requestTagsLabel.text = "\(tag1)   \(tag2)   \(tag3)"

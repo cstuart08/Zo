@@ -22,7 +22,7 @@ class ProfileViewCell: UITableViewCell {
             setupViews()
         }
     }
-    var randomImages: [UIImage] = [UIImage(named: "quote1")!, UIImage(named: "quote2")!, UIImage(named: "quote3")!, UIImage(named: "quote4")!, UIImage(named: "quote5")!, UIImage(named: "quote6")!, UIImage(named: "quote7")!, UIImage(named: "quote8")!, UIImage(named: "quote9")!, UIImage(named: "quote10")!, UIImage(named: "quote11")!, UIImage(named: "quote12")!, UIImage(named: "quote13")!]
+
     
     func setupViews() {
         guard let responseCount = request?.responseCount else { return }
