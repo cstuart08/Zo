@@ -13,9 +13,8 @@ protocol responseTVCellDelegate: class {
 }
 
 class ResponseTableViewCell: UITableViewCell {
-
-    // MARK: - Outlets
     
+    // MARK: - Outlets
     @IBOutlet weak var responseImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var responseBodyLabel: UILabel!
@@ -26,33 +25,37 @@ class ResponseTableViewCell: UITableViewCell {
     @IBOutlet weak var urlTextView: UITextView!
     
     // MARK: - Properties
-    
     weak var delegate: responseTVCellDelegate?
-    
     var response: Response? {
         didSet {
             setupView()
             layoutIfNeeded()
         }
     }
-
     
     // MARK: - Lifecycle Methods
-
     override func awakeFromNib() {
         super.awakeFromNib()
         bookmarkResponseButton.isHidden = true
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
     // MARK: - Actions
-    
     @IBAction func favoriteResponseButtonTapped(_ sender: Any) {
+        guard let username = response?.username else { return }
+        UserController.shared.fetchUserFromUsername(username: username) { (user) in
+            guard let user = user else { return }
+            ChakraController.shared.addKarmaPointsForBestResponse(user: user)
+            DispatchQueue.main.async {
+                self.favoriteResponseButton.setImage(UIImage(named: "favoriteResponseSelectedIcon"), for: .normal)
+                self.favoriteResponseButton.isEnabled = false
+            }
+        }
     }
     
     @IBAction func flagResponseButtonTapped(_ sender: Any) {
@@ -66,10 +69,7 @@ class ResponseTableViewCell: UITableViewCell {
     
     @IBAction func bookmarkResponseButtonTapped(_ sender: Any) {
     }
-    
-    // MARK: - Custom Methods
-    
-    
+
     // MARK: - UI Adjustments
     func setupView() {
         guard let response = response else { return }
@@ -79,11 +79,21 @@ class ResponseTableViewCell: UITableViewCell {
         } else {
             responseImageView.isHidden = true
         }
+        
         if response.link == "" {
             urlTextView.isHidden = true
         } else {
             urlTextView.isHidden = false
         }
+        
+        if response.isFavorite == false {
+            favoriteResponseButton.setImage(UIImage(named: "favoriteResponseIcon"), for: .normal)
+            favoriteResponseButton.isEnabled = true
+        } else {
+            favoriteResponseButton.setImage(UIImage(named: "favoriteResponseSelectedIcon"), for: .normal)
+            favoriteResponseButton.isEnabled = false
+        }
+        
         // MARK: - Username Label
         usernameLabel.text = response.username
         usernameLabel.backgroundColor = .zoWhite

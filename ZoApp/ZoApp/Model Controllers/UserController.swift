@@ -10,7 +10,7 @@ import Foundation
 import CloudKit
 
 class UserController {
-        
+    
     static let shared = UserController()
     
     var currentUser: User?
@@ -91,6 +91,28 @@ class UserController {
                 } else {
                     completion(false)
                 }
+            }
+        }
+    }
+    
+    func fetchUserFromUsername(username: String, completion: @escaping (User?) -> Void) {
+        
+        let predicate = NSPredicate(format: "\(UserConstants.usernameKey) == %@", username)
+        let query = CKQuery(recordType: UserConstants.typeKey, predicate: predicate)
+        publicDB.perform(query, inZoneWith: nil) { (userRecord, error) in
+            if let error = error {
+                print("Don't got user.")
+                print("Failed to fetch user! \n Error: \(error) \n \(error.localizedDescription)")
+                completion(nil)
+                return
+            }
+            
+            if let userRecord = userRecord {
+                let foundUser = User(ckRecord: userRecord[0])
+                print("Got User")
+                completion(foundUser)
+            } else {
+                completion(nil)
             }
         }
     }
