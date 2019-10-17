@@ -83,7 +83,7 @@
                                                     </constraints>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eju-bf-TsR">
-                                                    <rect key="frame" x="392" y="101" width="20.333333333333314" height="20.333333333333329"/>
+                                                    <rect key="frame" x="384" y="93" width="20.333333333333314" height="20.333333333333329"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="eju-bf-TsR" secondAttribute="height" multiplier="1:1" id="CDY-Fp-IsD"/>
@@ -94,9 +94,9 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="eju-bf-TsR" firstAttribute="centerX" secondItem="9Sl-m6-wwq" secondAttribute="trailing" constant="-4" id="67A-zE-wdl"/>
+                                                <constraint firstItem="eju-bf-TsR" firstAttribute="centerX" secondItem="9Sl-m6-wwq" secondAttribute="trailing" constant="-12" id="67A-zE-wdl"/>
                                                 <constraint firstItem="BBs-3k-FrG" firstAttribute="centerX" secondItem="3HD-HA-vQz" secondAttribute="centerX" id="9Re-oy-jYV"/>
-                                                <constraint firstItem="eju-bf-TsR" firstAttribute="centerY" secondItem="9Sl-m6-wwq" secondAttribute="bottom" constant="-4" id="BB8-14-0xC"/>
+                                                <constraint firstItem="eju-bf-TsR" firstAttribute="centerY" secondItem="9Sl-m6-wwq" secondAttribute="bottom" constant="-12" id="BB8-14-0xC"/>
                                                 <constraint firstItem="BBs-3k-FrG" firstAttribute="centerY" secondItem="3HD-HA-vQz" secondAttribute="centerY" id="KFJ-x0-n8e"/>
                                                 <constraint firstItem="BBs-3k-FrG" firstAttribute="height" secondItem="3HD-HA-vQz" secondAttribute="height" multiplier="0.83" id="YWQ-QZ-Qkk"/>
                                             </constraints>
@@ -133,10 +133,10 @@
                                                     <rect key="frame" x="8" y="6.3333333333333357" width="398" height="112.33333333333331"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="2QO-V3-Jyx">
-                                                            <rect key="frame" x="0.0" y="0.0" width="282" height="99.333333333333329"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="282" height="112.33333333333333"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCF-rV-te3" customClass="ZoLabel" customModule="Zo" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="282" height="65.333333333333329"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="282" height="78.333333333333329"/>
                                                                     <color key="backgroundColor" name="zoWhite"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="15c-H3-GUt"/>
@@ -147,7 +147,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="#tag     #tag     #tag" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMt-ko-O5H" customClass="ZoLabel" customModule="Zo" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="69.333333333333343" width="282" height="30"/>
+                                                                    <rect key="frame" x="0.0" y="82.333333333333343" width="282" height="30"/>
                                                                     <color key="backgroundColor" name="zoWhite"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="30" id="QvY-vr-WL9"/>
@@ -167,7 +167,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f89-TC-imK">
-                                                    <rect key="frame" x="392" y="92" width="20.333333333333314" height="20.333333333333329"/>
+                                                    <rect key="frame" x="384" y="84" width="20.333333333333314" height="20.333333333333329"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="f89-TC-imK" secondAttribute="height" multiplier="1:1" id="bIL-Ra-rbG"/>
@@ -180,10 +180,10 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="ljV-Vb-AL5" secondAttribute="trailing" constant="8" id="2RA-zq-k0B"/>
                                                 <constraint firstItem="ljV-Vb-AL5" firstAttribute="centerX" secondItem="9MF-1w-6kL" secondAttribute="centerX" id="9YI-fg-0Xi"/>
-                                                <constraint firstItem="f89-TC-imK" firstAttribute="centerY" secondItem="yep-bv-KO1" secondAttribute="bottom" constant="-4" id="EvO-AM-r08"/>
+                                                <constraint firstItem="f89-TC-imK" firstAttribute="centerY" secondItem="yep-bv-KO1" secondAttribute="bottom" constant="-12" id="EvO-AM-r08"/>
                                                 <constraint firstItem="ljV-Vb-AL5" firstAttribute="leading" secondItem="9MF-1w-6kL" secondAttribute="leading" constant="8" id="HmM-oQ-Rrp"/>
                                                 <constraint firstItem="ljV-Vb-AL5" firstAttribute="height" secondItem="9MF-1w-6kL" secondAttribute="height" multiplier="0.9" id="jp3-nO-lnY"/>
-                                                <constraint firstItem="f89-TC-imK" firstAttribute="centerX" secondItem="yep-bv-KO1" secondAttribute="trailing" constant="-4" id="r6A-CY-SJX"/>
+                                                <constraint firstItem="f89-TC-imK" firstAttribute="centerX" secondItem="yep-bv-KO1" secondAttribute="trailing" constant="-12" id="r6A-CY-SJX"/>
                                                 <constraint firstItem="ljV-Vb-AL5" firstAttribute="centerY" secondItem="9MF-1w-6kL" secondAttribute="centerY" id="xYW-OS-SCJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -205,16 +205,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="77"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Cdl-bo-PWP">
-                                        <rect key="frame" x="7.9999999999999929" y="29" width="123.33333333333331" height="44"/>
+                                        <rect key="frame" x="8" y="51" width="101.33333333333333" height="22"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Requests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8M-34-jTf">
-                                                <rect key="frame" x="0.0" y="0.0" width="71.333333333333329" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="71.333333333333329" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" name="zoWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y3I-iM-6Za">
-                                                <rect key="frame" x="79.333333333333329" y="0.0" width="44" height="44"/>
+                                                <rect key="frame" x="79.333333333333329" y="0.0" width="22" height="22"/>
                                                 <state key="normal" image="RULES">
                                                     <color key="titleColor" name="zoWhite"/>
                                                 </state>
@@ -226,7 +226,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4l-DP-ypq">
-                                        <rect key="frame" x="323" y="36" width="83" height="30"/>
+                                        <rect key="frame" x="323" y="47" width="83" height="30"/>
                                         <state key="normal" title="+ ADD NEW">
                                             <color key="titleColor" name="zoWhite"/>
                                         </state>
@@ -536,7 +536,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CBv-j1-VKt">
-                                        <rect key="frame" x="356" y="36.333333333333336" width="50" height="31.000000000000007"/>
+                                        <rect key="frame" x="351" y="34" width="55" height="36"/>
                                         <fontDescription key="fontDescription" name="FingerPaint-Regular" family="Finger Paint" pointSize="16"/>
                                         <state key="normal" title="Cancel">
                                             <color key="titleColor" name="zoWhite"/>
@@ -698,7 +698,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A22-Xt-Nmz">
-                                        <rect key="frame" x="356" y="36.333333333333336" width="50" height="31.000000000000007"/>
+                                        <rect key="frame" x="351" y="34" width="55" height="36"/>
                                         <fontDescription key="fontDescription" name="FingerPaint-Regular" family="Finger Paint" pointSize="16"/>
                                         <state key="normal" title="Cancel">
                                             <color key="titleColor" name="zoWhite"/>
@@ -748,10 +748,10 @@
                                                 <rect key="frame" x="235" y="101.33333333333337" width="100" height="34"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="246" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="g1X-C1-wLy">
-                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="34"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="25"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rjk-S7-7O9">
-                                                                <rect key="frame" x="0.0" y="0.0" width="33.333333333333336" height="34"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="33.333333333333336" height="25"/>
                                                                 <color key="tintColor" name="boldGreen"/>
                                                                 <state key="normal" title="Send" image="musicIcon"/>
                                                                 <connections>
@@ -759,7 +759,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cb-8B-e1j">
-                                                                <rect key="frame" x="33.333333333333371" y="0.0" width="33.333333333333343" height="34"/>
+                                                                <rect key="frame" x="33.333333333333371" y="0.0" width="33.333333333333343" height="25"/>
                                                                 <color key="tintColor" name="boldGreen"/>
                                                                 <state key="normal" title="Send" image="linkIcon"/>
                                                                 <connections>
@@ -767,7 +767,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tIL-LG-3jh">
-                                                                <rect key="frame" x="66.666666666666686" y="0.0" width="33.333333333333343" height="34"/>
+                                                                <rect key="frame" x="66.666666666666686" y="0.0" width="33.333333333333343" height="25"/>
                                                                 <color key="tintColor" name="boldGreen"/>
                                                                 <state key="normal" title="Send" image="picIcon"/>
                                                                 <connections>
