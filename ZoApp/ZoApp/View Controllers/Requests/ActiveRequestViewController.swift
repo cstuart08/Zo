@@ -175,4 +175,11 @@ extension ActiveRequestViewController: UITableViewDataSource, UITableViewDelegat
         blockVC.response = response
         self.present(blockVC, animated: true)
     }
+    
+    func sendResponseToFavoriteAlertController(response: Response) {
+        self.response = response
+        guard let favoriteVC = UIStoryboard(name: "FavoriteResponseAlert", bundle: nil).instantiateViewController(withIdentifier: "favoriteResponseAlert") as? FavoriteResponseAlertViewController else { return }
+        favoriteVC.responseLandingPad = response
+        self.present(favoriteVC, animated: true, completion: nil)
+    }
 }

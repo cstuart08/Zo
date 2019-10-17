@@ -10,7 +10,9 @@ import UIKit
 
 protocol responseTVCellDelegate: class {
     func sendResponseToBlockAlertController(response: Response)
+    func sendResponseToFavoriteAlertController(response: Response)
 }
+
 
 class ResponseTableViewCell: UITableViewCell {
     
@@ -49,6 +51,7 @@ class ResponseTableViewCell: UITableViewCell {
     @IBAction func favoriteResponseButtonTapped(_ sender: Any) {
         guard let username = response?.username else { return }
         guard let response = response else { return }
+        self.delegate?.sendResponseToFavoriteAlertController(response: response)
         self.response?.isFavorite = true
         UserController.shared.fetchUserFromUsername(username: username) { (user) in
             guard let user = user else { return }
