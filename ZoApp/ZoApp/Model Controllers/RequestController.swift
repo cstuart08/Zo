@@ -40,7 +40,8 @@ class RequestController {
     }
     
     func fetchRequests(completion: @escaping (Bool) -> Void) {
-        let predicate = NSPredicate(value: true)
+        let date = NSDate(timeInterval: -60.0 * 60 * 72, since: Date())
+        let predicate = NSPredicate(format: "creationDate > %@", date)
         let query = CKQuery(recordType: RequestConstants.recordTypeKey, predicate: predicate)
         publicDataBase.perform(query, inZoneWith: nil) { (records, error) in
 
@@ -53,7 +54,7 @@ class RequestController {
             guard let records = records else { completion(false); return }
 
 
-            let requests = records.compactMap({Request(ckRecord: $0)})
+            let requests = records.compactMap({Request(ckRecord: $0)}).sorted(by: { $0.timestamp > $1.timestamp })
 
             var filteredRequests: [Request] = []
             
@@ -85,7 +86,7 @@ class RequestController {
             
             guard let records = records else { completion(false); return }
             print("got some records")
-            let requests = records.compactMap({Request(ckRecord: $0)})
+            let requests = records.compactMap({Request(ckRecord: $0)}).sorted(by: { $0.timestamp > $1.timestamp })
             print("got requests from records")
             
             self.myRequests = requests
@@ -108,8 +109,7 @@ class RequestController {
                 return
             }
             guard let records = records else { completion(false); return }
-            let requests = records.compactMap({Request(ckRecord: $0)})
-            
+            let requests = records.compactMap({Request(ckRecord: $0)}).sorted(by: { $0.timestamp > $1.timestamp })
             self.myRequests = requests
             completion(true)
         }
@@ -129,7 +129,7 @@ class RequestController {
             guard let records = records else { completion(false); return }
 
 
-            let requests = records.compactMap({Request(ckRecord: $0)})
+            let requests = records.compactMap({Request(ckRecord: $0)}).sorted(by: { $0.timestamp > $1.timestamp })
 
             var filteredRequests: [Request] = []
 
