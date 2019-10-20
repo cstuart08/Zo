@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rvl-EV-hHU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rvl-EV-hHU">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -63,7 +63,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ocC-rd-u5Z">
-                                <rect key="frame" x="20.5" y="133" width="373" height="38.5"/>
+                                <rect key="frame" x="20.5" y="139" width="373" height="38.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrY-tm-a9F" customClass="ZoLabel" customModule="Zo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="317" height="38.5"/>
@@ -87,13 +87,13 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Past Requests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOA-pO-nGn">
-                                <rect key="frame" x="10.5" y="188.5" width="393" height="38.5"/>
+                                <rect key="frame" x="10.5" y="199" width="393" height="38"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="125" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0zx-68-Ado">
-                                <rect key="frame" x="0.0" y="227" width="414" height="586"/>
+                                <rect key="frame" x="0.0" y="249" width="414" height="564"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -118,7 +118,7 @@
                             <constraint firstItem="vOA-pO-nGn" firstAttribute="height" secondItem="KcK-Bb-vYu" secondAttribute="height" multiplier="0.05" id="3eJ-IQ-LRG"/>
                             <constraint firstItem="0zx-68-Ado" firstAttribute="centerX" secondItem="KcK-Bb-vYu" secondAttribute="centerX" id="6Vy-8q-B9X"/>
                             <constraint firstItem="ffs-Wk-c6l" firstAttribute="leading" secondItem="KcK-Bb-vYu" secondAttribute="leading" constant="-5" id="7uB-AD-4eK"/>
-                            <constraint firstItem="0zx-68-Ado" firstAttribute="top" secondItem="vOA-pO-nGn" secondAttribute="bottom" id="Bqq-Jn-hAM"/>
+                            <constraint firstItem="0zx-68-Ado" firstAttribute="top" secondItem="vOA-pO-nGn" secondAttribute="bottom" multiplier="1.05" id="Bqq-Jn-hAM"/>
                             <constraint firstItem="ocC-rd-u5Z" firstAttribute="height" secondItem="KcK-Bb-vYu" secondAttribute="height" multiplier="0.05" id="CGC-oH-yR0"/>
                             <constraint firstItem="ocC-rd-u5Z" firstAttribute="width" secondItem="KcK-Bb-vYu" secondAttribute="width" multiplier="0.9" id="HUI-Yw-yPv"/>
                             <constraint firstItem="vOA-pO-nGn" firstAttribute="width" secondItem="KcK-Bb-vYu" secondAttribute="width" multiplier="0.95" id="Ns7-sf-Xwt"/>
@@ -126,8 +126,8 @@
                             <constraint firstItem="KcK-Bb-vYu" firstAttribute="bottom" secondItem="0zx-68-Ado" secondAttribute="bottom" id="R8s-uS-ao9"/>
                             <constraint firstItem="ffs-Wk-c6l" firstAttribute="height" secondItem="KcK-Bb-vYu" secondAttribute="height" multiplier="0.1" id="Sek-l2-gdC"/>
                             <constraint firstItem="ocC-rd-u5Z" firstAttribute="centerX" secondItem="KcK-Bb-vYu" secondAttribute="centerX" id="V20-tX-x88"/>
-                            <constraint firstItem="vOA-pO-nGn" firstAttribute="top" secondItem="ocC-rd-u5Z" secondAttribute="bottom" multiplier="1.1" id="aRY-Qf-GKw"/>
-                            <constraint firstItem="ocC-rd-u5Z" firstAttribute="top" secondItem="ffs-Wk-c6l" secondAttribute="bottom" multiplier="1.1" id="cvY-To-Gqy"/>
+                            <constraint firstItem="vOA-pO-nGn" firstAttribute="top" secondItem="ocC-rd-u5Z" secondAttribute="bottom" multiplier="1.12" id="aRY-Qf-GKw"/>
+                            <constraint firstItem="ocC-rd-u5Z" firstAttribute="top" secondItem="ffs-Wk-c6l" secondAttribute="bottom" multiplier="1.15" id="cvY-To-Gqy"/>
                             <constraint firstItem="vOA-pO-nGn" firstAttribute="centerX" secondItem="KcK-Bb-vYu" secondAttribute="centerX" id="eDE-T7-4sO"/>
                             <constraint firstItem="KcK-Bb-vYu" firstAttribute="trailing" secondItem="ffs-Wk-c6l" secondAttribute="trailing" constant="-5" id="jdb-nt-Tlz"/>
                             <constraint firstAttribute="topMargin" secondItem="ffs-Wk-c6l" secondAttribute="top" id="xmE-JB-Oxu"/>
@@ -163,7 +163,7 @@
     </scenes>
     <resources>
         <image name="chakraRoot" width="52" height="57"/>
-        <image name="info.circle" catalog="system" width="64" height="62"/>
+        <image name="info.circle" catalog="system" width="64" height="60"/>
         <image name="profileIcon" width="21" height="26"/>
         <namedColor name="boldGreen">
             <color red="0.086274509803921567" green="0.40392156862745099" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -81,6 +81,9 @@ class RequestFeedViewController: UIViewController, UITextFieldDelegate {
     }
     
     func setupUI() {
+        searchBar.addCornerRadius(13.0)
+        searchBar.addAccentBorder(width: 2.0, color: .boldGreen)
+        searchBar.layer.masksToBounds = true
         requestsLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
         requestsLabel.textColor = .zoWhite
         addNewRequestButton.titleLabel?.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
@@ -89,6 +92,8 @@ class RequestFeedViewController: UIViewController, UITextFieldDelegate {
         myRequestsLabel.textColor = .blueGrey
         allRequestsLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h2.fontSize)
         allRequestsLabel.textColor = .blueGrey
+        pastRequestsTableView.addAccentBorder(width: 2.0, color: .boldGreen)
+        pastRequestsTableView.addCornerRadius(13.0)
     }
     
     func fetchRecentlyCurrentUserRequests() {

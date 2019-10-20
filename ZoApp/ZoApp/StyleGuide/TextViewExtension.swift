@@ -36,7 +36,4 @@ extension UITextView {
         textContainerInset.left = 15
         textContainerInset.right = 15
     }
-    
-    
-    
 }

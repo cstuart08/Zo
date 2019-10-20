@@ -109,12 +109,12 @@ class PastDailyEntryViewController: UIViewController, UIGestureRecognizerDelegat
     // MARK: - Actions
     @IBAction func editButtonTapped(_ sender: Any) {
         if editToggle == false {
-            editButton.setTitle("Save", for: .normal)
+            editButton.setTitle("SAVE", for: .normal)
             pastDailyEntryTextView.isSelectable = true
             pastDailyEntryTextView.isEditable = true
             editToggle = true
         } else {
-            editButton.setTitle("Edit", for: .normal)
+            editButton.setTitle("EDIT", for: .normal)
             pastDailyEntryTextView.isSelectable = false
             pastDailyEntryTextView.isEditable = false
             editToggle = false

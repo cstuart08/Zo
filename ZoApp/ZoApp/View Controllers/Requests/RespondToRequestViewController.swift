@@ -51,6 +51,7 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
         view.addGestureRecognizer(tap)
         responseTextView.delegate = self
         addSongButton.isHidden = true
+        imageSelectorImageView.isHidden = true
     }
     
      // MARK: - Custom Methods
@@ -112,6 +113,12 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
             numberOfResponsesLabel.backgroundColor = .darkBlue
             numberOfResponsesLabel.font = UIFont(name: FontAttributes.number.fontFamily, size: FontAttributes.number.fontSize)
             numberOfResponsesLabel.layer.masksToBounds = true
+            responseTextView.addPadding()
+            addLinkTextField.addAccentBorder(width: 2.0, color: .blueGrey)
+            addLinkTextField.addCornerRadius(6.0)
+            imageSelectorImageView.addCornerRadius(13.0)
+            imageSelectorImageView.addAccentBorder(width: 2.0, color: .boldGreen)
+            imageSelectorImageView.layer.masksToBounds = true
         }
         
         
@@ -133,6 +140,14 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
         @objc func keyboardWillShow() {
             view.frame.origin.y = -(view.frame.height / 5)
         }
+    
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n") {
+            textView.resignFirstResponder()
+        }
+        return true
+    }
     
     // MARK: - Actions
     @IBAction func addSongButtonTapped(_ sender: Any) {
@@ -201,6 +216,7 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
 
             imageSelectorImageView.image = pickedImage
+            imageSelectorImageView.isHidden = false
         }
         dismiss(animated: true, completion: nil)
     }

@@ -120,8 +120,8 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fz5-QQ-FMf">
-                                        <rect key="frame" x="358" y="36" width="48" height="30"/>
-                                        <state key="normal" title="Cancel">
+                                        <rect key="frame" x="347" y="36" width="59" height="30"/>
+                                        <state key="normal" title="CANCEL">
                                             <color key="titleColor" name="zoWhite"/>
                                         </state>
                                         <connections>

@@ -48,5 +48,6 @@ class RulesAlertViewController: UIViewController, UIGestureRecognizerDelegate {
         rulesDetailsLabel.textColor = .zoWhite
         rulesWarningLabel.font = UIFont(name: FontAttributes.caption.fontFamily, size: FontAttributes.caption.fontSize)
         rulesWarningLabel.textColor = .zoWhite
+        rulesView.addCornerRadius(16.0)
     }
 }
