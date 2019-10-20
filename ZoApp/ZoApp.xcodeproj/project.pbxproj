@@ -11,6 +11,7 @@
 		D435FD32234F8CDC00FD6DCC /* UnsplashPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435FD31234F8CDC00FD6DCC /* UnsplashPhoto.swift */; };
 		D435FD34234F8CE900FD6DCC /* UnsplashRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435FD33234F8CE900FD6DCC /* UnsplashRoute.swift */; };
 		D435FD36234F8D0B00FD6DCC /* UnsplashService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435FD35234F8D0B00FD6DCC /* UnsplashService.swift */; };
+		D490124D235D073300569245 /* EULAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D490124C235D073300569245 /* EULAViewController.swift */; };
 		D4A8BD4A235567AF000B8D21 /* ZoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A8BD49235567AF000B8D21 /* ZoLabel.swift */; };
 		D4A8BD4C23577225000B8D21 /* UsernameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A8BD4B23577225000B8D21 /* UsernameController.swift */; };
 		D4CDD46F234E8E8E00A6D5C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CDD46E234E8E8E00A6D5C5 /* AppDelegate.swift */; };
@@ -83,6 +84,7 @@
 		D435FD31234F8CDC00FD6DCC /* UnsplashPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashPhoto.swift; sourceTree = "<group>"; };
 		D435FD33234F8CE900FD6DCC /* UnsplashRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashRoute.swift; sourceTree = "<group>"; };
 		D435FD35234F8D0B00FD6DCC /* UnsplashService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashService.swift; sourceTree = "<group>"; };
+		D490124C235D073300569245 /* EULAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EULAViewController.swift; sourceTree = "<group>"; };
 		D4A8BD49235567AF000B8D21 /* ZoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoLabel.swift; sourceTree = "<group>"; };
 		D4A8BD4B23577225000B8D21 /* UsernameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameController.swift; sourceTree = "<group>"; };
 		D4CDD46B234E8E8E00A6D5C5 /* Zo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -296,6 +298,7 @@
 				D4CDD49F234E8F4100A6D5C5 /* WelcomeOnboardingViewController.swift */,
 				D4CDD4A0234E8F4100A6D5C5 /* RulesOnboardingViewController.swift */,
 				D4CDD4A1234E8F4100A6D5C5 /* UsernameOnboardingViewController.swift */,
+				D490124C235D073300569245 /* EULAViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				D435FD34234F8CE900FD6DCC /* UnsplashRoute.swift in Sources */,
 				FC00D8AB2350FB0A00BC2C30 /* PastDailyEntriesTableViewCell.swift in Sources */,
 				D4CDD4AA234E8F4100A6D5C5 /* FlagPostAlertViewController.swift in Sources */,
+				D490124D235D073300569245 /* EULAViewController.swift in Sources */,
 				D4CDD4A7234E8F4100A6D5C5 /* PastRequestsTableViewCell.swift in Sources */,
 				D4CDD4D1234E8F5A00A6D5C5 /* Daily.swift in Sources */,
 				D435FD32234F8CDC00FD6DCC /* UnsplashPhoto.swift in Sources */,

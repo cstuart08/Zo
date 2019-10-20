@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -195,7 +196,7 @@ Please report any violations.</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="QTW-cv-q4V" kind="show" id="P5h-bp-fDg"/>
+                                            <segue destination="4CR-Xh-xJd" kind="show" id="GdE-ca-vDc"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -223,6 +224,109 @@ Please report any violations.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ug3-tB-kbS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2392.753623188406" y="112.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="k7t-QT-ZxE">
+            <objects>
+                <viewController modalPresentationStyle="overFullScreen" id="4CR-Xh-xJd" customClass="EULAViewController" customModule="Zo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WQv-YS-caH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="G16-ju-sHd">
+                                <rect key="frame" x="0.0" y="166.5" width="414" height="572"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="748" text="END USER LICENCE AGREEMENT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2N-eg-vyd" customClass="ZoLabel" customModule="Zo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="162"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ck-SJ-4rw">
+                                        <rect key="frame" x="31" y="170" width="352" height="286"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GMn-QW-lDF">
+                                        <rect key="frame" x="48.5" y="464" width="317" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R53-tQ-zrN">
+                                                <rect key="frame" x="0.0" y="15" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="R53-tQ-zrN" secondAttribute="height" multiplier="1:1" id="47d-a3-0yS"/>
+                                                    <constraint firstAttribute="height" constant="30" id="ePX-Ge-VdE"/>
+                                                </constraints>
+                                                <state key="normal" image="incomplete">
+                                                    <color key="titleColor" name="boldGreen"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="acceptButtonChecked:" destination="4CR-Xh-xJd" eventType="touchUpInside" id="k7g-ZQ-NW6"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I accept these terms and conditions." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRD-db-bPA" customClass="ZoLabel" customModule="Zo" customModuleProvider="target">
+                                                <rect key="frame" x="38" y="19.5" width="279" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" id="eXV-tb-NCM"/>
+                                        </constraints>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jb-8W-cbm" customClass="OnBoardingButton" customModule="Zo" customModuleProvider="target">
+                                        <rect key="frame" x="176" y="532" width="62" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="B10-X9-gL2"/>
+                                        </constraints>
+                                        <state key="normal" title="Next">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="QTW-cv-q4V" kind="show" id="sfF-fE-Ssx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="3jb-8W-cbm" firstAttribute="width" secondItem="G16-ju-sHd" secondAttribute="width" multiplier="0.15" id="8tL-hD-wgt"/>
+                                    <constraint firstItem="7ck-SJ-4rw" firstAttribute="width" secondItem="G16-ju-sHd" secondAttribute="width" multiplier="0.85" id="Jpx-7q-MGv"/>
+                                    <constraint firstItem="7ck-SJ-4rw" firstAttribute="height" secondItem="G16-ju-sHd" secondAttribute="height" multiplier="0.5" id="Qax-aD-b4z"/>
+                                    <constraint firstItem="7ck-SJ-4rw" firstAttribute="centerX" secondItem="G16-ju-sHd" secondAttribute="centerX" id="S5d-rM-8gB"/>
+                                    <constraint firstItem="GMn-QW-lDF" firstAttribute="width" secondItem="7ck-SJ-4rw" secondAttribute="width" multiplier="0.9" id="SiK-PW-qF3"/>
+                                    <constraint firstItem="e2N-eg-vyd" firstAttribute="width" secondItem="G16-ju-sHd" secondAttribute="width" id="fd9-MF-3cO"/>
+                                    <constraint firstItem="7ck-SJ-4rw" firstAttribute="centerY" secondItem="G16-ju-sHd" secondAttribute="centerY" id="n4L-Mn-2rC"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="G16-ju-sHd" firstAttribute="centerY" secondItem="XwQ-Rq-Aht" secondAttribute="centerY" id="GTj-B7-aA0"/>
+                            <constraint firstItem="G16-ju-sHd" firstAttribute="centerX" secondItem="XwQ-Rq-Aht" secondAttribute="centerX" id="TwI-ag-aVr"/>
+                            <constraint firstItem="G16-ju-sHd" firstAttribute="height" secondItem="XwQ-Rq-Aht" secondAttribute="height" multiplier="0.7" id="uco-YM-JfT"/>
+                            <constraint firstItem="G16-ju-sHd" firstAttribute="width" secondItem="XwQ-Rq-Aht" secondAttribute="width" id="zsO-Uh-xS2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XwQ-Rq-Aht"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="73U-0A-Fkx"/>
+                    <connections>
+                        <outlet property="acceptTermsLabel" destination="dRD-db-bPA" id="Sm1-Pn-JuL"/>
+                        <outlet property="checkBoxButton" destination="R53-tQ-zrN" id="W6a-Jm-MLp"/>
+                        <outlet property="eulaTextView" destination="7ck-SJ-4rw" id="8ew-aK-V1M"/>
+                        <outlet property="headerLabel" destination="e2N-eg-vyd" id="nJ7-2N-Zw7"/>
+                        <outlet property="nextButton" destination="3jb-8W-cbm" id="4LY-wj-ze0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jjk-Qi-D3W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3183" y="113"/>
         </scene>
         <!--Username Onboarding View Controller-->
         <scene sceneID="K9j-1e-57p">
@@ -294,7 +398,13 @@ Please report any violations.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rPs-Il-5Fc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3228.985507246377" y="112.5"/>
+            <point key="canvasLocation" x="3991" y="113"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="incomplete" width="512" height="512"/>
+        <namedColor name="boldGreen">
+            <color red="0.086274509803921567" green="0.40392156862745099" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
