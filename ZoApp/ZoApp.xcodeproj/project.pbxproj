@@ -14,6 +14,7 @@
 		D43CA0D4235E47BE00EA743E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43CA0D3235E47BE00EA743E /* Reachability.swift */; };
 		D43CA0D6235E495400EA743E /* NoNetworkFound.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D43CA0D5235E495400EA743E /* NoNetworkFound.storyboard */; };
 		D43CA0D8235E4CA200EA743E /* NoNetworkFoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43CA0D7235E4CA200EA743E /* NoNetworkFoundViewController.swift */; };
+		D45175D7235E5377006CBACA /* LostNetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45175D6235E5377006CBACA /* LostNetworkViewController.swift */; };
 		D490124D235D073300569245 /* EULAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D490124C235D073300569245 /* EULAViewController.swift */; };
 		D4A8BD4A235567AF000B8D21 /* ZoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A8BD49235567AF000B8D21 /* ZoLabel.swift */; };
 		D4A8BD4C23577225000B8D21 /* UsernameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A8BD4B23577225000B8D21 /* UsernameController.swift */; };
@@ -90,6 +91,7 @@
 		D43CA0D3235E47BE00EA743E /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		D43CA0D5235E495400EA743E /* NoNetworkFound.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NoNetworkFound.storyboard; sourceTree = "<group>"; };
 		D43CA0D7235E4CA200EA743E /* NoNetworkFoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoNetworkFoundViewController.swift; sourceTree = "<group>"; };
+		D45175D6235E5377006CBACA /* LostNetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostNetworkViewController.swift; sourceTree = "<group>"; };
 		D490124C235D073300569245 /* EULAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EULAViewController.swift; sourceTree = "<group>"; };
 		D4A8BD49235567AF000B8D21 /* ZoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoLabel.swift; sourceTree = "<group>"; };
 		D4A8BD4B23577225000B8D21 /* UsernameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameController.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				D43CA0D7235E4CA200EA743E /* NoNetworkFoundViewController.swift */,
+				D45175D6235E5377006CBACA /* LostNetworkViewController.swift */,
 			);
 			path = NoNetworkFound;
 			sourceTree = "<group>";
@@ -564,6 +567,7 @@
 				D4CDD4A8234E8F4100A6D5C5 /* ActiveRequestViewController.swift in Sources */,
 				D4CDD4B0234E8F4100A6D5C5 /* BookmarkResponseAlertViewController.swift in Sources */,
 				D4CDD4B7234E8F4100A6D5C5 /* RulesOnboardingViewController.swift in Sources */,
+				D45175D7235E5377006CBACA /* LostNetworkViewController.swift in Sources */,
 				D4CDD4A4234E8F4100A6D5C5 /* DailyViewController.swift in Sources */,
 				D4CDD4BF234E8F5500A6D5C5 /* ChakraController.swift in Sources */,
 				D4CDD4AB234E8F4100A6D5C5 /* RequestFeedViewController.swift in Sources */,
