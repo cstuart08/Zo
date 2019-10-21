@@ -180,6 +180,7 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
                         UserController.shared.fetchUser { (success) in
                             if success {
                                 guard let upToDateUser = UserController.shared.currentUser else { return }
+                                upToDateUser.respondedTo.append(request.recordID.recordName)
                                 ChakraController.shared.addKarmaPointsForResponse(user: upToDateUser)
                                 print("Added +50 points to \(upToDateUser.username)")
                                 DispatchQueue.main.async {
