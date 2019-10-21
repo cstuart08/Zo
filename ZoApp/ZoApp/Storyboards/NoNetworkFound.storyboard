@@ -92,5 +92,37 @@
             </objects>
             <point key="canvasLocation" x="1095" y="97"/>
         </scene>
+        <!--noiCloudAccount-->
+        <scene sceneID="B1l-mq-lGS">
+            <objects>
+                <viewController storyboardIdentifier="noiCloudAccount" title="noiCloudAccount" id="9BA-y8-LHK" customClass="NoiCloudViewController" customModule="Zo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dDY-Yl-RuG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6u7-Zl-Qxy">
+                                <rect key="frame" x="41.5" y="126" width="331" height="654"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6u7-Zl-Qxy" firstAttribute="centerY" secondItem="fnM-Kv-jZx" secondAttribute="centerY" id="0sX-2s-aEc"/>
+                            <constraint firstItem="6u7-Zl-Qxy" firstAttribute="centerX" secondItem="fnM-Kv-jZx" secondAttribute="centerX" id="IUq-Vw-jj8"/>
+                            <constraint firstItem="6u7-Zl-Qxy" firstAttribute="height" secondItem="fnM-Kv-jZx" secondAttribute="height" multiplier="0.8" id="vw7-Bo-w5P"/>
+                            <constraint firstItem="6u7-Zl-Qxy" firstAttribute="width" secondItem="fnM-Kv-jZx" secondAttribute="width" multiplier="0.8" id="zRA-fa-q0M"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fnM-Kv-jZx"/>
+                    </view>
+                    <connections>
+                        <outlet property="noiCloudAccountLabel" destination="6u7-Zl-Qxy" id="CP0-1P-dKG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TM8-vV-cPR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1947" y="94"/>
+        </scene>
     </scenes>
 </document>

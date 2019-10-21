@@ -81,6 +81,7 @@
 		FC93FE3C234FCE8300F65581 /* OnBoardingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC93FE3B234FCE8200F65581 /* OnBoardingButton.swift */; };
 		FCC8FC282356209200EE22FC /* myRequestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC8FC262356209200EE22FC /* myRequestsTableViewCell.swift */; };
 		FCC8FC292356209200EE22FC /* myRequestsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCC8FC272356209200EE22FC /* myRequestsTableViewCell.xib */; };
+		FCD68AF3235E63EA00D672B2 /* NoiCloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD68AF2235E63EA00D672B2 /* NoiCloudViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -161,6 +162,7 @@
 		FC93FE3B234FCE8200F65581 /* OnBoardingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingButton.swift; sourceTree = "<group>"; };
 		FCC8FC262356209200EE22FC /* myRequestsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myRequestsTableViewCell.swift; sourceTree = "<group>"; };
 		FCC8FC272356209200EE22FC /* myRequestsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = myRequestsTableViewCell.xib; sourceTree = "<group>"; };
+		FCD68AF2235E63EA00D672B2 /* NoiCloudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoiCloudViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 			children = (
 				D43CA0D7235E4CA200EA743E /* NoNetworkFoundViewController.swift */,
 				D45175D6235E5377006CBACA /* LostNetworkViewController.swift */,
+				FCD68AF2235E63EA00D672B2 /* NoiCloudViewController.swift */,
 			);
 			path = NoNetworkFound;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 				D4CDD4AF234E8F4100A6D5C5 /* BlockUserAlertViewController.swift in Sources */,
 				D4A8BD4A235567AF000B8D21 /* ZoLabel.swift in Sources */,
 				D4CDD471234E8E8E00A6D5C5 /* SceneDelegate.swift in Sources */,
+				FCD68AF3235E63EA00D672B2 /* NoiCloudViewController.swift in Sources */,
 				D4CDD4B2234E8F4100A6D5C5 /* ProfileViewController.swift in Sources */,
 				D43CA0D4235E47BE00EA743E /* Reachability.swift in Sources */,
 				FC00D8A82350F5FC00BC2C30 /* ZoButton.swift in Sources */,
