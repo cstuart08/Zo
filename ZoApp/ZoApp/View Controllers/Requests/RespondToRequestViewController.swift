@@ -39,7 +39,7 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
             setupViews()
         }
     }
-    var randomImages: [UIImage] = [UIImage(named: "quote1")!, UIImage(named: "quote2")!, UIImage(named: "quote3")!, UIImage(named: "quote4")!, UIImage(named: "quote5")!, UIImage(named: "quote6")!, UIImage(named: "quote7")!, UIImage(named: "quote8")!, UIImage(named: "quote9")!, UIImage(named: "quote10")!, UIImage(named: "quote11")!, UIImage(named: "quote12")!, UIImage(named: "quote13")!]
+    var randomImages: [UIImage] = [UIImage(named: "nature1")!, UIImage(named: "nature2")!, UIImage(named: "nature3")!, UIImage(named: "nature4")!, UIImage(named: "nature5")!, UIImage(named: "nature6")!, UIImage(named: "nature7")!, UIImage(named: "nature8")!, UIImage(named: "nature9")!, UIImage(named: "nature10")!, UIImage(named: "nature11")!, UIImage(named: "nature12")!, UIImage(named: "nature13")!, UIImage(named: "nature14")!, UIImage(named: "nature15")!, UIImage(named: "nature16")!, UIImage(named: "nature17")!, UIImage(named: "nature18")!, UIImage(named: "nature19")!]
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
