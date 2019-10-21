@@ -614,26 +614,6 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="1082.8125"/>
         </scene>
-        <!--FavoriteResponseAlert-->
-        <scene sceneID="BhO-GT-1Dk">
-            <objects>
-                <viewControllerPlaceholder storyboardName="FavoriteResponseAlert" id="BMW-HP-V4b" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="mR4-XJ-3BR"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nXt-pG-grq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1227" y="1117"/>
-        </scene>
-        <!--FlagPostAlert-->
-        <scene sceneID="ayX-b1-wxQ">
-            <objects>
-                <viewControllerPlaceholder storyboardName="FlagPostAlert" id="eGy-Vo-br5" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="T8a-fr-gtH"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="S3Z-3Z-Hcx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1229" y="1170"/>
-        </scene>
         <!--BookmarkResponseAlert-->
         <scene sceneID="KAm-vI-Ey2">
             <objects>
@@ -905,49 +885,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vM4-05-x9I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-610.14492753623188" y="1082.8125"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="wtn-5J-cae">
-            <objects>
-                <viewController id="FQI-MC-oTX" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="10G-CA-fVs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="KHz-Ko-sGU">
-                                <rect key="frame" x="8" y="8" width="398" height="846"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="#TagHere" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zWX-Qt-KLp">
-                                        <rect key="frame" x="0.0" y="0.0" width="124.66666666666667" height="846"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="#TagHere" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m3n-RW-jv7">
-                                        <rect key="frame" x="136.66666666666666" y="0.0" width="124.66666666666666" height="846"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="#TagHere" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BQR-13-ffX">
-                                        <rect key="frame" x="273.33333333333331" y="0.0" width="124.66666666666669" height="846"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="KHz-Ko-sGU" firstAttribute="leading" secondItem="10G-CA-fVs" secondAttribute="leading" constant="8" id="4zj-Ad-bWp"/>
-                            <constraint firstItem="KHz-Ko-sGU" firstAttribute="top" secondItem="10G-CA-fVs" secondAttribute="top" constant="8" id="SXe-p7-P8G"/>
-                            <constraint firstAttribute="trailing" secondItem="KHz-Ko-sGU" secondAttribute="trailing" constant="8" id="WyI-Rp-EsY"/>
-                            <constraint firstItem="PMR-2o-LS5" firstAttribute="bottom" secondItem="KHz-Ko-sGU" secondAttribute="bottom" constant="8" id="l4c-jV-THv"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="PMR-2o-LS5"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nah-bY-UEf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="243" y="-133"/>
         </scene>
         <!--CreateRequest-->
         <scene sceneID="3Wp-nd-8Qg">
