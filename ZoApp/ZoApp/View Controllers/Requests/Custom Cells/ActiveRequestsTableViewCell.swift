@@ -24,6 +24,10 @@ class ActiveRequestsTableViewCell: UITableViewCell {
             layoutIfNeeded()
             setupView()
             stylizeSubviews()
+            guard let respondedTo = UserController.shared.currentUser?.respondedTo, let request = self.requestLandingPad?.recordID.recordName else { return }
+            if respondedTo.contains(request) {
+                numberOfResponsesLabel.backgroundColor = .boldGreen
+            }
         }
     }
     var tag1: String?
