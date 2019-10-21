@@ -47,6 +47,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                             }
                         }
                     }
+                } else {
+                    DispatchQueue.main.async {
+                        let storyboard = UIStoryboard(name: "NoNetworkFound", bundle: nil)
+                        
+                        let initialViewController = storyboard.instantiateViewController(withIdentifier: "noiCloudAccount")
+                        
+                        self.window?.rootViewController = initialViewController
+                        self.window?.makeKeyAndVisible()
+                    }
                 }
             }
         } else {
