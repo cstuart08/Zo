@@ -118,6 +118,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THERE ARE NO REQUESTS MADE IN THE PAST 72 HOURS." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRM-bV-khQ">
+                                <rect key="frame" x="10.333333333333343" y="622.33333333333337" width="393.33333333333326" height="40.666666666666629"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="125" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LgP-cC-X0W">
                                 <rect key="frame" x="10.333333333333343" y="181.33333333333331" width="393.33333333333326" height="246.33333333333331"/>
                                 <color key="backgroundColor" name="sageGreen"/>
@@ -133,10 +139,10 @@
                                                     <rect key="frame" x="8" y="6.3333333333333357" width="377.33333333333331" height="112.33333333333331"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="2QO-V3-Jyx">
-                                                            <rect key="frame" x="0.0" y="0.0" width="261.33333333333331" height="99.333333333333329"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="261.33333333333331" height="112.33333333333333"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCF-rV-te3" customClass="ZoLabel" customModule="Zo" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="261.33333333333331" height="65.333333333333329"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="261.33333333333331" height="78.333333333333329"/>
                                                                     <color key="backgroundColor" name="zoWhite"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="15c-H3-GUt"/>
@@ -147,7 +153,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="#tag     #tag     #tag" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMt-ko-O5H" customClass="ZoLabel" customModule="Zo" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="69.333333333333343" width="261.33333333333331" height="30"/>
+                                                                    <rect key="frame" x="0.0" y="82.333333333333343" width="261.33333333333331" height="30"/>
                                                                     <color key="backgroundColor" name="zoWhite"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="30" id="QvY-vr-WL9"/>
@@ -201,20 +207,26 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU HAVE NO PAST REQUESTS." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QbY-Vi-OtC">
+                                <rect key="frame" x="10.333333333333343" y="294.33333333333331" width="393.33333333333326" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="81I-uq-nos">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="77"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Cdl-bo-PWP">
-                                        <rect key="frame" x="7.9999999999999929" y="29" width="123.33333333333331" height="44"/>
+                                        <rect key="frame" x="8" y="51" width="101.33333333333333" height="22"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Requests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8M-34-jTf">
-                                                <rect key="frame" x="0.0" y="0.0" width="71.333333333333329" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="71.333333333333329" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" name="zoWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y3I-iM-6Za">
-                                                <rect key="frame" x="79.333333333333329" y="0.0" width="44" height="44"/>
+                                                <rect key="frame" x="79.333333333333329" y="0.0" width="22" height="22"/>
                                                 <state key="normal" image="RULES">
                                                     <color key="titleColor" name="zoWhite"/>
                                                 </state>
@@ -226,7 +238,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4l-DP-ypq">
-                                        <rect key="frame" x="323" y="36" width="83" height="30"/>
+                                        <rect key="frame" x="323" y="47" width="83" height="30"/>
                                         <state key="normal" title="+ ADD NEW">
                                             <color key="titleColor" name="zoWhite"/>
                                         </state>
@@ -287,16 +299,22 @@
                         <constraints>
                             <constraint firstItem="81I-uq-nos" firstAttribute="height" secondItem="ozC-FV-hqQ" secondAttribute="height" multiplier="0.1" id="0q7-mg-nKB"/>
                             <constraint firstItem="81I-uq-nos" firstAttribute="leading" secondItem="ozC-FV-hqQ" secondAttribute="leading" id="0z7-HB-GNN"/>
+                            <constraint firstItem="yRM-bV-khQ" firstAttribute="centerY" secondItem="cxv-Eu-Rey" secondAttribute="centerY" id="3XY-n2-9AQ"/>
                             <constraint firstItem="5kJ-Zo-xzY" firstAttribute="centerY" secondItem="ozC-FV-hqQ" secondAttribute="centerY" multiplier="1.05" id="5hf-OQ-Iwr"/>
+                            <constraint firstItem="QbY-Vi-OtC" firstAttribute="centerY" secondItem="LgP-cC-X0W" secondAttribute="centerY" id="H3O-TA-xyu"/>
                             <constraint firstItem="cxv-Eu-Rey" firstAttribute="width" secondItem="ozC-FV-hqQ" secondAttribute="width" multiplier="0.95" id="LTY-Oc-rwn"/>
                             <constraint firstItem="cxv-Eu-Rey" firstAttribute="centerX" secondItem="ozC-FV-hqQ" secondAttribute="centerX" id="Q6B-5l-KyE"/>
                             <constraint firstItem="LgP-cC-X0W" firstAttribute="width" secondItem="ozC-FV-hqQ" secondAttribute="width" multiplier="0.95" id="QHJ-RN-XSx"/>
                             <constraint firstItem="5kJ-Zo-xzY" firstAttribute="leading" secondItem="ozC-FV-hqQ" secondAttribute="leading" constant="12" id="Sca-Zr-ALg"/>
                             <constraint firstItem="cxv-Eu-Rey" firstAttribute="top" secondItem="5kJ-Zo-xzY" secondAttribute="bottom" constant="12" id="UeJ-bN-KI7"/>
+                            <constraint firstItem="yRM-bV-khQ" firstAttribute="centerX" secondItem="cxv-Eu-Rey" secondAttribute="centerX" id="XX1-iE-2iE"/>
                             <constraint firstItem="xZr-Fl-bRv" firstAttribute="centerX" secondItem="ozC-FV-hqQ" secondAttribute="centerX" id="aPQ-lL-rDD"/>
                             <constraint firstItem="ozC-FV-hqQ" firstAttribute="bottom" secondItem="cxv-Eu-Rey" secondAttribute="bottom" id="aXJ-1F-b6B"/>
+                            <constraint firstItem="QbY-Vi-OtC" firstAttribute="centerX" secondItem="LgP-cC-X0W" secondAttribute="centerX" id="di8-zJ-C0w"/>
+                            <constraint firstItem="QbY-Vi-OtC" firstAttribute="width" secondItem="LgP-cC-X0W" secondAttribute="width" id="eHy-ri-V9n"/>
                             <constraint firstItem="ozC-FV-hqQ" firstAttribute="trailing" secondItem="81I-uq-nos" secondAttribute="trailing" id="fgi-Vp-Ow4"/>
                             <constraint firstItem="tIH-on-ZeE" firstAttribute="top" secondItem="xZr-Fl-bRv" secondAttribute="bottom" constant="12" id="huR-mM-2Tk"/>
+                            <constraint firstItem="yRM-bV-khQ" firstAttribute="width" secondItem="cxv-Eu-Rey" secondAttribute="width" id="iaT-F3-hQM"/>
                             <constraint firstItem="81I-uq-nos" firstAttribute="top" secondItem="9SO-Ys-nm1" secondAttribute="top" id="jax-gt-bZk"/>
                             <constraint firstItem="xZr-Fl-bRv" firstAttribute="width" secondItem="ozC-FV-hqQ" secondAttribute="width" multiplier="0.9" id="jl2-k9-mBn"/>
                             <constraint firstItem="LgP-cC-X0W" firstAttribute="top" secondItem="tIH-on-ZeE" secondAttribute="bottom" constant="12" id="lbi-S6-ypA"/>
@@ -315,6 +333,8 @@
                         <outlet property="allRequestsLabel" destination="5kJ-Zo-xzY" id="Wil-lK-Mfs"/>
                         <outlet property="headerView" destination="81I-uq-nos" id="jXx-u5-V06"/>
                         <outlet property="myRequestsLabel" destination="tIH-on-ZeE" id="SJn-ss-fnR"/>
+                        <outlet property="noPastAllRequestsLabel" destination="yRM-bV-khQ" id="XeG-Q4-6d1"/>
+                        <outlet property="noPastMyRequestsLabel" destination="QbY-Vi-OtC" id="4Xi-HW-HXw"/>
                         <outlet property="pastRequestsTableView" destination="LgP-cC-X0W" id="XdJ-c5-NHg"/>
                         <outlet property="requestsLabel" destination="V8M-34-jTf" id="04b-9f-Ehv"/>
                         <outlet property="rulesButton" destination="Y3I-iM-6Za" id="vzo-qq-Fg4"/>
@@ -534,7 +554,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CBv-j1-VKt">
-                                        <rect key="frame" x="342" y="36.333333333333336" width="64" height="31.000000000000007"/>
+                                        <rect key="frame" x="344" y="34" width="62" height="36"/>
                                         <fontDescription key="fontDescription" name="FingerPaint-Regular" family="Finger Paint" pointSize="16"/>
                                         <state key="normal" title="CANCEL">
                                             <color key="titleColor" name="zoWhite"/>
@@ -696,7 +716,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A22-Xt-Nmz">
-                                        <rect key="frame" x="342" y="36.333333333333336" width="64" height="31.000000000000007"/>
+                                        <rect key="frame" x="344" y="34" width="62" height="36"/>
                                         <fontDescription key="fontDescription" name="FingerPaint-Regular" family="Finger Paint" pointSize="16"/>
                                         <state key="normal" title="CANCEL">
                                             <color key="titleColor" name="zoWhite"/>
@@ -746,10 +766,10 @@
                                                 <rect key="frame" x="235" y="124.33333333333337" width="100" height="34"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="246" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="g1X-C1-wLy">
-                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="34"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="25"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rjk-S7-7O9">
-                                                                <rect key="frame" x="0.0" y="0.0" width="33.333333333333336" height="34"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="33.333333333333336" height="25"/>
                                                                 <color key="tintColor" name="boldGreen"/>
                                                                 <state key="normal" title="Send" image="musicIcon"/>
                                                                 <connections>
@@ -757,7 +777,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cb-8B-e1j">
-                                                                <rect key="frame" x="33.333333333333371" y="0.0" width="33.333333333333343" height="34"/>
+                                                                <rect key="frame" x="33.333333333333371" y="0.0" width="33.333333333333343" height="25"/>
                                                                 <color key="tintColor" name="boldGreen"/>
                                                                 <state key="normal" title="Send" image="linkIcon"/>
                                                                 <connections>
@@ -765,7 +785,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tIL-LG-3jh">
-                                                                <rect key="frame" x="66.666666666666686" y="0.0" width="33.333333333333343" height="34"/>
+                                                                <rect key="frame" x="66.666666666666686" y="0.0" width="33.333333333333343" height="25"/>
                                                                 <color key="tintColor" name="boldGreen"/>
                                                                 <state key="normal" title="Send" image="picIcon"/>
                                                                 <connections>

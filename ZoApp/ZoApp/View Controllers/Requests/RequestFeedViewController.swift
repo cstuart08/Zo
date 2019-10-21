@@ -12,10 +12,12 @@ class RequestFeedViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var pastRequestsTableView: UITableView!
+    @IBOutlet weak var noPastMyRequestsLabel: UILabel!
     @IBOutlet weak var requestsLabel: UILabel!
     @IBOutlet weak var rulesButton: UIButton!
     @IBOutlet weak var addNewRequestButton: UIButton!
     @IBOutlet weak var activeRequestsFeedTableView: UITableView!
+    @IBOutlet weak var noPastAllRequestsLabel: UILabel!
     @IBOutlet weak var searchBar: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var headerView: UIView!
@@ -30,7 +32,6 @@ class RequestFeedViewController: UIViewController, UITextFieldDelegate {
         activeRequestsFeedTableView.dataSource = self
         pastRequestsTableView.delegate = self
         pastRequestsTableView.dataSource = self
-        setupUI()
         searchBar.clearButtonMode = UITextField.ViewMode.always
         searchBar.delegate = self
         let notification = Notification.Name(rawValue: "reloadRequestTableViews")
@@ -47,6 +48,8 @@ class RequestFeedViewController: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
         fetchRecentlyCurrentUserRequests()
         fetchRequests()
+        setupUI()
+        hideOrDisplayLabels()
     }
     
     // MARK: - Custom Methods
@@ -65,6 +68,7 @@ class RequestFeedViewController: UIViewController, UITextFieldDelegate {
     @objc func reloadRequestTableViews() {
         self.activeRequestsFeedTableView.reloadData()
         self.pastRequestsTableView.reloadData()
+        hideOrDisplayLabels()
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -80,7 +84,25 @@ class RequestFeedViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func hideOrDisplayLabels() {
+        if RequestController.shared.myRequests.count == 0 {
+            noPastMyRequestsLabel.isHidden = false
+        } else if RequestController.shared.myRequests.count > 0 {
+            noPastMyRequestsLabel.isHidden = true
+        }
+        
+        if RequestController.shared.requests.count == 0 {
+            noPastAllRequestsLabel.isHidden = false
+        } else if RequestController.shared.requests.count > 0 {
+            noPastAllRequestsLabel.isHidden = true
+        }
+    }
+    
     func setupUI() {
+        noPastMyRequestsLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h4.fontSize)
+        noPastMyRequestsLabel.textColor = .blueGrey
+        noPastAllRequestsLabel.font = UIFont(name: FontAttributes.h2.fontFamily, size: FontAttributes.h4.fontSize)
+        noPastAllRequestsLabel.textColor = .blueGrey
         searchBar.addCornerRadius(13.0)
         searchBar.addAccentBorder(width: 2.0, color: .boldGreen)
         searchBar.layer.masksToBounds = true
@@ -100,7 +122,7 @@ class RequestFeedViewController: UIViewController, UITextFieldDelegate {
         RequestController.shared.fetchOnlyRecentCurrentUserRequests { (success) in
             if success {
                 DispatchQueue.main.async {
-                    
+                    self.hideOrDisplayLabels()
                     self.pastRequestsTableView.reloadData()
                 }
             }
@@ -111,6 +133,7 @@ class RequestFeedViewController: UIViewController, UITextFieldDelegate {
         RequestController.shared.fetchRequests { (success) in
             if success {
                 DispatchQueue.main.async {
+                    self.hideOrDisplayLabels()
                     self.activeRequestsFeedTableView.reloadData()
                     print("Fetched requests")
                 }
@@ -150,6 +173,7 @@ class RequestFeedViewController: UIViewController, UITextFieldDelegate {
             RequestController.shared.fetchRequests { (success) in
                 if success {
                     DispatchQueue.main.async {
+                        self.hideOrDisplayLabels()
                         self.activeRequestsFeedTableView.reloadData()
                         print("Fetched requests")
                     }
