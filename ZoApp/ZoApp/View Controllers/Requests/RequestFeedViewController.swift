@@ -182,10 +182,20 @@ class RequestFeedViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         } else {
-            RequestController.shared.fetchRequestsWithTag(tag: "#" + searchTag) { (success) in
+            RequestController.shared.fetchRequests { (success) in
                 if success {
+                    var searchedTags: [Request] = []
+                    for request in RequestController.shared.requests {
+                        let tagsForRequest = request.tags
+                        for tag in tagsForRequest {
+                            if tag.lowercased().contains(searchTag.lowercased()) {
+                                searchedTags.append(request)
+                            }
+                        }
+                    }
                     DispatchQueue.main.async {
                         print("Success fetching requests with tag")
+                        RequestController.shared.requests = searchedTags
                         self.activeRequestsFeedTableView.reloadData()
                     }
                 }
