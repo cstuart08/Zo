@@ -22,29 +22,41 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         self.window?.windowScene = windowScene
-        UserController.shared.fetchUserReference { (success) in
-            if success {
-                UserController.shared.fetchUser { (success) in
-                    if success {
-                        DispatchQueue.main.async {
-                            let storyboard = UIStoryboard(name: "TabController", bundle: nil)
-                            
-                            let initialViewController = storyboard.instantiateViewController(withIdentifier: "TabController")
-                            
-                            self.window?.rootViewController = initialViewController
-                            self.window?.makeKeyAndVisible()
-                        }
-                    } else {
-                        DispatchQueue.main.async {
-                            let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        
+        if Reachability.isConnectedToNetwork() {
+            UserController.shared.fetchUserReference { (success) in
+                if success {
+                    UserController.shared.fetchUser { (success) in
+                        if success {
+                            DispatchQueue.main.async {
+                                let storyboard = UIStoryboard(name: "TabController", bundle: nil)
+                                
+                                let initialViewController = storyboard.instantiateViewController(withIdentifier: "TabController")
+                                
+                                self.window?.rootViewController = initialViewController
+                                self.window?.makeKeyAndVisible()
+                            }
+                        } else {
+                            DispatchQueue.main.async {
+                                let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
 
-                            let initialViewController = storyboard.instantiateViewController(withIdentifier: "Onboarding")
+                                let initialViewController = storyboard.instantiateViewController(withIdentifier: "Onboarding")
 
-                            self.window?.rootViewController = initialViewController
-                            self.window?.makeKeyAndVisible()
+                                self.window?.rootViewController = initialViewController
+                                self.window?.makeKeyAndVisible()
+                            }
                         }
                     }
                 }
+            }
+        } else {
+            DispatchQueue.main.async {
+                let storyboard = UIStoryboard(name: "NoNetworkFound", bundle: nil)
+                
+                let initialViewController = storyboard.instantiateViewController(withIdentifier: "NoNetworkFound")
+                
+                self.window?.rootViewController = initialViewController
+                self.window?.makeKeyAndVisible()
             }
         }
     }

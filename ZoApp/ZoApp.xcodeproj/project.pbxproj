@@ -11,6 +11,9 @@
 		D435FD32234F8CDC00FD6DCC /* UnsplashPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435FD31234F8CDC00FD6DCC /* UnsplashPhoto.swift */; };
 		D435FD34234F8CE900FD6DCC /* UnsplashRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435FD33234F8CE900FD6DCC /* UnsplashRoute.swift */; };
 		D435FD36234F8D0B00FD6DCC /* UnsplashService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435FD35234F8D0B00FD6DCC /* UnsplashService.swift */; };
+		D43CA0D4235E47BE00EA743E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43CA0D3235E47BE00EA743E /* Reachability.swift */; };
+		D43CA0D6235E495400EA743E /* NoNetworkFound.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D43CA0D5235E495400EA743E /* NoNetworkFound.storyboard */; };
+		D43CA0D8235E4CA200EA743E /* NoNetworkFoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43CA0D7235E4CA200EA743E /* NoNetworkFoundViewController.swift */; };
 		D490124D235D073300569245 /* EULAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D490124C235D073300569245 /* EULAViewController.swift */; };
 		D4A8BD4A235567AF000B8D21 /* ZoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A8BD49235567AF000B8D21 /* ZoLabel.swift */; };
 		D4A8BD4C23577225000B8D21 /* UsernameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A8BD4B23577225000B8D21 /* UsernameController.swift */; };
@@ -84,6 +87,9 @@
 		D435FD31234F8CDC00FD6DCC /* UnsplashPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashPhoto.swift; sourceTree = "<group>"; };
 		D435FD33234F8CE900FD6DCC /* UnsplashRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashRoute.swift; sourceTree = "<group>"; };
 		D435FD35234F8D0B00FD6DCC /* UnsplashService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashService.swift; sourceTree = "<group>"; };
+		D43CA0D3235E47BE00EA743E /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		D43CA0D5235E495400EA743E /* NoNetworkFound.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NoNetworkFound.storyboard; sourceTree = "<group>"; };
+		D43CA0D7235E4CA200EA743E /* NoNetworkFoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoNetworkFoundViewController.swift; sourceTree = "<group>"; };
 		D490124C235D073300569245 /* EULAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EULAViewController.swift; sourceTree = "<group>"; };
 		D4A8BD49235567AF000B8D21 /* ZoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoLabel.swift; sourceTree = "<group>"; };
 		D4A8BD4B23577225000B8D21 /* UsernameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameController.swift; sourceTree = "<group>"; };
@@ -175,6 +181,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		D43CA0D9235E4CA600EA743E /* NoNetworkFound */ = {
+			isa = PBXGroup;
+			children = (
+				D43CA0D7235E4CA200EA743E /* NoNetworkFoundViewController.swift */,
+			);
+			path = NoNetworkFound;
+			sourceTree = "<group>";
+		};
 		D4CDD462234E8E8D00A6D5C5 = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +229,7 @@
 				D4CDD495234E8F4100A6D5C5 /* Profile */,
 				D4CDD49B234E8F4100A6D5C5 /* Tab View Controller */,
 				D4CDD49D234E8F4100A6D5C5 /* Onboarding */,
+				D43CA0D9235E4CA600EA743E /* NoNetworkFound */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -347,6 +362,7 @@
 				D4CDD4E1234E8F7000A6D5C5 /* BlockUserAlert.storyboard */,
 				D4CDD4E2234E8F7000A6D5C5 /* CreateRequest.storyboard */,
 				D4CDD4E3234E8F7000A6D5C5 /* Daily.storyboard */,
+				D43CA0D5235E495400EA743E /* NoNetworkFound.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -360,6 +376,7 @@
 				D4CDD470234E8E8E00A6D5C5 /* SceneDelegate.swift */,
 				D4CDD477234E8E8E00A6D5C5 /* Assets.xcassets */,
 				FC93FE2C234F9FB000F65581 /* Colors.xcassets */,
+				D43CA0D3235E47BE00EA743E /* Reachability.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -473,6 +490,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC93FE2D234F9FB000F65581 /* Colors.xcassets in Resources */,
+				D43CA0D6235E495400EA743E /* NoNetworkFound.storyboard in Resources */,
 				D4CDD47B234E8E8E00A6D5C5 /* LaunchScreen.storyboard in Resources */,
 				D4CDD4E5234E8F7000A6D5C5 /* Onboarding.storyboard in Resources */,
 				FC93FE36234FA3F300F65581 /* Lato-Regular.ttf in Resources */,
@@ -531,12 +549,14 @@
 				D4A8BD4A235567AF000B8D21 /* ZoLabel.swift in Sources */,
 				D4CDD471234E8E8E00A6D5C5 /* SceneDelegate.swift in Sources */,
 				D4CDD4B2234E8F4100A6D5C5 /* ProfileViewController.swift in Sources */,
+				D43CA0D4235E47BE00EA743E /* Reachability.swift in Sources */,
 				FC00D8A82350F5FC00BC2C30 /* ZoButton.swift in Sources */,
 				D4CDD4C0234E8F5500A6D5C5 /* ResponseController.swift in Sources */,
 				FC93FE3C234FCE8300F65581 /* OnBoardingButton.swift in Sources */,
 				D4CDD4C1234E8F5500A6D5C5 /* DailyController.swift in Sources */,
 				D4CDD4D0234E8F5A00A6D5C5 /* Response.swift in Sources */,
 				D4CDD4AC234E8F4100A6D5C5 /* FavoriteResponseAlertViewController.swift in Sources */,
+				D43CA0D8235E4CA200EA743E /* NoNetworkFoundViewController.swift in Sources */,
 				D4CDD4AD234E8F4100A6D5C5 /* CreateRequestViewController.swift in Sources */,
 				D4CDD4A5234E8F4100A6D5C5 /* ResponseTableViewCell.swift in Sources */,
 				FC93FE2B234F9F8200F65581 /* StyleGuide.swift in Sources */,
