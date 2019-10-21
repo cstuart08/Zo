@@ -57,7 +57,6 @@ class DailyViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        //checkUserStatus()
     }
     
     // MARK: - UI Adjustments
@@ -78,34 +77,6 @@ class DailyViewController: UIViewController, UITextViewDelegate {
     }
     
     // MARK: - Methods
-//    func checkUserStatus() {
-//        guard let userPoints = UserController.shared.currentUser?.kpPoints,
-//            let lastKnowLevel = UserController.shared.currentUser?.kpLevel else { return }
-//        var currentLevel: String = ""
-//
-//        if userPoints < 1000 {
-//            currentLevel = "Root"
-//        } else if userPoints >= 1000 && userPoints < 3000 {
-//            currentLevel = "Sacral"
-//        } else if userPoints >= 3000 && userPoints < 5000 {
-//            currentLevel = "Solar Plexus"
-//        } else if userPoints >= 5000 && userPoints < 10000 {
-//            currentLevel = "Heart"
-//        } else if userPoints >= 10000 && userPoints < 15000 {
-//            currentLevel = "Throat"
-//        } else if userPoints >= 15000 && userPoints < 20000 {
-//            currentLevel = "Third Eye"
-//        } else if userPoints >= 20000 {
-//            currentLevel = "Crown"
-//        }
-//
-//        if currentLevel == lastKnowLevel {
-//            return
-//        } else {
-//            displayKarmaPointsAlert()
-//        }
-//    }
-//
     func displayKarmaPointsAlert() {
         guard let viewController = UIStoryboard(name: "PointsAndRank", bundle: nil).instantiateViewController(withIdentifier: "pointsAndRankStoryBoard") as? PointsAndRankVC else { return }
         self.present(viewController, animated: true, completion: nil)

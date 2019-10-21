@@ -28,23 +28,31 @@ class CreateRequestViewController: UIViewController, UITextViewDelegate {
     // MARK: - Properites
     let user = UserController.shared.currentUser
     
-    let randomImages: [UIImage] = [UIImage(named: "nature1")!, UIImage(named: "nature2")!, UIImage(named: "nature3")!, UIImage(named: "nature4")!, UIImage(named: "nature5")!, UIImage(named: "nature6")!, UIImage(named: "nature7")!, UIImage(named: "nature8")!, UIImage(named: "nature9")!, UIImage(named: "nature10")!, UIImage(named: "nature11")!, UIImage(named: "nature12")!, UIImage(named: "nature13")!, UIImage(named: "nature14")!, UIImage(named: "nature15")!, UIImage(named: "nature16")!, UIImage(named: "nature17")!]
+    let randomImages: [UIImage] = [UIImage(named: "nature1")!, UIImage(named: "nature2")!, UIImage(named: "nature3")!, UIImage(named: "nature4")!, UIImage(named: "nature5")!, UIImage(named: "nature6")!, UIImage(named: "nature7")!, UIImage(named: "nature8")!, UIImage(named: "nature9")!, UIImage(named: "nature10")!, UIImage(named: "nature11")!, UIImage(named: "nature12")!, UIImage(named: "nature13")!, UIImage(named: "nature14")!, UIImage(named: "nature15")!, UIImage(named: "nature16")!, UIImage(named: "nature17")!, UIImage(named: "nature18")!, UIImage(named: "nature19")!]
     
     // MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(enableRequestButton), name: NSNotification.Name("lostNetworkDismissed"), object: nil)
         requestTextView.delegate = self
         createTapGesture()
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+         super.viewWillAppear(true)
+        requestButton.isEnabled = true
+     }
+    
     // MARK: - Methods
+    @objc func enableRequestButton() {
+        requestButton.isEnabled = true
+    }
+    
     @objc func keyboardWillShow() {
         view.frame.origin.y = -(view.frame.height / 6)
     }
-    
-    
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if requestTextView.text == "Enter your request here..." {
@@ -148,25 +156,31 @@ class CreateRequestViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func requestButtonTapped(_ sender: Any) {
-        guard let username = usernameLabel.text,
-            let body = requestTextView.text,
-            let hashtag1 = hashtagTextField1.text,
-            let hashtag2 = hashtagTextField2.text,
-            let hashtag3 = hashtagTextField3.text else { return }
-        guard let user = user else { return }
-        let userRef = CKRecord.Reference(recordID: user.recordID, action: .deleteSelf)
-        guard let randomImage = randomImages.randomElement() else { return }
-        RequestController.shared.createAndSaveRequest(image: randomImage, title: "No Title Field Currently", username: username, body: body, userReference: userRef, tags: ["#" + hashtag1, "#" + hashtag2, "#" + hashtag3]) { (success) in
-            if success {
-                DispatchQueue.main.async {
-                    print("Success creating a request.")
-                    let notification = Notification(name: Notification.Name(rawValue: "reloadRequestTableViews"))
-                    NotificationCenter.default.post(notification)
-                    self.dismiss(animated: true)
+        requestButton.isEnabled = false
+        if Reachability.isConnectedToNetwork() {
+            guard let username = usernameLabel.text,
+                let body = requestTextView.text,
+                let hashtag1 = hashtagTextField1.text,
+                let hashtag2 = hashtagTextField2.text,
+                let hashtag3 = hashtagTextField3.text else { return }
+            guard let user = user else { return }
+            let userRef = CKRecord.Reference(recordID: user.recordID, action: .deleteSelf)
+            guard let randomImage = randomImages.randomElement() else { return }
+            RequestController.shared.createAndSaveRequest(image: randomImage, title: "No Title Field Currently", username: username, body: body, userReference: userRef, tags: ["#" + hashtag1, "#" + hashtag2, "#" + hashtag3]) { (success) in
+                if success {
+                    DispatchQueue.main.async {
+                        print("Success creating a request.")
+                        let notification = Notification(name: Notification.Name(rawValue: "reloadRequestTableViews"))
+                        NotificationCenter.default.post(notification)
+                        self.dismiss(animated: true)
+                    }
+                } else {
+                    print("Uh oh! -------------------- \n Request not created. \n ----------------")
                 }
-            } else {
-                print("Uh oh! -------------------- \n Request not created. \n ----------------")
             }
+        } else {
+            let viewController = UIStoryboard(name: "NoNetworkFound", bundle: nil).instantiateViewController(withIdentifier: "LostNetworkSB") as! LostNetworkViewController
+            self.present(viewController, animated: true)
         }
     }
 }

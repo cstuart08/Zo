@@ -38,5 +38,59 @@
             </objects>
             <point key="canvasLocation" x="204" y="97"/>
         </scene>
+        <!--Lost Network View Controller-->
+        <scene sceneID="0VL-lr-Ke9">
+            <objects>
+                <viewController storyboardIdentifier="LostNetworkSB" modalPresentationStyle="overFullScreen" id="54X-ON-9AL" customClass="LostNetworkViewController" customModule="Zo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wtW-lS-rjX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="98E-wH-3r4">
+                                <rect key="frame" x="41.5" y="207.5" width="331" height="491"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Network Found" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iS5-6I-haC">
+                                <rect key="frame" x="58" y="443" width="298" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7Z-Db-h5Q" customClass="ZoButton" customModule="Zo" customModuleProvider="target">
+                                <rect key="frame" x="174" y="511.5" width="66" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="6HP-f8-0st"/>
+                                </constraints>
+                                <state key="normal" title="OKAY!"/>
+                                <connections>
+                                    <action selector="okayButtonTapped:" destination="54X-ON-9AL" eventType="touchUpInside" id="aH0-qz-1FJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="98E-wH-3r4" firstAttribute="height" secondItem="AIw-vg-rDW" secondAttribute="height" multiplier="0.6" id="2UU-p1-obx"/>
+                            <constraint firstItem="i7Z-Db-h5Q" firstAttribute="centerX" secondItem="98E-wH-3r4" secondAttribute="centerX" id="Fvm-wh-M2E"/>
+                            <constraint firstItem="98E-wH-3r4" firstAttribute="centerY" secondItem="AIw-vg-rDW" secondAttribute="centerY" id="Jd7-qX-AkR"/>
+                            <constraint firstItem="i7Z-Db-h5Q" firstAttribute="top" secondItem="iS5-6I-haC" secondAttribute="bottom" constant="48" id="LkH-68-1Vw"/>
+                            <constraint firstItem="iS5-6I-haC" firstAttribute="centerY" secondItem="98E-wH-3r4" secondAttribute="centerY" id="RYe-LV-fgW"/>
+                            <constraint firstItem="98E-wH-3r4" firstAttribute="centerX" secondItem="AIw-vg-rDW" secondAttribute="centerX" id="VPe-VU-ldb"/>
+                            <constraint firstItem="i7Z-Db-h5Q" firstAttribute="width" secondItem="98E-wH-3r4" secondAttribute="width" multiplier="0.2" id="WJ0-4X-nn5"/>
+                            <constraint firstItem="iS5-6I-haC" firstAttribute="width" secondItem="98E-wH-3r4" secondAttribute="width" multiplier="0.9" id="bxc-gN-6tb"/>
+                            <constraint firstItem="98E-wH-3r4" firstAttribute="width" secondItem="AIw-vg-rDW" secondAttribute="width" multiplier="0.8" id="qef-jq-24e"/>
+                            <constraint firstItem="iS5-6I-haC" firstAttribute="centerX" secondItem="98E-wH-3r4" secondAttribute="centerX" id="rtz-YG-UFG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AIw-vg-rDW"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="98E-wH-3r4" id="xQJ-kM-V4n"/>
+                        <outlet property="lostNetworkLabel" destination="iS5-6I-haC" id="u6l-qX-mNQ"/>
+                        <outlet property="okayButton" destination="i7Z-Db-h5Q" id="j7Q-2Y-eDC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ez-V2-8Sj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1095" y="97"/>
+        </scene>
     </scenes>
 </document>
