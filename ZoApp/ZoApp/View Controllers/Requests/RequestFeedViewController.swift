@@ -84,6 +84,44 @@ class RequestFeedViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchBar.resignFirstResponder()
+        guard let searchTag = searchBar.text else { return false }
+        if searchTag == "" {
+            RequestController.shared.fetchRequests { (success) in
+                if success {
+                    DispatchQueue.main.async {
+                        self.hideOrDisplayLabels()
+                        self.activeRequestsFeedTableView.reloadData()
+                        print("Fetched requests")
+                    }
+                } else {
+                    print("Failed to fetch requests.")
+                }
+            }
+        } else {
+            RequestController.shared.fetchRequests { (success) in
+                if success {
+                    var searchedTags: [Request] = []
+                    for request in RequestController.shared.requests {
+                        let tagsForRequest = request.tags
+                        for tag in tagsForRequest {
+                            if tag.lowercased().contains(searchTag.lowercased()) {
+                                searchedTags.append(request)
+                            }
+                        }
+                    }
+                    DispatchQueue.main.async {
+                        print("Success fetching requests with tag")
+                        RequestController.shared.requests = searchedTags
+                        self.activeRequestsFeedTableView.reloadData()
+                    }
+                }
+            }
+        }
+        return true
+    }
+    
     func hideOrDisplayLabels() {
         if RequestController.shared.myRequests.count == 0 {
             noPastMyRequestsLabel.isHidden = false
