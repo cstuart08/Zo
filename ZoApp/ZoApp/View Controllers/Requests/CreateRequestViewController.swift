@@ -54,6 +54,14 @@ class CreateRequestViewController: UIViewController, UITextViewDelegate {
         view.frame.origin.y = -(view.frame.height / 6)
     }
     
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n") {
+            textView.resignFirstResponder()
+            view.frame.origin.y = 0
+        }
+        return true
+    }
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
         if requestTextView.text == "Enter your request here..." {
             requestTextView.text = nil

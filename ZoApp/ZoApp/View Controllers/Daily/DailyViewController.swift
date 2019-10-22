@@ -76,7 +76,7 @@ class DailyViewController: UIViewController, UITextViewDelegate {
         dailyImageView.addCornerRadius()
     }
     
-    // MARK: - Methods
+    // MARK: - Methods    
     func displayKarmaPointsAlert() {
         guard let viewController = UIStoryboard(name: "PointsAndRank", bundle: nil).instantiateViewController(withIdentifier: "pointsAndRankStoryBoard") as? PointsAndRankVC else { return }
         self.present(viewController, animated: true, completion: nil)
