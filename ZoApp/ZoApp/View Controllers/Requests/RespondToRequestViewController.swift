@@ -181,7 +181,17 @@ class RespondToRequestViewController: UIViewController, UIImagePickerControllerD
             guard let currentUser = UserController.shared.currentUser,
                 let request = request,
                 let link = addLinkTextField.text,
-                let bodyText = responseTextView.text, !bodyText.isEmpty else { return }
+                let bodyText = responseTextView.text, !bodyText.isEmpty else {
+                    sendButton.isEnabled = true
+
+                    return }
+            if bodyText == "Enter your response here..." {
+                let storyboard = UIStoryboard(name: "NoResponseBodyTextAlert", bundle: nil).instantiateViewController(withIdentifier: "noResponseBodyTextAlert")
+                present(storyboard, animated: true, completion: nil)
+                sendButton.isEnabled = true
+
+                return
+            }
             let image = imageSelectorImageView.image
             let requestReference = CKRecord.Reference(recordID: request.recordID, action: .deleteSelf)
             ResponseController.shared.createResponse(username: currentUser.username, bodyText: bodyText, link: link, image: image, responseTags: ["tag"], requestReference: requestReference) { (success) in

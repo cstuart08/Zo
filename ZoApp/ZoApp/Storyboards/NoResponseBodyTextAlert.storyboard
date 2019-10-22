@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--No Response Body Text View Controller-->
+        <scene sceneID="CHS-TG-hIl">
+            <objects>
+                <viewController storyboardIdentifier="noResponseBodyTextAlert" id="ZYb-wz-d3k" customClass="NoResponseBodyTextViewController" customModule="Zo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J6J-MM-q9x">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LkX-Hj-qZ8">
+                                <rect key="frame" x="62" y="207.5" width="290" height="491"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Empty text field. Include a message in this response." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ylo-cu-qlf">
+                                        <rect key="frame" x="29" y="225" width="232" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DZ-7S-EXB">
+                                        <rect key="frame" x="105" y="322" width="81" height="30"/>
+                                        <state key="normal" title="Okay!"/>
+                                        <connections>
+                                            <action selector="okayButtonTapped:" destination="ZYb-wz-d3k" eventType="touchUpInside" id="lwA-DP-ywo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="3DZ-7S-EXB" firstAttribute="centerX" secondItem="LkX-Hj-qZ8" secondAttribute="centerX" id="3hW-f8-DCe"/>
+                                    <constraint firstItem="Ylo-cu-qlf" firstAttribute="centerX" secondItem="LkX-Hj-qZ8" secondAttribute="centerX" id="iOX-kM-2SW"/>
+                                    <constraint firstItem="Ylo-cu-qlf" firstAttribute="width" secondItem="LkX-Hj-qZ8" secondAttribute="width" multiplier="0.8" id="lW6-ev-yo8"/>
+                                    <constraint firstAttribute="bottom" secondItem="3DZ-7S-EXB" secondAttribute="bottom" constant="139" id="pyX-B1-prm"/>
+                                    <constraint firstItem="Ylo-cu-qlf" firstAttribute="centerY" secondItem="LkX-Hj-qZ8" secondAttribute="centerY" id="vQW-sT-bVx"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="LkX-Hj-qZ8" firstAttribute="centerY" secondItem="KjB-m7-kGH" secondAttribute="centerY" id="1Hd-d2-kaL"/>
+                            <constraint firstItem="3DZ-7S-EXB" firstAttribute="centerX" secondItem="J6J-MM-q9x" secondAttribute="centerX" id="EFJ-pm-aj1"/>
+                            <constraint firstItem="LkX-Hj-qZ8" firstAttribute="centerX" secondItem="KjB-m7-kGH" secondAttribute="centerX" id="GnA-Oo-c9G"/>
+                            <constraint firstItem="LkX-Hj-qZ8" firstAttribute="width" secondItem="KjB-m7-kGH" secondAttribute="width" multiplier="0.7" id="NiB-cq-VuB"/>
+                            <constraint firstItem="LkX-Hj-qZ8" firstAttribute="height" secondItem="KjB-m7-kGH" secondAttribute="height" multiplier="0.6" id="x9o-gW-cEh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KjB-m7-kGH"/>
+                    </view>
+                    <connections>
+                        <outlet property="okayButton" destination="3DZ-7S-EXB" id="lq6-Dq-YZY"/>
+                        <outlet property="popupView" destination="LkX-Hj-qZ8" id="eoz-9Z-MIt"/>
+                        <outlet property="textLabel" destination="Ylo-cu-qlf" id="Yua-sY-61C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L92-lC-RB4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140.57971014492756" y="150.66964285714286"/>
+        </scene>
+    </scenes>
+</document>

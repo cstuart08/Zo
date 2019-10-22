@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63BFD54F235F5F4F008B2410 /* NoResponseBodyTextAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63BFD54E235F5F4F008B2410 /* NoResponseBodyTextAlert.storyboard */; };
+		63BFD551235F62CA008B2410 /* NoResponseBodyTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BFD550235F62CA008B2410 /* NoResponseBodyTextViewController.swift */; };
 		D423DD9B234FC1FD002FAE7F /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423DD9A234FC1FD002FAE7F /* DateFormatters.swift */; };
 		D435FD32234F8CDC00FD6DCC /* UnsplashPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435FD31234F8CDC00FD6DCC /* UnsplashPhoto.swift */; };
 		D435FD34234F8CE900FD6DCC /* UnsplashRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = D435FD33234F8CE900FD6DCC /* UnsplashRoute.swift */; };
@@ -85,6 +87,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		63BFD54E235F5F4F008B2410 /* NoResponseBodyTextAlert.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NoResponseBodyTextAlert.storyboard; sourceTree = "<group>"; };
+		63BFD550235F62CA008B2410 /* NoResponseBodyTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResponseBodyTextViewController.swift; sourceTree = "<group>"; };
 		D423DD9A234FC1FD002FAE7F /* DateFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
 		D435FD31234F8CDC00FD6DCC /* UnsplashPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashPhoto.swift; sourceTree = "<group>"; };
 		D435FD33234F8CE900FD6DCC /* UnsplashRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashRoute.swift; sourceTree = "<group>"; };
@@ -264,6 +268,7 @@
 				D4CDD492234E8F4100A6D5C5 /* RulesAlertViewController.swift */,
 				D4CDD493234E8F4100A6D5C5 /* BlockUserAlertViewController.swift */,
 				D4CDD494234E8F4100A6D5C5 /* BookmarkResponseAlertViewController.swift */,
+				63BFD550235F62CA008B2410 /* NoResponseBodyTextViewController.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -369,6 +374,7 @@
 				D4CDD4E2234E8F7000A6D5C5 /* CreateRequest.storyboard */,
 				D4CDD4E3234E8F7000A6D5C5 /* Daily.storyboard */,
 				D43CA0D5235E495400EA743E /* NoNetworkFound.storyboard */,
+				63BFD54E235F5F4F008B2410 /* NoResponseBodyTextAlert.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -503,6 +509,7 @@
 				FC93FE34234FA3E900F65581 /* Lato-BoldItalic.ttf in Resources */,
 				D4CDD4E9234E8F7000A6D5C5 /* BookmarkResponseAlert.storyboard in Resources */,
 				D4CDD478234E8E8E00A6D5C5 /* Assets.xcassets in Resources */,
+				63BFD54F235F5F4F008B2410 /* NoResponseBodyTextAlert.storyboard in Resources */,
 				D4CDD4EE234E8F7000A6D5C5 /* BlockUserAlert.storyboard in Resources */,
 				D4CDD4E6234E8F7000A6D5C5 /* FavoriteResponseAlert.storyboard in Resources */,
 				D4CDD4E7234E8F7000A6D5C5 /* Profile.storyboard in Resources */,
@@ -571,6 +578,7 @@
 				D4CDD4A8234E8F4100A6D5C5 /* ActiveRequestViewController.swift in Sources */,
 				D4CDD4B0234E8F4100A6D5C5 /* BookmarkResponseAlertViewController.swift in Sources */,
 				D4CDD4B7234E8F4100A6D5C5 /* RulesOnboardingViewController.swift in Sources */,
+				63BFD551235F62CA008B2410 /* NoResponseBodyTextViewController.swift in Sources */,
 				D45175D7235E5377006CBACA /* LostNetworkViewController.swift in Sources */,
 				D4CDD4A4234E8F4100A6D5C5 /* DailyViewController.swift in Sources */,
 				D4CDD4BF234E8F5500A6D5C5 /* ChakraController.swift in Sources */,
